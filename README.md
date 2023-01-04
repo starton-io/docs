@@ -1,41 +1,33 @@
 # Starton Docs
 
+This repository contains Starton's documentation website. It is created and maintained by Starton.
+Feel free to open issues in case you need to report a problem.
 This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
 
-### Installation
+## Installation
 
-```
-$ yarn
-```
+To install the project with yarn, first clone the repository, then
 
-### Local Development
-
-```
-$ yarn start
+```bash
+  cd my-project
+  yarn install
 ```
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+## Deployment
 
-### Build
+To deploy this project run
 
-```
-$ yarn build
-```
-
-This command generates static content into the `build` directory and can be served using any static contents hosting service.
-
-### Deployment
-
-Using SSH:
-
-```
-$ USE_SSH=true yarn deploy
+```bash
+  yarn build
 ```
 
-Not using SSH:
+If the build is successful, run
 
-```
-$ GIT_USER=<Your GitHub username> yarn deploy
+```bash 
+npm run serve
 ```
 
-If you are using GitHub pages for hosting, this command is a convenient way to build the website and push to the `gh-pages` branch.
+## Documentation
+
+Find out more on how to use Starton in our [Documentation](https://docs.starton.io).
+
