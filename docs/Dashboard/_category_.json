@@ -1,0 +1,8 @@
+{
+  "label": "Dashboard",
+  "position": 4,
+  "link": {
+    "type": "generated-index",
+    "description": "Section One",
+  }
+}

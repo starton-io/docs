@@ -1,0 +1,118 @@
+---
+title: Deploying your first Smart contract
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+# Deploying your first Smart contract
+
+You can deploy a smart contract from Code with Starton's API.
+Starton provides you with a library of smart contracts templates.
+To start let's create your own token.
+
+## Deploying your first Smart contract
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+```jsx showLineNumbers
+const axios = require("axios")
+
+const axiosInstance = axios.create({
+	baseURL: "https://api.starton.io",
+	headers: {
+		"x-api-key": "PUT HERE YOUR API KEY",
+	},
+})
+
+axiosInstance.post(
+	"/v3/smart-contract/from-template",
+	{
+		network: "binance-testnet",
+		signerWallet: "0x5CCa311b2DFe4EDeA94a4aF086cA9954d3c06d23",
+		templateId: "sct_82bde80651bd40cca12f044cb80821bc",
+		name: "My first smart token",
+		description: "This is the first smart contract I deploy. ",
+		params: [
+			"My first token ",
+			"MFT",
+			"1000000000",
+			"0x7A04F9b28211442b1623C68555D9a4C85c4d7a3f"
+		],
+		speed: "average"
+	}
+).then((response) => {
+	console.log(response.data)
+})
+```
+
+</TabItem>
+<TabItem value="dashboard" label="From Dashboard">
+
+
+1. From **Dashboard**, go to **Smart Contract**.
+1. Click **Deploy with Template**.
+1. Select a use case and a template.
+1. Enter the Smart contract information:
+
+    - General information:
+      **Name**: The name displayed on Starton.
+
+    - Smart Contract Constructor. Find more information about smart contracts parameters in the [smart contract references section](/Smart-contract/parameters-and-functions.mdx).
+
+1. Click **Next**.
+
+</TabItem>
+</Tabs>
+
+## Interacting with your first Smart contract
+
+To check that everything went your way, you can see the activity of your Smart contract.
+
+You can interact with the smart contract we just created.
+To start, we will call a simple function to put our contract in a pause state.
+
+To get notified of the transactions of your smart contracts, you can also [create a watcher](/Tutorials/monitoring-blockchain-activity.mdx).
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+```jsx showLineNumbers
+const axios = require("axios")
+
+const axiosInstance = axios.create({
+	baseURL: "https://api.starton.io",
+	headers: {
+		"x-api-key": "PUT HERE YOUR API KEY",
+	},
+})
+
+axiosInstance.post(
+	"/v3/smart-contract/binance-testnet/0x6Ea6e02a3C3dA7C690f1169C4e3e11a413875307/call",
+	{
+		functionName: "pause",
+		params: [],
+		signerWallet: "0x5CCa311b2DFe4EDeA94a4aF086cA9954d3c06d23",
+		speed: "average"
+	}
+).then((response) => {
+	console.log(response.data)
+})
+```
+
+</TabItem>
+<TabItem value="dashboard" label="From Dashboard">
+
+1. In **Smart Contract**, select a **Smart Contract**.
+1. Click on **Interact**.
+
+You can see all the interactions with your smart contracts. The first one represents its creation on the blockchain.
+
+1. In **Smart Contract**, select a **Smart Contract**.
+1. Select a **function**.
+1. Enter the **parameters**.
+1. Click **Run**.
+
+</TabItem>
+</Tabs>
