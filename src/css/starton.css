@@ -69,8 +69,14 @@ body{background-color: #1F272E;}
 p,ol,ul,{font-family:Inter;
 text-decoration: none;}
 
+.link{font-size:12pt;
+      word-wrap: break-word;
+        }
+
 h1,h2,h3,h4{font-family:PP Neue Machina;
 text-transform: uppercase;}
+
+h1{font-weight: bold;}
 
 .navbar--fixed-top{background-color: #151A1F;
 text-transform: uppercase;
@@ -79,7 +85,9 @@ font-family: PP Neue Machina;
 .sidebar{background-color: #151A1F;}
 
 
-.card{background-color: #29343D;text-decoration: none;}
+.card{background-color: #29343D;
+      text-decoration: none;
+      display:table-cell;}
 
 
 .button-card__inner{color: #A3B4C1;
@@ -102,6 +110,29 @@ div.class*="codeBlockContainer"{color: #678298}
 
 .card {
   display:table-cell;
+  border-radius: 0px;
+  outline: 0px solid #01E6CD;
+  padding: 80px 10px 20px 10px;
+  margin: 30px;
+  text-decoration: none;
+  background-color: #151A1F;
+  word-wrap: break-word;
+  flex: 1,
+}
+
+.row {
+  display: table-row;
+  padding: 30px;
+}
+.container {
+  display: table;
+   border-collapse: separate;
+    border-spacing: 10px;
+}
+
+
+.cards {
+  display:table-cell;
   border-radius: 5px;
   outline: 0.5px solid #01E6CD;
   padding: 10px;
@@ -113,7 +144,11 @@ div.class*="codeBlockContainer"{color: #678298}
   display:table;
 }
 
-h3{color: #01E6CD}
+h3{color: white;
+text-decoration: none;}
+
+h4{color: #01E6CD;
+text-decoration: none;}
 
 .button-card__inner{
                      text-decoration: none;

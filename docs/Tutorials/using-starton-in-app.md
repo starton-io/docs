@@ -113,9 +113,9 @@ Now that you're all set, what would you like to do with Starton in your app?
 
 ## Choose your use case
 
-<div class="row is-multiline">
+<div class="row-is-multiline">
 
-<div class="col col--2" class="card">
+<div class="col col--2" class="cards">
 <a class="button-card button-card--vertical" href="/docs/Tutorials/deploy-first-smart-contract"><h3>Deploy</h3>
 <div class="button-card__inner">
 <p color="white">Deploy your first smart contract. </p>
@@ -123,7 +123,7 @@ Now that you're all set, what would you like to do with Starton in your app?
 </a>
 </div>
 
-<div class="col col--2" class="card">
+<div class="col col--2" class="cards">
 <a class="button-card button-card--vertical" href="/docs/Tutorials/storing-files-on-IPFS"><h3>Store</h3>
 <div class="button-card__inner">
 <p>Upload files on IPFS with Starton.</p>
@@ -131,7 +131,7 @@ Now that you're all set, what would you like to do with Starton in your app?
 </a>
 </div>
 
-<div class="col col--2" class="card">
+<div class="col col--2" class="cards">
 <a class="button-card button-card--vertical" href="/docs/Tutorials/monitoring-blockchain-activity"><h3>Monitor</h3>
 <div class="button-card__inner">
 <p>Monitor blockchain events with watchers.</p>
