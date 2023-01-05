@@ -6,8 +6,8 @@ Title: Home
 Welcome to Starton Help Center!
 
 <div class="table">
-<div class="container">
-<div class="row">
+<div class="containerHome">
+<div class="rowHome">
 
 <div class="col" class="card">
 <a class="button-card button-card--vertical" href="/docs/getting-started"><h3>Getting Started</h3>
@@ -33,7 +33,7 @@ Welcome to Starton Help Center!
 </a>
 </div>
 </div>
-<div class="row">
+<div class="rowHome">
 
 <div class="col" class="card">
 <a class="button-card button-card--vertical" href="/docs/ipfs/understanding-IPFS"><h3>Storage</h3>
