@@ -4,7 +4,7 @@ Title: Watcher states and status
 
 # Watcher states and status
 
-From **Dashboard**, click **Monitor** to access your transactions activity list.
+From **Dashboard**, click **Monitor** to access your list of watchers.
 
 In the **State** column, information is displayed to help you understand what's happening to your watcher.
 

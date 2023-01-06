@@ -31,7 +31,7 @@ function Home() {
                        </div>
 
                        <div class="col" class="cardHome">
-                       <a class="button-card button-card--vertical" href="/docs/Smart-contracts/understanding-smart-contracts"><img src="img/Smartcontract.svg" alt="wallets" width="268" height="268"></img><div class="barre2"></div><h2>Smart Contracts</h2>
+                       <a class="button-card button-card--vertical" href="/docs/Smart-contract/understanding-smart-contracts"><img src="img/Smartcontract.svg" alt="wallets" width="268" height="268"></img><div class="barre2"></div><h2>Smart Contracts</h2>
                        <div class="button-card__inner">
                        <p class="link">Understand Key Management Systems.</p>
                        </div>
