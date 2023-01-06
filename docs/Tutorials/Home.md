@@ -26,8 +26,8 @@ Start building using step-by-step tutorials!
 <div class="button-card__inner">
 <p>Learn how to use Starton from the interface.</p>
 <a class="button-card button-card--vertical" href="/docs/Tutorials/track-wallet-activity"><h4>Track a wallet activity on a Googlesheets using Starton and Zapier</h4></a>
-<a class="button-card button-card--vertical" href="/docs/Tutorials/getting-started"><h4>Deploy your NFTs on BNB Smart Chain with Starton</h4></a>
-<a class="button-card button-card--vertical" href="/docs/Tutorials/deploy-Nfts-with-Binance"><h4>How to change the smart contracts' ownership</h4></a>
+<a class="button-card button-card--vertical" href="/docs/Tutorials/deploy-Nfts-with-Binance"><h4>Deploy your NFTs on BNB Smart Chain with Starton</h4></a>
+<a class="button-card button-card--vertical" href="/docs/Tutorials/how-to-change-the-smart-contracts-ownership"><h4>How to change the smart contracts' ownership</h4></a>
 <a class="button-card button-card--vertical" href="/docs/Tutorials/create-an-NFT-auction"><h4>Sell an NFT in an Auction</h4></a>
 
 </div></div>
