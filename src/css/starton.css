@@ -287,7 +287,10 @@ text-decoration: none;
 body {
     width: 100%;
   }
-
+header.hero{
+        margin:10px;
+        word-break: break-word;
+      }
 
 .barre1 {
 display:none;
