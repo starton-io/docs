@@ -151,6 +151,14 @@ text-decoration: none;}
 
 blockquote{color: #01E6CD}
 
+.overview
+{
+height: 300;
+width: 600;}
+
+svg{margin-top: none;
+   margin-bottom: none;
+   }
 
 code{color: #678298}
 

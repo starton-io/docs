@@ -14,7 +14,7 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 module.exports = {
 	connectSidebar: [
-		"home",
+		"home","overview",
 		{
 			type: "category",
 			label: "Getting Started",

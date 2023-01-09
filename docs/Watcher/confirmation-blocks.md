@@ -25,7 +25,6 @@ Each network has a different block speed, and thus a different ideal value for t
 |---|---|
 |Ethereum|
 |ethereum-mainnet |12|
-|ethereum-ropsten |12|
 |ethereum-goerli |12|
 |Binance|
 |binance-mainnet  |48|
