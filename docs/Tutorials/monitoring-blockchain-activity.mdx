@@ -7,14 +7,17 @@ import CodeBlock from '@theme/CodeBlock';
 
 # Monitoring blockchain activity
 
-With Starton, you can monitor blockchain activity. Whether it's to watch a wallet or the activity of a smart contracts, you can see create watchers, triggered by events.
-An event is a set of  conditions that are checked when a block is inspected of the block. When the conditions of a watcher are met, the watcher triggers and sends a communication to the webhook given during the watcher's creation.
+With **Starton**, you can monitor blockchain activity. Whether it's to watch the activity of a wallet or a smart contract, you can create watchers, triggered by events.
+
+An event is a set of conditions that are checked when a block is inspected.
+
+When the conditions of a watcher are met, the watcher triggers and sends a communication to the webhook given during the watcher's creation.
 
 ## Creating a watcher 
 
 <Tabs>
 <TabItem value="code" label="From Code">
-To create a watcher from the code of you application, use the following snippet.
+To create a watcher from the code of your application, use the following snippet.
 You can find the full list of networks and event types in our <a href="https://docs.starton.io/intro#tag/Watcher/operation/WatcherCreateOne">API reference</a>.
 
 <CodeBlock language="jsx" showLineNumbers>
