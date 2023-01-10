@@ -19,7 +19,7 @@ You will need:
 
 1. Create a directory for your app.
 1. Create a directory named `src`.
-2. In your terminal, install express package using:
+2. In your terminal, install the express package using 
    `npm i express`
 1. In `src`, create a `index.js` file.
 1. In `index.js`, enter the following lines to set up a port for your project: 
@@ -84,7 +84,7 @@ Now for the good part, let's connect Starton to your application.
         "0x0000000000000000000000000000000000000000",// enter the receiver wallet address 
         "0x0000000000000000000000000000000000000000",// enter the signer wallet address 
         "binance-testnet",//network on which the transaction will appear
-        "average", // Optional: speed of your transaction, WARNING: your transaction speed has an impact on gas fees
+        "average", // Optional: speed of your transaction, WARNING: your transaction speed has an impact on gas fees.
       )
       .then((response) => console.log(response))
       .catch((error) => console.log(error));

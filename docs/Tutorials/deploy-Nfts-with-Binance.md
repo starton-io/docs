@@ -1,6 +1,8 @@
 ---
 title: Deploy your NFTs on BNB Smart Chain with Starton
 ---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 # Deploy your NFTs on BNB Smart Chain with Starton
 
@@ -97,50 +99,8 @@ The process of minting a new NFT and sending it to an address goes in three step
 
 You can choose to mint NFT from code or from Starton's interface.
 
-## Minting an NFT from Starton's interface
-
-### Upload an image on IPFS
-
-We’ll also use IPFS to store the content that will be referenced in our deployed contract.
-We do not store the content directly on blockchain as it is too heavy and would induce a very high cost.
-The best solution is to store it somewhere else and only store a reference on-chain.
-
-1. Go to **IPFS**.
-1. Click **Upload**.
-1. Select File(s).
-1. Select content.
-1. Enter a name for the file.
-1. Click **Upload**.
-
-Once our image uploaded, let's upload its metadata so that we can call it from our smart contract function.
-
-### Upload your image's metadata on IPFS
-
-:::info
-
-Consult the [metadata standard format](https://docs.element.market/welcome-to-element/) on your marketplace's documentation.
-
-:::
-
-1. Go to **IPFS**.
-1. Click **Upload**.
-1. Select JSON.
-1. Select content.
-1. Enter a name for the file.
-1. Click **Upload**.
-
-Everything we need to mint our NFT is done! Let's start minting!
-
-### Calling the safeMint function
-
-This is the last step of your journey. We're going to create the NFT for what you uploaded on IPFS.
-
-1. In **Smart Contract**, select the smart contract we have created: “Best NFTs on BNB”.
-1. Select the function 'safeMint'.
-1. Enter the parameters:
-    1. In **To**, enter the receiving address.
-    1. In **Metadata URI**, enter the CID of your NFT metadata.
-1. Click **Run**.
+<Tabs>
+<TabItem value="code" label="From Code" default>
 
 ## Minting an NFT from code
 
@@ -251,6 +211,56 @@ const ipfsImg = await uploadImageOnIpfs(imgBuffer, "filename.png")
 const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImg.pinStatus.pin.cid)
 const nft = await mintNft(RECEIVER_ADDRESS, ipfsMetadata.pinStatus.pin.cid)
 ```
+</TabItem>
+<TabItem value="dashboard" label="From Dashboard">
+
+## Minting an NFT from Starton's interface
+
+### Upload an image on IPFS
+
+We’ll also use IPFS to store the content that will be referenced in our deployed contract.
+We do not store the content directly on blockchain as it is too heavy and would induce a very high cost.
+The best solution is to store it somewhere else and only store a reference on-chain.
+
+1. Go to **IPFS**.
+1. Click **Upload**.
+1. Select File(s).
+1. Select content.
+1. Enter a name for the file.
+1. Click **Upload**.
+
+Once our image uploaded, let's upload its metadata so that we can call it from our smart contract function.
+
+### Upload your image's metadata on IPFS
+
+:::info
+
+Consult the [metadata standard format](https://docs.element.market/welcome-to-element/) on your marketplace's documentation.
+
+:::
+
+1. Go to **IPFS**.
+1. Click **Upload**.
+1. Select JSON.
+1. Select content.
+1. Enter a name for the file.
+1. Click **Upload**.
+
+Everything we need to mint our NFT is done! Let's start minting!
+
+### Calling the safeMint function
+
+This is the last step of your journey. We're going to create the NFT for what you uploaded on IPFS.
+
+1. In **Smart Contract**, select the smart contract we have created: “Best NFTs on BNB”.
+1. Select the function 'safeMint'.
+1. Enter the parameters:
+   1. In **To**, enter the receiving address.
+   1. In **Metadata URI**, enter the CID of your NFT metadata.
+1. Click **Run**.
+
+</TabItem>
+</Tabs>
 
 ## Results
 
@@ -261,6 +271,9 @@ Annnnnd it’s done! Congratulations !
 Once all of this is executed, the content should be on IPFS, and associated to the given address in our ERC721 contract.
 
 You can check our NFT on the [market element marketplace](https://testnets.element.market/collections/best-nfts-on-bnb). Use your contract address to modify the following link: https://testnets.element.market/assets/bsctest/YOUR_CONTRACT_ADDRESS/0
+
+
+
 
 ## Conclusion
 

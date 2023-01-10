@@ -8,13 +8,16 @@ import CodeBlock from '@theme/CodeBlock';
 # Deploying your first Smart contract
 
 You can deploy a smart contract from Code with Starton's API.
-Starton provides you with a library of smart contracts templates.
+**Starton** provides you with a library of smart contracts templates.
 To start let's create your own token.
 
 ## Deploying your first Smart contract
 
 <Tabs>
 <TabItem value="code" label="From Code">
+
+To create a smart contract from the code of your application, use the following snippet.
+You can find the full list of endpoints in our <a href="https://docs.starton.io/intro#tag/SmartContract">API reference</a>.
 
 ```jsx showLineNumbers
 const axios = require("axios")
@@ -30,15 +33,15 @@ axiosInstance.post(
 	"/v3/smart-contract/from-template",
 	{
 		network: "binance-testnet",
-		signerWallet: "0x5CCa311b2DFe4EDeA94a4aF086cA9954d3c06d23",
-		templateId: "sct_82bde80651bd40cca12f044cb80821bc",
+		signerWallet: "0x0000000000000000000000000000000000000000",
+		templateId: "ERC20_META_TRANSACTION",
 		name: "My first smart token",
 		description: "This is the first smart contract I deploy. ",
 		params: [
 			"My first token ",
 			"MFT",
 			"1000000000",
-			"0x7A04F9b28211442b1623C68555D9a4C85c4d7a3f"
+			"0x0000000000000000000000000000000000000000"
 		],
 		speed: "average"
 	}
@@ -57,7 +60,7 @@ axiosInstance.post(
 1. Enter the Smart contract information:
 
     - General information:
-      **Name**: The name displayed on Starton.
+      **Name**: The name displayed on **Starton**.
 
     - Smart Contract Constructor. Find more information about smart contracts parameters in the [smart contract references section](/Smart-contract/parameters-and-functions.mdx).
 
@@ -77,6 +80,9 @@ To get notified of the transactions of your smart contracts, you can also [creat
 
 <Tabs>
 <TabItem value="code" label="From Code">
+
+To interact with your smart contract from the code of your application, use the following snippet.
+You can find the full list of endpoints in our <a href="https://docs.starton.io/intro#tag/SmartContract">API reference</a>.
 
 ```jsx showLineNumbers
 const axios = require("axios")

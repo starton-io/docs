@@ -47,19 +47,19 @@ When we send a transaction, there are two possibilities for the nonce value. Eit
 
 ```
 {
-&quot;id&quot;: 2,
-&quot;jsonrpc&quot;: &quot;2.0&quot;,
-&quot;method&quot;: &quot;account_signTransaction&quot;,
-&quot;params&quot;: [
+id: 2,
+jsonrpc: 2.0,
+method: account_signTransaction,
+params: [
 {
-&quot;from&quot;: &quot;0x1923f626bb8dc025849e00f99c25fe2b2f7fb0db&quot;,
-&quot;gas&quot;: &quot;0x55555&quot;,
-&quot;maxFeePerGas&quot;: &quot;0x1234&quot;,
-&quot;maxPriorityFeePerGas&quot;: &quot;0x1234&quot;,
-&quot;input&quot;: &quot;0xabcd&quot;,
-&quot;nonce&quot;: &quot;0x0&quot;,
-&quot;to&quot;: &quot;0x07a565b7ed7d7a678680a4c162885bedbb695fe0&quot;,
-&quot;value&quot;: &quot;0x1234&quot;
+from: 0x1923f626bb8dc025849e00f99c25fe2b2f7fb0db,
+gas: 0x55555,
+maxFeePerGas: 0x1234,
+maxPriorityFeePerGas: 0x1234,
+input: 0xabcd,
+nonce: 0x0,
+to: 0x07a565b7ed7d7a678680a4c162885bedbb695fe0,
+value: 0x1234
 }
 ]
 }
