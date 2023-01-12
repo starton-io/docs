@@ -41,7 +41,7 @@ function Home() {
                        <div class="col" class="cardHome">
                        <a class="button-card button-card--vertical" href="/docs/watcher/understanding-watchers"><img src="img/Watcher.svg" alt="wallets" width="268" height="268"></img><div class="barre3"></div><h2>Monitor</h2>
                        <div class="button-card__inner">
-                       <p class="link">Monitor events on blockchain & get notified,</p>
+                       <p class="link">Monitor events on blockchain & get notified.</p>
                        </div>
                        </a>
                        </div>
