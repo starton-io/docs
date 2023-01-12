@@ -13,9 +13,9 @@ Anyone that has access to the private keys of the wallet would be able to use th
 This is why private keys safety is crucial.
 
 A **KMS** (Key Management System) is a piece of hardware that keeps private keys safe in the cloud.
-For example, AWS provides a KMS service.
+For example, Amazon Web Services provides a **KMS** service.
 
-Within a KMS, it's impossible to access the private keys. You can only ask the KMS to sign transactions or messages.
+Within a **KMS**, it's impossible to access the private keys. You can only ask the KMS to sign transactions or messages.
 No one can ever see the private keys. Not even us, not even you.
 
 The KMS can be seen as a Ledger in the cloud.
@@ -25,7 +25,7 @@ If you get hacked, the hacker might use the KMS to sign transactions but once re
 
 If the hacker would have access to the private keys, the wallet would be corrupted forever.
 
-Starton currently supports the AWS Key management system.
+**Starton** currently supports the AWS Key management system.
 
 
 **Related topics**

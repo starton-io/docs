@@ -7,14 +7,14 @@ keywords: [Wallet, Starton, Smart contracts, AWS, Key Management System, Transac
 
 In this tutorial, you will learn how to connect an **AWS Key Management System (KMS)** to **Starton**.
 
->Starton provides test wallets hosted on our Key Management System, but when going in production, to maintain control over your wallets,  you should use your own KMS.
+>**Starton** provides test wallets hosted on our **Key Management System**, but when going in production, to maintain control over your wallets,  you should use your own KMS.
 
 To connect **Starton** to your **AWS KMS**, you can:
 - grant full access to **Starton** on your **KMS**
 - grant access to **Starton** only to one wallet of your **KMS**
 
->By granting access to Starton only to one wallet, you’ll have to create new wallets and import them every time on your own.
->Granting full access to Starton enables you to dynamically create new wallets with the Starton API.
+>By granting access to **Starton** only to one wallet, you’ll have to create new wallets and import them every time on your own.
+>Granting full access to **Starton** enables you to dynamically create new wallets with the Starton API.
 
 ## Granting access to a specific wallet to Starton Identity and Access Management
 
