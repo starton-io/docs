@@ -15,6 +15,8 @@ You can:
 - call a smart contract’s function from the back-end
 - deploy a new smart contract on supported blockchains networks
 
+![Relayer](src/relayer.png)
+
 To resume, the **Relayer** acts as an API layer above blockchain protocols for smoother interactions.
 
 **Relayer** is a service enabling centralised servers to interact with the blockchain. It can be used for example, when users want to pay the gas fees of their clients.

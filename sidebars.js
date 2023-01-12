@@ -47,8 +47,14 @@ module.exports = {
 				"Wallet/connecting-an-external-wallet",
 				"Wallet/creating-a-wallet",
 				{
-					"Using Key Management Systems": [
-						"Wallet/understanding-key-management-systems",
+					type: "category",
+                    label: "Understanding key management systems",
+                    link: {
+                        type: "doc",
+                        id: "Wallet/understanding-key-management-systems",
+                    },
+                    collapsed: true,
+                    items: [
 						"Wallet/connecting-aws-kms",
 						"Wallet/message-signing",
 					],
@@ -139,7 +145,8 @@ module.exports = {
 				id: "IPFS/understanding-IPFS",
 			},
 			collapsed: true,
-			items: ["IPFS/uploading-on-ipfs"],
+			items: ["IPFS/uploading-on-ipfs",
+			        "Tutorials/uploading-metadata-NFT",],
 		},
 		{
 			type: "category",
@@ -237,6 +244,7 @@ module.exports = {
 				"Tutorials/deploy-Nfts-with-Starton",
 				"Tutorials/interact-from-code",
 				"Tutorials/how-to-ensure-notifys-webhooks-are-from-starton",
+				/*"Tutorials/creating-NFT-collection",*/
 			],
 		},
 		{

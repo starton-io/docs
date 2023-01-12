@@ -14,6 +14,7 @@ When the conditions of a watcher are met, the watcher triggers and send a notifi
 
 You can create watchers to monitor specific events on any supported, and get notified on your backend when they are triggered.
 
+![Watcher](src/Watcher.png)
 
 **Related topics**
 

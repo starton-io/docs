@@ -25,7 +25,7 @@ function Home() {
                        <div class="col" class="cardHome">
                        <a class="button-card button-card--vertical" href="/docs/Wallet/understanding-key-management-systems"><img src="img/wallet.svg" alt="wallets" width="268" height="268"></img><div class="barre1"></div><h2>Wallets</h2>
                        <div class="button-card__inner">
-                       <p class="link">See your first transaction in four steps.</p>
+                       <p class="link">Understand Key Management Systems.</p>
                        </div>
                        </a>
                        </div>
@@ -33,7 +33,7 @@ function Home() {
                        <div class="col" class="cardHome">
                        <a class="button-card button-card--vertical" href="/docs/Smart-contract/understanding-smart-contracts"><img src="img/Smartcontract.svg" alt="wallets" width="268" height="268"></img><div class="barre2"></div><h2>Smart Contracts</h2>
                        <div class="button-card__inner">
-                       <p class="link">Understand Key Management Systems.</p>
+                       <p class="link">Deploy & interact with smart contracts.</p>
                        </div>
                        </a>
                        </div>
@@ -41,7 +41,7 @@ function Home() {
                        <div class="col" class="cardHome">
                        <a class="button-card button-card--vertical" href="/docs/watcher/understanding-watchers"><img src="img/Watcher.svg" alt="wallets" width="268" height="268"></img><div class="barre3"></div><h2>Monitor</h2>
                        <div class="button-card__inner">
-                       <p class="link">Deploy & interact with smart contracts.</p>
+                       <p class="link">Monitor events on blockchain & get notified,</p>
                        </div>
                        </a>
                        </div>

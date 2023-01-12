@@ -13,6 +13,8 @@ It currently includes flavours of the classic **ERC20** (cryptocurrency), **ERC7
 
 [comment]: <(We plan to include staking and multisig contracts in the near future and to have  the biggest smart contract library in the long run.)>
 
+![smart contract](src/smartcontract.png)
+
 ## Smart contract templates
 
 ## ERC20 - Creating your fungible token

@@ -10,7 +10,7 @@ As each node in the blockchain network holds same copy of registry which contain
 
 As a result, large dataset are stored on a different network. **IPFS (InterPlanetary FileSystem)** is specifically designed to store and access files. **IPFS** is a distributed file-sharing system using peer-to-peer network.
 
-![Decentralized vs distributed](img/ipfs.png)
+![Decentralized vs distributed](img/IPFS.png)
 
 On IPFS, each node hosts a set of files and makes it available to anyone.
 Each file is referenced by a specific hash, called **CID** (Content IDentifier).

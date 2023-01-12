@@ -33,29 +33,30 @@ Within each state, a status provides you information on the reason for the state
 | Status |  Message |  Description  |
 |---|---|
 | MINED  | Transaction mined with success. |
-| CONFIRMED  | Transaction confirmed with success. |
+| CONFIRMED  | Transaction confirmed with success. Your transaction appears on the blockchain and a number of transactions have been mined afterwards. |
 
 
 
 ### Pending statuses
 
-| Status |  Message |
-|---|---|
-| UNKNOWN | An unknown error occured. Please contact us or retry later.|
-| REPLACED  | Transaction replaced with another transaction with the same nonce. |
-| FAILED | Transaction reverted by the blockchain. |
-| GAS_PRICE_ESTIMATED  | Gas price estimated with success. |   
-| GAS_LIMIT_ESTIMATED  | Gas limit estimated with success. |
-| NONCE_ASSIGNED  | Nonce assigned with success. |
-| SIGNED | Transaction signed with success. |
-| SENT_TO_MEMPOOL  | Transaction sent to mempool with success. |
-| ALREADY_KNOWN | This transaction is already present on the mempool. |  
-| MONITORING_IN_PROGRESS  | Starton is currently monitoring your transaction. |   
-| STUCK_BY_PREVIOUS_TRANSACTION  | Too many transaction with a lower nonce are presently pending before we can process this transaction. |  
-| NEW_TRANSACTION_HASH  | A new transaction hash is assigned to your transaction because we increased the gas price. |
-| MONITORING_INTERRUPTED  | Starton is no longer monitoring your transaction. |   
-| GAS_PRICE_INCREASED| Gas price increased successfully. |
-| RECEIVED_BY_STARTON | Transaction was received by Starton API. |
+| Status                        | Message                                                                                               |
+|-------------------------------|-------------------------------------------------------------------------------------------------------|
+| UNKNOWN                       | An unknown error occured. Please contact us or retry later.                                           |
+| REPLACED                      | Transaction replaced with another transaction with the same nonce.                                    |
+| FAILED                        | Transaction reverted by the blockchain.                                                               |
+| GAS_PRICE_ESTIMATED           | Gas price estimated with success.                                                                     |   
+| GAS_LIMIT_ESTIMATED           | Gas limit estimated with success.                                                                     |
+| NONCE_ASSIGNED                | Nonce assigned with success.                                                                          |
+| SIGNED                        | Transaction signed with success.                                                                      |
+| SENT_TO_MEMPOOL               | Transaction sent to mempool with success.                                                             |
+| ALREADY_KNOWN                 | This transaction is already present on the mempool.                                                   |  
+| MONITORING_IN_PROGRESS        | Starton is currently monitoring your transaction.                                                     |   
+| STUCK_BY_PREVIOUS_TRANSACTION | Too many transaction with a lower nonce are presently pending before we can process this transaction. |  
+| NEW_TRANSACTION_HASH          | A new transaction hash is assigned to your transaction because we increased the gas price.            |
+| MONITORING_INTERRUPTED        | Starton is no longer monitoring your transaction.                                                     |   
+| GAS_PRICE_INCREASED           | Gas price increased successfully.                                                                     |
+| RECEIVED_BY_STARTON           | Transaction was received by Starton API.                                                              |
+| CREATED_BY_STARTON            | Transaction was created by Starton API to replace a transaction stuck because of a too low gas price.                              |
 
 ### Blocked statuses
 
