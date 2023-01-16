@@ -283,6 +283,9 @@ h2.anchor{color: white;
 h4{color: #01E6CD;
 text-decoration: none;}
 
+img {border:1px solid #3E4E5C;
+              border-radius: 4px;}
+
 img.illu{border:1px solid #3E4E5C;
     border-radius: 4px;
     width: 50%;

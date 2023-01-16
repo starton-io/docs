@@ -7,23 +7,24 @@ import CodeBlock from '@theme/CodeBlock';
 
 # How to create a one-to-many NFT collection 
 
-If you want to mint more than one edition of your NFT, you'll need to create a smart contract using an ERC1155-flavored template. 
+If you want to **mint more than one edition of your NFT**, you'll need to create **a smart contract using an ERC1155-flavored template**. 
 
-When minting an NFT collection, you make multiple identical editions of the content. This is one type of collection. Multiple digital items will be issued. They will feature identical content with a different, unique token ID for each NFT. In this case, you will have a unique token ID for each digital item issued with its unique data.
+When **minting an NFT collection**, you make **multiple identical editions of the content**. This is one **type of collection**. Multiple digital items will be issued. They will feature **identical content with a different, unique token ID for each NFT**. In this case, you will have **a unique token ID for each digital item** issued with its unique data.
 
-Prerequisites: You will need: 
+:::note You will need:
 
-- a wallet to fund the creation of your contract
-- the URI of the metadata of your collection [Read more]
-- the URI of the content of the NFT. You can upload your file on IPFS.[Read more](https://ipfs.eu.starton.io/ipfs/bafkreibhlkz5mw3yixp7337s7mfw2a5dsf6m6p5zswmj3cwlpfavcsyhxe)
-- the address of the initial owner
-- the network on which you want to deploy
+- a **wallet to fund the creation of your contract**
+- the **URI of the metadata of your collection** [Read more](uploading-metadata-NFT).
+- the **URI of the content of the NFT**. You can upload your file on IPFS. [Read more](https://ipfs.eu.starton.io/ipfs/bafkreibhlkz5mw3yixp7337s7mfw2a5dsf6m6p5zswmj3cwlpfavcsyhxe).
+- the **address of the initial owner**
+- the **network on which you want to deploy**
 
-In this tutorial we will: 
+:::
 
-- upload the metadata of our collection on IPFS 
-- Deploy the smart contract template for your collection
-- Mint the first NFT of your collection 
+**In this tutorial, we will:**
+
+- [Deploy the smart contract template for your collection](#deploying-the-smart-contract)
+- [Mint the first NFT of your collection](#minting-the-first-nft-of-your-collection)
 
 ## Deploying the smart contract 
 
@@ -33,21 +34,19 @@ In this tutorial we will:
 
 This is where we use the values we've listed earlier: 
 
-- Name:  "My first NFT collection"
-- Description: "This is my first collection of NFT "
-- Definitive Name: "myFirstCollection"
-- In initial token URI: the link to the content of your NFT
-- Initial Contract URI: the link to the metadata of your contract
-- Initial Owner of Multi Sig Contract: The address of the owner of the contract
+- **Name**:  "My first NFT collection"
+- **Description**: "This is my first collection of NFT "
+- **Definitive Name**: "myFirstCollection"
+- **Initial Token URI**: the link to the content of your NFT
+- **Initial Contract URI**: the link to the metadata of your contract
+- **Initial Owner of Multi Sig Contract**: The address of the owner of the contract
 
 ```jsx showLineNumbers
     const axios = require("axios")
     
     const axiosInstance = axios.create({
     baseURL: "https://api.starton.io",
-    headers: {
-    "x-api-key": "PUT HERE YOUR API KEY",
-    },
+    headers: { "x-api-key": "PUT HERE YOUR API KEY", },
     })
     
     axiosInstance.post(
@@ -60,9 +59,9 @@ This is where we use the values we've listed earlier:
     description: "This is my first collection of NFT ",
     params: [
     "myFirstCollection",
-    "",
-    "",
-    ""
+    "",// Initial Token URI
+    "",// Initial Contract URI
+    ""// Initial Owner of Multi Sig Contract
     ],
     speed: "average"
     }
@@ -77,55 +76,52 @@ This is where we use the values we've listed earlier:
 
 ### From Dashboard
 
-1. Click on Smart Contract.
 
-    ![https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/3a126088-c0a0-4382-8862-0dbb11586a92/9f4f3f86-3b48-4775-b93e-8886836bcc7e.png?crop=focalpoint&fit=crop&fp-x=0.0127&fp-y=0.2327&fp-z=3.0830&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739](https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/3a126088-c0a0-4382-8862-0dbb11586a92/9f4f3f86-3b48-4775-b93e-8886836bcc7e.png?crop=focalpoint&fit=crop&fp-x=0.0127&fp-y=0.2327&fp-z=3.0830&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739)
+This is where we use the values we've listed earlier:
 
-1. Click + Smart contract.
+- **Name**:  "My first NFT collection"
+- **Description**: "This is my first collection of NFT "
+- **Definitive Name**: "myFirstCollection"
+- **Initial Token URI**: the link to the content of your NFT
+- **Initial Contract URI**: the link to the metadata of your contract
+- **Initial Owner of Multi Sig Contract**: The address of the owner of the contract
 
-    ![https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/e00523ec-0449-4b72-97e9-135456580880/02df9930-8a7a-4b2a-9962-c49b4cb78001.png?crop=focalpoint&fit=crop&fp-x=0.9327&fp-y=0.1143&fp-z=2.9715&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739](https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/e00523ec-0449-4b72-97e9-135456580880/02df9930-8a7a-4b2a-9962-c49b4cb78001.png?crop=focalpoint&fit=crop&fp-x=0.9327&fp-y=0.1143&fp-z=2.9715&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739)
 
-1. Click  Deploy with Template.
+1. Click on **Smart Contract**.
 
-    ![https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/1dac34b1-8561-4e87-9a8b-44496da5657a/347f39e0-f25a-4adf-9da3-5998bf448221.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=2.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739](https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/1dac34b1-8561-4e87-9a8b-44496da5657a/347f39e0-f25a-4adf-9da3-5998bf448221.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=2.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739)
+    ![smart contract menu](img/smart-contracts.png)
 
-1. Select Deploy NFTs collections.
+1. Click **+ Smart contract**.
 
-    ![https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/42fda9ea-99c9-4175-8c87-4efdf590d83f/f9e6e48b-9fb5-42ed-adff-1c5516c7cceb.png?crop=focalpoint&fit=crop&fp-x=0.3735&fp-y=0.3160&fp-z=1.6207&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739](https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/42fda9ea-99c9-4175-8c87-4efdf590d83f/f9e6e48b-9fb5-42ed-adff-1c5516c7cceb.png?crop=focalpoint&fit=crop&fp-x=0.3735&fp-y=0.3160&fp-z=1.6207&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739)
+    ![create smart contracts](img/plussc.png)
 
-1. Select ERC1155 NFTs collection.
-
-    ![https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/cf1e1f7c-6609-447c-8df7-585de8305b1e/54297568-c656-4be2-b53c-dffcf8d83094.png?crop=focalpoint&fit=crop&fp-x=0.3442&fp-y=0.7781&fp-z=1.9061&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739](https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/cf1e1f7c-6609-447c-8df7-585de8305b1e/54297568-c656-4be2-b53c-dffcf8d83094.png?crop=focalpoint&fit=crop&fp-x=0.3442&fp-y=0.7781&fp-z=1.9061&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739)
-
+1. Click  **Deploy with Template**.
+1. Select **Deploy NFTs collections**.
+1. Select **ERC1155 NFTs collection**.
 1. Enter all of the parameters for your Smart contract.
 
 Here we chose:
 
-- Name:  "My first NFT collection"
-- Description: "This is my first collection of NFT "
-- Definitive Name: "myFirstCollection"
-- In initial token URI: the link to the content of your NFT
-- Initial Contract URI: the link to the metadata of your contract
-- Initial Owner of Multi Sig Contract: The address of the owner of the contract
+- **Name**:  "My first NFT collection"
+- **Description**: "This is my first collection of NFT"
+- **Definitive Name**: "myFirstCollection"
+- **In initial token URI**: the link to the content of your NFT
+- **Initial Contract URI**: the link to the metadata of your contract
+- **Initial Owner of Multi Sig Contract**: The address of the owner of the contract
 
-    ![https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/06996559-af45-42b0-a206-e8b621c3a8b3/152f7497-cbb9-4b02-bb23-016c29d57354.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739](https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/06996559-af45-42b0-a206-e8b621c3a8b3/152f7497-cbb9-4b02-bb23-016c29d57354.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739)
+    ![parameters](img/allparameters.png)
 
-1. Click  Next
+1. Click **Next**.
 
-    ![https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/13fdf1e7-9df8-4211-8e64-be528f4ca6fe/cee6cef3-629c-4d0b-987d-be8afa5df309.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739](https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/13fdf1e7-9df8-4211-8e64-be528f4ca6fe/cee6cef3-629c-4d0b-987d-be8afa5df309.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739)
 
-1. Now select the network on which you want to deploy your contract.
-
-    ![https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/84311970-c0c5-4b4c-af07-ec5773c446fa/e3680392-5469-4139-bd68-30e6258c8415.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739](https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/84311970-c0c5-4b4c-af07-ec5773c446fa/e3680392-5469-4139-bd68-30e6258c8415.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739)
+1. Now select the **Network** on which you want to deploy your contract.
 
 1. Choose the wallet you want to deploy your contract with.
-
-![https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/e395355d-0b85-47b9-83ba-b82ffc3a627b/739ccd22-4be8-473d-a5b6-2b061a4db230.png?crop=focalpoint&fit=crop&fp-x=0.3312&fp-y=0.6725&fp-z=2.1624&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739](https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/e395355d-0b85-47b9-83ba-b82ffc3a627b/739ccd22-4be8-473d-a5b6-2b061a4db230.png?crop=focalpoint&fit=crop&fp-x=0.3312&fp-y=0.6725&fp-z=2.1624&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739)
 
 1. Click **Deploy**.
 Here you will define your gas speed. For more, go to gas management.
 
-    ![https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/d9a833df-fd22-4ff9-aea7-656ded03668f/e7dffa5a-e679-4074-8c06-9adf1536900f.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739](https://images.tango.us/workflows/e0d2627b-6450-4166-896b-5c342d79f8e4/steps/d9a833df-fd22-4ff9-aea7-656ded03668f/e7dffa5a-e679-4074-8c06-9adf1536900f.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=1656%3A739)
+   ![speed-gas.png](img/speed-gas.png)
 
 1. Click **Validate** to deploy your contract.
 
@@ -138,14 +134,12 @@ Here you will define your gas speed. For more, go to gas management.
 <Tabs>
 <TabItem value="code" label="From Code">
 
-This is where we use the values we've listed earlier:
+You will need the following information:
 
-- Name:  "My first NFT collection"
-- Description: "This is my first collection of NFT "
-- Definitive Name: "myFirstCollection"
-- In initial token URI: the link to the content of your NFT
-- Initial Contract URI: the link to the metadata of your contract
-- Initial Owner of Multi Sig Contract: The address of the owner of the contract
+- **Wallet**: the signer wallet 
+- **To**: the wallet receiving your NFT
+- **Id**: the identifer of the NFT within the collection 
+- **Amount**: amount to mint
 
 ```jsx showLineNumbers
     const axios = require("axios")
@@ -164,10 +158,10 @@ This is where we use the values we've listed earlier:
     {
     functionName: "mint(address,uint256,uint256,bytes)",
     params: [
-    "",
-    "",
-    "1",
-    "1"
+    "", // the signer wallet 
+    "", // the receiving wallet
+    "1",// the ID
+    "1" // the amount
     ],
     signerWallet: "",
     speed: "average"
@@ -183,31 +177,36 @@ This is where we use the values we've listed earlier:
 
 ### From Dashboard
 
-1. Click Interact.
+You will need the following information:
 
-    ![https://images.tango.us/workflows/d886d308-3e8e-454c-90c2-3948c25ba28a/steps/e87827da-a13a-4fdf-9a73-43c11843f814/d2294f73-b021-4420-9bb5-09cb15bf73c3.png?crop=focalpoint&fit=crop&fp-x=0.5069&fp-y=0.4930&fp-z=1.0141&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1364](https://images.tango.us/workflows/d886d308-3e8e-454c-90c2-3948c25ba28a/steps/e87827da-a13a-4fdf-9a73-43c11843f814/d2294f73-b021-4420-9bb5-09cb15bf73c3.png?crop=focalpoint&fit=crop&fp-x=0.5069&fp-y=0.4930&fp-z=1.0141&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1364)
+- **Wallet**: the signer wallet
+- **To**: the wallet receiving your NFT
+- **Id**: the identifer of the NFT within the collection
+- **Amount**: amount to mint
 
-1. In the function list, select mint.
+1. Click **Interact**.
 
-    ![https://images.tango.us/workflows/d886d308-3e8e-454c-90c2-3948c25ba28a/steps/9b156a70-5179-4502-8023-7871c0570b6f/c9989a8e-82db-4335-bb92-e552e58a6a81.png?crop=focalpoint&fit=crop&fp-x=0.3780&fp-y=0.4522&fp-z=1.3226&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1364](https://images.tango.us/workflows/d886d308-3e8e-454c-90c2-3948c25ba28a/steps/9b156a70-5179-4502-8023-7871c0570b6f/c9989a8e-82db-4335-bb92-e552e58a6a81.png?crop=focalpoint&fit=crop&fp-x=0.3780&fp-y=0.4522&fp-z=1.3226&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1364)
+    ![interact tab](img/interact.png)
+
+1. In the function list, select **mint**.
+
+    ![mint function](img/mint_function.png)
 
 1. Select the signer wallet.
 
-1. Enter the receiving wallet in the field "to". Enter the id for your mint. It will be the rank of your NFT in your collection. And finally, enter an amount.
+1. Enter the receiving wallet in the field **to**. Enter the id for your mint. It will be the rank of your NFT in your collection. And finally, enter an amount.
 
-    ![https://images.tango.us/workflows/d886d308-3e8e-454c-90c2-3948c25ba28a/steps/498ec91a-d441-462a-ab74-07993e0bde3d/9cd2d51e-d679-4272-90c4-8915c4086e94.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1364](https://images.tango.us/workflows/d886d308-3e8e-454c-90c2-3948c25ba28a/steps/498ec91a-d441-462a-ab74-07993e0bde3d/9cd2d51e-d679-4272-90c4-8915c4086e94.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1364)
+1. Click **Run**.
+   ![Run](img/run.png)
 
-1. Click Run
+1. Select your Speed and click **Validate**.
 
-    ![https://images.tango.us/workflows/d886d308-3e8e-454c-90c2-3948c25ba28a/steps/7f650251-2a7b-4146-a808-e870c1599898/aecf4b92-b7a2-411d-89f1-a1d6f4591942.png?crop=focalpoint&fit=crop&fp-x=0.4593&fp-y=0.6139&fp-z=1.9490&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1364](https://images.tango.us/workflows/d886d308-3e8e-454c-90c2-3948c25ba28a/steps/7f650251-2a7b-4146-a808-e870c1599898/aecf4b92-b7a2-411d-89f1-a1d6f4591942.png?crop=focalpoint&fit=crop&fp-x=0.4593&fp-y=0.6139&fp-z=1.9490&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1364)
+   ![speed-gas.png](img/speed-gas.png)
 
-1. Select your Speed and click "Validate".
+1. Congratulations! You've minted the first NFT of your collection.
 
-    ![https://images.tango.us/workflows/d886d308-3e8e-454c-90c2-3948c25ba28a/steps/a6782075-2e8a-431c-944e-b0d5efc003bd/236c0a0e-8126-4f2a-b1a7-e15b5b553161.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1364](https://images.tango.us/workflows/d886d308-3e8e-454c-90c2-3948c25ba28a/steps/a6782075-2e8a-431c-944e-b0d5efc003bd/236c0a0e-8126-4f2a-b1a7-e15b5b553161.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1364)
+   ![result-collection.png](img/result-collection.png)
 
-1. Congratulations = You've minting the first NFT of your collection
-
-    ![https://images.tango.us/workflows/d886d308-3e8e-454c-90c2-3948c25ba28a/steps/c6a5258c-b50a-48bf-90e2-8673d5a7446a/b8fdd48b-836e-4cc9-9a3b-4b51385b69a0.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1364](https://images.tango.us/workflows/d886d308-3e8e-454c-90c2-3948c25ba28a/steps/c6a5258c-b50a-48bf-90e2-8673d5a7446a/b8fdd48b-836e-4cc9-9a3b-4b51385b69a0.png?crop=focalpoint&fit=crop&fp-x=0.5000&fp-y=0.5000&fp-z=1.0000&w=1200&mark-w=0.2&mark-pad=0&mark64=aHR0cHM6Ly9pbWFnZXMudGFuZ28udXMvc3RhdGljL21hZGUtd2l0aC10YW5nby13YXRlcm1hcmsucG5n&ar=2880%3A1364)
 
 </TabItem>
 </Tabs>

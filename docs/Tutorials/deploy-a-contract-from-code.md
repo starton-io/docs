@@ -77,7 +77,7 @@ In order to claim test faucets we need to go on the [Wallet](/Wallet/understandi
 
 Here, it is the ethereum-goerli network.
 
-We can now claim free faucet on the official [Ropsten faucet website](https://faucet.dimensions.network/).
+We can now claim free faucet on the official [Ethereum faucet website](https://faucet.dimensions.network/).
 Enter your address, click **Send me test Ether** and wait for the transaction to complete.
 
 ## Deploying the contract

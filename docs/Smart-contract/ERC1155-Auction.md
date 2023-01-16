@@ -9,16 +9,15 @@ description: The smart contract standard to manage unique tokens.
 
 ## Parameters
 
-<ul>
-	<li><strong>definitiveTokenAddress:</strong> The token address of the ERC721 that you want sale</li>
-	<li><strong>definitiveFeeReceiver: </strong> The address that will receive all the price paid to mint the NFTs</li>
-	<li><strong>initialStartingPrice: </strong> The initial price that the NFT will be sold for</li>
-	<li><strong> initialMinPriceDifference: </strong> The price increase that a user needs to at least put to bid on top of the current auction winner</li>
-	<li><strong>initialStartTime: </strong> The time when the sale will begin and users can bid. Timestamp in seconds. </li>
-	<li><strong>initialEndTime: </strong> The time when the sale will end and users couldn't bid anymore. Timestamp in seconds. </li>
-	<li><strong>initialTokenId: </strong> The URI that will be append in the end of the base token URI for the token that will be minted</li>
-	<li><strong>initialTokenAmount: </strong> The amount of tokens that will be minted to the winner of the auction</li>
-	</ul>
+|Parameter| Description                                                                                     |
+|-----|-------------------------------------------------------------------------------------------------|
+| **definitiveTokenAddress** | The token address of the ERC721 that you want to sell.                                          |
+| **definitiveFeeReceiver** | The address that will receive the amount paid for the NFTs.                                     |
+| **initialStartingPrice** | The initial price offered for the NFT.                                                          |
+| **initialMinPriceDifference** | The minimum price increase to place a bid on top of the current auction winner.                 |
+| **initialStartTime** | The time at which the sale will begin and users can bid. Timestamp in seconds.                  |
+| **initialEndTime** | The time when the sale will end and users couldn't bid anymore. Timestamp in seconds.           |
+| **initialTokenURI** | The URI that will be append in the end of the base token URI for the token that will be minted. |
 
 ## Functions
 

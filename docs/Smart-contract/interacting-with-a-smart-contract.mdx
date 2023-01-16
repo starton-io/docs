@@ -1,0 +1,87 @@
+---
+title: Interacting with a Smart Contract
+description: Learn how to interact with a smart contract with Starton.
+keywords: [Interact, Starton, Smart contracts]
+---
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+import CodeBlock from '@theme/CodeBlock';
+
+# Interacting with a Smart Contract
+
+Once a smart contract has been deployed or imported, you can interact with it using our **Dashboard** or from Code using the Relayer.
+
+The possible interactions are:
+- Calling a function of the smart contract (will require gas on the associated blockchain's network).
+- Reading the information on the smart contract (usually free of gas), such as reading the balance on an ERC20 contract.
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+To interact with a smart contract, you can first list all the functions of your smart contracts using: 
+
+```jsx
+const axios = require("axios")
+
+const http = axios.create({
+    baseURL: "https://api.starton.io/v3",
+    headers: {
+        "x-api-key": 'YOUR_API_KEY',
+    },
+})
+http.get('/smart-contract/{network}/{address}/available-functions', {
+}).then(response => {
+    console.log(response.data)
+})
+```
+
+Then, once you have the right function, you can call it. For example, here, we're trying to mint 1000 new tokens. 
+
+```jsx
+http.post('/smart-contract/{network}/{address}/call', {
+    functionName: 'mint',
+    params: [
+        'Receiving wallet',
+        '1000000000000000000000'
+    ],
+    signerWallet: "WALLET USED TO DEPLOY"
+}).then(response => {
+    console.log(response.data)
+})
+```
+
+As the number will be read in Gwei, you need to add 18 zeros after the amount of token you want to mint. 
+
+You can check your transaction using the transaction hash on your selected network. 
+
+Learn more about [how to interact with a Smart Contract from Code](/Tutorials/interact-from-code.mdx) in our Tutorial section.
+
+</TabItem> 
+<TabItem value="dashboard" label="From Dashboard">
+
+1. In **Smart Contract**, select a **Smart Contract**.
+1. Select a **function**.
+1. Enter the **parameters**.
+1. Click **Run**.
+
+Learn more about [how to interact with a Smart Contract from Code](/Tutorials/interact-from-code.mdx) in our Tutorial section.
+
+</TabItem>
+</Tabs>
+
+
+>
+> Note that the developer mode is unavailable for third-party wallets
+>
+
+## Smart contract functions
+
+Read [Smart Contracts references](/Smart-contract/parameters-and-functions.mdx) for more information on how to call smart contract functions.
+
+
+
+**Related topics**
+
+- More on [Transactions](/Transactions/creating-a-transaction.mdx)
+- More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
+- More on [Developer mode](/Developer/Discovering-coding-interface.md)

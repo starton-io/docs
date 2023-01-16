@@ -8,7 +8,7 @@ keywords: [Deploy, Import, Interact, Starton, Smart contracts]
 
 **Smart contracts** are programs deployed on the blockchain. Their functions are executed with transactions.
 
-Starton allows you to access a collection of audited smart contracts covering most frequent use cases and needs.
+**Starton** allows you to access a **collection of audited smart contracts** covering most frequent use cases and needs.
 It currently includes flavours of the classic **ERC20** (cryptocurrency), **ERC721** and **ERC1155** (NFT) smart contracts.
 
 [comment]: <(We plan to include staking and multisig contracts in the near future and to have  the biggest smart contract library in the long run.)>
@@ -19,7 +19,7 @@ It currently includes flavours of the classic **ERC20** (cryptocurrency), **ERC7
 
 ## ERC20 - Creating your fungible token
 
-The ERC20 is a smart contract standard made for fungible tokens (i.e: interchangeable tokens like coins).
+The **ERC20** is a **smart contract standard made for fungible tokens** (i.e: interchangeable tokens like coins).
 
 |Smart Contract|Description|Blockchain|
 |---|---|-|
@@ -29,12 +29,12 @@ The ERC20 is a smart contract standard made for fungible tokens (i.e: interchang
 
 ## ERC721 - Deploy and sell your one-to-many NFTs
 
-The ERC721 is a smart contract standard which is specialised in single-copy Non Fungible Tokens (NFT) and out-of-the-box compatible with Opensea.
-In an ERC721, every NFT is unique which means you have to reference the content for each NFT.
+The **ERC721** is a smart contract standard which is specialised in **single-copy Non Fungible Tokens** (NFT) and out-of-the-box **compatible with Opensea**.
+In an **ERC721**, every NFT is unique which means you have to reference the content for each NFT.
 
 :::info
 
-The ERC721 can still be used to upload several copies of the same content but is less optimised for this use case than the ERC1155.
+The **ERC721** can still be used to upload several copies of the same content but is less optimised for this use case than the ERC1155.
 
 :::
 
@@ -49,7 +49,7 @@ The ERC721 can still be used to upload several copies of the same content but is
 
 ## ERC1155 - Deploy and sell one-to-many NFTs
 
-The ERC1155 is a smart contract standard which is specialised in multiple-copies Non Fungible Tokens (NFT) and out-of-the-box compatible with Opensea. The ERC1155 enables you to create “collections” containing several copies of the same NFT.
+The **ERC1155** is a smart contract standard which is specialised in **multiple-copies Non Fungible Tokens** (NFT) and out-of-the-box **compatible with Opensea**. The ERC1155 enables you to **create “collections” containing several copies of the same NFT**.
 
 
 |Smart Contract|Description|Blockchain|

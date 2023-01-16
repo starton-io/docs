@@ -11,7 +11,7 @@ description: The smart contract standard to manage unique tokens.
 ## Parameters
 
 <ul>
-	<li><strong>definitiveTokenAddress:</strong> The token address of the ERC721 that you want sale</li>
+	<li><strong>definitiveTokenAddress:</strong> The token address of the ERC721 that you want to sell</li>
 	<li><strong>definitiveStartTime: </strong> The time when the sale will begin and users can mint tokens</li>
 	<li><strong>definitiveEndTime: </strong> The time when the sale will end and users couldn't mint anymore tokens</li>
 	<li><strong>definitiveMaxTokensPerAddres: </strong> The maximum amount of otkens that can be minted by a single address</li>

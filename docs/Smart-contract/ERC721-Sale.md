@@ -14,7 +14,7 @@ Notice that the baseURI of the ERC721 contract should be the a URI that is linke
 
 ## Parameters
 
-*   **definitiveTokenAddress:** The token address of the ERC721 that you want sale.
+*   **definitiveTokenAddress:** The token address of the ERC721 that you want to sell.
 *   **definitivePrice:** The price that the NFTs will be sold for.
 *   **definitiveStartTime:** The time when the sale will begin and users can mint tokens.
 *   **definitiveEndTime:** The time when the sale will end and users couldn't mint anymore tokens.

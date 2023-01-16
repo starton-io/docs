@@ -5,7 +5,7 @@ keywords: [Available event types, Starton, Watchers, Monitor, Transaction]
 ---
 # Available event types
 
-The currently available event types are
+The currently available event types are:
 
 |Event type|Description|
 |---|---|

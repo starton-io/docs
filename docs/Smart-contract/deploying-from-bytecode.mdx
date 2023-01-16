@@ -8,9 +8,9 @@ import CodeBlock from '@theme/CodeBlock';
 
 # Deploying your own contract from bytecode
 
-Starton already provides a library of ready-to-use audited smart contract templates. But what if you want to use your own custom template?
+**Starton** already provides a library of ready-to-use audited smart contract templates. But what if you want to use your **own custom template**?
 
-Well, you can import it on Starton from its bytecode as we will see in this tutorial.
+Well, you can import it on **Starton** from its bytecode as we will see in this tutorial.
 
 >
 >Prerequisite: You should have your custom smart contract as a .sol file ready.
@@ -20,7 +20,8 @@ Well, you can import it on Starton from its bytecode as we will see in this tuto
 
 The **bytecode** of a smart contract is the **compiled version** of your smart contract.
 
-In the same way that we use human language code (the .sol file), the machine needs a version in its own language to work properly. This is exactly what the bytecode consists in: the human readable contract transformed into a machine readable format.
+In the same way that we use human language code (the .sol file), the machine needs a version in its own language to work properly.
+This is exactly what the bytecode consists in: the human readable contract transformed into a machine readable format.
 
 To get the bytecode of our smart contract, we’ll use [Remix](https://remix.ethereum.org/). Remix is a development environment (IDE) in a browser.
 
@@ -40,17 +41,15 @@ On the left, in **File Explorers > contracts** a few .sol example files already 
 1. Right-click on our newly imported contract.
 1. Click **Compile**.
    A green mark appears on the compilation tab.
-1. Click the  **Compilation** tab.
+1. Click the **Compilation** tab.
 
 We are now in the Solidity Compiler.
 
   <img src={GitHubLogo} style={{width: 300}} />
 
-Scroll all the way down, to access the Bytecode and ABI.
-
-Click on the ABI to copy on the clipboard.
-
-The bytecode is not under the right format.
+1. Scroll all the way down, to access the Bytecode and ABI.
+1. Click on the ABI to copy on the clipboard.
+2. The bytecode is not under the right format.
 Click on Compilation Details.
 In the pop-up, expand the bytecode section.
 Scroll down to find the object field value.

@@ -7,7 +7,7 @@ title: Index
 
 [Deploy your NFTs on blockchain with Starton](deploy-Nfts-with-Starton.md)
 
-[Interact with a smart contract from code using Starton Connect](interact-from-code.md)
+[Interact with a smart contract from code using Starton Connect](interact-from-code.mdx)
 
 [Deploy a smart contract from code using Starton Connect](deploy-a-contract-from-code.md)
 

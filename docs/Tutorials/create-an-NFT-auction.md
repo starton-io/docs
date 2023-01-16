@@ -111,7 +111,7 @@ We can access the list of templates in the [Smart contract section](/Smart-contr
 
 1. Select the ERC721 Auction template.
 1. Enter:
-- **definitiveTokenAddress**: The token address of the ERC721 that you want sale.
+- **definitiveTokenAddress**: The token address of the ERC721 that you want to sell.
 - **definitiveFeeReceiver**: The address that will receive all the price paid to mint the NFTs.
 - **initialStartingPrice**: The initial price that the NFT will be sold for.
 - **initialMinPriceDifference**: The price increase that a user needs to at least put to bid on top of the current auction winner.
