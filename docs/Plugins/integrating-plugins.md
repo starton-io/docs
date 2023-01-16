@@ -18,11 +18,10 @@ As of now, only the Zapier plugin is available, but we can imagine integrations 
 1. Click on a **Plugin**.
 1. Follow the integration instructions.
 
-
-  ![Plugins](src/plugins.png)
+![Plugins](src/plugins.png)
 
 **Related topics**
 
-- More on [Transactions](/Transactions/creating-a-transaction.mdx)
-- More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
-- More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Transactions](/Transactions/creating-a-transaction.mdx)
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.md)

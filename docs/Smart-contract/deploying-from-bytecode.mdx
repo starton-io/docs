@@ -1,10 +1,11 @@
 ---
 title: Deploying your own contract from bytecode
 ---
-import GitHubLogo from './src/solidity-compiler.png';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
+
+import GitHubLogo from "./src/solidity-compiler.png"
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+import CodeBlock from "@theme/CodeBlock"
 
 # Deploying your own contract from bytecode
 
@@ -12,9 +13,7 @@ import CodeBlock from '@theme/CodeBlock';
 
 Well, you can import it on **Starton** from its bytecode as we will see in this tutorial.
 
->
->Prerequisite: You should have your custom smart contract as a .sol file ready.
->
+> Prerequisite: You should have your custom smart contract as a .sol file ready.
 
 ## What is the bytecode and how to get it?
 
@@ -35,7 +34,7 @@ On the left, in **File Explorers > contracts** a few .sol example files already 
 1. Select the contracts folder.
 1. Click on **Upload**.
 
-  ![Remix upload](src/remix-upload.png)
+![Remix upload](src/remix-upload.png)
 
 1. Select our `.sol` file to import it in Remix.
 1. Right-click on our newly imported contract.
@@ -45,19 +44,22 @@ On the left, in **File Explorers > contracts** a few .sol example files already 
 
 We are now in the Solidity Compiler.
 
-  <img src={GitHubLogo} style={{width: 300}} />
+{" "}
+
+<img src={GitHubLogo} style={{ width: 300 }} />
 
 1. Scroll all the way down, to access the Bytecode and ABI.
 1. Click on the ABI to copy on the clipboard.
-2. The bytecode is not under the right format.
-Click on Compilation Details.
-In the pop-up, expand the bytecode section.
-Scroll down to find the object field value.
-Copy the value.
+1. The bytecode is not under the right format.
+   Click on Compilation Details.
+   In the pop-up, expand the bytecode section.
+   Scroll down to find the object field value.
+   Copy the value.
 
-  ![Compilation object](src/compilation-object.png)
+![Compilation object](src/compilation-object.png)
 
 ## Deploy the contract on the blockchain
+
 <Tabs>
 <TabItem value="code" label="From Code">
 
@@ -67,10 +69,10 @@ First, you need an API key.
 Check the introduction of our [API reference](https://docs.starton.io/intro).
 
 1. Use the `from-bytecode` endpoint to deploy our contract.
-  You will need the ABI and the bytecode of your contract.
+   You will need the ABI and the bytecode of your contract.
 1. Select a network to deploy the contract.
-  The complete list of available networks in the Smart contract section of our <a href="https://docs.starton.io/intro#tag/SmartContract/operation/SmartContractCreateFromBytecode">API reference</a>.
-  For example:
+   The complete list of available networks in the Smart contract section of our <a href="https://docs.starton.io/intro#tag/SmartContract/operation/SmartContractCreateFromBytecode">API reference</a>.
+   For example:
 
 ```jsx showLineNumbers
 
@@ -104,6 +106,7 @@ http.post('v3/smart-contract/from-bytecode', {
 
 Be sure to replace `x-api-key value` with your own api key!
 The smart contract details are returned such as the hash and the address of it.
+
 </TabItem>
 <TabItem value="dashboard" label="From Dashboard">
 

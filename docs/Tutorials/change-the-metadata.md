@@ -24,5 +24,6 @@ sert en arg d’execute metatransaction
 
 call function executeMetatransaction
 
-## Check on scan that the token has been minted 
+## Check on scan that the token has been minted
+
 check on etherscan qu’on a bien minté le token

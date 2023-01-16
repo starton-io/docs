@@ -10,11 +10,11 @@ Starton has designed its own Zapier integration. Thanks to this, you have the po
 
 Zapier enables you to make your Shopify, twitter, discord, mailbox or anything you want, a web3 application.
 
-1. From **Dashboard**, click **Plugins.
+1. From **Dashboard**, click \*\*Plugins.
 1. Click Zapier.
 1. Log in to Zapier.
 
-  ![Plugins](src/plugins.png)
+![Plugins](src/plugins.png)
 
 ## Create a Zap automation
 
@@ -25,7 +25,7 @@ On Zapier’s, click **Create Zap**.
 You need to set up a **Trigger** for your interaction:
 
 1. Set up your app & event:
-    1. In **Trigger > App Event**, select an app.  
+    1. In **Trigger > App Event**, select an app.
     2. In **Event**, select an event.
     3. Click **Continue**.
 2. Set up your account:
@@ -61,12 +61,10 @@ You will need information from your Smart Contract in Starton.
     1. Check the transaction on your wallet.
     1. Click **Publish Zap**.
 
-
 Your Zapier integration is set up.
-
 
 **Related topics**
 
-- More on [Transactions](/Transactions/creating-a-transaction.mdx)
-- More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
-- More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Transactions](/Transactions/creating-a-transaction.mdx)
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.md)

@@ -2,6 +2,7 @@
 title: ERC721 NFT Sale in an Auction
 description: The smart contract standard to manage unique tokens.
 ---
+
 # ERC721 NFT Sale in an Auction
 
 The smart contract to help you sell ERC721 tokens in the form of an auction. In a video game, you can sell a piece of land to the player placing the highest bid.
@@ -10,21 +11,20 @@ Notice you can start a new auction by simply calling the startNewAuction functio
 
 ## Settings
 
-|Parameter| Description                                                                                     |
-|-----|-------------------------------------------------------------------------------------------------|
-| **definitiveTokenAddress** | The token address of the ERC721 that you want to sell.                                          |
-| **definitiveFeeReceiver** | The address that will receive the amount paid for the NFTs.                                     |
-| **initialStartingPrice** | The initial price offered for the NFT.                                                          |
+| Parameter                     | Description                                                                                     |
+| ----------------------------- | ----------------------------------------------------------------------------------------------- |
+| **definitiveTokenAddress**    | The token address of the ERC721 that you want to sell.                                          |
+| **definitiveFeeReceiver**     | The address that will receive the amount paid for the NFTs.                                     |
+| **initialStartingPrice**      | The initial price offered for the NFT.                                                          |
 | **initialMinPriceDifference** | The minimum price increase to place a bid on top of the current auction winner.                 |
-| **initialStartTime** | The time at which the sale will begin and users can bid. Timestamp in seconds.                  |
-| **initialEndTime** | The time when the sale will end and users couldn't bid anymore. Timestamp in seconds.           |
-| **initialTokenURI** | The URI that will be append in the end of the base token URI for the token that will be minted. |
-
+| **initialStartTime**          | The time at which the sale will begin and users can bid. Timestamp in seconds.                  |
+| **initialEndTime**            | The time when the sale will end and users couldn't bid anymore. Timestamp in seconds.           |
+| **initialTokenURI**           | The URI that will be append in the end of the base token URI for the token that will be minted. |
 
 ## Functions
 
 | Function             | Input Parameters                                                                                                               | Description                                                                                                                                                         |
-|----------------------|--------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| -------------------- | ------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | token                | None                                                                                                                           | Returns the NFT contract where the new tokens are minted.                                                                                                           |
 | currentPrice         | None                                                                                                                           | Returns the current price of the auction.                                                                                                                           |
 | minPriceDifference   | None                                                                                                                           | Returns the minimum difference between the currentPrice and the bided amount that there should be.                                                                  |

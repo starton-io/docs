@@ -4,19 +4,22 @@ displayedSidebar: tutorialSidebar
 ---
 
 # Deploy your NFTs on blockchain with Starton
+
 In this tutorial, we will see how we can deploy a smart contract and interact with it to mint NFTs dynamically from code.
 We will use random images uploaded on IPFS (a distributed file storage system) and assigned to an Ethereum address.
 
 You will :
-- Use a template from Starton for our smart contract (ERC721).
-- Deploy it with Starton from the dashboard. To deploy contracts from code, see [Deploying a smart contract from code](deploy-a-contract-from-code.md).
-- Upload the content of our NFTs and their metadata on IPFS.
-- Interact with our smart contract using Starton API in order to mint the NFTs and give it to a specific address.
+
+-   Use a template from Starton for our smart contract (ERC721).
+-   Deploy it with Starton from the dashboard. To deploy contracts from code, see [Deploying a smart contract from code](deploy-a-contract-from-code.md).
+-   Upload the content of our NFTs and their metadata on IPFS.
+-   Interact with our smart contract using Starton API in order to mint the NFTs and give it to a specific address.
 
 If you feel stuck or have questions, feel free to get in touch in our [Discord](deploy-a-contract-from-code.md).
 We’ll be glad to help you!
 
 ## Choose a smart contract template
+
 Several standards of smart contracts have been developed for NFTs.
 
 The most used ones are ERC721 and the ERC1155.
@@ -44,16 +47,17 @@ We can access the list of templates in the [Smart contract section](/Smart contr
     - a wallet to sign the transaction,
     - a blockchain / network on which to deploy,
     - the parameters of our contract.
-  For more information on parameters, check out the [Deploying a Smart Contract](/Smart contract/deploying-a-smart-contract).  
+      For more information on parameters, check out the [Deploying a Smart Contract](/Smart contract/deploying-a-smart-contract).
 
 For example, we can call our contract “My Super NFTs” and deploy it on the Polygon Mumbai network.
 
 The following constructor parameters are:
-- Name: This name stored on blockchain, we will keep “My Super NFTs”.
-- Symbol: The symbol that will be displayed on blockchain explorers for example. We’ll use “MSNFT”.
-- Base Uri: This corresponds to the root of the url that will be used to find the content. We’ll use “ipfs://ipfs/“ as we store the content on IPFS.
-- Owner Or Multi Sig Contract: This is the address of the owner of the smart contract. We will put our Starton account address that can be found in the “Wallets” section and should be the one chosen at the top as well.
-- Contract Uri Suffix: This corresponds to the IPFS cid of your contract level metadata. This is needed for example if you want to perceive fees when your NFTs are sold on OpenSea.
+
+-   Name: This name stored on blockchain, we will keep “My Super NFTs”.
+-   Symbol: The symbol that will be displayed on blockchain explorers for example. We’ll use “MSNFT”.
+-   Base Uri: This corresponds to the root of the url that will be used to find the content. We’ll use “ipfs://ipfs/“ as we store the content on IPFS.
+-   Owner Or Multi Sig Contract: This is the address of the owner of the smart contract. We will put our Starton account address that can be found in the “Wallets” section and should be the one chosen at the top as well.
+-   Contract Uri Suffix: This corresponds to the IPFS cid of your contract level metadata. This is needed for example if you want to perceive fees when your NFTs are sold on OpenSea.
 
 To be able to fill this field we need to upload a JSON file that respects OpenSea’s specification for the contract level metadata on IPFS.
 
@@ -63,9 +67,10 @@ Lost on the Contract Uri Suffix part? Let’s see this in more details so we can
 
 We need to implement [OpenSea’s specification](https://docs.opensea.io/docs/contract-level-metadatafor) the contract level metadata.
 
->This enables us to add a name on the OpenSea’s dashboard and perceive fees when someone sells one of our NFTs.
+> This enables us to add a name on the OpenSea’s dashboard and perceive fees when someone sells one of our NFTs.
 
 Here are the values we will use:
+
 ```jsx
 {
   "name": “My Super NFTs“,
@@ -76,7 +81,6 @@ Here are the values we will use:
   "fee_recipient": “PUT YOUR ADDRESS HERE”
 }
 ```
-
 
 We now have the content of our metadata, we need to upload it on IPFS.
 
@@ -112,23 +116,25 @@ You will see next how to upload dynamically our images on IPFS from code with th
 ## Minting an NFT
 
 The process of minting a new NFT and sending it to an address goes in three steps:
-- We upload the content on IPFS (as it is too heavy to be stored on-chain) and get the CID of the content.
-- We upload a metadata object as a JSON file on IPFS as we do not reference the content directly in the contract. Instead, we put the CID of the content in a metadata object that we upload on IPFS.
-- We call the function “safeMint” of our smart contract, giving the CID of our metadata object and the address that will receive the NFT.
+
+-   We upload the content on IPFS (as it is too heavy to be stored on-chain) and get the CID of the content.
+-   We upload a metadata object as a JSON file on IPFS as we do not reference the content directly in the contract. Instead, we put the CID of the content in a metadata object that we upload on IPFS.
+-   We call the function “safeMint” of our smart contract, giving the CID of our metadata object and the address that will receive the NFT.
 
 ### Prepare our connection to the Starton API
+
 ```jsx
-const axios = require("axios");
-const FormData = require("form-data");
+const axios = require("axios")
+const FormData = require("form-data")
 const starton = axios.create({
-    baseURL: "https://api.starton.io/v3",
-    headers: {
-        "x-api-key": "YOUR_STARTON_API_KEY",
-    },
-});
+	baseURL: "https://api.starton.io/v3",
+	headers: {
+		"x-api-key": "YOUR_STARTON_API_KEY",
+	},
+})
 ```
 
->Do not forget to replace the x-api-key value by your own! It is needed to authenticate yourself with our API.
+> Do not forget to replace the x-api-key value by your own! It is needed to authenticate yourself with our API.
 
 You can find your API keys and generate new ones in [the API section](https://app.starton.io/api).
 
@@ -139,15 +145,15 @@ We can create a simple function like this one:
 ```jsx
 // The image variable should be a buffer
 async function uploadImageOnIpfs(image, name) {
-    let data = new FormData();
-    data.append("file", image, name);
-    data.append("isSync", "true");
+	let data = new FormData()
+	data.append("file", image, name)
+	data.append("isSync", "true")
 
-    const ipfsImg = await starton.post("/pinning/content/file", data, {
-        maxBodyLength: "Infinity",
-        headers: { "Content-Type": `multipart/form-data; boundary=${data._boundary}` },
-    });
-    return ipfsImg.data;
+	const ipfsImg = await starton.post("/pinning/content/file", data, {
+		maxBodyLength: "Infinity",
+		headers: { "Content-Type": `multipart/form-data; boundary=${data._boundary}` },
+	})
+	return ipfsImg.data
 }
 ```
 
@@ -157,40 +163,41 @@ By calling this function, providing our image as a buffer as a parameter, we sho
 
 Consult the [metadata standard format](https://docs.opensea.io/docs/metadata-standards) on OpenSea documentation.
 We can define a new function using our image’s CID to upload the metadata on IPFS:
+
 ```jsx
 async function uploadMetadataOnIpfs(imgCid) {
-    const metadataJson = {
-        name: `A Wonderful NFT`,
-        description: `Probably the most awesome NFT ever created !`,
-        image: `ipfs://ipfs/${imgCid}`,
-    };
-    const ipfsMetadata = await starton.post("/pinning/content/json",
-    {
-        name: "My NFT metadata Json",
-        content: metadataJson,
-        isSync: true,
-    });
-    return ipfsMetadata.data;
+	const metadataJson = {
+		name: `A Wonderful NFT`,
+		description: `Probably the most awesome NFT ever created !`,
+		image: `ipfs://ipfs/${imgCid}`,
+	}
+	const ipfsMetadata = await starton.post("/pinning/content/json", {
+		name: "My NFT metadata Json",
+		content: metadataJson,
+		isSync: true,
+	})
+	return ipfsMetadata.data
 }
 ```
+
 Feel free to change the name and description that suit your needs.
 
 ### Mint the NFT on the smart contract using the metadata’s CID
 
 Finally, we can call our smart contract “safeMint” function with the receiver’s address and the CID of the metadata we just uploaded:
+
 ```jsx
-const SMART_CONTRACT_NETWORK = "polygon-mumbai";
-const SMART_CONTRACT_ADDRESS = "";
-const WALLET_IMPORTED_ON_STARTON = "";
+const SMART_CONTRACT_NETWORK = "polygon-mumbai"
+const SMART_CONTRACT_ADDRESS = ""
+const WALLET_IMPORTED_ON_STARTON = ""
 async function mintNft(receiverAddress, metadataCid) {
-    const nft = await starton.post(`/smart-contract/${SMART_CONTRACT_NETWORK}/${SMART_CONTRACT_ADDRESS}/call`,
-{
-    functionName: "safeMint",
-    signerWallet: WALLET_IMPORTED_ON_STARTON,
-    speed: "low",
-    params: [receiverAddress, metadataCid],
-});
-    return nft.data;
+	const nft = await starton.post(`/smart-contract/${SMART_CONTRACT_NETWORK}/${SMART_CONTRACT_ADDRESS}/call`, {
+		functionName: "safeMint",
+		signerWallet: WALLET_IMPORTED_ON_STARTON,
+		speed: "low",
+		params: [receiverAddress, metadataCid],
+	})
+	return nft.data
 }
 ```
 
@@ -214,7 +221,9 @@ Annnnnd it’s done! Congratulations!
 
 Once all of this is executed, the content should be on IPFS, and associated to the given address in our ERC721 contract.
 You should be able to see the NFTs on [OpenSea](https://testnets.opensea.io/assets/mumbai/0xA148a37fCC67CFFda10cB07d0b971a7941952300/0) or via this link [https://testnets.opensea.io/collection/my-super-nfts](https://testnets.opensea.io/collection/my-super-nfts).
+
 ## Conclusion
+
 We have seen in this tutorial how to upload NFTs on a decentralised file system, how to deploy an ERC721 smart contract using Starton, how to make it compatible with OpenSea’s standards and how we can dynamicaly mint the NFTs from code to send them to people!
 
 We hope you liked this tutorial and that you will follow along in this epic journey of making Web3 the new standard for Internet!

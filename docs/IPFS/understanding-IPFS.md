@@ -5,6 +5,7 @@ keywords: [IPFS, smart contract, upload]
 ---
 
 # Understanding Storage
+
 Blockchains are made to store transaction information.
 As each node in the blockchain network holds same copy of registry which contains the whole history of every transaction on the network, storing data on the blockchain is very costly.
 

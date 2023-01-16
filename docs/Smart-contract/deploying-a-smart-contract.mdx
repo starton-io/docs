@@ -3,9 +3,10 @@ title: Deploying a smart contract from template
 description: Learn how to deploy smart contract from a template on Starton.
 keywords: [Deploy, Starton, Smart contracts]
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
+
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+import CodeBlock from "@theme/CodeBlock"
 
 # Deploying a Smart Contract
 
@@ -16,7 +17,7 @@ You can deploy a smart contract from templates directly from code using the Rela
 
 Before deployment, you can get the list of templates from our API.
 
-###  Get the list of available templates
+### Get the list of available templates
 
 Let's find the template that suits your need.
 
@@ -44,8 +45,8 @@ When querying the API, it should return a list of template items:
 
 ```jsx
 {
-  id: "ERC20_META_TRANSACTION",
-	name: "ERC20 Fungible Token with fixed supply",
+  "id": "ERC20_META_TRANSACTION",
+  "name": "ERC20 Fungible Token with fixed supply",
   "description": "An ERC20 token contract keeps track of fungible tokens: any one token is exactly equal to any other token",
   "tags": [...],
   "blockchains": [...],
@@ -93,23 +94,24 @@ We’ll use the ID of the template we got in order to tell Deploy which template
 We also need to provide values for the parameters of our smart contract’s constructor.
 
 For our ERC20, we’ll need to provide:
-- a name for our token
-- a ticker
-- the initial supply
+
+-   a name for our token
+-   a ticker
+-   the initial supply
 
 Let’s call our token the DemoToken, with DEMO as its ticker and an initial supply of 1.000.000 tokens.
 
 Here is the code to deploy the contract (Axios being configured as before):
 
 ```jsx
-http.post('/smart-contract/from-template', {
-  "network": "ethereum-goerli",
-  "templateid": "ERC20_META_TRANSACTION",
-	"name": "ERC20 Fungible Token with fixed supply",
-  "description": "Our own crypto token.",
-  "params": ["1000000", "DemoToken", "DEMO"]
-}).then(response => {
-    console.log(response.data)
+http.post("/smart-contract/from-template", {
+	network: "ethereum-goerli",
+	templateid: "ERC20_META_TRANSACTION",
+	name: "ERC20 Fungible Token with fixed supply",
+	description: "Our own crypto token.",
+	params: ["1000000", "DemoToken", "DEMO"],
+}).then((response) => {
+	console.log(response.data)
 })
 ```
 
@@ -117,7 +119,7 @@ The expected result:
 
 ```jsx
 {
-  "id": "sc_24dce9e26a7d46a7b707e257a6a6cfb2",
+  "id": "ERC20_META_TRANSACTION",
   "name": "DemoToken",
   "description": "Our own crypto token.",
   "network": "ethereum-goerli",
@@ -131,7 +133,6 @@ The expected result:
 }
 ```
 
-
 </TabItem>
 <TabItem value="dashboard" label="From Dashboard">
 
@@ -139,7 +140,7 @@ We’ll be using an ERC20 template as it is the standard for token creation on E
 
 1. From **Dashboard**, go to **Smart Contract**.
 1. Click **Deploy with Template**.
-   1. Select a use case and a template.
+    1. Select a use case and a template.
 
 ## Deploying the contract
 
@@ -150,14 +151,13 @@ We’ll use the ID of the template we got in order to tell Deploy which template
 We also need to provide values for the parameters of our smart contract’s constructor.
 
 For our ERC20, we’ll need to provide:
-- a name for our token
-- the initial supply
 
+-   a name for our token
+-   the initial supply
 
 1. Enter the Smart contract parameters.
-  Find the description of each parameter for each smart contract template in [Smart Contracts references](/Smart-contract/parameters-and-functions.mdx).
-1. Click **Next**. 
-
+   Find the description of each parameter for each smart contract template in [Smart Contracts references](/Smart-contract/parameters-and-functions.mdx).
+1. Click **Next**.
 
 ## Choose a Network and fuel wallet
 
@@ -178,21 +178,18 @@ Here, it is the ethereum-goerli network.
 We can now claim free faucet on the official [Ethereum faucet website](https://faucet.dimensions.network/).
 Enter your address, click **Send me test Ether** and wait for the transaction to complete.
 
-
-1. Set the transaction parameters. 
-   1. Select the **Network** on which you want to deploy your contract.
-   1. Select the **Wallet** your want to deploy your contract with. 
-   1. Click **Deploy**.
-1. Set your speed or your custom gas strategy. 
-   1. Click **Validate**.
+1. Set the transaction parameters.
+    1. Select the **Network** on which you want to deploy your contract.
+    1. Select the **Wallet** your want to deploy your contract with.
+    1. Click **Deploy**.
+1. Set your speed or your custom gas strategy.
+    1. Click **Validate**.
 
 </TabItem>
 </Tabs>
 
-
-
 **Related topics**
 
-- More on [Transactions](/Transactions/creating-a-transaction.mdx)
-- More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
-- More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Transactions](/Transactions/creating-a-transaction.mdx)
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.md)

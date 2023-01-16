@@ -1,6 +1,7 @@
 ---
-Title: Home  
+Title: Home
 ---
+
 # Starton Documentation
 
 Welcome to Starton Help Center!

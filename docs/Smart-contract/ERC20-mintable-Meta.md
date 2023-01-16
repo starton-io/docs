@@ -2,6 +2,7 @@
 title: ERC20 Fungible Token with mintable supply
 description: The functions for ERC20 Smart contract template
 ---
+
 # ERC20 Fungible Token with mintable supply
 
 The mintable version enables the creator to mint new tokens at any time.
@@ -14,7 +15,6 @@ To use this contract, you will need to import the etherjs library, create and si
 
 :::
 
-
 ## Parameters
 
 <ul>
@@ -24,39 +24,38 @@ To use this contract, you will need to import the etherjs library, create and si
 <li><strong>initialOwnerOrMultisigContract: </strong> The address that will own the ERC20 contract.</li>
 </ul>
 
-
 ## Functions
 
-| Function | Input Parameters  | Description |
-| --- | --- | --- |
-| PAUSER_ROLE | None | Returns the value of the pauser role. |
-| MINTER_ROLE | None | Returns the value of the minter role. |
-| LOCKER_ROLE | None | Returns the value of the locker role. |
-| DEFAULT_ADMIN_ROLE | None | Returns the address of the admin role. |
-| pause | None | Called to pause by address with a pauser role, disables every variable state changes of the contract. |
-| paused | None | Returns true when the contract is paused. Returns false otherwise.  |
-| unpause | None | Called to unpause by address with a pauser role. |
-| executeMetaTransaction | (address userAddress,bytes memory functionSignature, bytes32 sigR, bytes32 sigS, uint8 sigV) | Executes a transaction on behalf of another user by providing their address, the function to call and the signature of the transaction. |
-| getDomainSeparator | None | Returns the domain separator according to the EIP712. |
-| getChainId | None | Returns the chain id according to the EIP712. |
-| supportsInterface | (bytes4 interfaceID) | Returns true if the contract implements the specified interface. |
-| hasRole | (bytes32 role, address account) | Returns true if the address specified has been granted the role.  |
-| getRoleAdmin | (bytes32 role) | Returns the role that can control the specified role. |
-| grantRole | (bytes32 role, address account) | Grants a role to the address specified. |
-| revokeRole | (bytes32 role, address account) | Removes a role from an address. |
-| renounceRole | (bytes32 role, address account) | Removes a role from an address. The address must be the caller address. |
-| burn | (address, uint256 amount) | Erases a specified amount of token.   |
-| burnFrom  | (address account, uint256 amount) | Erases a specified amount of token from a wallet address. Allowance of the spender must be higher than the amount of tokens being burnt. |
-| name | None | Returns the descriptive name of the smart contract. |
-| symbol | None | Returns the symbol set for this contract. |
-| decimals  | None | Returns the number of decimals you can divide your token into. (ex. 1 ETH = 10^18 Wei)  |
-| totalSupply | None  | Returns the total amount of tokens. |
-| balanceOf | (address account) | Returns the number of tokens assigned to an account. |
-| transfer | (address to, uint256 amount) | Returns true when the transfer of tokens has been successful to the specified address. |
-| transferFrom | (address from, address to, uint256 amount) | Returns true when the transfer of tokens has been successful to the specified address. Notice that the allowance of the spender must be higher than the amount of tokens being transferred. |
-| mint | (address to, uint256 amount) | Mint a new number of tokens to a specified address. Must be called by a address that have been granted the minter role. |
-| allowance  | (address owner, address spender) | Returns the amount that a spender can transfer on behalf of the owner. |
-| approve | (address to, uint256 amount) | Returns true when the allowance of a spender by the specified amount has successfully been increased. |
-| increaseAllowance | (address spender, uint256 addedValue) | Returns true when the allowance of the spender has successfully been increased.  |
-| decreaseAllowance | (address spender, uint256 subtractedValue) | Returns true when the allowance of the spender has successfully been decreased.  |
-| lockMint | None | Lock the minting of the tokens so nobody can mint anymore. Must be called only by the someone that have been granted the locker role. |
+| Function               | Input Parameters                                                                             | Description                                                                                                                                                                                 |
+| ---------------------- | -------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| PAUSER_ROLE            | None                                                                                         | Returns the value of the pauser role.                                                                                                                                                       |
+| MINTER_ROLE            | None                                                                                         | Returns the value of the minter role.                                                                                                                                                       |
+| LOCKER_ROLE            | None                                                                                         | Returns the value of the locker role.                                                                                                                                                       |
+| DEFAULT_ADMIN_ROLE     | None                                                                                         | Returns the address of the admin role.                                                                                                                                                      |
+| pause                  | None                                                                                         | Called to pause by address with a pauser role, disables every variable state changes of the contract.                                                                                       |
+| paused                 | None                                                                                         | Returns true when the contract is paused. Returns false otherwise.                                                                                                                          |
+| unpause                | None                                                                                         | Called to unpause by address with a pauser role.                                                                                                                                            |
+| executeMetaTransaction | (address userAddress,bytes memory functionSignature, bytes32 sigR, bytes32 sigS, uint8 sigV) | Executes a transaction on behalf of another user by providing their address, the function to call and the signature of the transaction.                                                     |
+| getDomainSeparator     | None                                                                                         | Returns the domain separator according to the EIP712.                                                                                                                                       |
+| getChainId             | None                                                                                         | Returns the chain id according to the EIP712.                                                                                                                                               |
+| supportsInterface      | (bytes4 interfaceID)                                                                         | Returns true if the contract implements the specified interface.                                                                                                                            |
+| hasRole                | (bytes32 role, address account)                                                              | Returns true if the address specified has been granted the role.                                                                                                                            |
+| getRoleAdmin           | (bytes32 role)                                                                               | Returns the role that can control the specified role.                                                                                                                                       |
+| grantRole              | (bytes32 role, address account)                                                              | Grants a role to the address specified.                                                                                                                                                     |
+| revokeRole             | (bytes32 role, address account)                                                              | Removes a role from an address.                                                                                                                                                             |
+| renounceRole           | (bytes32 role, address account)                                                              | Removes a role from an address. The address must be the caller address.                                                                                                                     |
+| burn                   | (address, uint256 amount)                                                                    | Erases a specified amount of token.                                                                                                                                                         |
+| burnFrom               | (address account, uint256 amount)                                                            | Erases a specified amount of token from a wallet address. Allowance of the spender must be higher than the amount of tokens being burnt.                                                    |
+| name                   | None                                                                                         | Returns the descriptive name of the smart contract.                                                                                                                                         |
+| symbol                 | None                                                                                         | Returns the symbol set for this contract.                                                                                                                                                   |
+| decimals               | None                                                                                         | Returns the number of decimals you can divide your token into. (ex. 1 ETH = 10^18 Wei)                                                                                                      |
+| totalSupply            | None                                                                                         | Returns the total amount of tokens.                                                                                                                                                         |
+| balanceOf              | (address account)                                                                            | Returns the number of tokens assigned to an account.                                                                                                                                        |
+| transfer               | (address to, uint256 amount)                                                                 | Returns true when the transfer of tokens has been successful to the specified address.                                                                                                      |
+| transferFrom           | (address from, address to, uint256 amount)                                                   | Returns true when the transfer of tokens has been successful to the specified address. Notice that the allowance of the spender must be higher than the amount of tokens being transferred. |
+| mint                   | (address to, uint256 amount)                                                                 | Mint a new number of tokens to a specified address. Must be called by a address that have been granted the minter role.                                                                     |
+| allowance              | (address owner, address spender)                                                             | Returns the amount that a spender can transfer on behalf of the owner.                                                                                                                      |
+| approve                | (address to, uint256 amount)                                                                 | Returns true when the allowance of a spender by the specified amount has successfully been increased.                                                                                       |
+| increaseAllowance      | (address spender, uint256 addedValue)                                                        | Returns true when the allowance of the spender has successfully been increased.                                                                                                             |
+| decreaseAllowance      | (address spender, uint256 subtractedValue)                                                   | Returns true when the allowance of the spender has successfully been decreased.                                                                                                             |
+| lockMint               | None                                                                                         | Lock the minting of the tokens so nobody can mint anymore. Must be called only by the someone that have been granted the locker role.                                                       |
