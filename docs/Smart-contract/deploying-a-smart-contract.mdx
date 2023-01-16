@@ -3,9 +3,10 @@ title: Deploying a smart contract from template
 description: Learn how to deploy smart contract from a template on Starton.
 keywords: [Deploy, Starton, Smart contracts]
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
+
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+import CodeBlock from "@theme/CodeBlock"
 
 # Deploying a Smart Contract
 
@@ -14,16 +15,16 @@ You can deploy a smart contract from templates directly from code using the Rela
 <Tabs>
 <TabItem value="code" label="From Code">
 
-You can deploy a smart contract directly from code using the Relayer.
+Before deployment, you can get the list of templates from our API.
 
-###  Get the list of available templates
+### Get the list of available templates
 
-Before deploying our contract you can get the list of templates to find one that suits your need.
+Let's find the template that suits your need.
 
-To do this, you can query Connect’s API. You need to authenticate using an API key.
+To do this, you can query Starton’s API. First you need to authenticate using an API key.
 
 Create an API key from the dashboard in the [Developer section](/Developer/API.md).
-Using this API key we can call the API with the following JS code:
+Using this API key, we can make a call using the following JS code:
 
 ```jsx
 const axios = require("axios")
@@ -39,13 +40,13 @@ http.get('/smart-contract-template').then(response => {
 })
 ```
 
-Be sure to replace `x-api-key value` with your own api key!
+Be sure to replace `x-api-key value` with your own API key!
 When querying the API, it should return a list of template items:
 
 ```jsx
 {
-  id: "ERC20_META_TRANSACTION",
-	name: "ERC20 Fungible Token with fixed supply",
+  "id": "ERC20_META_TRANSACTION",
+  "name": "ERC20 Fungible Token with fixed supply",
   "description": "An ERC20 token contract keeps track of fungible tokens: any one token is exactly equal to any other token",
   "tags": [...],
   "blockchains": [...],
@@ -73,15 +74,15 @@ The compatible blockchains for this template can be seen inside the `blockchain`
 
 For example for the Ethereum blockchain there are multiple available networks such as `ethereum-mainnet` or `ethereum-goerli` (testnet).
 
-We’ll choose to deploy our contract on the `ethereum-goerli` network.
+We’ll choose to deploy our contract on the `ethereum-goerli` network. The list of supported blockchains and network is available in [Overview](/overview.mdx).
 
-It is now important that we fuel our wallet with some Ether faucet otherwise the blockchain will reject our smart contract’s deployment as we will lack funds to cover the gas fees.
+Note that is it crucial that we fuel our wallet with some Ether faucet. Otherwise the blockchain will reject our smart contract’s deployment as we will lack funds to cover the gas fees.
 
 In order to claim test faucets we need to go on the [Wallet](/Wallet/understanding-key-management-systems.md) section on Connect’s dashboard and find the address associated to the network we are interested in.
 
 Here, it is the ethereum-goerli network.
 
-We can now claim free faucet on the official [Ropsten faucet website](https://faucet.dimensions.network/).
+We can now claim free faucet on the official [Ethereum faucet website](https://faucet.dimensions.network/).
 Enter your address, click **Send me test Ether** and wait for the transaction to complete.
 
 ## Deploying the contract
@@ -93,23 +94,24 @@ We’ll use the ID of the template we got in order to tell Deploy which template
 We also need to provide values for the parameters of our smart contract’s constructor.
 
 For our ERC20, we’ll need to provide:
-- a name for our token
-- a ticker
-- the initial supply
+
+-   a name for our token
+-   a ticker
+-   the initial supply
 
 Let’s call our token the DemoToken, with DEMO as its ticker and an initial supply of 1.000.000 tokens.
 
 Here is the code to deploy the contract (Axios being configured as before):
 
 ```jsx
-http.post('/smart-contract/from-template', {
-  "network": "ethereum-goerli",
-  "templateid": "ERC20_META_TRANSACTION",
-	"name": "ERC20 Fungible Token with fixed supply",
-  "description": "Our own crypto token.",
-  "params": ["1000000", "DemoToken", "DEMO"]
-}).then(response => {
-    console.log(response.data)
+http.post("/smart-contract/from-template", {
+	network: "ethereum-goerli",
+	templateid: "ERC20_META_TRANSACTION",
+	name: "ERC20 Fungible Token with fixed supply",
+	description: "Our own crypto token.",
+	params: ["1000000", "DemoToken", "DEMO"],
+}).then((response) => {
+	console.log(response.data)
 })
 ```
 
@@ -117,7 +119,7 @@ The expected result:
 
 ```jsx
 {
-  "id": "sc_24dce9e26a7d46a7b707e257a6a6cfb2",
+  "id": "ERC20_META_TRANSACTION",
   "name": "DemoToken",
   "description": "Our own crypto token.",
   "network": "ethereum-goerli",
@@ -131,27 +133,63 @@ The expected result:
 }
 ```
 
-
-
-
-
 </TabItem>
 <TabItem value="dashboard" label="From Dashboard">
 
+We’ll be using an ERC20 template as it is the standard for token creation on EVM based blockchains.
+
 1. From **Dashboard**, go to **Smart Contract**.
 1. Click **Deploy with Template**.
-1. Select a use case and a template.
+    1. Select a use case and a template.
+
+## Deploying the contract
+
+Everything is now in place so we can create an instance of the smart contract template we picked.
+
+We’ll use the ID of the template we got in order to tell Deploy which template to use for the contract creation.
+
+We also need to provide values for the parameters of our smart contract’s constructor.
+
+For our ERC20, we’ll need to provide:
+
+-   a name for our token
+-   the initial supply
+
 1. Enter the Smart contract parameters.
-  Find the description of each parameter for each smart contract template in [Smart Contracts references](/Smart-contract/parameters-and-functions.mdx).
+   Find the description of each parameter for each smart contract template in [Smart Contracts references](/Smart-contract/parameters-and-functions.mdx).
 1. Click **Next**.
+
+## Choose a Network and fuel wallet
+
+Now that we know which template to use, we also need to choose a network on which to deploy.
+
+The compatible blockchains for this template can be seen inside the `blockchain` objects in the previously returned template object.
+
+For example for the Ethereum blockchain there are multiple available networks such as `ethereum-mainnet` or `ethereum-goerli` (testnet).
+
+We’ll choose to deploy our contract on the `ethereum-goerli` network. The list of supported blockchains and network is available in [Overview](/overview.mdx).
+
+Note that is it crucial that we fuel our wallet with some Ether faucet. Otherwise the blockchain will reject our smart contract’s deployment as we will lack funds to cover the gas fees.
+
+In order to claim test faucets we need to go on the [Wallet](/Wallet/understanding-key-management-systems.md) section on Connect’s dashboard and find the address associated to the network we are interested in.
+
+Here, it is the ethereum-goerli network.
+
+We can now claim free faucet on the official [Ethereum faucet website](https://faucet.dimensions.network/).
+Enter your address, click **Send me test Ether** and wait for the transaction to complete.
+
+1. Set the transaction parameters.
+    1. Select the **Network** on which you want to deploy your contract.
+    1. Select the **Wallet** your want to deploy your contract with.
+    1. Click **Deploy**.
+1. Set your speed or your custom gas strategy.
+    1. Click **Validate**.
 
 </TabItem>
 </Tabs>
 
-
-
 **Related topics**
 
-- More on [Transactions](/Transactions/creating-a-transaction.mdx)
-- More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
-- More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Transactions](/Transactions/creating-a-transaction.mdx)
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.md)

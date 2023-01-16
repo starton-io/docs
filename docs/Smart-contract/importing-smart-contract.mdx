@@ -3,17 +3,18 @@ title: Pinning a smart contract already deployed on the blockchain
 description: Learn how to import a smart contract on Starton.
 keywords: [Import, Starton, Smart contracts]
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
+
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+import CodeBlock from "@theme/CodeBlock"
 
 # Pinning a smart contract already deployed on the blockchain
 
-You can import on Starton smart contracts that are already deployed on the blockchain.
+You can import on **Starton** smart contracts that are already deployed on the blockchain.
 To do so, you will need:
 
-- the address and network of the contract
-- the ABI of the contract
+-   the address and network of the contract
+-   the ABI of the contract
 
 Be sure to replace `x-api-key value` with your own API key!
 
@@ -30,19 +31,17 @@ const axiosInstance = axios.create({
 	},
 })
 
-axiosInstance.post(
-	"/v3/smart-contract/import-existing",
-	{
+axiosInstance
+	.post("/v3/smart-contract/import-existing", {
 		abi: "[]",
 		network: "",
 		description: "",
 		name: "",
-		address: ""
-	}
-).then((response) => {
-	console.log(response.data)
-})
-
+		address: "",
+	})
+	.then((response) => {
+		console.log(response.data)
+	})
 ```
 
 </TabItem> 
@@ -62,6 +61,6 @@ axiosInstance.post(
 
 **Related topics**
 
-- More on [Transactions](/Transactions/creating-a-transaction.mdx)
-- More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
-- More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Transactions](/Transactions/creating-a-transaction.mdx)
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.md)

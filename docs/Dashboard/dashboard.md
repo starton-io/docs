@@ -10,7 +10,6 @@ keywords: [dashboard, sidebar, starton]
 **Starton Dashboard** enables you to access your projects information at a glance.
 The **Dashboard** provides you with information on the health and performance of your transactions and watchers.
 
-
 ## Navigating the Dashboard
 
 ### Using the Sidebar
@@ -23,9 +22,8 @@ By selecting a project, you will access your last transactions.
 
 ![Starton project](src/project.png)
 
-
 **Related topics**
 
-- More on [Projects](/Dashboard/create-new-project.md)
-- More on [Transactions](/Transactions/understanding-the-relayer.md)
-- More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Projects](/Dashboard/create-new-project.md)
+-   More on [Transactions](/Transactions/understanding-the-relayer.md)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.md)

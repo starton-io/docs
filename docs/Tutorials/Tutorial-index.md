@@ -1,13 +1,14 @@
 ---
 title: Index
 ---
+
 # Index
 
 ## Discovering Starton
 
 [Deploy your NFTs on blockchain with Starton](deploy-Nfts-with-Starton.md)
 
-[Interact with a smart contract from code using Starton Connect](interact-from-code.md)
+[Interact with a smart contract from code using Starton Connect](interact-from-code.mdx)
 
 [Deploy a smart contract from code using Starton Connect](deploy-a-contract-from-code.md)
 
@@ -22,7 +23,6 @@ title: Index
 UNDER CONSTRUCTION [How to test webhooks locally with ngrok](https://www.notion.so/How-to-test-webhooks-locally-with-ngrok-c1cf3fdcd8194cbb9c6e618681a344f9)
 
 UNDER CONSTRUCTION [Connect Twitter to the Avalanche Blockchain with Starton](https://blog.starton.io/connect-twitter-to-the-avalanche-blockchain-with-starton-4853235cd8d0?source=user_profile---------6----------------------------)
-
 
 ## Discovering Web 3 (under construction)
 

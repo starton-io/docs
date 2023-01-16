@@ -42,9 +42,7 @@ As the contract-level metadata only needs to be uploaded once, we can directly d
 
 Once done, a column “CID” appears with a value for our file. We will use this data for the Contract Uri Suffix of our smart contract!
 
-
 ### Upload a file on IPFS
-
 
 We also use IPFS to store the content that will be referenced in our deployed contract.
 We do not store the content directly on blockchain as it is too heavy and would induce a very high cost.
@@ -59,9 +57,7 @@ The best solution is to store it somewhere else and only store a reference on-ch
 
 Once our image uploaded, let's upload its metadata so that we can call it from our smart contract function.
 
-
 ### Upload the metadata of your content on IPFS
-
 
 :::info
 
@@ -90,20 +86,20 @@ We can access the list of templates in the [Smart contract section](/Smart-contr
     - a wallet to sign the transaction,
     - a blockchain / network on which to deploy, here BNB testnet.
     - the parameters of our contract.
-  For more information on parameters, check out the [Deploying a Smart Contract](/Smart contract/deploying-a-smart-contract).  
+      For more information on parameters, check out the [Deploying a Smart Contract](/Smart contract/deploying-a-smart-contract).
 
 For example, we can call our contract “Best NFTs on BNB” and deploy it on the BNB Testnet network.
 
 The following constructor parameters are:
-- definitiveName: This name stored on blockchain, we will use “Best NFTs on BNB”.
-- initialTokenUri: This is the public URL that contains the metadata of the collection. Here it starts with ipfs://ipfs/,
-- initialContractUri: The URI of the metadata that will be used to give more details about the description.
-- initialOwnerOrMultisigContract: The address that will own the NFT Collection.
+
+-   definitiveName: This name stored on blockchain, we will use “Best NFTs on BNB”.
+-   initialTokenUri: This is the public URL that contains the metadata of the collection. Here it starts with ipfs://ipfs/,
+-   initialContractUri: The URI of the metadata that will be used to give more details about the description.
+-   initialOwnerOrMultisigContract: The address that will own the NFT Collection.
 
 We can finally deploy our contract!
 
 ## Deploy an ERC721 Auction
-
 
 We will deploy the contract only once, so we will do it directly from Starton’s dashboard.
 
@@ -111,13 +107,14 @@ We can access the list of templates in the [Smart contract section](/Smart-contr
 
 1. Select the ERC721 Auction template.
 1. Enter:
-- **definitiveTokenAddress**: The token address of the ERC721 that you want sale.
-- **definitiveFeeReceiver**: The address that will receive all the price paid to mint the NFTs.
-- **initialStartingPrice**: The initial price that the NFT will be sold for.
-- **initialMinPriceDifference**: The price increase that a user needs to at least put to bid on top of the current auction winner.
-- **initialStartTime**: The time when the sale will begin and users can bid.
-- **initialEndTime**: The time when the sale will end and users couldn't bid anymore.
-- **initialTokenURI**: The URI that will be append in the end of the base token URI for the token that will be minted.
+
+-   **definitiveTokenAddress**: The token address of the ERC721 that you want to sell.
+-   **definitiveFeeReceiver**: The address that will receive all the price paid to mint the NFTs.
+-   **initialStartingPrice**: The initial price that the NFT will be sold for.
+-   **initialMinPriceDifference**: The price increase that a user needs to at least put to bid on top of the current auction winner.
+-   **initialStartTime**: The time when the sale will begin and users can bid.
+-   **initialEndTime**: The time when the sale will end and users couldn't bid anymore.
+-   **initialTokenURI**: The URI that will be append in the end of the base token URI for the token that will be minted.
 
 ### Interact with your contract
 

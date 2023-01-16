@@ -27,9 +27,7 @@ If the hacker would have access to the private keys, the wallet would be corrupt
 
 **Starton** currently supports the AWS Key management system.
 
-
 **Related topics**
 
-
-- More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
-- More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.md)

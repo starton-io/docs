@@ -32,22 +32,72 @@ API keys are linked to your projects/account, so anyone gaining access to your A
 On the **Developer** section, you can generate new API keys or revoke the previous ones (for example, if they leaked).
 
 ### Using an API Key
+
 The API key will be needed in your code if you try to call Connect's API endpoints (as the x-api-key variable in the Headers of the requests) or when using the Starton's SDK.
 
 ```jsx showLineNumbers
-
 const startonApi = axios.create({
-  baseURL: "https://api.starton.io",
-  headers: {
-    "x-api-key": "YOUR_API_KEY",
-  },
-});
-
+	baseURL: "https://api.starton.io",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
 ```
 
+## Filtering your API calls
+
+### Paginating API calls
+
+API calls can return a large number of items. It can be very useful to set the number of results per page and the number of pages returns.
+
+This information is set in the path of your request. You can use:
+
+-   limit: the number of results returned by page. By default, this number is set to 100.
+-   page: the page returned.
+
+For example if you want to get the list of templates Starton will return, you will use the path:
+
+`v3/smart-contract-template?limit=5&page=2`
+
+In this example, the call will return results 6 to 10.
+
+```jsx
+const axios = require("axios")
+
+const http = axios.create({
+    baseURL: "https://api.starton.io/v3",
+    headers: {
+        "x-api-key": ‘YOUR_API_KEY’,
+    },
+})
+http.get('/smart-contract-template?limit=5&page=2').then(response => {
+    console.log(response.data)
+})
+```
+
+### Filtering your API calls
+
+You can filter your API calls using parameters. For example, if you created watchers and want to get the watchers you created on a specific networks you can use:
+
+`/v3/watcher?network=network_of_your_watcher`
+
+If the watchers you needs are on "avalanche-fuji", you could make the following call:
+
+```jsx
+const axios = require("axios")
+
+const http = axios.create({
+    baseURL: "https://api.starton.io/v3",
+    headers: {
+        "x-api-key": ‘YOUR_API_KEY’,
+    },
+})
+http.get('/watcher?network=polygon-mumbai').then(response => {
+    console.log(response.data)
+})
+```
 
 **Related topics**
 
-
-- More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
-- More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.md)

@@ -2,6 +2,7 @@
 title: ERC721 single-copy NFT Sale
 description: The smart contract standard to manage unique tokens.
 ---
+
 # ERC721 single-copy NFT Sale
 
 The ERC721 is a smart contract standard which is specialised in single-copy Non Fungible Tokens (NFT) and out-of-the-box compatible with Opensea. In an ERC721, every NFT is unique which means you have to reference the content for each NFT.
@@ -14,25 +15,25 @@ Notice that the baseURI of the ERC721 contract should be the a URI that is linke
 
 ## Parameters
 
-*   **definitiveTokenAddress:** The token address of the ERC721 that you want sale.
-*   **definitivePrice:** The price that the NFTs will be sold for.
-*   **definitiveStartTime:** The time when the sale will begin and users can mint tokens.
-*   **definitiveEndTime:** The time when the sale will end and users couldn't mint anymore tokens.
-*   **definitiveMaxTokensPerAddress:** The maximum amount of tokens that can be minted by a single address.
-*   **definitiveMaxSupply:** The maximum amount of tokens that can be minted during the sale.
-*   **definitiveFeeReceiver:** The address that will receive all the price paid to mint the NFTs.
+-   **definitiveTokenAddress:** The token address of the ERC721 that you want to sell.
+-   **definitivePrice:** The price that the NFTs will be sold for.
+-   **definitiveStartTime:** The time when the sale will begin and users can mint tokens.
+-   **definitiveEndTime:** The time when the sale will end and users couldn't mint anymore tokens.
+-   **definitiveMaxTokensPerAddress:** The maximum amount of tokens that can be minted by a single address.
+-   **definitiveMaxSupply:** The maximum amount of tokens that can be minted during the sale.
+-   **definitiveFeeReceiver:** The address that will receive all the price paid to mint the NFTs.
 
 ## Functions
 
-| Function | Input Parameters  | Description |
-| --- | --- | --- |
-| token | None | Returns the NFT contract where the new tokens will be minted at. |
-| price | None | Returns the price to mint one NFT in WEI. |
-| startTime | None | Returns the start time of the sale. |
-| endTime | None | Returns the end time of the sale. |
-| maxTokensPerAddress | None | Returns the max number of tokens that a address can mint. |
-| leftSupply | None | The left amount of token that can be minted during this sale. |
-| tokensClaimed | (address) | The amount of token claimed per address |
-| mint | (address to) | Mint a new token to a specific address from the token collection. Notice the minter must send the required amount defined by price. |
-| mintBatch | (address to, uint256 amount) | Mint nth new tokens to a specific address from the token collection. Notice the minter must send the required amount defined by price times the amount of tokens minted. |
-| withdraw | None | Withdraw the price paid for the mints |
+| Function            | Input Parameters             | Description                                                                                                                                                              |
+| ------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| token               | None                         | Returns the NFT contract where the new tokens will be minted at.                                                                                                         |
+| price               | None                         | Returns the price to mint one NFT in WEI.                                                                                                                                |
+| startTime           | None                         | Returns the start time of the sale.                                                                                                                                      |
+| endTime             | None                         | Returns the end time of the sale.                                                                                                                                        |
+| maxTokensPerAddress | None                         | Returns the max number of tokens that a address can mint.                                                                                                                |
+| leftSupply          | None                         | The left amount of token that can be minted during this sale.                                                                                                            |
+| tokensClaimed       | (address)                    | The amount of token claimed per address                                                                                                                                  |
+| mint                | (address to)                 | Mint a new token to a specific address from the token collection. Notice the minter must send the required amount defined by price.                                      |
+| mintBatch           | (address to, uint256 amount) | Mint nth new tokens to a specific address from the token collection. Notice the minter must send the required amount defined by price times the amount of tokens minted. |
+| withdraw            | None                         | Withdraw the price paid for the mints                                                                                                                                    |

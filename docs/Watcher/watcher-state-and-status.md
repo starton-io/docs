@@ -16,8 +16,8 @@ When **Paused**, a status enables you to understand how to solve the issue.
 
 ## Paused Status
 
-| State | Description  |
-|---|---|
-| Lack of ressources | The limit of your plan has been reached. Please contact us to upgrade and restart the watcher. |
-| Webhook not responding| The webhook set up for this watcher is not responding. |  
-| Paused by user  | The watcher has been paused by a user. You can resume the watcher.  |
+| State                  | Description                                                                                    |
+| ---------------------- | ---------------------------------------------------------------------------------------------- |
+| Lack of ressources     | The limit of your plan has been reached. Please contact us to upgrade and restart the watcher. |
+| Webhook not responding | The webhook set up for this watcher is not responding.                                         |
+| Paused by user         | The watcher has been paused by a user. You can resume the watcher.                             |
