@@ -9,9 +9,7 @@ Starton Library already offers anyone a library of ready-to-use audited smart co
 
 Well, you can import it on Starton Connect from its bytecode as we will see in this tutorial.
 
->
->Prerequisite: You should have your custom smart contract as a .sol file ready.
->
+> Prerequisite: You should have your custom smart contract as a .sol file ready.
 
 ## What is the bytecode and how to get it?
 
@@ -28,15 +26,16 @@ You should see something like this the first time you come:
 We can see in the File Explorers on the left that a few .sol example files already exist under the contracts folder.
 We won’t use them so you can delete them if you want or keep them here.
 We can now:
-- Select the contracts folder
-- Click on the upload like button just above, which will open a popup
-- Select our .sol file to import it in Remix
+
+-   Select the contracts folder
+-   Click on the upload like button just above, which will open a popup
+-   Select our .sol file to import it in Remix
 
 For the sake of this tutorial, we will use the StartonERC20BurnPause.sol that can be found here (all our templates are open source !).
 Then we will right click on our newly imported contract, and select Compile in order to generate the bytecode we will use.
 
 You should see a green mark on the second icon of the left panel.
- This is the compilation tab. Let’s click on it.
+This is the compilation tab. Let’s click on it.
 We are now in the Solidity Compiler tab and if we scroll all the way down we should see on the bottom right Bytecode and ABI (we will also use that later).
 
 We can copy to clipboard the ABI by clicking on it, but the bytecode is not under the right format ... So we need to click on Compilation Details just above.
@@ -44,6 +43,7 @@ It will open a popup with a lot of sections. To get the bytecode we have to expa
 This is the value we are interested in !
 
 ## Deploy the contract with the Starton Relayer
+
 Now that we have the bytecode and ABI, we will call Starton Connect’s API to deploy our contract.
 
 First, be sure to have an API key already created and available. You can look here if it is not yet the case.
@@ -85,9 +85,11 @@ And it should be done! You should receive back an object with the smart contract
 You can then use the address or the transactionHash to check it on the blockchain explorer of your selected network !
 
 ## Conclusion
+
 We have seen in this tutorial how we can:
-- Compile our custom contract
-- Get its bytecode and abi
-- Use Starton Connect to deploy our smart contract
-If you want to see how you can now interact with your smart contract, you can check our tutorial on How to Interact with a contract from code!
-We hope you like this tutorial, and if by any mean you struggle on any step you can find some help on our Discord!
+
+-   Compile our custom contract
+-   Get its bytecode and abi
+-   Use Starton Connect to deploy our smart contract
+    If you want to see how you can now interact with your smart contract, you can check our tutorial on How to Interact with a contract from code!
+    We hope you like this tutorial, and if by any mean you struggle on any step you can find some help on our Discord!

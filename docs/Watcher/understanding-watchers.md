@@ -18,6 +18,6 @@ You can create watchers to monitor specific events on any supported, and get not
 
 **Related topics**
 
-- More on [Transactions](/Transactions/creating-a-transaction.mdx)
-- More on [Smart Contracts](creating-a-watcher.mdx)
-- More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Transactions](/Transactions/creating-a-transaction.mdx)
+-   More on [Smart Contracts](creating-a-watcher.mdx)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.md)

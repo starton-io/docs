@@ -3,11 +3,12 @@ title: Using a wallet
 description: Learn how to create a wallet to Starton KMS
 keywords: [Wallet, Starton, Smart contracts, Metamask, Transaction]
 ---
-import threePoints from './assets/three-points.png';
-import signMessage from './assets/sign-a-message.png';
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
+
+import threePoints from "./assets/three-points.png"
+import signMessage from "./assets/sign-a-message.png"
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+import CodeBlock from "@theme/CodeBlock"
 
 # Creating a wallet on KMS
 
@@ -24,53 +25,48 @@ Do not use wallets on Starton KMS for production.
 <Tabs>{/*
 <TabItem value="code" label="From Code">
 
-  ```jsx showLineNumbers
-  const axios = require('axios');
+```jsx showLineNumbers
+const axios = require("axios")
 
 // AUTHENTICATING TO THE API USING YOUR API KEY
 const startonApi = axios.create({
-  baseURL: 'https://api.starton.io',
-  headers: {
-    'x-api-key': 'YOUR_API_KEY',
-  },
-});
+	baseURL: "https://api.starton.io",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
 
 // CREATING A WALLET
 const createWallet = async (name, description, credentials) => {
-  try {
-    return await startonApi.post('/v3/kms/wallet', {
-      name,
-      description,
-      credentials,
-    });
-  } catch (error) {
-    console.log(error.response.data);
-  }
-};
+	try {
+		return await startonApi.post("/v3/kms/wallet", {
+			name,
+			description,
+			credentials,
+		})
+	} catch (error) {
+		console.log(error.response.data)
+	}
+}
 
-createWallet(
-  'Your wallet name',
-  'This is the description of your wallet',
-  {
-    accountId: 'string', // The 12 digit number you can find it in the top-right corner of your AWS Dashboard.
-    accessKeyId: 'string', // The Access Key ID of the new IAM user available after completing (lien vers step new user).
-    secretAccessKey: 'string', // The Secret access key of the new IAM user available after completing .
-    region: 'string',
-  },
-).then((data) => console.log(data));
-
-  ```
+createWallet("Your wallet name", "This is the description of your wallet", {
+	accountId: "string", // The 12 digit number you can find it in the top-right corner of your AWS Dashboard.
+	accessKeyId: "string", // The Access Key ID of the new IAM user available after completing (lien vers step new user).
+	secretAccessKey: "string", // The Secret access key of the new IAM user available after completing .
+	region: "string",
+}).then((data) => console.log(data))
+```
 
 </TabItem> */}
 <TabItem value="dashboard" label="From Dashboard">
 
-  1. From **Dashboard**, go to **Wallet**.
-  1. Click **Add a wallet**.
-  1. Select a type of wallet:
-      - **Create a wallet on Starton's Key Management System** enables you to deploy and interact with Smart Contracts on testnets.
-      - **Connect a single Wallet from a Key Management System** enables you to set up a wallet to sign transactions automatically.
-      - **Connect your KMS and grand full access to Starton** enables you to use multiple wallets for advanced projects.
-  1. Enter a **Name** and a **Description** for your wallet.
+1. From **Dashboard**, go to **Wallet**.
+1. Click **Add a wallet**.
+1. Select a type of wallet:
+    - **Create a wallet on Starton's Key Management System** enables you to deploy and interact with Smart Contracts on testnets.
+    - **Connect a single Wallet from a Key Management System** enables you to set up a wallet to sign transactions automatically.
+    - **Connect your KMS and grand full access to Starton** enables you to use multiple wallets for advanced projects.
+1. Enter a **Name** and a **Description** for your wallet.
 
 </TabItem>
 </Tabs>
@@ -93,40 +89,36 @@ When creating a wallet on KMS, **Starton** provides you with faucets to help you
 You can edit a the name or description of your wallet.
 
 ```jsx showLineNumbers
-  const axios = require('axios');
+const axios = require("axios")
 // AUTHENTICATING TO THE API USING YOUR API KEY
 const startonApi = axios.create({
-  baseURL: 'https://api.starton.io',
-  headers: {
-    'x-api-key': 'YOUR_API_KEY',
-  },
-});
+	baseURL: "https://api.starton.io",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
 
 // EDITING A WALLET
 const editWallet = async (name, description) => {
-  try {
-    return await startonApi.post('/v3/kms/wallet/{address}', {
-      name,
-      description,
-    });
-  } catch (error) {
-    console.log(error.response.data);
-  }
-};
+	try {
+		return await startonApi.post("/v3/kms/wallet/{address}", {
+			name,
+			description,
+		})
+	} catch (error) {
+		console.log(error.response.data)
+	}
+}
 
-editWallet(
-  'Your wallet',
-  'This is my renamed wallet',
-).then((data) => console.log(data));
-
-  ```
+editWallet("Your wallet", "This is my renamed wallet").then((data) => console.log(data))
+```
 
 </TabItem>
 <TabItem value="dashboard" label="From Dashboard">
 
 You can edit a the name or description of your wallet.
 
-1. Click  <img src={threePoints} style={{width: 30}} className="icon" />.
+1. Click <img src={threePoints} style={{width: 30}} className="icon" />.
 1. Click **Edit**.
 1. Change your wallet name or description.
 1. Click **Save**.
@@ -138,8 +130,7 @@ Your wallet has been edited.
 
 ## Making a Deposit on a Wallet
 
-To send transactions, you need a sufficient balance on your wallet. 
-
+To send transactions, you need a sufficient balance on your wallet.
 
 <Tabs>
 <TabItem value="code" label="From Code">
@@ -147,37 +138,35 @@ To send transactions, you need a sufficient balance on your wallet.
 To transfer tokens to your wallet, you can make a transfer using transactions to your wallet.
 
 ```jsx showLineNumbers
-
-const axios = require('axios');
+const axios = require("axios")
 // AUTHENTICATING TO THE API USING YOUR API KEY
 const startonApi = axios.create({
-  baseURL: 'https://api.starton.io',
-  headers: {
-    'x-api-key': 'YOUR_API_KEY',
-  },
-});
+	baseURL: "https://api.starton.io",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
 
 const createTx = async (value, to, signerWallet, network) => {
-  try {
-    return await startonApi.post('/v3/transaction', {
-      value,
-      to, // receiving wallet
-      signerWallet, // sender wallet
-      network,
-    });
-  } catch (error) {
-    console.log(error.response.data);
-  }
-};
+	try {
+		return await startonApi.post("/v3/transaction", {
+			value,
+			to, // receiving wallet
+			signerWallet, // sender wallet
+			network,
+		})
+	} catch (error) {
+		console.log(error.response.data)
+	}
+}
 createTx(
-  '0',
-  '0x694F07CEEc0869aa0dB5E8157FA538268F28B23f',
-  '0x694F07CEEc0869aa0dB5E8157FA538268F28B23f',
-  'binance-testnet',
+	"0",
+	"0x694F07CEEc0869aa0dB5E8157FA538268F28B23f",
+	"0x694F07CEEc0869aa0dB5E8157FA538268F28B23f",
+	"binance-testnet",
 )
-  .then((response) => console.log(response))
-  .catch((error) => console.log(error));
-
+	.then((response) => console.log(response))
+	.catch((error) => console.log(error))
 ```
 
 </TabItem>
@@ -185,20 +174,18 @@ createTx(
 
 To transfer tokens to your wallet, access the address of your wallet in deposit.
 
-1. Click  <img src={threePoints} style={{width: 30}} className="icon"/>.
+1. Click <img src={threePoints} style={{width: 30}} className="icon"/>.
 1. Click **Deposit**.
 1. Copy the address of your wallet.
-  This is the address you need to fill as recipient when transferring currency for example from a third-party wallet.
+   This is the address you need to fill as recipient when transferring currency for example from a third-party wallet.
 1. Click **Close**.
 
 </TabItem>
 </Tabs>
 
-
 ## Signing a message with a Wallet
 
-<img src={signMessage} style={{width: 500}} />
-
+<img src={signMessage} style={{ width: 500 }} />
 
 They are used to prove ownership of an address without exposing its private key. This is primarily used for signing transactions but can also be used to sign arbitrary messages.
 
@@ -212,34 +199,35 @@ After a message is signed, the message and the signature cannot be modified and 
 <TabItem value="code" label="From Code">
 
 ```jsx showLineNumbers
-const axios = require('axios');
+const axios = require("axios")
 // AUTHENTICATING TO THE API USING YOUR API KEY
 const startonApi = axios.create({
-  baseURL: 'https://api.starton.io',
-  headers: {
-    'x-api-key': 'YOUR_API_KEY',
-  },
-});
+	baseURL: "https://api.starton.io",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
 
 // SIGNING A MESSAGE
 const signMessage = async (address, message) => {
-  try {
-    return await startonApi.post(`/v3/kms/wallet/${address}/sign-message`, {
-      message, // The message you want to sign with the address required in the route.
-    });
-  } catch (error) {
-    console.log(error.response.data);
-  }
-};
+	try {
+		return await startonApi.post(`/v3/kms/wallet/${address}/sign-message`, {
+			message, // The message you want to sign with the address required in the route.
+		})
+	} catch (error) {
+		console.log(error.response.data)
+	}
+}
 
-signMessage('0x', 'Hello, World!')
-  .then((response) => console.log(response))
-  .catch((error) => console.log(error));
+signMessage("0x", "Hello, World!")
+	.then((response) => console.log(response))
+	.catch((error) => console.log(error))
 ```
+
 </TabItem>
 <TabItem value="dashboard" label="From Dashboard">
 
-1. Click  <img src={threePoints} style={{width: 30}} className="icon"/>.
+1. Click <img src={threePoints} style={{width: 30}} className="icon"/>.
 1. Click **Sign**.
 1. Enter your message.
 1. Click **Submit**.

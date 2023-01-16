@@ -14,6 +14,7 @@ If you have not seen this tutorial yet, we invite you to check it up to be sure 
 Alright, we are good to go now!
 
 ## Get all functions of our smart contract
+
 The smart contract we created is an ERC20 which is Mintable. This means the total supply of tokens can be increased by minting new tokens.
 
 In order to mint new tokens, the first thing we'll need to do is to query the list of all the available functions of our smart contract.
@@ -25,14 +26,13 @@ Here is the code to do so:
 const axios = require("axios")
 
 const http = axios.create({
-    baseURL: "https://api.starton.io/v3",
-    headers: {
-        "x-api-key": 'YOUR_API_KEY',
-    },
+	baseURL: "https://api.starton.io/v3",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
 })
-http.get('/smart-contract/{network}/{address}/available-functions', {
-}).then(response => {
-    console.log(response.data)
+http.get("/smart-contract/{network}/{address}/available-functions", {}).then((response) => {
+	console.log(response.data)
 })
 ```
 
@@ -85,24 +85,23 @@ If you do not have access to your smart contract's documentation, you should at 
 
 We will now try to call the mint function in order to create 1000 new tokens.
 
-They will be sent to Vitalik Buterin's wallet: `0xab5801a7d398351b8be11c439e05c5b3259aec9b`  
+They will be sent to Vitalik Buterin's wallet: `0xab5801a7d398351b8be11c439e05c5b3259aec9b`
 
 Using Axios configured as before we can call our function:
+
 ```jsx
-http.post('/smart-contract/{network}/{address}/call', {
-    functionName: 'mint',
-    params: [
-        '0xab5801a7d398351b8be11c439e05c5b3259aec9b',
-        '1000000000000000000000'
-    ],
-    signerWallet: "WALLET USED TO DEPLOY"
-}).then(response => {
-    console.log(response.data)
+http.post("/smart-contract/{network}/{address}/call", {
+	functionName: "mint",
+	params: ["0xab5801a7d398351b8be11c439e05c5b3259aec9b", "1000000000000000000000"],
+	signerWallet: "WALLET USED TO DEPLOY",
+}).then((response) => {
+	console.log(response.data)
 })
 ```
 
 We had to put 18 zeros after "1000" as the smart contract will read the amount in wei (the equivalent of cents, except there are 18 decimals and not 2).
 The expected result should be something like this:
+
 ```jsx
 {
   "id": "tx_69dfd164c12d4a989a3dd0f3c452931c",
@@ -125,9 +124,11 @@ The expected result should be something like this:
   "updatedAt": "Mon Jul 19 2021 13:42:13 GMT+0000 (Coordinated Universal Time)"
 }
 ```
+
 We can go on the explorer to check our transaction using the [transactionHash](https://ropsten.etherscan.io/tx/0xe677b29f448cc8b37b62f8a05a9ee8e5a90460bb99f2713f186283f3b073ff12).
 
 ## Read a smart contract's state value
+
 All functions of a smart contract do not require to pay for transaction fees.
 Indeed, only the functions that modify the state of our contract will require to be included in transactions and spread in the network.
 
@@ -169,6 +170,7 @@ http.post('/smart-contract/{network}/{address}/read', {
 ```
 
 Outputs:
+
 ```jsx
 {
   "response": "1000000000000000000000",
@@ -176,7 +178,6 @@ Outputs:
   "params": "0xab5801a7d398351b8be11c439e05c5b3259aec9b"
 }
 ```
-
 
 After removing the 18 trailing zeros to convert the wei to full units, it's now confirmed that Vitalik holds 1000 tokens!
 

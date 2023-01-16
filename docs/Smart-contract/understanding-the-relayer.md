@@ -1,6 +1,7 @@
 ---
 title: Understanding the Relayer
 ---
+
 # Understanding the Relayer
 
 The **Relayer** is a blockchain transaction management solution to create transactions, deploy and interact with smart contracts on the behalf of a user.
@@ -8,9 +9,10 @@ The **Relayer** is a blockchain transaction management solution to create transa
 As the underlying API on which are based the **Deploy** and **Interact** services, it enables developers to interact with blockchain from a simple request.
 
 You can:
-- make a standard transaction (sending funds to someone)
-- call a smart contract’s function from the back-end
-- deploy a new smart contract on supported blockchains networks
+
+-   make a standard transaction (sending funds to someone)
+-   call a smart contract’s function from the back-end
+-   deploy a new smart contract on supported blockchains networks
 
 To resume, the **Relayer** acts as an API layer above blockchain protocols for smoother interactions.
 
@@ -20,26 +22,24 @@ To resume, the **Relayer** acts as an API layer above blockchain protocols for s
 
 Pre-chain, the Relayer:
 
-- **Checks transaction**: The relayer verifies that the transaction format is valid.
-- Estimates **gas price**: The relayer checks with blockchain providers and estimates how much the user will pay per unit of gas as a fee.
-- Estimates **gas limit**  
-- Sets a nonce to indicate the order of transactions:
-- Sign with a KMS (AWS)
+-   **Checks transaction**: The relayer verifies that the transaction format is valid.
+-   Estimates **gas price**: The relayer checks with blockchain providers and estimates how much the user will pay per unit of gas as a fee.
+-   Estimates **gas limit**
+-   Sets a nonce to indicate the order of transactions:
+-   Sign with a KMS (AWS)
 
 ![Relayer prechain](src/relayer_prechain.png)
 
 Then, the **Relayer** monitors the transaction:
 
-- checks mempool
-- checks nonce
-- checks gas price
-
+-   checks mempool
+-   checks nonce
+-   checks gas price
 
 See API, for more information on endpoints.
 
-
 **Related topics**
 
-- More on [Transactions](/Transactions/creating-a-transaction.mdx)
-- More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
-- More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Transactions](/Transactions/creating-a-transaction.mdx)
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.md)

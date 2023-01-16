@@ -1,9 +1,10 @@
 ---
 title: Monitoring blockchain activity
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
+
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+import CodeBlock from "@theme/CodeBlock"
 
 # Monitoring blockchain activity
 
@@ -13,7 +14,7 @@ An event is a set of conditions that are checked when a block is inspected.
 
 When the conditions of a watcher are met, the watcher triggers and sends a communication to the webhook given during the watcher's creation.
 
-## Creating a watcher 
+## Creating a watcher
 
 <Tabs>
 <TabItem value="code" label="From Code">
@@ -55,15 +56,12 @@ startonApi.post(
 1. Select a type of notification.
 1. Fill in the **Settings**.
 1. In **Construction**:
-   1. Select a **Blockchain**.
-   1. Select a **Network**.
-   1. Enter an address
-   1. Enter a webhook URL.
+    1. Select a **Blockchain**.
+    1. Select a **Network**.
+    1. Enter an address
+    1. Enter a webhook URL.
 1. In **Confirmation blocks**, enter a number.
 1. Click **Create**.
 
-
 </TabItem>
 </Tabs>
-
-

@@ -1,9 +1,10 @@
 ---
 title: Deploying your first Smart contract
 ---
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
-import CodeBlock from '@theme/CodeBlock';
+
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+import CodeBlock from "@theme/CodeBlock"
 
 # Deploying your first Smart contract
 
@@ -29,30 +30,23 @@ const axiosInstance = axios.create({
 	},
 })
 
-axiosInstance.post(
-	"/v3/smart-contract/from-template",
-	{
+axiosInstance
+	.post("/v3/smart-contract/from-template", {
 		network: "binance-testnet",
 		signerWallet: "0x0000000000000000000000000000000000000000",
 		templateId: "ERC20_META_TRANSACTION",
 		name: "My first smart token",
 		description: "This is the first smart contract I deploy. ",
-		params: [
-			"My first token ",
-			"MFT",
-			"1000000000",
-			"0x0000000000000000000000000000000000000000"
-		],
-		speed: "average"
-	}
-).then((response) => {
-	console.log(response.data)
-})
+		params: ["My first token ", "MFT", "1000000000", "0x0000000000000000000000000000000000000000"],
+		speed: "average",
+	})
+	.then((response) => {
+		console.log(response.data)
+	})
 ```
 
 </TabItem>
 <TabItem value="dashboard" label="From Dashboard">
-
 
 1. From **Dashboard**, go to **Smart Contract**.
 1. Click **Deploy with Template**.
@@ -94,17 +88,16 @@ const axiosInstance = axios.create({
 	},
 })
 
-axiosInstance.post(
-	"/v3/smart-contract/binance-testnet/0x6Ea6e02a3C3dA7C690f1169C4e3e11a413875307/call",
-	{
+axiosInstance
+	.post("/v3/smart-contract/binance-testnet/0x6Ea6e02a3C3dA7C690f1169C4e3e11a413875307/call", {
 		functionName: "pause",
 		params: [],
 		signerWallet: "0x5CCa311b2DFe4EDeA94a4aF086cA9954d3c06d23",
-		speed: "average"
-	}
-).then((response) => {
-	console.log(response.data)
-})
+		speed: "average",
+	})
+	.then((response) => {
+		console.log(response.data)
+	})
 ```
 
 </TabItem>

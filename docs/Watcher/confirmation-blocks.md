@@ -3,6 +3,7 @@ title: Understanding confirmation blocks
 description: Learn about confirmation blocks
 keywords: [Confirmation blocks, Starton, Watchers, Monitor, Transaction]
 ---
+
 # Understanding confirmation blocks
 
 As blockchain is a succession of blocks, when a transaction is published on blockchain nodes, there is a waiting time before it gets included in the next block.
@@ -21,17 +22,17 @@ Each network has a different block speed, and thus a different ideal value for t
 
 ![Projects](src/confirmationblock.png)
 
-|Network|Default confirmation blocks|
-|---|---|
-|Ethereum|
-|ethereum-mainnet |12|
-|ethereum-goerli |12|
-|Binance|
-|binance-mainnet  |48|
-|binance-testnet  |48|
-|Avalanche|
-|avalanche-mainnet |80|
-|avalanche-fuji |160|
-|Polygon||
-|polygon-mainnet|50|
-|polygon-mumbai|50|
+| Network           | Default confirmation blocks |
+| ----------------- | --------------------------- |
+| Ethereum          |
+| ethereum-mainnet  | 12                          |
+| ethereum-goerli   | 12                          |
+| Binance           |
+| binance-mainnet   | 48                          |
+| binance-testnet   | 48                          |
+| Avalanche         |
+| avalanche-mainnet | 80                          |
+| avalanche-fuji    | 160                         |
+| Polygon           |                             |
+| polygon-mainnet   | 50                          |
+| polygon-mumbai    | 50                          |

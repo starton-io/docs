@@ -13,7 +13,7 @@ The contract will be an instance of an audited premade template available in Sta
 
 The language used will be Javascript but any language would work in a similar manner.
 
-##  Get the list of available templates
+## Get the list of available templates
 
 Before deploying our contract let's get the list of templates in order to find one that suits our need.
 
@@ -65,7 +65,7 @@ We’ll be using an ERC20 template as it is the standard for token creation on E
 
 Now that we know which template to use, we also need to choose a network on which to deploy.
 
-The compatible blockchains for this template can be seen inside the  blockchain objects in the previously returned template object.
+The compatible blockchains for this template can be seen inside the blockchain objects in the previously returned template object.
 
 For example for the Ethereum blockchain there are multiple available networks such as `ethereum-mainnet` or `ethereum-goerli` (testnet).
 
@@ -77,7 +77,7 @@ In order to claim test faucets we need to go on the [Wallet](/Wallet/understandi
 
 Here, it is the ethereum-goerli network.
 
-We can now claim free faucet on the official [Ropsten faucet website](https://faucet.dimensions.network/).
+We can now claim free faucet on the official [Ethereum faucet website](https://faucet.dimensions.network/).
 Enter your address, click **Send me test Ether** and wait for the transaction to complete.
 
 ## Deploying the contract
@@ -89,25 +89,26 @@ We’ll use the ID of the template we got in order to tell Deploy which template
 We also need to provide values for the parameters of our smart contract’s constructor.
 
 For our ERC20, we’ll need to provide:
-- a name for our token
-- a ticker
-- the initial supply
+
+-   a name for our token
+-   a ticker
+-   the initial supply
 
 Let’s call our token the DemoToken, with DEMO as its ticker and an initial supply of 1.000.000 tokens.
 
 Here is the code to deploy the contract (Axios being configured as before):
 
 ```jsx
-http.post('/smart-contract/from-template', {
-  "network": "ethereum-goerli",
-  "templateId": "ERC20_META_TRANSACTION",
-  "name": "DemoToken",
-  "description": "Our own crypto token.",
-  "params": ["1000000", "DemoToken", "DEMO"]
-}).then(response => {
-    console.log(response.data)
+http.post("/smart-contract/from-template", {
+	network: "ethereum-goerli",
+	templateId: "ERC20_META_TRANSACTION",
+	name: "DemoToken",
+	description: "Our own crypto token.",
+	params: ["1000000", "DemoToken", "DEMO"],
+}).then((response) => {
+	console.log(response.data)
 })
-```  
+```
 
 The expected result:
 
@@ -139,6 +140,7 @@ We can thus use the previously returned address and creation hash to check for o
 We can also track here our new [DEMO](https://ropsten.etherscan.io/token/0xda96a733ec2c3ec1142a5a1ef31cfd7755cae037) token.
 
 ## Result
+
 Or more generally, we can use the address of the contract to find out how it [interacted with the world](https://ropsten.etherscan.io/address/0xDA96a733ec2C3eC1142A5A1Ef31cfd7755CAE037).
 
 Congratulations for completing this tutorial!

@@ -14,8 +14,9 @@ Cryptocurrencies such as Ethereum use blockchain as a database to store all tran
 The function of the nonce depends on its type and thus on its purpose in the blockchain. The type characterizes the generation of a nonce.
 
 There are two types of nonces :
- - Sequential
- - Arbitrary
+
+-   Sequential
+-   Arbitrary
 
 The sequential nonce is a value incremented at each transaction that would act as a counter. It ensures that a value is not repeated. However, the sequential nonce remains a predictable
 generation and the generation model can be guessed and misused.
@@ -30,7 +31,6 @@ Ideally, a nonce should be both random and sequential. This is why we often spea
 
 Blocks in the bitcoin network are identified by their header, which consists of multiple pieces of information such as the Merkle root, the timestamp, the hash of the previous block, and a nonce.
 The nonce is the only field in the header that is not predetermined.
-
 
 The nonce is a 32-bit field that can be adjusted by miners to ensure its validity for the current hash. The role of the nonce will then be the modification of the entries of a cryptographic hash function.
 
@@ -64,6 +64,7 @@ value: 0x1234
 ]
 }
 ```
+
 The nonce is therefore optional and will be ignored, i.e. its value will be set by default.
 Otherwise, the nonce allows ordering of the sent transactions. The value of nonce must
 therefore be thought out and cannot be random. In case of an invalid nonce, the transaction will be refused.
@@ -79,6 +80,6 @@ You can also do this if you want to cancel a pending transaction. You can do the
 
 **Related topics**
 
-- More on [Transactions](/Transactions/state-and-status.md)
-- More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
-- More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Transactions](/Transactions/state-and-status.md)
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.md)

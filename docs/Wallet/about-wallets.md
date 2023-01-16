@@ -15,7 +15,7 @@ A KMS enables you to sign transactions automatically.
 
 For testing purposes, **Starton** provides you with a wallet stored on their own KMS. With it, you can discover all the features and start building.
 
-:::caution  
+:::caution
 
 Do not use wallets on **Starton** KMS for production.
 
@@ -25,6 +25,6 @@ For production projects, to maintain control over your wallets, you can either g
 
 **Related topics**
 
-- More on [Third-party wallets](connecting-an-external-wallet.md)
-- More on [Key Management Systems](understanding-key-management-systems.md)
-- More on [Granting Starton access on your KMS](connecting-aws-kms.md)
+-   More on [Third-party wallets](connecting-an-external-wallet.md)
+-   More on [Key Management Systems](understanding-key-management-systems.md)
+-   More on [Granting Starton access on your KMS](connecting-aws-kms.md)

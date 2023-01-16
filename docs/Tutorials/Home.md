@@ -1,12 +1,12 @@
 ---
 Title: Tutorials home
 ---
+
 # Tutorials Home
 
 Start building using step-by-step tutorials!
 
 <div class="row is-multiline">
-
 
 <div class="col col--6">
 <a class="button-card button-card--vertical" href="/docs/Tutorials/deploy-a-contract-from-code"><h2>From Code</h2></a>

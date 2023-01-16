@@ -22,6 +22,6 @@ You can also use ngrok to test webhooks on localhost.
 
 ## Retrying a webhook
 
-If your server does not respond with an HTTP code signifing the request has been successful, Webhooks are retried automatically, 5 minutes, 15 minutes, an hour, 6 hours and finally a day after your first request. 
+If your server does not respond with an HTTP code signifing the request has been successful, Webhooks are retried automatically, 5 minutes, 15 minutes, an hour, 6 hours and finally a day after your first request.
 
 After the last retry, one day after the first request that remains unanswered, the watcher is paused.

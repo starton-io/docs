@@ -244,7 +244,7 @@ module.exports = {
 				"Tutorials/deploy-Nfts-with-Starton",
 				"Tutorials/interact-from-code",
 				"Tutorials/how-to-ensure-notifys-webhooks-are-from-starton",
-				/*"Tutorials/creating-NFT-collection",*/
+				"Tutorials/creating-NFT-collection",
 			],
 		},
 		{

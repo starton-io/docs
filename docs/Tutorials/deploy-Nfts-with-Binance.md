@@ -1,6 +1,7 @@
 ---
 title: Deploy your NFTs on BNB Smart Chain with Starton
 ---
+
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 
@@ -11,18 +12,16 @@ We will use random images uploaded on IPFS (a distributed file storage system) a
 
 You will:
 
-- Upload the contract-level metadata
-- Use a template from Starton for our smart contract (ERC721).
-- Deploy it with Starton from the dashboard. To deploy contracts from code, see [Deploying a smart contract from code](/Tutorials/deploy-a-contract-from-code.md).
-- Upload the content of our NFTs and their metadata on IPFS.
-- Interact with our smart contract using Starton API in order to mint the NFTs and give it to a specific address.
+-   Upload the contract-level metadata
+-   Use a template from Starton for our smart contract (ERC721).
+-   Deploy it with Starton from the dashboard. To deploy contracts from code, see [Deploying a smart contract from code](/Tutorials/deploy-a-contract-from-code.md).
+-   Upload the content of our NFTs and their metadata on IPFS.
+-   Interact with our smart contract using Starton API in order to mint the NFTs and give it to a specific address.
 
 If you feel stuck or have questions, feel free to get in touch in our [Discord](https://discord.com/invite/2jUShxHddn).
 We’ll be glad to help you!
 
-
 ## Upload the contract level metadata on IPFS
-
 
 To enter a name on the marketplace’s dashboard and perceive fees when someone sells one of our NFTs, we need to implement the contract-level metadata.
 
@@ -75,16 +74,17 @@ We can access the list of templates in the [Smart contract section](/Smart-contr
     - a wallet to sign the transaction,
     - a blockchain / network on which to deploy, here BNB testnet.
     - the parameters of our contract.
-  For more information on parameters, check out the [Deploying a Smart Contract](/Smart-contract/parameters-and-functions.mdx).  
+      For more information on parameters, check out the [Deploying a Smart Contract](/Smart-contract/parameters-and-functions.mdx).
 
 For example, we can call our contract “Best NFTs on BNB” and deploy it on the BNB Testnet network.
 
 The following constructor parameters are:
-- Name: This name stored on blockchain, we will use “Best NFTs on BNB”.
-- Symbol: The symbol that will be displayed on blockchain explorers for example. We’ll use “BNFTBNB”.
-- Base Uri: This corresponds to the root of the url that will be used to find the content. We’ll use “ipfs://ipfs/“ as we store the content on IPFS.
-- Owner Or Multi Sig Contract: This is the address of the owner of the smart contract. We will put our Starton account address that can be found in the “Wallets” section and should be the one chosen at the top as well.
-- Contract Uri Suffix: This corresponds to the CID of your contract-level metadata on IPFS. This is needed for example if you want to perceive fees when your NFTs are sold on OpenSea.
+
+-   Name: This name stored on blockchain, we will use “Best NFTs on BNB”.
+-   Symbol: The symbol that will be displayed on blockchain explorers for example. We’ll use “BNFTBNB”.
+-   Base Uri: This corresponds to the root of the url that will be used to find the content. We’ll use “ipfs://ipfs/“ as we store the content on IPFS.
+-   Owner Or Multi Sig Contract: This is the address of the owner of the smart contract. We will put our Starton account address that can be found in the “Wallets” section and should be the one chosen at the top as well.
+-   Contract Uri Suffix: This corresponds to the CID of your contract-level metadata on IPFS. This is needed for example if you want to perceive fees when your NFTs are sold on OpenSea.
 
 We can finally deploy our contract!
 
@@ -93,9 +93,10 @@ With our smart contract deployed, you are redirected on the page where we will i
 ## Minting an NFT
 
 The process of minting a new NFT and sending it to an address goes in three steps:
-- We upload the content of our NFT on IPFS (as it is too heavy to be stored on-chain) and get the CID of the content.
-- We upload a metadata object as a JSON file on IPFS as we do not reference the content directly in the contract. Instead, we put the CID of the content in a metadata object that we upload on IPFS.
-- We call the function “safeMint” of our smart contract, giving the CID of our metadata object and the address that will receive the NFT.
+
+-   We upload the content of our NFT on IPFS (as it is too heavy to be stored on-chain) and get the CID of the content.
+-   We upload a metadata object as a JSON file on IPFS as we do not reference the content directly in the contract. Instead, we put the CID of the content in a metadata object that we upload on IPFS.
+-   We call the function “safeMint” of our smart contract, giving the CID of our metadata object and the address that will receive the NFT.
 
 You can choose to mint NFT from code or from Starton's interface.
 
@@ -109,14 +110,14 @@ You will see next how to upload dynamically our images on IPFS from code with th
 ### Prepare our connection to the Starton API
 
 ```jsx
-const axios = require("axios");
-const FormData = require("form-data");
+const axios = require("axios")
+const FormData = require("form-data")
 const starton = axios.create({
-    baseURL: "https://api.starton.io/v3",
-    headers: {
-        "x-api-key": "YOUR_STARTON_API_KEY",
-    },
-});
+	baseURL: "https://api.starton.io/v3",
+	headers: {
+		"x-api-key": "YOUR_STARTON_API_KEY",
+	},
+})
 ```
 
 :::caution
@@ -133,21 +134,20 @@ We’ll also use IPFS to store the content that will be referenced in our deploy
 We do not store the content directly on blockchain as it is too heavy and would induce a very high cost.
 The best solution is to store it somewhere else and only store a reference on-chain.
 
-
 We can create a simple function like this one:
 
 ```jsx
 // The image variable should be a buffer
 async function uploadImageOnIpfs(image, name) {
-    let data = new FormData();
-    data.append("file", image, name);
-    data.append("isSync", "true");
+	let data = new FormData()
+	data.append("file", image, name)
+	data.append("isSync", "true")
 
-    const ipfsImg = await starton.post("/pinning/content/file", data, {
-        maxBodyLength: "Infinity",
-        headers: { "Content-Type": `multipart/form-data; boundary=${data._boundary}` },
-    });
-    return ipfsImg.data;
+	const ipfsImg = await starton.post("/pinning/content/file", data, {
+		maxBodyLength: "Infinity",
+		headers: { "Content-Type": `multipart/form-data; boundary=${data._boundary}` },
+	})
+	return ipfsImg.data
 }
 ```
 
@@ -160,20 +160,20 @@ We can define a new function using our image’s CID to upload the metadata on I
 
 ```jsx
 async function uploadMetadataOnIpfs(imgCid) {
-    const metadataJson = {
-        name: `A Wonderful NFT`,
-        description: `Probably the most awesome NFT ever created !`,
-        image: `ipfs://ipfs/${imgCid}`,
-    };
-    const ipfsMetadata = await starton.post("/pinning/content/json",
-    {
-        name: "My NFT metadata Json",
-        content: metadataJson,
-        isSync: true,
-    });
-    return ipfsMetadata.data;
+	const metadataJson = {
+		name: `A Wonderful NFT`,
+		description: `Probably the most awesome NFT ever created !`,
+		image: `ipfs://ipfs/${imgCid}`,
+	}
+	const ipfsMetadata = await starton.post("/pinning/content/json", {
+		name: "My NFT metadata Json",
+		content: metadataJson,
+		isSync: true,
+	})
+	return ipfsMetadata.data
 }
 ```
+
 Feel free to change the name and description that suit your needs.
 
 ### Mint the NFT on the smart contract using the metadata’s CID
@@ -181,18 +181,17 @@ Feel free to change the name and description that suit your needs.
 Finally, we can call our smart contract “safeMint” function with the receiver’s address and the CID of the metadata we just uploaded:
 
 ```jsx
-const SMART_CONTRACT_NETWORK = "binance-testnet";
-const SMART_CONTRACT_ADDRESS = "";
-const WALLET_IMPORTED_ON_STARTON = "";
+const SMART_CONTRACT_NETWORK = "binance-testnet"
+const SMART_CONTRACT_ADDRESS = ""
+const WALLET_IMPORTED_ON_STARTON = ""
 async function mintNft(receiverAddress, metadataCid) {
-    const nft = await starton.post(`/smart-contract/${SMART_CONTRACT_NETWORK}/${SMART_CONTRACT_ADDRESS}/call`,
-{
-    functionName: "safeMint",
-    signerWallet: WALLET_IMPORTED_ON_STARTON,
-    speed: "low",
-    params: [receiverAddress, metadataCid],
-});
-    return nft.data;
+	const nft = await starton.post(`/smart-contract/${SMART_CONTRACT_NETWORK}/${SMART_CONTRACT_ADDRESS}/call`, {
+		functionName: "safeMint",
+		signerWallet: WALLET_IMPORTED_ON_STARTON,
+		speed: "low",
+		params: [receiverAddress, metadataCid],
+	})
+	return nft.data
 }
 ```
 
@@ -211,6 +210,7 @@ const ipfsImg = await uploadImageOnIpfs(imgBuffer, "filename.png")
 const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImg.pinStatus.pin.cid)
 const nft = await mintNft(RECEIVER_ADDRESS, ipfsMetadata.pinStatus.pin.cid)
 ```
+
 </TabItem>
 <TabItem value="dashboard" label="From Dashboard">
 
@@ -255,8 +255,8 @@ This is the last step of your journey. We're going to create the NFT for what yo
 1. In **Smart Contract**, select the smart contract we have created: “Best NFTs on BNB”.
 1. Select the function 'safeMint'.
 1. Enter the parameters:
-   1. In **To**, enter the receiving address.
-   1. In **Metadata URI**, enter the CID of your NFT metadata.
+    1. In **To**, enter the receiving address.
+    1. In **Metadata URI**, enter the CID of your NFT metadata.
 1. Click **Run**.
 
 </TabItem>
@@ -271,9 +271,6 @@ Annnnnd it’s done! Congratulations !
 Once all of this is executed, the content should be on IPFS, and associated to the given address in our ERC721 contract.
 
 You can check our NFT on the [market element marketplace](https://testnets.element.market/collections/best-nfts-on-bnb). Use your contract address to modify the following link: https://testnets.element.market/assets/bsctest/YOUR_CONTRACT_ADDRESS/0
-
-
-
 
 ## Conclusion
 
