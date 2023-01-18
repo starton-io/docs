@@ -31,7 +31,7 @@ Here are the values we will use:
 {
   "name": “My Super NFT on BNB“,
   "description": “You’ve never seen NFTs this beautiful.”,
-  "image": "",
+  "image": "URI of your image",// This will be used as the image of your collection 
   "external_link": "",
   "seller_fee_basis_points": 100,
   "fee_recipient": “PUT YOUR ADDRESS HERE”
@@ -248,15 +248,15 @@ Consult the [metadata standard format](https://docs.element.market/welcome-to-el
 
 Everything we need to mint our NFT is done! Let's start minting!
 
-### Calling the safeMint function
+### Calling the mint function
 
 This is the last step of your journey. We're going to create the NFT for what you uploaded on IPFS.
 
 1. In **Smart Contract**, select the smart contract we have created: “Best NFTs on BNB”.
-1. Select the function 'safeMint'.
+1. Select the function 'mint'.
 1. Enter the parameters:
     1. In **To**, enter the receiving address.
-    1. In **Metadata URI**, enter the CID of your NFT metadata.
+    1. In **URI**, enter the CID of your NFT metadata.
 1. Click **Run**.
 
 </TabItem>
@@ -266,7 +266,7 @@ This is the last step of your journey. We're going to create the NFT for what yo
 
 ![my first NFT](img/my-first-NFT-on-BNB.png)
 
-Annnnnd it’s done! Congratulations !
+Annnnnd it’s done! Congratulations!
 
 Once all of this is executed, the content should be on IPFS, and associated to the given address in our ERC721 contract.
 
