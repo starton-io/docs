@@ -77,21 +77,6 @@ Here is what the [OpenZeppelin Community](https://forum.openzeppelin.com/t/redes
     Anyway, we'll need the value of the role hash to grant or revoke roles.
     Let's see how we can get the hash value for the MINTER_ROLE from our dashboard.
 
-## How to get a role hash from the dashboard
-
-It is possible to have the full list of roles by retrieving the list of all available functions as there is a view function for each role.
-Using our dashboard you can access the My smart contracts tab to find the already deployed smart contract you want to change the ownership of.
-When clicking on it, you should arrive on your smart contract's page.
-After clicking on the dropdown menu you should see a list like this:
-
-(image)
-
-This is the sorted list of the smart contract's functions.
-They are sorted by name, which means all roles should be listed at the top of the list.
-We'll then be able to call the view function associated with the MINTER_ROLE to get its hash value.
-
-(image)
-
 ## Granting the roles
 
 Now that we have retrieved the hash value of the MINTER_ROLE we can call the grantRole function of our smart contract to give the S wallet the rights to mint.
