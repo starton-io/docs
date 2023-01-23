@@ -1,0 +1,43 @@
+---
+title: Managing stuck nonces
+---
+
+# Managing stuck nonces
+
+You can experience nonce issues. When sending a transaction without having the correct nonce, the next nonce available in database and the nonce of the blockchain might be desynchronized.
+To solve this issue, you can resynchronize your nonce for your wallet on a KMS.
+
+:::info
+
+Nonce management works for a specific address and network at a time. Please make sure you specify the right network in your request.
+
+:::
+
+You can make the following request, by replacing parameters with:
+
+-   **YOUR_API_KEY**: a Starton API Key
+-   **address**: the address of your key on your KMS
+-   **network**: the network on which you wish to resynchronize nonces
+
+```jsx
+const axios = require("axios")
+
+const axiosInstance = axios.create({
+	baseURL: "https://api.starton.io/",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+
+axiosInstance.post("/v3/kms/wallet/{address}/{network}/nonce/resync", 
+{
+})
+
+    .then((response) => {
+	console.log(response.data)
+})
+```
+
+If your request is successful, the next nonce available will be returned.
+
+To avoid dealing with stuck nonces manually, you can set the strategy of your Relayer to allow Starton to manage them for you. Learn more in the [Setting a transaction management strategy](/docs/Transactions/stuck-transaction-replacement.md)
