@@ -31,7 +31,7 @@ Here are the values we will use:
 {
   "name": “My Super NFT on BNB“,
   "description": “You’ve never seen NFTs this beautiful.”,
-  "image": "URI of your image",// This will be used as the image of your collection 
+  "image": "URI of your image",// This will be used as the image of your collection
   "external_link": "",
   "seller_fee_basis_points": 100,
   "fee_recipient": “PUT YOUR ADDRESS HERE”

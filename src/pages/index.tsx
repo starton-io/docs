@@ -26,15 +26,12 @@ function Home() {
 					<div class="containerdocHome">
 						<div class="rowdocHome">
 							<div class="col" class="cardHome">
-								<a
-									class="button-card button-card--vertical"
-									href="/docs/Wallet/understanding-key-management-systems"
-								>
-									<img src="img/wallet.svg" alt="wallets" width="268" height="268"></img>
+								<a class="button-card button-card--vertical" href="/docs/IPFS/understanding-IPFS">
+									<img src="img/IPFShome.png" alt="wallets" width="268" height="268"></img>
 									<div class="barre1"></div>
-									<h2>Wallets</h2>
+									<h2>Storage</h2>
 									<div class="button-card__inner">
-										<p class="link">Understand Key Management Systems.</p>
+										<p class="link">Host and pin files on IPFS.</p>
 									</div>
 								</a>
 							</div>
