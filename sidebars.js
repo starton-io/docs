@@ -70,11 +70,28 @@ module.exports = {
 			},
 			collapsed: true,
 			items: [
-				"Transactions/creating-a-transaction",
-				"Transactions/state-and-status",
-				"Transactions/understanding-gas",
-				"Transactions/understanding-nonce",
-				"Transactions/manual-action-required",
+				"Transactions/creating-a-transaction",{
+                                                        type: "category",
+                                                        label: "Understanding state and status",
+                                                        link: {
+                                                            type: "doc",
+                                                            id: "Transactions/state-and-status",
+                                                        },
+                                                        collapsed: true,
+                                                        items: ["Transactions/manual-action-required",],
+                                                        },
+
+                "Transactions/understanding-gas",
+                ,{
+                                                                                                           type: "category",
+                                                                                                           label: "Understanding nonce",
+                                                                                                           link: {
+                                                                                                               type: "doc",
+                                                                                                               id: "Transactions/understanding-nonce",
+                                                                                                           },
+                                                                                                           collapsed: true,
+                                                                                                           items: ["Transactions/desynchronized-nonce-management",],
+                                                                                                           },"Transactions/stuck-transaction-replacement",
 			],
 		},
 		{
