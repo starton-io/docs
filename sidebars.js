@@ -44,8 +44,21 @@ module.exports = {
 			},
 			collapsed: true,
 			items: [
-				"Wallet/connecting-an-external-wallet",
-				"Wallet/creating-a-wallet",
+				"Wallet/connecting-an-external-wallet",{
+                                                       					type: "category",
+                                                                           label: "Using a wallet",
+                                                                           link: {
+                                                                               type: "doc",
+                                                                               id: "Wallet/creating-a-wallet",
+                                                                           },
+                                                                           collapsed: true,
+                                                                           items: [
+                                                                            "Wallet/editing-a-wallet",
+                                                                            "Wallet/deposit-on-wallet",
+                                                       						"Wallet/withdraw",
+                                                       						"Wallet/message-signing",
+                                                       					],
+                                                       				},
 				{
 					type: "category",
                     label: "Understanding key management systems",
@@ -56,7 +69,6 @@ module.exports = {
                     collapsed: true,
                     items: [
 						"Wallet/connecting-aws-kms",
-						"Wallet/message-signing",
 					],
 				},
 			],

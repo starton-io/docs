@@ -1,0 +1,60 @@
+---
+title: Editing a wallet
+description: Learn how to create a wallet to Starton KMS
+keywords: [Wallet, Starton, Smart contracts, Metamask, Transaction]
+---
+
+import threePoints from "./assets/three-points.png"
+import signMessage from "./assets/sign-a-message.png"
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+import CodeBlock from "@theme/CodeBlock"
+
+# Editing a Wallet
+
+![Wallets](assets/withdraw.png)
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+You can edit a the name or description of your wallet.
+
+```jsx showLineNumbers
+const axios = require("axios")
+// AUTHENTICATING TO THE API USING YOUR API KEY
+const startonApi = axios.create({
+	baseURL: "https://api.starton.io",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+
+// EDITING A WALLET
+const editWallet = async (name, description) => {
+	try {
+		return await startonApi.post("/v3/kms/wallet/{address}", {
+			name,
+			description,
+		})
+	} catch (error) {
+		console.log(error.response.data)
+	}
+}
+
+editWallet("Your wallet", "This is my renamed wallet").then((data) => console.log(data))
+```
+
+</TabItem>
+<TabItem value="dashboard" label="From Dashboard">
+
+You can edit a the name or description of your wallet.
+
+1. Click <img src={threePoints} style={{width: 30}} className="icon" />.
+1. Click **Edit**.
+1. Change your wallet name or description.
+1. Click **Save**.
+
+Your wallet has been edited.
+
+</TabItem>
+</Tabs>
