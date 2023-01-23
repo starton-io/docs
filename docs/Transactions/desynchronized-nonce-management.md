@@ -29,13 +29,12 @@ const axiosInstance = axios.create({
 	},
 })
 
-axiosInstance.post("/v3/kms/wallet/{address}/{network}/nonce/resync", 
-{
-})
+axiosInstance
+	.post("/v3/kms/wallet/{address}/{network}/nonce/resync", {})
 
-    .then((response) => {
-	console.log(response.data)
-})
+	.then((response) => {
+		console.log(response.data)
+	})
 ```
 
 If your request is successful, the next nonce available will be returned.
