@@ -149,8 +149,11 @@ module.exports = {
 							"Selling NFTs": [
 								"Smart-contract/ERC721-Sale",
 								"Smart-contract/ERC721-Auction-Sale",
+								"Smart-contract/ERC721-Whitelist-Sale",
 								"Smart-contract/ERC1155-Sale",
 								"Smart-contract/ERC1155-Auction",
+								"Smart-contract/ERC1155-Whitelist-Sale",
+
 							],
 						},
 						{
