@@ -17,6 +17,12 @@ displayed-sidebar: connectSidebar
 
     You can now withdraw funds deposited on your wallet in Starton from Dashboard. This operation is a transaction you can perform directly from your wallet list. [Read more](/Smart-contract/interacting-with-a-smart-contract.mdx)
 
+- **Nonce and Status columns have been added to the transactions list**
+
+    To enable you to access the most relevant information at a glance, a column has been added for nonces and status on your all activity transactions list. [Read more](/Transactions/state-and-status.md)
+
+
+
 ## Starton V3
 
 -   **Starton got a brand-new look**
