@@ -1,24 +1,24 @@
 ---
-title: ERC721 NFT Whitelist Sale
+title: ERC1155 NFT Whitelist Sale
 description: The smart contract standard to manage unique tokens.
 ---
 
-# ERC721 NFT Whitelist Sale
+# ERC1155 NFT Collection Whitelist
 
-The ERC721 is a smart contract standard which is specialised in single-copy Non Fungible Tokens (NFT) and out-of-the-box compatible with Opensea. In an ERC721, every NFT is unique which means you have to reference the content for each NFT.
+The ERC1155 is a smart contract standard which is specialised in single-copy Non Fungible Tokens (NFT) and out-of-the-box compatible with Opensea. In an ERC1155, every NFT is unique which means you have to reference the content for each NFT.
 
-The smart contract template to sell NFTs only to selected users. In a video game, you can sell a piece of land only to players of an approved rank.
+The smart contract template to sell NFTs only to selected users. In a video game, you can sell a piece of equipment only to players of an approved rank.
 
 This Whitelist version enables you to create a whitelist of users that can buy your tokens through a Merkle tree.
 
 This template enables you to mint a new token and sell it to your users. It helps you set up a sale, select when it starts and ends, and set a maximum number of tokens that can be sold in total or to the same user.
 
-Notice that the baseURI of the ERC721 contract should be the URI that is linked to a directory on ipfs or your centralized server because when minting a new token, the URI will be added to the id. For example, `https://ipfs.io/QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR/0`
+Notice that the baseURI of the ERC1155 contract should be the URI that is linked to a directory on ipfs or your centralized server because when minting a new token, the URI will be added to the id. For example, `https://ipfs.io/QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR/0`
 
 
 ## Parameters
 
--   **definitiveTokenAddress:** The token address of the ERC721 that you want to sell.
+-   **definitiveTokenAddress:** The token address of the ERC1155 that you want to sell.
 -   **definitiveMerkleRoot:** The root of the merkle tree that contains the list of the users that can buy the NFTs
 -   **definitivePrice:** The price that the NFTs will be sold for.
 -   **definitiveStartTime:** The time when the sale will begin and users can mint tokens.
