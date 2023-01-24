@@ -95,4 +95,4 @@ const startonApi = axios.create({
 })
 ```
 
-If the request is successful, your settings have been changed. To understand any other return, you can see our API reference (lien).
+If the request is successful, your settings have been changed. To understand any other return, you can see our [API reference](https://docs.starton.io/intro#tag/SettingRelayer).
