@@ -136,10 +136,14 @@ module.exports = {
              position: 'right',
              dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
              dropdownActiveClassDisabled: false,
-           },*/
+           },*/{
+                    href: "https://github.com/starton-io",
+                    label: "GitHub",
+                    position: "right",
+                },
 					{
-						href: "https://github.com/starton-io",
-						label: "GitHub",
+						href: "https://discord.starton.io",
+						label: "Support",
 						position: "right",
 					},
 					/*  {
