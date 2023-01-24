@@ -1,0 +1,72 @@
+---
+title: Withdrawing funds from a Wallet
+description: Learn how to create a wallet to Starton KMS
+keywords: [Wallet, Starton, Smart contracts, Metamask, Transaction]
+---
+
+import threePoints from "./assets/three-points.png"
+import settings from "./assets/settings.png"
+import details from "./assets/details.png"
+import summary from "./assets/summary.png"
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+import CodeBlock from "@theme/CodeBlock"
+
+# Withdrawing funds from a Wallet
+
+You can withdraw funds from a wallet using transactions via our API or using our Dashboard
+
+![Wallets](assets/withdraw.png)
+
+<Tabs>
+<TabItem value="code" label="From Code">
+To withdraw tokens from a wallet you can create a transaction from a wallet.
+You can find the full list of networks in our <a href="https://docs.starton.io/intro#tag/Transaction/operation/TransactionCreate">API reference</a>.
+
+WARNING: your transaction speed has an impact on gas fees
+
+<CodeBlock language="jsx" showLineNumbers>{`
+    const axios = require("axios")
+    
+    const axiosInstance = axios.create({
+    baseURL: "https://api.starton.io",
+    headers: {
+        "x-api-key": "PUT HERE YOUR API KEY",
+            },
+    })
+    
+    axiosInstance.post(
+     "/v3/transaction",
+        {
+        signerWallet: "YOUR_SIGNER_WALLET",
+        to: "",
+        network: "",
+        value: "0",
+        speed: "average"
+        }
+    ).then((response) => {
+    console.log(response.data)
+    })
+`}</CodeBlock>
+</TabItem>
+<TabItem value="dashboard" label="From Dashboard">
+
+1. Click <img src={threePoints} style={{width: 30}} />.
+
+1. Click **Withdraw**.
+    <img src={settings} style={{ width: 400 }} />
+1. In **To**, enter the address to receive the transfer.
+1. In **Amount**, select a **Blockchain / Network**.
+1. Enter the desired amount to withdraw.
+1. Click **Next**.
+1. Select the **Speed** of your transaction.
+1. Click **Next** to access the details of your operation.
+    <img src={details} style={{ width: 400 }} />
+1. Click **Withdraw**.
+
+The details of your operation are displayed.
+
+<img src={summary} style={{ width: 400 }} />
+
+</TabItem>
+</Tabs>
