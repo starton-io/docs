@@ -178,7 +178,7 @@ module.exports = {
 						items: [
 							{
 								label: "Discord",
-								href: "https://discordapp.com/invite/Starton",
+								href: "https://discord.starton.io",
 							},
 							{
 								label: "Twitter",
