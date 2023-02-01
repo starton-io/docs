@@ -277,6 +277,7 @@ module.exports = {
 				"Tutorials/interact-from-code",
 				"Tutorials/how-to-ensure-notifys-webhooks-are-from-starton",
 				"Tutorials/creating-NFT-collection",
+				"Tutorials/creating-token-ERC20-fixed",
 			],
 		},
 		{
