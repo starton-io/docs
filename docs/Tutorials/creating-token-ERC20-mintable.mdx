@@ -1,12 +1,12 @@
 ---
-title: How to create your own limited supply token (ERC20)
+title: How to create your own cryptocurrency (ERC20)
 ---
 
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
 import CodeBlock from "@theme/CodeBlock"
 
-# How to create your own limited supply token (ERC20)
+# How to create your own cryptocurrency (ERC20)
 
 In this tutorial, we will create your own token. The fixed supply version of this standard guarantees no token will ever be created after the initial emission.
 Fungible tokens are token from which the value of each token is equal to another.
@@ -16,7 +16,7 @@ Fungible tokens are token from which the value of each token is equal to another
 - **a wallet address with funds:** You can use your default Starton wallet, at creation Starton provides you with faucets.
 - **definitiveName:** The name of your smart contract which will be reflected on-chain.
 - **definitiveSymbol:** The symbol of your smart contract which will be reflected on-chain
-- **definitiveSupply:** The total amount of tokens that will ever be minted.
+- **initialSupply:** The initial amount of tokens that will be minted.
 - **initialOwnerOrMultisigContract:** The address that will own the ERC20 contract.
 
 :::
@@ -26,7 +26,7 @@ Fungible tokens are token from which the value of each token is equal to another
 -   [Deploy the smart contract template for your token](#deploying-the-smart-contract)
 -   [Process your first token transfer](#minting-the-first-nft-of-your-collection)
 
-## Deploying the Smart contract from our template 
+## Deploying the Smart contract from our template
 
 <Tabs>
 <TabItem value="code" label="From Code">
@@ -46,7 +46,7 @@ axiosInstance.post(
 	{
 		network: "",// The blockchain network on which you want to deploy your smart contract
 		signerWallet: "",// The address of the signer wallet
-		templateId: "ERC20_META_TRANSACTION",
+		templateId: "ERC20_MINT_META_TRANSACTION",
 		name: "",// The name of the contract on Starton
 		description: "",// The description of the contract on Starton
 		params: [
@@ -76,24 +76,24 @@ axiosInstance.post(
 1. Click **Deploy with Template**.
 
    ![create smart contracts](img/sc-deploy-erc20.png)
-    
-1. Click on Create a cryptocurrency (Fungible Tokens). 
+
+1. Click on Create a cryptocurrency (Fungible Tokens).
 
    ![create smart contracts](img/sc-usecase-erc20.png)
 
-1. Click ERC20 Token with fixed supply.
+1. Click ERC20 Token with mintable supply.
 
    ![create smart contracts](img/sc-template-erc20.png)
 
-1. In **General information**, enter **a name and a description** for your smart contract. These will appear only on Starton and can be edited after creation. 
-1. In **Smart contract**, enter: 
+1. In **General information**, enter **a name and a description** for your smart contract. These will appear only on Starton and can be edited after creation.
+1. In **Smart contract**, enter:
 - **definitiveName:** The name of your smart contract which will be reflected on-chain. For example,"MyFirstToken".
 - **definitiveSymbol:** The symbol of your smart contract which will be reflected on-chain. For example, "MFT".
-- **definitiveSupply:** The total amount of tokens that will ever be minted. For example, "100000000000000000000000000000000000000".
+- **initialSupply:** The initial amount of tokens that will be minted. For example, "100000000000000000000000000000000000000".
 - **initialOwnerOrMultisigContract:** The address that will own the ERC20 contract. For example, your default Starton wallet.
 
-   ![create smart contracts](img/sc-constructor-erc20.png)
-   
+  ![create smart contracts](img/sc-constructor-erc20.png)
+
 1. Click on **Next**.
 
 1. Now select the network on which you want to deploy your contract.
@@ -113,7 +113,7 @@ axiosInstance.post(
 </Tabs>
 
 
-## Transferring your first token 
+## Process your first token transfer
 
 <Tabs>
 <TabItem value="code" label="From Code">
