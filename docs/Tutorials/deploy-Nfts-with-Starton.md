@@ -149,7 +149,7 @@ async function uploadImageOnIpfs(image, name) {
 	data.append("file", image, name)
 	data.append("isSync", "true")
 
-	const ipfsImg = await starton.post("/pinning/content/file", data, {
+	const ipfsImg = await starton.post("/ipfs/file", data, {
 		maxBodyLength: "Infinity",
 		headers: { "Content-Type": `multipart/form-data; boundary=${data._boundary}` },
 	})
@@ -171,7 +171,7 @@ async function uploadMetadataOnIpfs(imgCid) {
 		description: `Probably the most awesome NFT ever created !`,
 		image: `ipfs://ipfs/${imgCid}`,
 	}
-	const ipfsMetadata = await starton.post("/pinning/content/json", {
+	const ipfsMetadata = await starton.post("/ipfs/json", {
 		name: "My NFT metadata Json",
 		content: metadataJson,
 		isSync: true,

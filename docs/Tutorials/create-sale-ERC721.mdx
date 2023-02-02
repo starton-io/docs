@@ -1,14 +1,14 @@
 ---
-title: How to Sell an NFT in an Auction
+title: How to Sell an NFT
 ---
 
-# How to Sell an NFT in an Auction
+#  How to Sell an NFT
 
-In this tutorial, you will learn how to sell an NFT in an Auction.
+In this tutorial, you will learn how to sell an NFT.
 
 ## Deploy an ERC721
 
-You will start by deploying an ERC721 that will be the base of the NFT you want to sell in an auction.
+You will start by deploying an ERC721 that will be the base of the NFT you want to sell.
 
 ### Upload Contract-level metadata on IPFS
 
@@ -18,9 +18,9 @@ Here are the values we will use:
 
 ```jsx
 {
-  "name": “My Super NFT on Auction“,
+  "name": “My Super NFT for Sale“,
   "description": “You’ve never seen NFTs this beautiful.”,
-  "image": "",
+  "image": "",// the URI of your image, for example ipfs://CID_OF_YOUR_IMG
   "external_link": "",
   "seller_fee_basis_points": 100,
   "fee_recipient": “PUT YOUR ADDRESS HERE”
@@ -99,23 +99,32 @@ The following constructor parameters are:
 
 We can finally deploy our contract!
 
-## Deploy an ERC721 Auction
+## Deploy an ERC721 Sale
 
 We will deploy the contract only once, so we will do it directly from Starton’s dashboard.
 
 We can access the list of templates in the [Smart contract section](/Smart-contract/understanding-smart-contracts.md).
 
-1. Select the ERC721 Auction template.
+1. Select the ERC721 Sale template.
 1. Enter:
 
--   **definitiveTokenAddress**: The token address of the ERC721 that you want to sell.
--   **definitiveFeeReceiver**: The address that will receive all the price paid to mint the NFTs.
--   **initialStartingPrice**: The initial price that the NFT will be sold for.
--   **initialMinPriceDifference**: The price increase that a user needs to at least put to bid on top of the current auction winner.
--   **initialStartTime**: The time when the sale will begin and users can bid.
--   **initialEndTime**: The time when the sale will end and users couldn't bid anymore.
--   **initialTokenURI**: The URI that will be append in the end of the base token URI for the token that will be minted.
+-   **definitiveTokenAddress:** The token address of the ERC721 that you want to sell.
+-   **definitivePrice:** The price that the NFTs will be sold for.
+-   **definitiveStartTime:** The time when the sale will begin and users can mint tokens.
+-   **definitiveEndTime:** The time when the sale will end and users couldn't mint anymore tokens.
+-   **definitiveMaxTokensPerAddress:** The maximum amount of tokens that can be minted by a single address.
+-   **definitiveMaxSupply:** The maximum amount of tokens that can be minted during the sale.
+-   **definitiveFeeReceiver:** The address that will receive all the price paid to mint the NFTs.
 
 ### Interact with your contract
 
-You can now bid, claim, or start a new auction. The mint of your NFT is made when the bider which has won the auction claims it.
+Once your NFT is sold, you can withdraw the amount received during the sale by interacting with the smart contract. 
+
+1. On the smart contract page, click **Interact**. 
+1. Select the withdraw function. 
+1. Click Run. 
+
+The amount is transferred from the address of the smart contract to the address of the fee receiver. 
+
+
+

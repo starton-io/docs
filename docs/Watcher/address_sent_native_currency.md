@@ -1,18 +1,18 @@
 ---
-title: ADDRESS_RECEIVED_NATIVE_CURRENCY
+title: ADDRESS_SENT_NATIVE_CURRENCY
 ---
 
-# ADDRESS_RECEIVED_NATIVE_CURRENCY
+# ADDRESS_SENT_NATIVE_CURRENCY
 
-Triggers when an address receives some of the blockchain's native tokens (ex: ETH for Ethereum).
+Triggers when an address sends some of the blockchain's native tokens (ex: ETH for Ethereum)
 Here is an example of the payload sent to the webhook as a POST request when the event is triggered.
 You can find more details about the [transaction object](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) (please notice that it inherits the [Transaction](https://docs.ethers.io/v5/api/utils/transactions/#Transaction).
 The receipt object is described [here](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionReceipt).
 
-````jsx
+```jsx
 {
   "projectId": "string",
-  "event": "ADDRESS_ACTIVITY",
+  "event": "ADDRESS_SENT_NATIVE_CURRENCY",
   "data": {
     "transaction": {
       "hash": "string",
@@ -98,5 +98,5 @@ The receipt object is described [here](https://docs.ethers.io/v5/api/providers/t
     "network": "string",
     "blockchain": "string"
   }
-}```
-````
+}
+```

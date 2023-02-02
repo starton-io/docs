@@ -277,6 +277,8 @@ module.exports = {
 				"Tutorials/interact-from-code",
 				"Tutorials/how-to-ensure-notifys-webhooks-are-from-starton",
 				"Tutorials/creating-NFT-collection",
+				"Tutorials/creating-token-ERC20-fixed",
+				"Tutorials/creating-token-ERC20-mintable",
 			],
 		},
 		{
@@ -290,6 +292,7 @@ module.exports = {
 			items: [
 				"Tutorials/deploy-Nfts-with-Binance",
 				"Tutorials/how-to-change-the-smart-contracts-ownership",
+				/*"Tutorials/create-sale-ERC721",*/
 				"Tutorials/create-an-NFT-auction",
 				"Tutorials/track-wallet-activity",
 			],

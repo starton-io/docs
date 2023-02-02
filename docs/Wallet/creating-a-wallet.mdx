@@ -22,43 +22,6 @@ Do not use wallets on Starton KMS for production.
 
 ![Wallets](assets/withdraw.png)
 
-<Tabs>{/*
-<TabItem value="code" label="From Code">
-
-```jsx showLineNumbers
-const axios = require("axios")
-
-// AUTHENTICATING TO THE API USING YOUR API KEY
-const startonApi = axios.create({
-	baseURL: "https://api.starton.io",
-	headers: {
-		"x-api-key": "YOUR_API_KEY",
-	},
-})
-
-// CREATING A WALLET
-const createWallet = async (name, description, credentials) => {
-	try {
-		return await startonApi.post("/v3/kms/wallet", {
-			name,
-			description,
-			credentials,
-		})
-	} catch (error) {
-		console.log(error.response.data)
-	}
-}
-
-createWallet("Your wallet name", "This is the description of your wallet", {
-	accountId: "string", // The 12 digit number you can find it in the top-right corner of your AWS Dashboard.
-	accessKeyId: "string", // The Access Key ID of the new IAM user available after completing (lien vers step new user).
-	secretAccessKey: "string", // The Secret access key of the new IAM user available after completing .
-	region: "string",
-}).then((data) => console.log(data))
-```
-
-</TabItem> */}
-<TabItem value="dashboard" label="From Dashboard">
 
 1. From **Dashboard**, go to **Wallet**.
 1. Click **Add a wallet**.
@@ -68,8 +31,7 @@ createWallet("Your wallet name", "This is the description of your wallet", {
     - **Connect your KMS and grand full access to Starton** enables you to use multiple wallets for advanced projects.
 1. Enter a **Name** and a **Description** for your wallet.
 
-</TabItem>
-</Tabs>
+
 
 You can now use your wallet.
 
