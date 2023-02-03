@@ -118,6 +118,10 @@ module.exports = {
 						label: "Connect",
 					},
 					{ to: "intro", label: "API", position: "left" },
+					{
+                        type: "search",
+                        position: "right",
+                    					},
 					{ to: "blog/fungible-vs-non-fungible-tokens", label: "Guides", position: "right" },
 					{
 						type: "doc",
@@ -125,10 +129,7 @@ module.exports = {
 						docId: "Tutorials/Home",
 						label: "Tutorials",
 					},
-					{
-						type: "search",
-						position: "left",
-					},
+
 
 					/*  {
             type: 'doc',
