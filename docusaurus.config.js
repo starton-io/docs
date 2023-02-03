@@ -89,6 +89,16 @@ module.exports = {
 	themeConfig:
 		/**@type {import('@docusaurus/preset-classic').ThemeConfig}*/
 		({
+			algolia: {
+				appId: 'KZLUI8PR4I',
+				// Clé d'API publique : il est possible de la committer en toute sécurité
+				apiKey: 'd3e664ca1fde19063cc976fec3575d37',
+				indexName: 'starton',
+				// Facultatif : paramètres de recherche de Algolia
+				searchParameters: {},
+				// Facultatif : chemin pour la page de recherche qui est activée par défaut (`false` pour le désactiver)
+				searchPagePath: 'search',
+			},
 			colorMode: {
 				defaultMode: "dark",
 				disableSwitch: true,
@@ -108,6 +118,10 @@ module.exports = {
 						label: "Connect",
 					},
 					{ to: "intro", label: "API", position: "left" },
+					{
+                        type: "search",
+                        position: "right",
+                    					},
 					{ to: "blog/fungible-vs-non-fungible-tokens", label: "Guides", position: "right" },
 					{
 						type: "doc",
@@ -115,10 +129,7 @@ module.exports = {
 						docId: "Tutorials/Home",
 						label: "Tutorials",
 					},
-					{
-						type: "search",
-						position: "left",
-					},
+
 
 					/*  {
             type: 'doc',
