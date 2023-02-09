@@ -7,6 +7,12 @@ displayed-sidebar: connectSidebar
 
 ## 2023
 
+### February 
+
+-   **Enhanced Smart contract templates interface**
+
+    The deployment of smart contracts from interface as been enhanced. You now access all the templates at a glance. You can click on each template to see what you need to deploy the contract, the functions you can call to interact with your smart contract or even the events you can monitor. [Read more](/Smart-contract/deploying-a-smart-contract.mdx)
+
 ### January
 
 -   **Search smart contract functions**
