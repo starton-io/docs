@@ -1,6 +1,7 @@
 ---
 title: ERC20 Fungible Token with mintable supply
 description: The functions for ERC20 Smart contract template
+keywords: [ERC-20, ERC20, Deploy, Starton, Smart contracts, parameters, functions]
 ---
 
 # ERC20 Fungible Token with mintable supply

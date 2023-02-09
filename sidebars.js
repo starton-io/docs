@@ -24,7 +24,6 @@ module.exports = {
 			},
 			collapsed: true,
 			items: [
-				"Tutorials/using-starton-in-app",
 				"Tutorials/deploy-first-smart-contract",
 				"Tutorials/storing-files-on-IPFS",
 				"Tutorials/monitoring-blockchain-activity",

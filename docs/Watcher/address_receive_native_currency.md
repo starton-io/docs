@@ -9,7 +9,7 @@ Here is an example of the payload sent to the webhook as a POST request when the
 You can find more details about the [transaction object](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) (please notice that it inherits the [Transaction](https://docs.ethers.io/v5/api/utils/transactions/#Transaction).
 The receipt object is described [here](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionReceipt).
 
-````jsx
+```jsx
 {
   "projectId": "string",
   "event": "ADDRESS_SENT_NATIVE_CURRENCY",
@@ -99,4 +99,4 @@ The receipt object is described [here](https://docs.ethers.io/v5/api/providers/t
     "blockchain": "string"
   }
 }
-````
+```

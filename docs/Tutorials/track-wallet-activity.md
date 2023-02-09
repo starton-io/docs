@@ -32,6 +32,19 @@ Zapier provides you with a `Webhook URL`. We will need this URL in our Watcher o
 
 ## Creating a watcher in Starton
 
+<div class="row-is-multiline">
+
+<div class="col col--2" class="cards">
+	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+		<h3>Go to the Dashboard</h3>
+		<div class="button-card__inner">
+			<p color="white">Go to <b>Starton Dashboard</b> to create your watcher easily.</p>
+		</div>
+	</a>
+</div>
+
+</div>
+
 1. In [Starton](https://app.starton.io/monitor), go to `Monitor`.
 
 1. Click `+ Watcher`.

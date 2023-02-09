@@ -1,6 +1,7 @@
 ---
 title: ERC1155 NFT collection Sale in an Auction
 description: The smart contract standard to manage unique tokens.
+keywords: [ERC-1155, ERC1155, Deploy, Starton, Smart contracts, parameters, functions]
 ---
 
 # ERC1155 NFT collection Sale in an Auction

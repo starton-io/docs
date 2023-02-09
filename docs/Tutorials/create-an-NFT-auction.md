@@ -6,6 +6,19 @@ title: How to Sell an NFT in an Auction
 
 In this tutorial, you will learn how to sell an NFT in an Auction.
 
+<div class="row-is-multiline">
+
+<div class="col col--2" class="cards">
+	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+		<h3>Deploy your Smart contracts on the Dashboard</h3>
+		<div class="button-card__inner">
+			<p color="white">Go to <b>Starton Dashboard</b>, deploy your smart contracts and check all the transactions of your smart contract at one glance.</p>
+		</div>
+	</a>
+</div>
+
+</div>
+
 ## Deploy an ERC721
 
 You will start by deploying an ERC721 that will be the base of the NFT you want to sell in an auction.

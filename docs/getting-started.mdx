@@ -7,14 +7,22 @@ title: Onboarding on Starton
 By creating a free account on Starton, you can deploy and interact with your Smart contract and watch your transactions.
 There are a few things you need to get from Starton Dashboard, regardless of whether you want to use Starton from the interface or the API.
 
-## Creating a free account
+The first thing we will need is an account in Starton.
 
-The first thing we will do is creating an account in Starton.
+## Creating an account
 
-1. Go to [Starton.io](https://app.starton.io/).
-1. Click **Continue with email**.
-1. Enter your information.
-1. Click **Sign up**.
+<div class="row-is-multiline">
+
+<div class="col col--2" class="cards">
+	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+		<h3>Don't have an account? </h3>
+		<div class="button-card__inner">
+			<p color="white">Go to <b>Starton Dashboard</b>, create your free account and start building.</p>
+		</div>
+	</a>
+</div>
+
+</div>
 
 ## Setting up your API key
 
@@ -25,32 +33,13 @@ You need to be authenticated by Starton's API. To do so, let's create your API k
 1. Enter your key information.
 1. Click **Next**.
 
-### Using API keys in your application
-
-To use **Starton** from your application, you will need to authenticate.
-
-To do so, you need to add your API key in the header of your request:
-
-1. Go to the **Developer** section.
-1. Copy your API key.
-1. Add your API key in the header of your requests, as such:
-
-```jsx
-const http = axios.create({
-	baseURL: "https://api.starton.io/v3",
-	headers: {
-		"x-api-key": "YOUR_API_KEY", //API KEY COPIED FROM STARTON
-	},
-})
-```
+You created your first API key. Learn how to authenticate using your API key in your application in our [Developer](/Developer/API.md) section.
 
 :::caution
 
 Note that your API key should be SECRET. With it, anyone could call the Starton API on your behalf.
 
 :::
-
-For more information on API Keys, read [Using Starton API](/Developer/API.md).
 
 ## Setting up a wallet on Starton
 
@@ -66,18 +55,40 @@ You can also import your own KMS at any time and change ownership of your Smart 
 
 ## What's next?
 
+
+Let's create an app. Select one of the following guides to fit your usecase.
+
+Now that you're all set, what would you like to do with Starton in your app?
+
+## Choose your use case
+
 <div class="row-is-multiline">
 
 <div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="/docs/Tutorials/using-starton-in-app">
-		<h3>Using Starton in an application</h3>
-		<div class="button-card__inner">
-			<p color="white">Now that you're all set, let's learn how to use Starton from an app.</p>
-		</div>
-	</a>
+<a class="button-card button-card--vertical" href="/docs/Tutorials/deploy-first-smart-contract"><h3>Deploy</h3>
+<div class="button-card__inner">
+<p color="white">Deploy your first smart contract. </p>
+</div>
+</a>
 </div>
 
+<div class="col col--2" class="cards">
+<a class="button-card button-card--vertical" href="/docs/Tutorials/storing-files-on-IPFS"><h3>Store</h3>
+<div class="button-card__inner">
+<p>Upload files on IPFS with Starton.</p>
 </div>
+</a>
+</div>
+
+<div class="col col--2" class="cards">
+<a class="button-card button-card--vertical" href="/docs/Tutorials/monitoring-blockchain-activity"><h3>Monitor</h3>
+<div class="button-card__inner">
+<p>Monitor blockchain events with watchers.</p>
+</div>
+</a>
+</div>
+</div>
+>
 
 **Related topics**
 

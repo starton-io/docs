@@ -8,28 +8,78 @@ import CodeBlock from "@theme/CodeBlock"
 
 # Deploying your first Smart contract
 
-You can deploy a smart contract from Code with Starton's API.
+You can use Starton to turn your application into a dApp in a few steps.
+
+Let's create a project to deploy a smart contract from Code with Starton's API. To deploy a smart contract from Dashboard, see [Deploying a smart contract](/Smart-contract/deploying-a-smart-contract.mdx).
+
 **Starton** provides you with a library of smart contracts templates.
 To start let's create your own token.
 
-## Deploying your first Smart contract
+:::note You will need:
 
-<Tabs>
-<TabItem value="code" label="From Code">
+-   [Node.js](https://nodejs.org/en/)
+-   [Starton wallet](https://starton.io/)
+-   [Starton API Key](https://starton.io/)
+-   An address to fund your smart contract transaction 
+:::
+
+## Creating an Application project
+
+1. Create a directory for your app.
+1. Create a directory named `src`.
+1. In your terminal, install the express package using
+   `npm i express`
+1. In `src`, create a `index.js` file.
+1. In `index.js`, enter the following lines to set up a port for your project:
+
+```jsx showLineNumbers
+const express = require("express")
+const routes = require("./routes")
+const app = express()
+app.use(bodyParser.json())
+const port = 3001 // Port of the project
+
+app.set("port", port) // Set the port of the project
+app.use("/", routes)
+app.listen(port, () => {
+	console.log(`Server listening on port ${port}`)
+})
+```
+
+This will deploy your app on port `3001`.
+
+Now for the good part, let's connect Starton to your application.
+
+## Connecting Starton to your application
+
+1. In src, create a `routes.js` file.
+
+    ```jsx showLineNumbers
+    const express = require("express")
+    const axios = require("axios")
+    const router = express.Router()
+    ```
+
+1. In it, first authenticate with your API KEY.
+
+    ```jsx showLineNumbers
+    // AUTHENTICATING TO THE API USING YOUR API KEY
+    const startonApi = axios.create({
+    	baseURL: "https://api.starton.io",
+    	headers: {
+    		"x-api-key": "YOUR API KEY ",
+    	},
+    })
+   ```
+
+## Deploying your first Smart contract
 
 To create a smart contract from the code of your application, use the following snippet.
 You can find the full list of endpoints in our <a href="https://docs.starton.io/intro#tag/SmartContract">API reference</a>.
+Find more information about smart contracts parameters in the [smart contract references section](/Smart-contract/parameters-and-functions.mdx).
 
 ```jsx showLineNumbers
-const axios = require("axios")
-
-const axiosInstance = axios.create({
-	baseURL: "https://api.starton.io",
-	headers: {
-		"x-api-key": "PUT HERE YOUR API KEY",
-	},
-})
-
+ // DEPLOYING YOUR SMART CONTRACT
 axiosInstance
 	.post("/v3/smart-contract/from-template", {
 		network: "binance-testnet",
@@ -45,23 +95,37 @@ axiosInstance
 	})
 ```
 
-</TabItem>
-<TabItem value="dashboard" label="From Dashboard">
+1. Display a message on your `localhost:3001` to inform you that the transaction is successful.
 
-1. From **Dashboard**, go to **Smart Contract**.
-1. Click **Deploy with Template**.
-1. Select a use case and a template.
-1. Enter the Smart contract information:
+    ```jsx showLineNumbers
+    router.get("/", (req, res) => {
+    	res.send("Upload successful")
+    })
 
-    - General information:
-      **Name**: The name displayed on **Starton**.
+    module.exports = router
+    ```
+   
+## Starting your application
 
-    - Smart Contract Constructor. Find more information about smart contracts parameters in the [smart contract references section](/Smart-contract/parameters-and-functions.mdx).
+1. In your terminal, run `node src`.
 
-1. Click **Next**.
+You deployed your first smart contract with Starton. Congratulations!
 
-</TabItem>
-</Tabs>
+Now that you've created your app, you can interact with your smart contract. 
+
+<div class="row-is-multiline">
+
+<div class="col col--2" class="cards">
+	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+		<h3>Check your smart contract on the Dashboard</h3>
+		<div class="button-card__inner">
+			<p color="white">Go to <b>Starton Dashboard</b> and check all the transactions of your smart contracts at one glance.</p>
+		</div>
+	</a>
+</div>
+
+</div>
+
 
 ## Interacting with your first Smart contract
 
@@ -71,9 +135,6 @@ You can interact with the smart contract we just created.
 To start, we will call a simple function to put our contract in a pause state.
 
 To get notified of the transactions of your smart contracts, you can also [create a watcher](/Tutorials/monitoring-blockchain-activity.mdx).
-
-<Tabs>
-<TabItem value="code" label="From Code">
 
 To interact with your smart contract from the code of your application, use the following snippet.
 You can find the full list of endpoints in our <a href="https://docs.starton.io/intro#tag/SmartContract">API reference</a>.
@@ -100,18 +161,4 @@ axiosInstance
 	})
 ```
 
-</TabItem>
-<TabItem value="dashboard" label="From Dashboard">
 
-1. In **Smart Contract**, select a **Smart Contract**.
-1. Click on **Interact**.
-
-You can see all the interactions with your smart contracts. The first one represents its creation on the blockchain.
-
-1. In **Smart Contract**, select a **Smart Contract**.
-1. Select a **function**.
-1. Enter the **parameters**.
-1. Click **Run**.
-
-</TabItem>
-</Tabs>

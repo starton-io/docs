@@ -13,11 +13,11 @@ Fungible tokens are token from which the value of each token is equal to another
 
 :::note You will need:
 
-- **a wallet address with funds:** You can use your default Starton wallet, at creation Starton provides you with faucets.
-- **definitiveName:** The name of your smart contract which will be reflected on-chain.
-- **definitiveSymbol:** The symbol of your smart contract which will be reflected on-chain
-- **initialSupply:** The initial amount of tokens that will be minted.
-- **initialOwnerOrMultisigContract:** The address that will own the ERC20 contract.
+-   **a wallet address with funds:** You can use your default Starton wallet, at creation Starton provides you with faucets.
+-   **definitiveName:** The name of your smart contract which will be reflected on-chain.
+-   **definitiveSymbol:** The symbol of your smart contract which will be reflected on-chain
+-   **initialSupply:** The initial amount of tokens that will be minted.
+-   **initialOwnerOrMultisigContract:** The address that will own the ERC20 contract.
 
 :::
 
@@ -41,24 +41,23 @@ const axiosInstance = axios.create({
 	},
 })
 
-axiosInstance.post(
-	"/v3/smart-contract/from-template",
-	{
-		network: "",// The blockchain network on which you want to deploy your smart contract
-		signerWallet: "",// The address of the signer wallet
+axiosInstance
+	.post("/v3/smart-contract/from-template", {
+		network: "", // The blockchain network on which you want to deploy your smart contract
+		signerWallet: "", // The address of the signer wallet
 		templateId: "ERC20_MINT_META_TRANSACTION",
-		name: "",// The name of the contract on Starton
-		description: "",// The description of the contract on Starton
+		name: "", // The name of the contract on Starton
+		description: "", // The description of the contract on Starton
 		params: [
 			"", // The name of your smart contract which will be reflected on-chain.
 			"", //  The symbol of your smart contract which will be reflected on-chain
 			"", // The total amount of tokens that will ever be minted.
-			"" // The address that will own the ERC20 contract.
-		]
-	}
-).then((response) => {
-	console.log(response.data)
-})
+			"", // The address that will own the ERC20 contract.
+		],
+	})
+	.then((response) => {
+		console.log(response.data)
+	})
 ```
 
 </TabItem>
@@ -68,50 +67,66 @@ axiosInstance.post(
 
 1. Click on **Smart Contract**.
 
-   ![smart contract menu](img/sc-create-erc20.png)
+    ![smart contract menu](img/sc-create-erc20.png)
 
 1. Click **+ Smart contract**.
 
-
 1. Click **Deploy with Template**.
 
-   ![create smart contracts](img/sc-deploy-erc20.png)
+    ![create smart contracts](img/sc-deploy-erc20.png)
 
 1. Click on Create a cryptocurrency (Fungible Tokens).
 
-   ![create smart contracts](img/sc-usecase-erc20.png)
+    ![create smart contracts](img/sc-usecase-erc20.png)
 
 1. Click ERC20 Token with mintable supply.
 
-   ![create smart contracts](img/sc-template-erc20.png)
+    ![create smart contracts](img/sc-template-erc20.png)
 
 1. In **General information**, enter **a name and a description** for your smart contract. These will appear only on Starton and can be edited after creation.
 1. In **Smart contract**, enter:
-- **definitiveName:** The name of your smart contract which will be reflected on-chain. For example,"MyFirstToken".
-- **definitiveSymbol:** The symbol of your smart contract which will be reflected on-chain. For example, "MFT".
-- **initialSupply:** The initial amount of tokens that will be minted. For example, "100000000000000000000000000000000000000".
-- **initialOwnerOrMultisigContract:** The address that will own the ERC20 contract. For example, your default Starton wallet.
 
-  ![create smart contracts](img/sc-constructor-erc20.png)
+-   **definitiveName:** The name of your smart contract which will be reflected on-chain. For example,"MyFirstToken".
+-   **definitiveSymbol:** The symbol of your smart contract which will be reflected on-chain. For example, "MFT".
+-   **initialSupply:** The initial amount of tokens that will be minted. For example, "100000000000000000000000000000000000000".
+-   **initialOwnerOrMultisigContract:** The address that will own the ERC20 contract. For example, your default Starton wallet.
+
+    ![create smart contracts](img/sc-constructor-erc20.png)
 
 1. Click on **Next**.
 
 1. Now select the network on which you want to deploy your contract.
 
-   ![create smart contracts](img/sc-network-erc20.png)
+    ![create smart contracts](img/sc-network-erc20.png)
 
 1. Choose the wallet you want to deploy your contract with.
 
 1. Click **Deploy**.
    Here you will define your gas speed. For more, go to gas management.
 
-   ![speed-gas.png](img/speed-gas.png)
+    ![speed-gas.png](img/speed-gas.png)
 
 1. Click **Validate** to deploy your contract.
 
 </TabItem>
 </Tabs>
 
+Congrats on deploying your smart contract.
+
+<div class="row-is-multiline">
+
+<div class="col col--2" class="cards">
+	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+		<h3>Check your Smart contract on the Dashboard</h3>
+		<div class="button-card__inner">
+			<p color="white">
+				Go to <b>Starton Dashboard</b> and check all the transactions of your smart contract at one glance.
+			</p>
+		</div>
+	</a>
+</div>
+
+</div>
 
 ## Process your first token transfer
 
@@ -120,13 +135,12 @@ axiosInstance.post(
 
 You will need the following information:
 
-
 -   **Wallet**: the signer wallet
 -   **To**: the wallet receiving your transfer
 -   **Amount**: amount to transfer
 
 ```jsx showLineNumbers
-    const axios = require("axios")
+const axios = require("axios")
 
 const axiosInstance = axios.create({
 	baseURL: "https://api.starton.io",
@@ -135,21 +149,19 @@ const axiosInstance = axios.create({
 	},
 })
 
-axiosInstance.post(
-	"/v3/smart-contract/YOUR_SMART_CONTRACT_NETWORK/YOUR_SMART_CONTRACT_ADDRESS/call",
-	{
+axiosInstance
+	.post("/v3/smart-contract/YOUR_SMART_CONTRACT_NETWORK/YOUR_SMART_CONTRACT_ADDRESS/call", {
 		functionName: "transfer(address,uint256)",
 		params: [
-			"",// Enter the wallet receiving tokens.
-			""//amount of token transferred
+			"", // Enter the wallet receiving tokens.
+			"", //amount of token transferred
 		],
-		signerWallet: "",// Enter the wallet from which tokens will be transferred.
-		speed: "average"
-	}
-).then((response) => {
-	console.log(response.data)
-})
-
+		signerWallet: "", // Enter the wallet from which tokens will be transferred.
+		speed: "average",
+	})
+	.then((response) => {
+		console.log(response.data)
+	})
 ```
 
 </TabItem>
@@ -165,11 +177,11 @@ You will need the following information:
 
 1. Click **Interact**.
 
-   ![interact tab](img/sc-interact-erc20.png)
+    ![interact tab](img/sc-interact-erc20.png)
 
 1. In the function list, select **transfer**.
 
-   ![mint function](img/sc-transfer-erc20.png)
+    ![mint function](img/sc-transfer-erc20.png)
 
 1. Select the signer wallet.
 
@@ -177,13 +189,11 @@ You will need the following information:
 
 1. Click **Run**.
 
+    ![create smart contracts](img/sc-network-erc20.png)
+
 1. Select your Speed and click **Validate**.
-
-   ![create smart contracts](img/sc-network-erc20.png)
-
-1. Congratulations! You've transferred your first token.
-
-   ![result-collection.png](img/sc-transfer-erc20.png)
 
 </TabItem>
 </Tabs>
+
+Congratulations! You've transferred your first token.

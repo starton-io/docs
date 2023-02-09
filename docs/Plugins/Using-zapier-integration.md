@@ -1,6 +1,6 @@
 ---
 title: Using Zapier integration
-description: Learn how to use the Zapier plugin with Staron. A plugin is a connection between Starton and an external service.
+description: "Learn how to use the Zapier plugin with Starton. A plugin is a connection between Starton and an external service."
 keywords: [plugin, starton, integration]
 ---
 

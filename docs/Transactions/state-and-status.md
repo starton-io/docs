@@ -1,7 +1,7 @@
 ---
 Title: Transaction state and status
 description: Learn about Transactions states and status.
-keywords: [Transaction, Starton, state, status, error, logs -]
+keywords: [Transaction, Starton, state, status, error, logs]
 ---
 
 # Transaction state and status

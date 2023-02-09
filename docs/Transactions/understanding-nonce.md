@@ -1,5 +1,7 @@
 ---
 title: Understanding nonces
+description: The function of the nonce depends on its type and thus on its purpose in the blockchain. The type characterizes the generation of a nonce.
+keywords: [Nonce, stuck nonce, Relayer, Starton, Transaction]
 ---
 
 # Understanding nonces

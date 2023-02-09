@@ -1,5 +1,7 @@
 ---
 title: Understanding Gas Management
+description: Gas refers to the unit that measures the amount of computational effort required to execute specific operations on the blockchain.
+keywords: [gas, stuck transactiom, Relayer, Starton, Transaction]
 ---
 
 # Understanding Gas Management

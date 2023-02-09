@@ -33,6 +33,19 @@ This webhook signing key is available in the [Developer](/Developer/Discovering-
 
 It should look like: `whs_lDtcN3gDEaY_Yg3aony8077Lr-9wa5JyxAitUvfg886y9JDs4mVoY9uD`.
 
+<div class="row-is-multiline">
+
+<div class="col col--2" class="cards">
+	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+		<h3>Get your signing key from the Dashboard</h3>
+		<div class="button-card__inner">
+			<p color="white">Go to <b>Starton Dashboard</b> and get your signing key in the developer section.</p>
+		</div>
+	</a>
+</div>
+
+</div>
+
 ## Sign the payload using the signing key
 
 To properly compute the signature you will have to compute an HMAC with the SHA256 hash function.
