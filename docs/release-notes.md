@@ -7,21 +7,19 @@ displayed-sidebar: connectSidebar
 
 ## 2023
 
-### January 
+### January
 
-- **Search smart contract functions** 
+-   **Search smart contract functions**
 
     When interacting with smart contracts on Dashboard, you can now use the search feature to browse the functions of your smart contracts. For a clearer understanding, functions are now sorted between read, write and payable functions. [Read more](/Wallet/withdraw.mdx)
 
-- **Withdraw funds from wallets**
+-   **Withdraw funds from wallets**
 
     You can now withdraw funds deposited on your wallet in Starton from Dashboard. This operation is a transaction you can perform directly from your wallet list. [Read more](/Smart-contract/interacting-with-a-smart-contract.mdx)
 
-- **Nonce and Status columns have been added to the transactions list**
+-   **Nonce and Status columns have been added to the transactions list**
 
     To enable you to access the most relevant information at a glance, a column has been added for nonces and status on your all activity transactions list. [Read more](/Transactions/state-and-status.md)
-
-
 
 ## Starton V3
 

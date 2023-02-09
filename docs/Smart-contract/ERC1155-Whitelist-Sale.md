@@ -1,6 +1,7 @@
 ---
 title: ERC1155 NFT Whitelist Sale
 description: The smart contract standard to manage unique tokens.
+keywords: [ERC-1155, ERC1155, Deploy, Starton, Smart contracts, parameters, functions]
 ---
 
 # ERC1155 NFT Collection Whitelist
@@ -14,7 +15,6 @@ This Whitelist version enables you to create a whitelist of users that can buy y
 This template enables you to mint a new token and sell it to your users. It helps you set up a sale, select when it starts and ends, and set a maximum number of tokens that can be sold in total or to the same user.
 
 Notice that the baseURI of the ERC1155 contract should be the URI that is linked to a directory on ipfs or your centralized server because when minting a new token, the URI will be added to the id. For example, `https://ipfs.io/QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR/0`
-
 
 ## Parameters
 

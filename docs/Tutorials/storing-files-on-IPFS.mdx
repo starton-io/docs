@@ -7,57 +7,149 @@ import TabItem from "@theme/TabItem"
 
 # Storing your first file on IPFS
 
+You can use Starton to turn your application into a dApp in a few steps.
+
+Let's create a project to store a file on IPFS using Starton.
+You can also upload files from Dashboard, see [Uploading on IPFS](/IPFS/uploading-on-ipfs.mdx).
+
 IPFS is a distributed file-sharing system designed to store large dataset.
 From a simple json, to your entire website front-end, you can upload and pin files on IPFS using our API.
 
 To do so, prepare your files, include the following code snippet in your application and fill in the parameters.
+
+:::note You will need:
+
+-   [Node.js](https://nodejs.org/en/)
+-   [Starton wallet](https://starton.io/)
+-   [Starton API Key](https://starton.io/)
+-   A file to upload
+:::
+
+## Creating an Application project
+
+1. Create a directory for your app.
+1. Create a directory named `src`.
+1. In your terminal, install the express package using
+   `npm i express`
+1. In `src`, create a `index.js` file.
+1. In `index.js`, enter the following lines to set up a port for your project:
+
+```jsx showLineNumbers
+const express = require("express")
+const routes = require("./routes")
+const app = express()
+app.use(bodyParser.json())
+const port = 3001 // Port of the project
+
+app.set("port", port) // Set the port of the project
+app.use("/", routes)
+app.listen(port, () => {
+	console.log(`Server listening on port ${port}`)
+})
+```
+
+This will deploy your app on port `3001`.
+
+Now for the good part, let's connect Starton to your application.
+
+## Connecting Starton to your application
+
+1. In src, create a `routes.js` file.
+
+    ```jsx showLineNumbers
+    const express = require("express")
+    const axios = require("axios")
+    const router = express.Router()
+    ```
+
+1. In it, first authenticate with your API KEY.
+
+    ```jsx showLineNumbers
+    // AUTHENTICATING TO THE API USING YOUR API KEY
+    const startonApi = axios.create({
+    	baseURL: "https://api.starton.io",
+    	headers: {
+    		"x-api-key": "YOUR API KEY ",
+    	},
+    })
+    ```
+
+## Uploading your files on IPFS
 
 Optional: you can include additional metadata (information beyond the file) with your upload.
 
 POST requests with a body should have the Content-Type header with value application/json.
 For sending files it should be multipart/form-data.
 
+1. Make an API call to create a transaction.
+
+ ```jsx showLineNumbers
+ const axios = require("axios")
+ const FormData = require("form-data")
+ const fs = require("fs")
+ // AUTHENTICATING TO THE API USING YOUR API KEY
+ const startonApi = axios.create({
+     baseURL: "https://api.starton.io",
+     headers: {
+         "x-api-key": "YOUR_API_KEY",
+     },
+ })
+ // UPLOAD FILE TO IPFS.
+ const uploadFileToIpfs = async (path, name) => {
+     const buffer = fs.readFileSync(path)
+     let data = new FormData()
+     data.append("file", buffer, name)
+     // By setting "isSync" to "true, the request will wait for the pin before completing"
+     data.append("isSync", "false")
+     // Optional: you can add metadata to your file (object stringified)
+     const metadata = JSON.stringify({ your: "additionnal", meta: "data" })
+     data.append("metadata", metadata)
+     try {
+         const ipfsFile = await startonApi.post("/v3/ipfs/file", data, {
+             headers: {
+                 "Content-type": `multipart/form-data; boundary=${data.getBoundary()}`,
+             },
+         })
+         return ipfsFile.data
+     } catch (error) {
+         console.error(error)
+     }
+ }
+ // ENTERING YOUR FILE'S INFORMATION
+ uploadFileToIpfs("./path/of/your/file.png", "name of your file")
+     .then((res) => {
+         console.log(res)
+     })
+     .catch((e) => {
+         console.log(e)
+     })
+ ```
+
+1. Display a message on your `localhost:3001` to inform you that the transaction is successful.
 
     ```jsx showLineNumbers
-    const axios = require("axios")
-    const FormData = require("form-data")
-    const fs = require("fs")
-    // AUTHENTICATING TO THE API USING YOUR API KEY
-    const startonApi = axios.create({
-        baseURL: "https://api.starton.io",
-        headers: {
-            "x-api-key": "YOUR_API_KEY",
-        },
+    router.get("/", (req, res) => {
+    	res.send("Upload successful")
     })
-    // UPLOAD FILE TO IPFS.
-    const uploadFileToIpfs = async (path, name) => {
-        const buffer = fs.readFileSync(path)
-        let data = new FormData()
-        data.append("file", buffer, name)
-        // By setting "isSync" to "true, the request will wait for the pin before completing"
-        data.append("isSync", "false")
-        // Optional: you can add metadata to your file (object stringified)
-        const metadata = JSON.stringify({ your: "additionnal", meta: "data" })
-        data.append("metadata", metadata)
-        try {
-            const ipfsFile = await startonApi.post("/v3/ipfs/file", data, {
-                headers: {
-                    "Content-type": `multipart/form-data; boundary=${data.getBoundary()}`,
-                },
-            })
-            return ipfsFile.data
-        } catch (error) {
-            console.error(error)
-        }
-    }
-    // ENTERING YOUR FILE'S INFORMATION
-    uploadFileToIpfs("./path/of/your/file.png", "name of your file")
-        .then((res) => {
-            console.log(res)
-        })
-        .catch((e) => {
-            console.log(e)
-        })
+
+    module.exports = router
     ```
 
+## Starting your application
 
+1. In your terminal, run `node src`.
+
+You uploaded your first file on IPFS with Starton. Congratulations!
+
+<div class="row-is-multiline">
+
+<div class="col col--2" class="cards">
+	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+		<h3>Check your file on the Dashboard</h3>
+		<div class="button-card__inner">
+			<p color="white">Go to <b>Starton Dashboard</b> and check all your files at one glance.</p>
+		</div>
+	</a>
+</div>
+
+</div>

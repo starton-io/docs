@@ -53,6 +53,7 @@
 	padding: 2rem;
 }
 
+
 .buttonHome {
 	/* Button */
 	box-sizing: border-box;
@@ -312,6 +313,25 @@ div.class*="codeBlockContainer" {
 	margin: 24px 0 24px 0;
 	text-decoration: none;
 }
+.cards:hover {
+	display: table-cell;
+	border-radius: 5px;
+	outline: 0.5px solid #01e6cd;
+	padding: 16px;
+	margin: 24px 0 24px 0;
+	text-decoration: none;
+	background-color: #1E2224;
+}
+
+.card:hover {
+	display: table-cell;
+	border-radius: 5px;
+	outline: 0.5px solid #01e6cd;
+	padding: 16px;
+	margin: 24px 0 24px 0;
+	text-decoration: none;
+	background-color: #1E2224;
+}
 
 .row-is-multiline {
 	display: table;
@@ -342,7 +362,7 @@ h4 {
 	text-decoration: none;
 }
 
-img {
+.img {
 	border: 1px solid #3e4e5c;
 	border-radius: 4px;
 }
@@ -481,6 +501,25 @@ img.illu {
 	}
 }
 
+a {
+	text-decoration: none;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
 /**
  * container
  *

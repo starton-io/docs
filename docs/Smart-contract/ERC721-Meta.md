@@ -1,6 +1,7 @@
 ---
 title: ERC721 NFT Smart Contract
 description: The smart contract standard to manage unique tokens.
+keywords: [ERC-721, ERC721, Deploy, Starton, Smart contracts, parameters, functions]
 ---
 
 # ERC721 NFT Smart Contract

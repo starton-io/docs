@@ -82,7 +82,20 @@ http.post('/smart-contract/from-bytecode', {
 ```
 
 And it should be done! You should receive back an object with the smart contract details such as the hash and the address of it.
-You can then use the address or the transactionHash to check it on the blockchain explorer of your selected network !
+You can then use the address or the transactionHash to check it on the blockchain explorer of your selected network!
+
+<div class="row-is-multiline">
+
+<div class="col col--2" class="cards">
+	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+		<h3>Check your Smart contract on the Dashboard</h3>
+		<div class="button-card__inner">
+			<p color="white">Go to <b>Starton Dashboard</b> and check all the transactions of your smart contract at one glance.</p>
+		</div>
+	</a>
+</div>
+
+</div>
 
 ## Conclusion
 

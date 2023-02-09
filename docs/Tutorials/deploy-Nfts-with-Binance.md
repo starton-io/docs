@@ -44,6 +44,19 @@ To upload our files on IPFS we will now use the [Starton IPFS](/IPFS/understandi
 
 As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.io/ipfs).
 
+<div class="row-is-multiline">
+
+<div class="col col--2" class="cards">
+	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+		<h3>Upload a file on the Dashboard</h3>
+		<div class="button-card__inner">
+			<p color="white">Go to <b>Starton Dashboard</b> and upload all your files in three clicks.</p>
+		</div>
+	</a>
+</div>
+
+</div>
+
 1. Go to **IPFS**.
 1. Click **Upload**.
 1. Select **JSON**.

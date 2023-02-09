@@ -1,5 +1,7 @@
 ---
 title: Blocked transactions troubleshooting
+description: Learn about blocked transactions and how to solve them.
+keywords: [Transaction, Starton, blocked, troubleshooting]
 ---
 
 # Troubleshooting blocked transactions

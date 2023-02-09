@@ -226,6 +226,19 @@ You should be able to see the NFTs on [OpenSea](https://testnets.opensea.io/asse
 
 We have seen in this tutorial how to upload NFTs on a decentralised file system, how to deploy an ERC721 smart contract using Starton, how to make it compatible with OpenSea’s standards and how we can dynamicaly mint the NFTs from code to send them to people!
 
+<div class="row-is-multiline">
+
+<div class="col col--2" class="cards">
+	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+		<h3>Check your Smart contract on the Dashboard</h3>
+		<div class="button-card__inner">
+			<p color="white">Go to <b>Starton Dashboard</b> and check all the transactions of your smart contract at one glance.</p>
+		</div>
+	</a>
+</div>
+
+</div>
+
 We hope you liked this tutorial and that you will follow along in this epic journey of making Web3 the new standard for Internet!
 We are very eager to see what you can build with NFTs.
 Do not hesitate to share what you’ve done!

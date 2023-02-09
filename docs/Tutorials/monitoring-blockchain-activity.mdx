@@ -10,26 +10,79 @@ import CodeBlock from "@theme/CodeBlock"
 
 With **Starton**, you can monitor blockchain activity. Whether it's to watch the activity of a wallet or a smart contract, you can create watchers, triggered by events.
 
+Let's create a application project to track the activity of an address using Starton. 
+You can also create watchers from Dashboard, see [Creating a watcher](/Watcher/creating-a-watcher.mdx).
+
 An event is a set of conditions that are checked when a block is inspected.
 
 When the conditions of a watcher are met, the watcher triggers and sends a communication to the webhook given during the watcher's creation.
 
+:::note You will need:
+
+-   [Node.js](https://nodejs.org/en/)
+-   [Starton wallet](https://starton.io/)
+-   [Starton API Key](https://starton.io/)
+-   An address to monitor
+:::
+
+
+
+## Creating an Application project
+
+1. Create a directory for your app.
+1. Create a directory named `src`.
+1. In your terminal, install the express package using
+   `npm i express`
+1. In `src`, create a `index.js` file.
+1. In `index.js`, enter the following lines to set up a port for your project:
+
+```jsx showLineNumbers
+const express = require("express")
+const routes = require("./routes")
+const app = express()
+app.use(bodyParser.json())
+const port = 3001 // Port of the project
+
+app.set("port", port) // Set the port of the project
+app.use("/", routes)
+app.listen(port, () => {
+	console.log(`Server listening on port ${port}`)
+})
+```
+
+This will deploy your app on port `3001`.
+
+Now for the good part, let's connect Starton to your application.
+
+## Connecting Starton to your application
+
+1. In src, create a `routes.js` file.
+
+    ```jsx showLineNumbers
+    const express = require("express")
+    const axios = require("axios")
+    const router = express.Router()
+    ```
+
+1. In it, first authenticate with your API KEY.
+
+    ```jsx showLineNumbers
+    // AUTHENTICATING TO THE API USING YOUR API KEY
+    const startonApi = axios.create({
+    	baseURL: "https://api.starton.io",
+    	headers: {
+    		"x-api-key": "YOUR API KEY ",
+    	},
+    })
+    ```
+
 ## Creating a watcher
 
-<Tabs>
-<TabItem value="code" label="From Code">
+
 To create a watcher from the code of your application, use the following snippet.
 You can find the full list of networks and event types in our <a href="https://docs.starton.io/intro#tag/Watcher/operation/WatcherCreateOne">API reference</a>.
 
-<CodeBlock language="jsx" showLineNumbers>
-{`const axios = require("axios");
-// First, authenticate to the API
-const startonApi = axios.create({
-  baseURL: "https://api.starton.io",
-  headers: {
-    "x-api-key": "YOUR_API_KEY",
-  },
-});
+```jsx showLineNumbers
 // Use the watcher creation endpoint
 startonApi.post(
     "/v3/watcher",
@@ -44,24 +97,37 @@ startonApi.post(
     }
 ).then((response) => {
     console.log(response.data)
-})`}
-</CodeBlock>
-</TabItem>
-<TabItem value="dashboard" label="From Dashboard">
+})
+```
 
-1. From **Dashboard**, go to **Watcher**.
-1. Click **+ Watcher**.
-1. Enter a **Name** and **Description**.
-1. Click **Next**.
-1. Select a type of notification.
-1. Fill in the **Settings**.
-1. In **Construction**:
-    1. Select a **Blockchain**.
-    1. Select a **Network**.
-    1. Enter an address
-    1. Enter a webhook URL.
-1. In **Confirmation blocks**, enter a number.
-1. Click **Create**.
 
-</TabItem>
-</Tabs>
+1. Display a message on your `localhost:3001` to inform you that the transaction is successful.
+
+    ```jsx showLineNumbers
+    router.get("/", (req, res) => {
+    	res.send("Upload successful")
+    })
+
+    module.exports = router
+    ```
+
+## Starting your application
+
+1. In your terminal, run `node src`.
+
+You uploaded your first watcher with Starton. Congratulations!
+
+
+
+<div class="row-is-multiline">
+
+<div class="col col--2" class="cards">
+	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+		<h3>Check all the events of your watcher on the Dashboard</h3>
+		<div class="button-card__inner">
+			<p color="white">Go to <b>Starton Dashboard</b> and check all your events at one glance.</p>
+		</div>
+	</a>
+</div>
+
+</div>
