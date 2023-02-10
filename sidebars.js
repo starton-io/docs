@@ -242,7 +242,7 @@ module.exports = {
 			},
 			collapsed: true,
 			items: ["Plugins/Using-zapier-integration"],
-		},
+		},"Settings/create-new-project",
 		{
 			type: "category",
 			label: "Release Notes",
@@ -254,10 +254,7 @@ module.exports = {
 			items: ["change-log"],
 		},
 		"freemium",
-		/*  {
-      Settings: ['Dashboard/dashboard','Dashboard/create-new-project'],
 
-    },*/
 	],
 	apiSidebar: ["intro"],
 	tutorialSidebar: [

@@ -24,6 +24,6 @@ By selecting a project, you will access your last transactions.
 
 **Related topics**
 
--   More on [Projects](/Dashboard/create-new-project.md)
+
 -   More on [Transactions](/Transactions/understanding-the-relayer.md)
 -   More on [Developer mode](/Developer/Discovering-coding-interface.md)
