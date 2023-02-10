@@ -39,7 +39,7 @@ The best solution is to store it somewhere else and only store a reference on-ch
 
 We will deploy the contract only once, so we will do it directly from Starton’s dashboard.
 
-We can access the list of templates in the [Smart contract section](/Smart contract/understanding-smart-contracts).
+We can access the list of templates in the [Smart contract section](/Smart-contract/understanding-smart-contracts.md).
 
 1. Select the ERC721 template.
 1. Enter:
@@ -47,7 +47,7 @@ We can access the list of templates in the [Smart contract section](/Smart contr
     - a wallet to sign the transaction,
     - a blockchain / network on which to deploy,
     - the parameters of our contract.
-      For more information on parameters, check out the [Deploying a Smart Contract](/Smart contract/deploying-a-smart-contract).
+      For more information on parameters, check out the [Deploying a Smart Contract](/Smart-contract/deploying-a-smart-contract.mdx).
 
 For example, we can call our contract “My Super NFTs” and deploy it on the Polygon Mumbai network.
 
