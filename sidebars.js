@@ -137,8 +137,6 @@ module.exports = {
 						},
 						{
 							"Deploying NFTs": [
-								/*'Smart-contract/ERC721',
-             'Smart-contract/ERC1155',*/
 								"Smart-contract/ERC721-Meta",
 								"Smart-contract/ERC721-Capped",
 								"Smart-contract/ERC1155-Meta",
