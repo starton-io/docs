@@ -119,7 +119,7 @@ The process of minting a new NFT and sending it to an address goes in three step
 
 -   We upload the content on IPFS (as it is too heavy to be stored on-chain) and get the CID of the content.
 -   We upload a metadata object as a JSON file on IPFS as we do not reference the content directly in the contract. Instead, we put the CID of the content in a metadata object that we upload on IPFS.
--   We call the function “safeMint” of our smart contract, giving the CID of our metadata object and the address that will receive the NFT.
+-   We call the function “mint” of our smart contract, giving the CID of our metadata object and the address that will receive the NFT.
 
 ### Prepare our connection to the Starton API
 
@@ -184,7 +184,7 @@ Feel free to change the name and description that suit your needs.
 
 ### Mint the NFT on the smart contract using the metadata’s CID
 
-Finally, we can call our smart contract “safeMint” function with the receiver’s address and the CID of the metadata we just uploaded:
+Finally, we can call our smart contract “mint” function with the receiver’s address and the CID of the metadata we just uploaded:
 
 ```jsx
 const SMART_CONTRACT_NETWORK = "polygon-mumbai"
@@ -192,7 +192,7 @@ const SMART_CONTRACT_ADDRESS = ""
 const WALLET_IMPORTED_ON_STARTON = ""
 async function mintNft(receiverAddress, metadataCid) {
 	const nft = await starton.post(`/smart-contract/${SMART_CONTRACT_NETWORK}/${SMART_CONTRACT_ADDRESS}/call`, {
-		functionName: "safeMint",
+		functionName: "mint",
 		signerWallet: WALLET_IMPORTED_ON_STARTON,
 		speed: "low",
 		params: [receiverAddress, metadataCid],

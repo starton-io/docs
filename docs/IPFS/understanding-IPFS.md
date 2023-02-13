@@ -14,7 +14,15 @@ As a result, large dataset are stored on a different network. **IPFS (InterPlane
 ![Decentralized vs distributed](img/IPFS.png)
 
 On IPFS, each node hosts a set of files and makes it available to anyone.
-Each file is referenced by a specific hash, called **CID** (Content IDentifier).
 To retrieve content, hosted by at least one active node in the network.
 
 **Starton Storage** offers to host your content on our nodes to ensure their availability at all-time without maintenance needs.
+
+## URI and CID
+
+On IPFS, each file is referenced by a specific hash, called **CID** (Content IDentifier).
+This CID is appended to the base ipfs://ipfs.io/ to form the **URI** like so: 
+
+`ipfs://<CID>`
+
+
