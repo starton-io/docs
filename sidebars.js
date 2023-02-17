@@ -242,7 +242,8 @@ module.exports = {
 			},
 			collapsed: true,
 			items: ["Plugins/Using-zapier-integration"],
-		},"Settings/create-new-project",
+		},
+		{Settings: ['Settings/create-new-project']},
 		{
 			type: "category",
 			label: "Release Notes",
