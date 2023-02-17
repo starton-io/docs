@@ -233,13 +233,13 @@ module.exports = {
 		},
 		{
 			type: "category",
-			label: "Plugins",
+			label: "Tools",
 			link: {
 				type: "doc",
-				id: "Plugins/integrating-plugins",
+				id: "tools/integrating-tools",
 			},
 			collapsed: true,
-			items: ["Plugins/Using-zapier-integration"],
+			items: ["tools/Using-zapier-integration"],
 		},
 		{
 			type: "category",
