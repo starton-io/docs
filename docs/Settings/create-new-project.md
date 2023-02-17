@@ -38,13 +38,11 @@ This feature is available only to premium users. To invite new users, contact us
 1. Click **Send invitation(s)**. 
 
 
-
 ## Removing users from your project 
 
 1. From **Project settings**, click **Users**.
    This is where you can see who can collaborate with you on projects.
 1. Click **Remove**. 
-
 
 
 **Related topics**
