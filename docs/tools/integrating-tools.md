@@ -1,24 +1,24 @@
 ---
-title: Understanding plugins
-description: 'A plugin is a connection between Starton and an external service.
+title: Understanding tools
+description: 'A tool is a connection between Starton and an external service.
 It is an API call binding that gives you a lot of possibilities.'
 keywords: [plugin, starton, integration]
 ---
 
-# Understanding Plugins
+# Understanding Tools
 
-A plugin is a connection between Starton and an external service.
+A tool is a connection between Starton and an external service.
 It is an API call binding that gives you a lot of possibilities.
 For example, you can imagine having an integration with Zapier to automatically deploy a smart contract whenever a customer fills an order on your Shopify.
-As of now, only the Zapier plugin is available, but we can imagine integrations with messaging apps or Twilio for example.
 
-## Using a Plugin
 
-1. From **Dashboard**, click **Plugins**.
-1. Click on a **Plugin**.
+## Using a Tool 
+
+1. From **Dashboard**, click **Tools**.
+1. Click on a **Tool**.
 1. Follow the integration instructions.
 
-![Plugins](src/plugins.png)
+![Tools](src/plugins.png)
 
 **Related topics**
 
