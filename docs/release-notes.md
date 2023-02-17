@@ -7,7 +7,15 @@ displayed-sidebar: connectSidebar
 
 ## 2023
 
-### February 
+### February
+
+-   **Multi user collaboration on a project**
+    
+    You can now invite users to work on a project. Users are notified by email. You can see pending invitations, users joining the project, and removing users from a project.
+
+-   **Brand-new toolbox to integrate WEB3 to your project**
+
+    You can now use our new ready-to-use tools developed for you to plug Starton to social media platforms and integration plugins.
 
 -   **Enhanced Smart contract templates interface**
 
