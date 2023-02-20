@@ -10,11 +10,11 @@ Starton has designed its own Zapier integration. Thanks to this, you have the po
 
 Zapier enables you to make your Shopify, twitter, discord, mailbox or anything you want, a web3 application.
 
-1. From **Dashboard**, click \*\*Plugins.
+1. From **Dashboard**, click \*\*Tools.
 1. Click Zapier.
 1. Log in to Zapier.
 
-![Plugins](src/plugins.png)
+![Tools](src/tools.png)
 
 ## Create a Zap automation
 

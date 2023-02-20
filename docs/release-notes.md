@@ -7,6 +7,20 @@ displayed-sidebar: connectSidebar
 
 ## 2023
 
+### February
+
+-   **Multi user collaboration on a project**
+    
+    You can now invite users to work on a project. Users are notified by email. You can see pending invitations, users joining the project, and removing users from a project. [Read more](/Settings/create-new-project.md#inviting-users-to-your-project)
+
+-   **Brand-new toolbox to integrate WEB3 to your project**
+
+    You can now use our new ready-to-use tools developed for you to plug Starton to social media platforms and integration plugins. [Read more](/tools/integrating-tools.mdx)
+
+-   **Enhanced Smart contract templates interface**
+
+    The deployment of smart contracts from interface as been enhanced. You now access all the templates at a glance. You can click on each template to see what you need to deploy the contract, the functions you can call to interact with your smart contract or even the events you can monitor. [Read more](/Smart-contract/deploying-a-smart-contract.mdx)
+
 ### January
 
 -   **Search smart contract functions**

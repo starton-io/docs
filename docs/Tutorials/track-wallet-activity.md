@@ -14,7 +14,7 @@ You will need:
 
 ## Create a webhook
 
-1. From **Starton**, go to **Plugins**.
+1. From **Starton**, go to **Tools**.
 
 1. Click on the **Zapier** card.
 
