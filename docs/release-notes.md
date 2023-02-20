@@ -11,11 +11,11 @@ displayed-sidebar: connectSidebar
 
 -   **Multi user collaboration on a project**
     
-    You can now invite users to work on a project. Users are notified by email. You can see pending invitations, users joining the project, and removing users from a project.
+    You can now invite users to work on a project. Users are notified by email. You can see pending invitations, users joining the project, and removing users from a project. [Read more](/Settings/create-new-project.md#inviting-users-to-your-project)
 
 -   **Brand-new toolbox to integrate WEB3 to your project**
 
-    You can now use our new ready-to-use tools developed for you to plug Starton to social media platforms and integration plugins.
+    You can now use our new ready-to-use tools developed for you to plug Starton to social media platforms and integration plugins. [Read more](/tools/integrating-tools.mdx)
 
 -   **Enhanced Smart contract templates interface**
 
