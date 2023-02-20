@@ -44,6 +44,11 @@ This feature is available only to premium users. To invite new users, contact us
    This is where you can see who can collaborate with you on projects.
 1. Click **Remove**. 
 
+:::note User Roles 
+
+The creator of the project has the **Owner** role and cannot be removed from the project. Every other user has an **Admin** role.
+
+:::
 
 **Related topics**
 
