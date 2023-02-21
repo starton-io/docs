@@ -1,22 +1,22 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-require("dotenv").config()
+require('dotenv').config()
 
 /** @type {import('@docusaurus/types').Config} */
 module.exports = {
-	title: "STARTON DOCUMENTATION",
-	tagline: "Turn any app into a blockchain app.",
+	title: 'STARTON DOCUMENTATION',
+	tagline: 'Turn any app into a blockchain app.',
 	url: process.env.URL,
-	baseUrl: "/",
-	onBrokenLinks: "warn",
-	onBrokenMarkdownLinks: "warn",
-	favicon: "img/logo.svg",
+	baseUrl: '/',
+	onBrokenLinks: 'warn',
+	onBrokenMarkdownLinks: 'warn',
+	favicon: 'img/logo.svg',
 
 	// GitHub pages deployment config.
 	// If you aren't using GitHub pages, you don't need these.
-	organizationName: "starton-io", // Usually your GitHub org/user name.
-	projectName: "starton-docs", // Usually your repo name.
+	organizationName: 'starton-io', // Usually your GitHub org/user name.
+	projectName: 'starton-docs', // Usually your repo name.
 
 	// Even if you don't use internalization, you can use this field to set useful
 	// metadata like html lang. For example, if your site is Chinese, you may want
@@ -27,19 +27,26 @@ module.exports = {
 	// },
 
 	plugins: [
-		"@docusaurus/theme-live-codeblock"
+		'@docusaurus/theme-live-codeblock',
+		...(process.env.SEGMENT_KEY && [
+			'docusaurus-plugin-segment',
+			{
+				apiKey: process.env.SEGMENT_KEY,
+				// Add other options here.
+			},
+		]),
 	],
 
 	presets: [
 		[
-			"classic",
+			'classic',
 			/**@type {import('@docusaurus/preset-classic').Options} */
 			({
 				sitemap: {
-					changefreq: "weekly",
+					changefreq: 'weekly',
 					priority: 0.5,
-					ignorePatterns: ["/tags/**"],
-					filename: "sitemap.xml",
+					ignorePatterns: ['/tags/**'],
+					filename: 'sitemap.xml',
 				},
 				blog: {
 					showReadingTime: true,
@@ -49,30 +56,30 @@ module.exports = {
 					//    'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
 				},
 				docs: {
-					sidebarPath: require.resolve("./sidebars.js"),
+					sidebarPath: require.resolve('./sidebars.js'),
 					// Please change this to your repo.
 					// Remove this to remove the "edit this page" links.
 				},
 
 				theme: {
-					customCss: require.resolve("./src/css/starton.css"),
+					customCss: require.resolve('./src/css/starton.css'),
 				},
 			}),
 		],
 		[
-			"redocusaurus",
+			'redocusaurus',
 			/**@type {import('@docusaurus/preset-classic').Options} */
 			{
 				// Plugin Options for loading OpenAPI files
 				specs: [
 					{
-						id: "using-single-json",
-						spec: "openapiv3.yaml", //'https://api.starton.io/v3/relayer/docs-json'
+						id: 'using-single-json',
+						spec: 'openapiv3.yaml', //'https://api.starton.io/v3/relayer/docs-json'
 						//route: '/docs/api/'
-						route: "/api/doc",
+						route: '/api/doc',
 					},
 				],
-				themes: ["docusaurus-theme-redoc"],
+				themes: ['docusaurus-theme-redoc'],
 			},
 		],
 	],
@@ -90,42 +97,40 @@ module.exports = {
 				searchPagePath: 'search',
 			},
 			colorMode: {
-				defaultMode: "dark",
+				defaultMode: 'dark',
 				disableSwitch: true,
 			},
-            docs: {
-                            sidebar: {
-                              autoCollapseCategories: true,
-            	 },
-            	 },
-
+			docs: {
+				sidebar: {
+					autoCollapseCategories: true,
+				},
+			},
 
 			navbar: {
-				title: "Starton",
+				title: 'Starton',
 				logo: {
-					alt: "Starton Logo",
-					src: "img/starton.svg",
+					alt: 'Starton Logo',
+					src: 'img/starton.svg',
 				},
 				items: [
 					{
-						type: "doc",
-						docId: "home",
-						position: "left",
-						label: "Connect",
+						type: 'doc',
+						docId: 'home',
+						position: 'left',
+						label: 'Connect',
 					},
-					{ to: "intro", label: "API", position: "left" },
+					{ to: 'intro', label: 'API', position: 'left' },
 					{
-                        type: "search",
-                        position: "right",
-                    					},
-					{ to: "blog/fungible-vs-non-fungible-tokens", label: "Guides", position: "right" },
-					{
-						type: "doc",
-						position: "left",
-						docId: "Tutorials/Home",
-						label: "Tutorials",
+						type: 'search',
+						position: 'right',
 					},
-
+					{ to: 'blog/fungible-vs-non-fungible-tokens', label: 'Guides', position: 'right' },
+					{
+						type: 'doc',
+						position: 'left',
+						docId: 'Tutorials/Home',
+						label: 'Tutorials',
+					},
 
 					/*  {
             type: 'doc',
@@ -143,15 +148,15 @@ module.exports = {
              position: 'right',
              dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
              dropdownActiveClassDisabled: false,
-           },*/{
-                    href: "https://github.com/starton-io",
-                    label: "GitHub",
-                    position: "right",
-                },
+           },*/ {
+						href: 'https://github.com/starton-io',
+						label: 'GitHub',
+						position: 'right',
+					},
 					{
-						href: "https://discord.starton.io",
-						label: "Support",
-						position: "right",
+						href: 'https://discord.starton.io',
+						label: 'Support',
+						position: 'right',
 					},
 					/*  {
             type: 'docsVersionDropdown',
@@ -166,10 +171,10 @@ module.exports = {
 				 * La position du terrain de jeu en direct, au-dessus ou au-dessous de l'éditeur
 				 * Valeurs possibles : "top" | "bottom"
 				 */
-				playgroundPosition: "bottom",
+				playgroundPosition: 'bottom',
 			},
 			footer: {
-				style: "dark",
+				style: 'dark',
 				links: [
 					/*  {
             title: 'Docs',
@@ -181,28 +186,28 @@ module.exports = {
             ],
           },*/
 					{
-						title: "Community",
+						title: 'Community',
 						items: [
 							{
-								label: "Discord",
-								href: "https://discord.starton.io",
+								label: 'Discord',
+								href: 'https://discord.starton.io',
 							},
 							{
-								label: "Twitter",
-								href: "https://twitter.com/starton_io",
+								label: 'Twitter',
+								href: 'https://twitter.com/starton_io',
 							},
 						],
 					},
 					{
-						title: "More",
+						title: 'More',
 						items: [
 							{
-								label: "Blog",
-								href: "https://blog.starton.io/",
+								label: 'Blog',
+								href: 'https://blog.starton.io/',
 							},
 							{
-								label: "GitHub",
-								href: "https://github.com/starton-io",
+								label: 'GitHub',
+								href: 'https://github.com/starton-io',
 							},
 						],
 					},
@@ -211,7 +216,7 @@ module.exports = {
 
 			copyright: `Copyright © ${new Date().getFullYear()} Starton Documentation, Inc. Built with Docusaurus.`,
 			prism: {
-				theme: require("prism-react-renderer/themes/dracula"),
+				theme: require('prism-react-renderer/themes/dracula'),
 			},
 		}),
 }
