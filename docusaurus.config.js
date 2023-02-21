@@ -29,11 +29,13 @@ module.exports = {
 	plugins: [
 		'@docusaurus/theme-live-codeblock',
 		...(process.env.SEGMENT_KEY && [
-			'docusaurus-plugin-segment',
-			{
-				apiKey: process.env.SEGMENT_KEY,
-				// Add other options here.
-			},
+			[
+				'docusaurus-plugin-segment',
+				{
+					apiKey: process.env.SEGMENT_KEY,
+					// Add other options here.
+				},
+			],
 		]),
 	],
 
