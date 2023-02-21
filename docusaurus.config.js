@@ -30,16 +30,6 @@ module.exports = {
 		"@docusaurus/theme-live-codeblock"
 	],
 
-	// themeConfig: {
-	//   liveCodeBlock: {
-	// 	/**
-	// 	 * La position du terrain de jeu en direct, au-dessus ou au-dessous de l'éditeur
-	// 	 * Valeurs possibles : "top" | "bottom"
-	// 	**/
-	// 	playgroundPosition: 'bottom',
-	//   },
-	// },
-
 	presets: [
 		[
 			"classic",
@@ -103,6 +93,12 @@ module.exports = {
 				defaultMode: "dark",
 				disableSwitch: true,
 			},
+            docs: {
+                            sidebar: {
+                              autoCollapseCategories: true,
+            	 },
+            	 },
+
 
 			navbar: {
 				title: "Starton",

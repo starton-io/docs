@@ -21,8 +21,8 @@ To retrieve content, hosted by at least one active node in the network.
 ## URI and CID
 
 On IPFS, each file is referenced by a specific hash, called **CID** (Content IDentifier).
-This CID is appended to the base ipfs://ipfs.io/ to form the **URI** like so: 
+This CID is appended to the base ipfs://ipfs/ to form the **URI** like so: 
 
-`ipfs://<CID>`
+`ipfs://ipfs/<CID>`
 
 
