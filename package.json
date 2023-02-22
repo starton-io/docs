@@ -1,6 +1,6 @@
 {
   "name": "starton-docs",
-  "version": "3.0.47",
+  "version": "3.0.48",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -33,6 +33,7 @@
     "@stoplight/elements": "^7.7.2",
     "clsx": "^1.2.1",
     "docusaurus-plugin-openapi-docs": "^1.2.0",
+    "docusaurus-plugin-segment": "^1.0.4",
     "docusaurus-theme-openapi-docs": "^1.2.0",
     "docusaurus-theme-redoc": "^1.4.0",
     "dotenv": "^16.0.3",

@@ -11,7 +11,7 @@ displayed-sidebar: connectSidebar
 
 -   **Multi user collaboration on a project**
     
-    You can now invite users to work on a project. Users are notified by email. You can see pending invitations, users joining the project, and removing users from a project. [Read more](/Settings/create-new-project.md#inviting-users-to-your-project)
+    You can now invite users to work on a project. Users are notified by email. You can see pending invitations, users joining the project, and remove users from a project. [Read more](/Settings/create-new-project.md#inviting-users-to-your-project)
 
 -   **Brand-new toolbox to integrate WEB3 to your project**
 
@@ -19,7 +19,7 @@ displayed-sidebar: connectSidebar
 
 -   **Enhanced Smart contract templates interface**
 
-    The deployment of smart contracts from interface as been enhanced. You now access all the templates at a glance. You can click on each template to see what you need to deploy the contract, the functions you can call to interact with your smart contract or even the events you can monitor. [Read more](/Smart-contract/deploying-a-smart-contract.mdx)
+    The deployment of smart contracts from interface has been enhanced. You now access all the templates at a glance. You can click on each template to see what you need to deploy the contract, the functions you can call to interact with your smart contract or even the events you can monitor. [Read more](/Smart-contract/deploying-a-smart-contract.mdx)
 
 ### January
 
