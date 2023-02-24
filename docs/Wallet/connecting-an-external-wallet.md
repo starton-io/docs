@@ -23,6 +23,12 @@ You are now connected to your wallet. You can use it to deploy smart contracts o
 
 ![Wallet connected metamask](assets/connected-metamask.png)
 
+:::info
+
+You can transfer ownership of any of your contracts signed with Starton. See [How to change ownership](Tutorials/how-to-change-the-smart-contracts-ownership.md)
+
+::: 
+
 **Related topics**
 
 -   More on [Transactions](/Transactions/creating-a-transaction.mdx)

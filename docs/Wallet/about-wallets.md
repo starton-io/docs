@@ -8,6 +8,12 @@ To interact with blockchains, you need to sign transactions with a wallet to pro
 
 When deploying and interacting with Smart Contracts, you can use an external wallet to sign transactions manually. **Starton** supports **Metamask**.
 
+:::caution
+
+Transactions signed with a third party wallet will not be managed by our Relayer. 
+
+:::
+
 You can also use a wallet stored in a **Key Management System** (KMS).
 A KMS enables you to sign transactions automatically.
 
