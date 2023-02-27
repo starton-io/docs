@@ -26,7 +26,7 @@ Anyone, who knows the public key of the message signer, can verify the signature
 
 ## Signing a message with a Wallet
 
-<img src={signMessage} style={{ width: 500 }} />
+
 
 They are used to prove ownership of an address without exposing its private key. This is primarily used for signing transactions but can also be used to sign arbitrary messages.
 
@@ -67,6 +67,8 @@ signMessage("0x", "Hello, World!")
 
 </TabItem>
 <TabItem value="dashboard" label="From Dashboard">
+
+<img src={signMessage} style={{ width: 500 }} />
 
 1. Click <img src={threePoints} style={{width: 30}} className="icon"/>.
 1. Click **Sign**.

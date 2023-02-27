@@ -4,7 +4,7 @@ title: ADDRESS_ACTIVITY
 
 # ADDRESS_ACTIVITY
 
-Triggers when an address receives base currency or creates a transaction (equivalent to ADDRESS_RECEIVED_NATIVE_CURRENCY and ADDRESS_SENT_NATIVE_CURRENCY combined).
+Triggers when an address receives base currency or creates a transaction.
 Here is an example of the payload sent to the webhook as a POST request when the event is triggered.
 You can find more details about the [transaction object](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) (please notice that it inherits the [Transaction](https://docs.ethers.io/v5/api/utils/transactions/#Transaction).
 The receipt object is described [here](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionReceipt).

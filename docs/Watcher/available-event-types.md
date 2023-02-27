@@ -10,7 +10,7 @@ The currently available event types are:
 
 | Event type                         | Description                                                                                                                                                          |
 | ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ADDRESS_ACTIVITY`                 | Triggers when an address receives base currency or creates a transaction (equivalent to ADDRESS_RECEIVED_NATIVE_CURRENCY and ADDRESS_SENT_NATIVE_CURRENCY combined). |
+| `ADDRESS_ACTIVITY`                 | Triggers when an address receives base currency or creates a transaction. |
 | `ADDRESS_RECEIVED_NATIVE_CURRENCY` | Triggers when an address receives some of the blockchain's native tokens (ex: ETH for Ethereum)                                                                      |
 | `ADDRESS_SENT_NATIVE_CURRENCY`     | Triggers when an address sends some of the blockchain's native tokens (ex: ETH for Ethereum)                                                                         |
 | `EVENT_TRANSFER`                   | Triggers when an ERC20 transfers tokens.                                                                                                                             |
