@@ -175,7 +175,7 @@ module.exports = {
 				id: "IPFS/understanding-IPFS",
 			},
 			collapsed: true,
-			items: ["IPFS/uploading-on-ipfs",
+			items: ["IPFS/uploading-on-ipfs","IPFS/uploading-folder","IPFS/uploading-json","IPFS/pinning-file",
 			        "Tutorials/uploading-metadata-NFT",],
 		},
 		{
