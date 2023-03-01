@@ -1,5 +1,5 @@
 ---
-title: Uploading Files to IPFS
+title: Creating folders on IPFS
 description: Learn how to upload on Starton IPFS.
 keywords: [IPFS, smart contract, upload]
 ---
@@ -8,13 +8,9 @@ import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
 import CodeBlock from "@theme/CodeBlock"
 
-# Using Storage
+# Creating folders on IPFS
 
 You can upload content on IPFS. Starton IPFS is a storage and pinning service, where you can host files, folders, and metadata on our IPFS nodes so that they remain available at all times.
-
-
-
-## Uploading Files to IPFS
 
 <Tabs>
 <TabItem value="code" label="From Code">
@@ -33,51 +29,51 @@ const startonApi = axios.create({
 		"x-api-key": "YOUR_API_KEY",
 	},
 })
-// UPLOAD FILE TO IPFS.
-const uploadFileToIpfs = async (path, name) => {
-	const buffer = fs.readFileSync(path)
+// UPLOADING A FOLDER ON IPFS
+const uploadFolderToIpfs = async (folderPath, folderName) => {
 	let data = new FormData()
+	const files = fs.readdirSync(folderPath)
 
-	data.append("file", buffer, name)
+	data.append("folderName", folderName)
+	for (const file of files) {
+		const buffer = fs.readFileSync(folderPath + "/" + file)
+		data.append("files", buffer, file)
+	}
 	// By setting "isSync" to "true, the request will wait for the pin before completing"
 	data.append("isSync", "false")
-	// Optional: you can add metadata to your file (object stringified)
+
+	// Optional (object stringified)
 	const metadata = JSON.stringify({ your: "additionnal", meta: "data" })
 	data.append("metadata", metadata)
+
+	// Post data
 	try {
-		const ipfsFile = await startonApi.post("/v3/ipfs/file", data, {
+		const ipfsFolder = await startonApi.post("/v3/ipfs/folder", data, {
 			headers: {
 				"Content-type": `multipart/form-data; boundary=${data.getBoundary()}`,
 			},
 		})
-		return ipfsFile.data
+		return ipfsFolder.data
 	} catch (error) {
-		console.error(error)
+		console.error(error.response.data)
 	}
+	console.log(data)
 }
 
-// ENTERING YOUR FILE'S INFORMATION
-uploadFileToIpfs("./path/of/your/file.png", "name of your file")
-	.then((res) => {
-		console.log(res)
-	})
-	.catch((e) => {
-		console.log(e)
-	})
+uploadFolderToIpfs("path/to/your/folder", "Folder name")
+	.then((response) => console.log(response))
+	.catch((error) => console.log(error))
 ```
 
 </TabItem>
 <TabItem value="dashboard" label="From Dashboard">
 
-![IPFS](img/IPFS.png)
-
-1. Go to **Storage**.
+1. Go to **IPFS**.
 1. Click **Upload**.
-1. Select File(s).
-1. Select content.
-1. Enter a name for the file.
+1. Select **File(s)**.
+1. Toggle the **Create folder** button.
+1. Enter **Names** for the files.
 1. Click **Upload**.
 
 </TabItem>
 </Tabs>
-
