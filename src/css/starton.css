@@ -1050,5 +1050,12 @@ header + section.shade {
     padding-top: var(--ifm-spacing-vertical);
 }
 */
+menu__link--sublist{
+    color: red;
+    font-size: 1.1em;
+    font-weight: bold;
+    margin-bottom: var(--ifm-contents-padding-vertical);
+    text-transform: uppercase;
+}
 
 

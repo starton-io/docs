@@ -1605,6 +1605,148 @@ paths:
                 - "$ref": "#/components/schemas/NOT_AUTHENTICATED"
       tags:
       - Kms
+  "/v3/data/{network}/gas-price":
+    get:
+      operationId: GasPriceGetAllForNetwork
+      summary: 'Get gas price information for a network'
+      description: 'Returns gas price information according to different speeds on a specific {network}'
+      parameters:
+        - name: network
+          required: true
+          in: path
+          schema:
+            enum:
+              - ethereum-mainnet
+              - ethereum-goerli
+              - binance-mainnet
+              - binance-testnet
+              - polygon-mainnet
+              - polygon-mumbai
+              - avalanche-mainnet
+              - avalanche-fuji
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/GasPrices'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/BAD_REQUEST_EXCEPTION'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/NOT_AUTHENTICATED'
+      tags:
+        - Data
+  "/v3/data/{network}/address/{address}/balance/native":
+    get:
+      operationId: DataBalanceNative
+      summary: 'Gets the balance of native currency of an {address} on a specific {network}'
+      parameters:
+        - name: network
+          required: true
+          in: path
+          schema:
+            enum:
+              - ethereum-mainnet
+              - ethereum-goerli
+              - binance-mainnet
+              - binance-testnet
+              - polygon-mainnet
+              - polygon-mumbai
+              - avalanche-mainnet
+              - avalanche-fuji
+            type: string
+        - name: address
+          required: true
+          in: path
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AddressNativeBalanceResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/BAD_REQUEST_EXCEPTION'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/NOT_AUTHENTICATED'
+      tags:
+        - Data
+  "/v3/data/{network}/erc20/{contractAddress}/balance":
+    get:
+      operationId: DataBalanceNative
+      summary: 'Gets the balance of native currency of a contract on a specific network'
+      parameters:
+        - name: network
+          required: true
+          in: path
+          schema:
+            enum:
+              - ethereum-mainnet
+              - ethereum-goerli
+              - binance-mainnet
+              - binance-testnet
+              - polygon-mainnet
+              - polygon-mumbai
+              - avalanche-mainnet
+              - avalanche-fuji
+            type: string
+        - name: contractAddress
+          required: true
+          in: path
+          schema:
+            type: string
+        - name: address
+          required: true
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: ''
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ERC20BalanceResponse'
+        '400':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/BAD_REQUEST_EXCEPTION'
+        '401':
+          description: ''
+          content:
+            application/json:
+              schema:
+                oneOf:
+                  - $ref: '#/components/schemas/NOT_AUTHENTICATED'
+      tags:
+        - Data
   "/v3/kms/wallet":
     get:
       operationId: WalletGetAll
@@ -1966,51 +2108,6 @@ paths:
                 - "$ref": "#/components/schemas/COULD_NOT_ASSIGN_NONCE"
       tags:
       - Kms
-  "/v3/gas-price/{network}":
-    get:
-      operationId: GasPriceGetAllForNetwork
-      summary: 'Get gas price information for a network'
-      description: 'Returns gas price information according to different speeds on a specific {network}'
-      parameters:
-      - name: network
-        description: 'Network which gas price will be returning from'
-        required: true
-        in: path
-        schema:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
-          type: string
-      responses:
-        '200':
-          description: 'Successful'
-          content:
-            application/json:
-              schema:
-                "$ref": "#/components/schemas/GasPrice"
-        '400':
-          description: 'x-project-id required'
-          content:
-            application/json:
-              schema:
-                oneOf:
-                - "$ref": "#/components/schemas/BAD_REQUEST_EXCEPTION"
-        '401':
-          description: 'Not Authenticated'
-          content:
-            application/json:
-              schema:
-                oneOf:
-                - "$ref": "#/components/schemas/NOT_AUTHENTICATED"
-      tags:
-      - GasPrice
   "/v3/transaction":
     get:
       operationId: TransactionGetAll
@@ -3114,6 +3211,41 @@ components:
       - message
       - timestamp
       - path
+    AddressNativeBalanceResponse:
+      type: object
+      properties:
+        symbol:
+          type: string
+        balance:
+          type: string
+        decimal:
+          type: number
+        formatted:
+          type: string
+      required:
+        - symbol
+        - balance
+        - decimal
+        - formatted
+    ERC20BalanceResponse:
+      type: object
+      properties:
+        symbol:
+          type: string
+        balance:
+          type: string
+        decimal:
+          type: number
+        formatted:
+          type: string
+        contractAddress:
+          type: object
+      required:
+        - symbol
+        - balance
+        - decimal
+        - formatted
+        - contractAddress
     COULD_NOT_FIND_RESOURCE:
       type: object
       properties:
@@ -3151,6 +3283,38 @@ components:
       - cid
       - path
       - size
+    GasPriceInfo:
+      type: object
+      properties:
+        maxFeePerGas:
+          type: string
+          nullable: true
+        maxPriorityFeePerGas:
+          type: string
+          nullable: true
+        gasPrice:
+          type: string
+          nullable: true
+      required:
+        - maxFeePerGas
+        - maxPriorityFeePerGas
+        - gasPrice
+    GasPrices:
+      type: object
+      properties:
+        low:
+          $ref: '#/components/schemas/GasPriceInfo'
+        average:
+          $ref: '#/components/schemas/GasPriceInfo'
+        fast:
+          $ref: '#/components/schemas/GasPriceInfo'
+        fastest:
+          $ref: '#/components/schemas/GasPriceInfo'
+      required:
+        - low
+        - average
+        - fast
+        - fastest
     Pin:
       type: object
       properties:
@@ -4692,9 +4856,11 @@ components:
         metadata:
           description: metadata of the wallet
           type: object
-        credentials:
-          description: identification information on the KMS
-          "$ref": "#/components/schemas/AwsKmsCredentialsDto"
+        kmsId:
+          description: id of your KMS on Starton
+          type: string
+      required:
+        - kmsId
     ImportProviderKeyDto:
       type: object
       properties:
@@ -5412,19 +5578,6 @@ components:
           - polygon-mumbai
           - avalanche-mainnet
           - avalanche-fuji
-    GasPriceInfo:
-      type: object
-      properties:
-        maxFeePerGas:
-          type: string
-        maxPriorityFeePerGas:
-          type: string
-        gasPrice:
-          type: string
-      required:
-      - maxFeePerGas
-      - maxPriorityFeePerGas
-      - gasPrice
     SettingRelayer:
       type: object
       properties:

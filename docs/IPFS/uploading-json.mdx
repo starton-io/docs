@@ -1,0 +1,56 @@
+---
+title: Uploading JSON Files to IPFS
+description: Learn how to upload on Starton IPFS.
+keywords: [IPFS, smart contract, upload]
+---
+
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+import CodeBlock from "@theme/CodeBlock"
+
+# Uploading JSON Files to IPFS
+
+You can upload content on IPFS. Starton IPFS is a storage and pinning service, where you can host files, folders, and metadata on our IPFS nodes so that they remain available at all times.
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+```jsx showLineNumbers
+    const axios = require("axios");
+    const FormData = require("form-data");
+    const fs = require("fs");
+    // AUTHENTICATING TO THE API USING YOUR API KEY
+    const startonApi = axios.create({
+      baseURL: "https://api.starton.io",
+      headers: {
+        "x-api-key": "YOUR_API_KEY",
+      },
+    });
+    // UPLOAD JSON TO IPFS.
+    const uploadJsonToIpfs = async (json, name) => {
+    const ipfsJson = await startonApi.post("/v3/ipfs/json", {
+      name: name of your json,
+      content: json,
+      metadata: { your: "additionnal", meta: "data" },
+    });
+    return ipfsJson;
+    };
+    // ENTERING YOUR JSON'S INFORMATION
+    uploadJsonToIpfs({ "metadata": "data" }, "Json name")
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e));
+
+```
+
+</TabItem>
+<TabItem value="dashboard" label="From Dashboard">
+
+1. Go to **Storage**.
+1. Click **Upload**.
+1. Select JSON.
+1. Select content.
+1. Enter a name for the file.
+1. Click **Upload**.
+
+</TabItem>
+</Tabs>

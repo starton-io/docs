@@ -48,10 +48,12 @@ html[data-theme="dark"] {
 }
 
 .label {
-	margin-bottom: 0.5rem;
-	font-size: 14px;
-	font-weight: 600;
-}
+           color: red;
+           font-size: 1.1em;
+           font-weight: bold;
+           margin-bottom: var(--ifm-contents-padding-vertical);
+           text-transform: uppercase;
+       }
 
 .description {
 	margin: 0;

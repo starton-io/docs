@@ -26,3 +26,4 @@ This CID is appended to the base ipfs://ipfs/ to form the **URI** like so:
 `ipfs://ipfs/<CID>`
 
 
+For more information, check out [IPFS documentation](https://docs.ipfs.tech/).
