@@ -27,6 +27,20 @@ If the hacker would have access to the private keys, the wallet would be corrupt
 
 **Starton** currently supports the AWS Key management system.
 
+## Connecting AWS Key Management Systems
+
+> **Starton** provides test wallets hosted on our **Key Management System**, but when going in production, to maintain control over your wallets, you should use your own KMS.
+
+To connect **Starton** to your **AWS KMS**, you can:
+
+-   grant access to **Starton** only to one wallet of your **KMS**
+-   grant full access to **Starton** on your **KMS**
+
+> By granting access to **Starton** only to one wallet, you’ll have to create new wallets and import them every time on your own.
+> Granting full access to **Starton** enables you to dynamically create new wallets with the Starton API.
+
+
+
 **Related topics**
 
 -   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)

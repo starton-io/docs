@@ -4,15 +4,15 @@ title: Understanding webhooks
 
 # Understanding webhooks
 
-To share information, watchers use webhooks.
+To notify you of events, watchers use webhooks.
 
 Webhooks are a term used to describe an HTTP request that is triggered by an event in a source system, sent to a destination system, often with a payload of data. Webhooks are automated requests so they are automatically sent out when their event is fired in the source system.
 
 In Starton, watchers use webhook as event notifications.
 
-## Creating a webhook
+## Creating a URL to receive a webhook
 
-You can create a webhook using several methods.
+You can create a URL to receive webhooks using several methods.
 
 For example, you can use Zapier to create a webhook. See our use case tutorial, [Track a wallet activity on a Googlesheets using Starton and Zapier](https://docs.starton.io/docs/Tutorials/track-wallet-activity).
 

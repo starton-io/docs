@@ -33,7 +33,7 @@ On the **Developer** section, you can generate new API keys or revoke the previo
 
 ### Using an API Key
 
-The API key will be needed in your code if you try to call Connect's API endpoints (as the x-api-key variable in the Headers of the requests) or when using the Starton's SDK.
+The API key will be needed in your code if you try to call Connect's API endpoints (as the x-api-key variable in the Headers of the requests).
 
 ```jsx showLineNumbers
 const startonApi = axios.create({
@@ -53,7 +53,7 @@ API calls can return a large number of items. It can be very useful to set the n
 This information is set in the path of your request. You can use:
 
 -   limit: the number of results returned by page. By default, this number is set to 100.
--   page: the page returned.
+-   page: the page returned. By default, the page returned is the first. 
 
 For example if you want to get the list of templates Starton will return, you will use the path:
 
