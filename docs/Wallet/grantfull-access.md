@@ -3,11 +3,11 @@ title: Granting Full Access on your KMS to Starton
 description: Learn how to connect AWS Key Management Systems
 keywords: [Wallet, Starton, Smart contracts, AWS, Key Management System, Transaction]
 ---
-## Granting Full Access on your KMS to Starton
+# Granting Full Access on your KMS to Starton
 
 > Granting full access to **Starton** enables you to dynamically create new wallets with the Starton API.
 
-### Creating a new policy before the IAM creation
+## Creating a new policy before the IAM creation
 
 Before granting access to your KMS, you need to create a Policy to define permissions associated to the IAM we will create.
 
@@ -41,7 +41,7 @@ Before granting access to your KMS, you need to create a Policy to define permis
 1. Enter a **Name** for the policy.
 1. Click **Create policy**.
 
-### Create a new IAM user for Starton
+## Create a new IAM user for Starton
 
 1. Access [AWS Users](https://console.aws.amazon.com/iamv2/home?#/users).
 1. Click **Add users**.
@@ -68,7 +68,7 @@ Before granting access to your KMS, you need to create a Policy to define permis
 
 1. Click **Create user** to get the **Access Key Id** and **Secret Access Key** for your KMS.
 
-### Importing the wallet on Starton
+## Importing the wallet on Starton
 
 1. From the Dashboard, click **Wallets**.
 1. Click **+ Wallet**.

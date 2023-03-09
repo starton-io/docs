@@ -15,7 +15,7 @@ To connect **Starton** to your **AWS KMS**, you can grant access to **Starton** 
 > By granting access to **Starton** only to one wallet, you’ll have to create new wallets and import them every time on your own.
 
 
-### Creating a wallet on AWS
+## Creating a wallet on AWS
 
 1. On your AWS dashboard, search **Key Management Service**.
    ![Create wallet on AWS](assets/creating-wallet-aws.png)
@@ -37,7 +37,7 @@ To connect **Starton** to your **AWS KMS**, you can grant access to **Starton** 
     1. In arn:aws:iam::, enter `052805596453`.
        ![Configure key](assets/aws-step-4.png)
 
-### Connecting your wallet on Starton
+## Connecting your wallet on Starton
 
 1. From the **Dashboard**, go to **Wallets**.
 1. Click **+ Wallet**.

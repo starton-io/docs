@@ -68,6 +68,7 @@ module.exports = {
                     collapsed: true,
                     items: [
 						"Wallet/connecting-aws-kms",
+						"Wallet/grantfull-access",
 					],
 				},
 			],
@@ -275,6 +276,7 @@ module.exports = {
 				"Tutorials/creating-NFT-collection",
 				"Tutorials/creating-token-ERC20-fixed",
 				"Tutorials/creating-token-ERC20-mintable",
+				/*"Tutorials/whitelist-tutorial"*/
 			],
 		},
 		{
