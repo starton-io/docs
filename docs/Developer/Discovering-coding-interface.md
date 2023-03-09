@@ -16,7 +16,7 @@ You can use Starton from code with Javascript. The parameters entered on the int
 
 :::info
 
-Dev mode is not useful on every view of the interface. When there is no interaction with the API, it is unavailable. Dev mode will resume when a request is performed.
+Dev mode is not useful on every view of the interface. Dev mode will resume when a request is performed that you can integrate to your code.
 
 :::
 

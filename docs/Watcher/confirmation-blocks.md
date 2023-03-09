@@ -18,21 +18,25 @@ This means that after some time, some histories may get reverted in favour of ot
 Fortunately, the older a transaction has been included the more likely it is to persist forever.
 The confirmation block value defines the number of validated blocks we should wait before considering a transaction as definitely accepted by the network.
 
-Each network has a different block speed, and thus a different ideal value for the confirmation blocks.
-
 ![Projects](src/confirmationblock.png)
 
-| Network           | Default confirmation blocks |
-| ----------------- | --------------------------- |
+:::info Networks 
+
+Each network has a different block speed, and thus a different recommended value for the confirmation blocks.
+
+:::
+
+| Network           | Recommended confirmation blocks |
+| ----------------- |---------------------------------|
 | Ethereum          |
-| ethereum-mainnet  | 12                          |
-| ethereum-goerli   | 12                          |
+| ethereum-mainnet  | 12                              |
+| ethereum-goerli   | 12                              |
 | Binance           |
-| binance-mainnet   | 48                          |
-| binance-testnet   | 48                          |
+| binance-mainnet   | 48                              |
+| binance-testnet   | 48                              |
 | Avalanche         |
-| avalanche-mainnet | 80                          |
-| avalanche-fuji    | 160                         |
-| Polygon           |                             |
-| polygon-mainnet   | 50                          |
-| polygon-mumbai    | 50                          |
+| avalanche-mainnet | 80                              |
+| avalanche-fuji    | 160                             |
+| Polygon           |                                 |
+| polygon-mainnet   | 50                              |
+| polygon-mumbai    | 50                              |
