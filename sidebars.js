@@ -14,7 +14,7 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 module.exports = {
 	connectSidebar: [
-		"home","overview",
+		"overview",
 		{
 			type: "category",
 			label: "Getting Started",
@@ -22,18 +22,26 @@ module.exports = {
 				type: "doc",
 				id: "getting-started",
 			},
-			collapsed: true,
+			collapsed: false,
 			items: [
 				"Tutorials/deploy-first-smart-contract",
 				"Tutorials/storing-files-on-IPFS",
 				"Tutorials/monitoring-blockchain-activity",
 			],
 		},
-
+           {
+                 type: "html",
+                 value: "<br style='margin: 0 0 0 0;'/>",
+                 defaultStyle: true,
+               },
 		/*  {
       Dashboard: ['Dashboard/dashboard','Dashboard/create-new-project'],
     },*/
-
+         {
+              type: "html",
+              value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>RELAYER</header>",
+              defaultStyle: true,
+            },
 		{
 			type: "category",
 			label: "Wallets",
@@ -167,21 +175,18 @@ module.exports = {
 					],
 				},
 			],
-		},
+		}, {
+                                                                  type: "html",
+                                                                  value: "<br style='margin: 0.5rem 0 0.5rem0;'/>",
+                                                                  defaultStyle: true,
+                                                                },{
+             type: "html",
+             value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>MONITOR</header>",
+             defaultStyle: true,
+           },
 		{
 			type: "category",
-			label: "Storage",
-			link: {
-				type: "doc",
-				id: "IPFS/understanding-IPFS",
-			},
-			collapsed: true,
-			items: ["IPFS/uploading-on-ipfs","IPFS/uploading-folder","IPFS/uploading-json","IPFS/pinning-file",
-			        "Tutorials/uploading-metadata-NFT",],
-		},
-		{
-			type: "category",
-			label: "Monitor",
+			label: "Watchers",
 			link: {
 				type: "doc",
 				id: "Watcher/understanding-watchers",
@@ -208,10 +213,10 @@ module.exports = {
 						"Watcher/erc1155_event_single",
 						"Watcher/erc1155_event_transfer_batch",
 					],
-				},
+				},],},
 				{
 					type: "category",
-					label: "Understanding webhooks",
+					label: "Webhooks",
 					link: {
 						type: "doc",
 						id: "Watcher/webhooks",
@@ -221,40 +226,48 @@ module.exports = {
 				},
 				"Watcher/confirmation-blocks",
 				"Watcher/watcher-state-and-status",
-			],
-		},
+				{
+                                                                              type: "html",
+                                                                              value: "<br style='margin: 0.5rem 0 0.5rem 0;'/>",
+                                                                              defaultStyle: true,
+                                                                            },{
+                              type: "html",
+                              value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>STORAGE</header>",
+                              defaultStyle: true,
+                            },"IPFS/understanding-IPFS",
+                		{
+                			type: "category",
+                			label: "Uploading",
+                			collapsed: true,
+                			items: ["IPFS/uploading-on-ipfs","IPFS/uploading-folder","IPFS/uploading-json","IPFS/pinning-file",
+                			        "Tutorials/uploading-metadata-NFT",],
+                		},"IPFS/pinning-file",{
+                                                                       type: "html",
+                                                                       value: "<br style='margin: 0.5rem 0 0.5rem 0;'/>",
+                                                                       defaultStyle: true,
+                                                                     },
+
 		{
-			type: "category",
-			label: "Developer",
-			link: {
-				type: "doc",
-				id: "Developer/Discovering-coding-interface",
-			},
-			collapsed: true,
-			items: ["Developer/API"],
-		},
+           type: "html",
+           value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>TOOLS</header>",
+           defaultStyle: true,
+         },
+		"tools/integrating-tools","tools/Using-zapier-integration",{
+                                                                                                                          type: "html",
+                                                                                                                          value: "<br style='margin: 1rem 0 1rem 0;'/>",
+                                                                                                                          defaultStyle: true,
+                                                                                                                        },
 		{
-			type: "category",
-			label: "Tools",
-			link: {
-				type: "doc",
-				id: "tools/integrating-tools",
-			},
-			collapsed: true,
-			items: ["tools/Using-zapier-integration"],
-		},
-		{Settings: ['Settings/create-new-project']},
-		{
-			type: "category",
-			label: "Release Notes",
-			link: {
-				type: "doc",
-				id: "release-notes",
-			},
-			collapsed: false,
-			items: ["change-log"],
-		},
-		"freemium",
+                                           type: "html",
+                                           value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>SETTINGS</header>",
+                                           defaultStyle: true,
+                                         },
+		"Settings/create-new-project",{
+                                                       type: "html",
+                                                       value: "<br style='margin: 0.5rem 0 0.5rem 0;'/>",
+                                                       defaultStyle: true,
+                                                     },
+
 
 	],
 	apiSidebar: ["intro"],
@@ -295,5 +308,16 @@ module.exports = {
 				"Tutorials/track-wallet-activity",
 			],
 		},
-	],
+	],	apiSidebar: [{
+                                   type: "html",
+                                   value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>RELEASE NOTES</header>",
+                                   defaultStyle: true,
+                                 },
+                                 "release-notes","release-notes/starton-v3","release-notes/starton-relayer-v2",
+                     		{
+                                                                 type: "html",
+                                                                 value: "<header style='font-weight: 600; color:white; font-size: 14px'>CHANGELOG</header>",
+                                                                 defaultStyle: true,
+                                                               },
+                     		"change-log"],
 }
