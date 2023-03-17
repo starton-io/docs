@@ -289,7 +289,7 @@ module.exports = {
 				"Tutorials/creating-NFT-collection",
 				"Tutorials/creating-token-ERC20-fixed",
 				"Tutorials/creating-token-ERC20-mintable",
-				/*"Tutorials/whitelist-tutorial"*/
+				"Tutorials/whitelist-tutorial"
 			],
 		},
 		{
