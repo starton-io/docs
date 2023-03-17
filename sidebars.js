@@ -313,10 +313,14 @@ module.exports = {
                                    value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>RELEASE NOTES</header>",
                                    defaultStyle: true,
                                  },
-                                 "release-notes","release-notes/starton-v3","release-notes/starton-relayer-v2",
+                                 "release-notes","release-notes/starton-v3","release-notes/starton-relayer-v2",{
+                                                                                                                                                                      type: "html",
+                                                                                                                                                                      value: "<br style='margin: 0.5rem 0 0.5rem 0;'/>",
+                                                                                                                                                                      defaultStyle: true,
+                                                                                                                                                                    },
                      		{
                                                                  type: "html",
-                                                                 value: "<header style='font-weight: 600; color:white; font-size: 14px'>CHANGELOG</header>",
+                                                                 value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>CHANGELOG</header>",
                                                                  defaultStyle: true,
                                                                },
                      		"change-log"],
