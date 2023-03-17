@@ -66,7 +66,7 @@ signMessage("0x", "Hello, World!")
 ```
 
 </TabItem>
-<TabItem value="dashboard" label="From Dashboard">
+<TabItem value="dashboard" label="From Webapp">
 
 <img src={signMessage} style={{ width: 500 }} />
 

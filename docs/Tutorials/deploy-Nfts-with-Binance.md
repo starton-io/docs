@@ -225,7 +225,7 @@ const nft = await mintNft(RECEIVER_ADDRESS, ipfsMetadata.pinStatus.pin.cid)
 ```
 
 </TabItem>
-<TabItem value="dashboard" label="From Dashboard">
+<TabItem value="dashboard" label="From Webapp">
 
 ## Minting an NFT from Starton's interface
 
