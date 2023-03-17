@@ -109,7 +109,7 @@ module.exports = {
 			},
 
 			navbar: {
-				title: 'Starton',
+
 				logo: {
 					alt: 'Starton Logo',
 					src: 'img/starton.svg',
@@ -117,9 +117,9 @@ module.exports = {
 				items: [
 					{
 						type: 'doc',
-						docId: 'home',
+						docId: 'overview',
 						position: 'left',
-						label: 'Connect',
+						label: 'Docs',
 					},
 					{ to: 'intro', label: 'API', position: 'left' },
 					{
@@ -133,24 +133,12 @@ module.exports = {
 						docId: 'Tutorials/Home',
 						label: 'Tutorials',
 					},
-
-					/*  {
-            type: 'doc',
-            docId: 'Tutorials/Tutorial-index',
-            position: 'left',
-            label: 'Tutorials',
-          },*/
-					/*  {
-            label: 'API Reference',
-            to: '/api/',
-            position: 'left',
-          },
-          {
-             type: 'docsVersionDropdown',
-             position: 'right',
-             dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
-             dropdownActiveClassDisabled: false,
-           },*/ {
+					{
+                    type: 'doc',
+                    position: 'right',
+                    docId: 'release-notes',
+                    label: 'Release notes',
+                      					},{
 						href: 'https://github.com/starton-io',
 						label: 'GitHub',
 						position: 'right',
