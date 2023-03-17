@@ -18,8 +18,6 @@ title: Index
 
 [Deploy your own contract from bytecode](deploy-from-bytecode.md)
 
-[Sign in with the Starton sign in Boilerplate](sign-in-boilerplate.md)
-
 UNDER CONSTRUCTION [How to test webhooks locally with ngrok](https://www.notion.so/How-to-test-webhooks-locally-with-ngrok-c1cf3fdcd8194cbb9c6e618681a344f9)
 
 UNDER CONSTRUCTION [Connect Twitter to the Avalanche Blockchain with Starton](https://blog.starton.io/connect-twitter-to-the-avalanche-blockchain-with-starton-4853235cd8d0?source=user_profile---------6----------------------------)
