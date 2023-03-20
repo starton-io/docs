@@ -52,6 +52,7 @@ Starton helps by providing you:
 - Available testnet and test wallets on which you can test
 - IPFS service to host metadata
 - Again, a community and a team dedicated to helping you
+
 Example:
 For your 10k NFTs mint, you will now need files, metadata, and… A smart contract. You decided to use Starton to mint your collection using an ERC721 smart contract as there will be a collection of 10k unique NFTs. You deploy your smart contract on your blockchain of choice and host your files on IPFS using Starton.
 
@@ -61,9 +62,11 @@ Then comes the time to decide how much you are willing to pay for your transacti
 Issues you can face:
 - Have your transaction stuck due to weak attractiveness for miners
 - Overpaying a transaction, resulting in decreasing profitability
-- Starton helps you:
+
+Starton helps you:
 - Use pre-estimated costs for your transaction
 - Define your own gas price strategy regarding a transaction
+
 Example:
 You are now ready to mint all 10k NFTs at once. The blockchain network you selected is quite busy right now and you are not willing to pay full price because you don’t need your NFTs to be minted instantly, it can wait several hours (or days even). Then, you just have to define a price you are willing to pay using Starton and the transactions will be broadcast to the network waiting for the gas price to decrease enough for a miner to find it attractive and include it into a block.
 

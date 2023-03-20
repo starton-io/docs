@@ -191,6 +191,7 @@ h1 {
 }
 
 .card {
+border-radius: 0px;
 	background-color: #29343d;
 	text-decoration: none;
 	display: table-cell;
@@ -267,12 +268,12 @@ div.class*="codeBlockContainer" {
 
 .card {
 	display: table-cell;
-	border-radius: 0px;
+border-radius: 0px;
 	outline: 0px solid #01e6cd;
-	padding: 80px 16px 24px 16px;
+	padding: 40px 16px 16px 16px;
 	margin: 30px;
 	text-decoration: none;
-	background-color: #151a1f;
+	background-color: #0E1114;
 	word-wrap: break-word;
 	flex: 1;
 }
@@ -313,7 +314,7 @@ div.class*="codeBlockContainer" {
 
 .cards {
 	display: table-cell;
-	border-radius: 5px;
+	border-radius: 0px;
 	outline: 0.5px solid #01e6cd;
 	padding: 16px;
 	margin: 24px 0 24px 0;
@@ -321,7 +322,7 @@ div.class*="codeBlockContainer" {
 }
 .cards:hover {
 	display: table-cell;
-	border-radius: 5px;
+	border-radius: 0px;
 	outline: 0.5px solid #01e6cd;
 	padding: 16px;
 	margin: 24px 0 24px 0;
@@ -331,7 +332,7 @@ div.class*="codeBlockContainer" {
 
 .card:hover {
 	display: table-cell;
-	border-radius: 5px;
+border-radius: 0px;
 	outline: 0.5px solid #01e6cd;
 	padding: 16px;
 	margin: 24px 0 24px 0;
@@ -446,7 +447,7 @@ img.illu {
 
 	.card {
 		display: block;
-		border-radius: 0px;
+border-radius: 0px;
 		outline: 0px solid #01e6cd;
 		padding: 80px 16px 24px 16px;
 		margin: 30px;
@@ -492,7 +493,7 @@ img.illu {
 
 	.cards {
 		display: block;
-		border-radius: 5px;
+		border-radius: 0px;
 		outline: 0.5px solid #01e6cd;
 		padding: 16px;
 		margin: 24px 0 24px 0;

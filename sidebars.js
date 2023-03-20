@@ -289,7 +289,8 @@ module.exports = {
 				"Tutorials/creating-NFT-collection",
 				"Tutorials/creating-token-ERC20-fixed",
 				"Tutorials/creating-token-ERC20-mintable",
-				"Tutorials/whitelist-tutorial"
+				"Tutorials/whitelist-tutorial",
+				"Tutorials/metatransaction"
 			],
 		},
 		{
@@ -305,7 +306,7 @@ module.exports = {
 				"Tutorials/how-to-change-the-smart-contracts-ownership",
 				/*"Tutorials/create-sale-ERC721",*/
 				"Tutorials/create-an-NFT-auction",
-				"Tutorials/track-wallet-activity",
+				"Tutorials/track-wallet-activity"
 			],
 		},
 	],	apiSidebar: [{
