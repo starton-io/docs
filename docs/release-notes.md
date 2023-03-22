@@ -3,6 +3,13 @@ title: 2023
 displayed-sidebar: connectSidebar
 ---
 # 2023
+<!--
+## March 
+
+-  **Launching Starton Form Factory** 
+
+    What happens when our team encounters the limits of a component? We build a new one to provide you with the best user experience. You can see that our inputs in smart contracts have been built with Starton Form Factory so that you can retrieve critical information easily, such as CID and wallet addresses.
+-->
 
 ## February
 

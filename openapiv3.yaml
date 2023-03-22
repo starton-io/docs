@@ -1,5 +1,11 @@
 ---
 openapi: 3.0.0
+servers:
+  - url: https://api.starton.io/
+    description: Default server
+
+extends:
+  - recommended
 paths:
   "/v3/ipfs/pin":
     get:
@@ -3154,7 +3160,6 @@ tags:
   description: The list of API endpoints related to transactions
 - name: Api Key
   description: The list of API endpoints related to API Key
-servers: []
 components:
   securitySchemes:
     bearer:
