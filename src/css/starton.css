@@ -650,7 +650,6 @@ html[data-theme='dark'] .theme-doc-toc-desktop .table-of-contents .table-of-cont
     color: #242736;
 }
 
-
 .theme-doc-sidebar-menu, .menu__link--active,
 .theme-doc-toc-desktop, .table-of-contents, .table-of-contents__link--active {
 
@@ -684,3 +683,7 @@ html[data-theme='dark'] .theme-doc-toc-desktop .table-of-contents .table-of-cont
             align: center;
             padding-bottom: 4px;
         }
+
+.container, .container--fluid, .margin-vert--lg {
+
+                                                         }

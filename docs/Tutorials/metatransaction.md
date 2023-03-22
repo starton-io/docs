@@ -7,36 +7,34 @@ description:  Learn more about metatransactions and how
 
 ## What is a meta transaction?
 
-A meta transaction is a type of transaction that allows a user to pay for gas fees or transaction fees on behalf of someone else. This means that instead of the recipient paying for the transaction fees themselves, the fees are paid by a third-party, typically a relayer, on their behalf.
+A meta transaction is a type of transaction that allows a user to pay for gas fees or transaction fees on behalf of someone else. Instead of the recipient paying for the transaction fees themselves, the fees are paid by a third party, typically a relayer, on their behalf. Meta transactions are commonly used in decentralized applications (dApps) that run on blockchain networks, such as Ethereum. These dApps often require users to pay for gas fees in order to execute transactions on the blockchain, which can be a barrier to entry for some users. Meta transactions can help reduce this barrier by allowing users to interact with the dApp without holding cryptocurrency or paying gas fees.
 
-Meta transactions are commonly used in decentralized applications (dApps) that run on blockchain networks, such as Ethereum. These dApps often require users to pay for gas fees in order to execute transactions on the blockchain, which can be a barrier to entry for some users. Meta transactions can help reduce this barrier by allowing users to interact with the dApp without needing to hold cryptocurrency or pay for gas fees themselves.
-
-Meta transactions are often implemented using smart contracts, which can execute the transaction and reimburse the user who paid for the gas fees. This mechanism can be beneficial for both users and dApp developers, as it can help increase user adoption and reduce the cost of using the dApp.
-
-Meta transactions are one of the most powerful features that we can have in a smart contract, it can empower users to not have to worry about fees when submitting a transaction.
+Meta transactions are often implemented using smart contracts, which can execute the transaction and reimburse the user who paid for the gas fees. This mechanism can be beneficial for both users and dApp developers, as it can help increase user adoption and reduce the cost of using the dApp. Meta transactions are a powerful feature in smart contracts, as they empower users to not have to worry about fees when submitting a transaction. For example, if a user has some ERC20 tokens in their wallet but no ETH to transfer them, they can sign the transaction to transfer their tokens to another address, and you can submit the transaction and pay the gas fees for them.
 
 Imagine that one of your user have some ERC20 tokens in his wallet however no ETH to transfer them or do anything with them. With meta transaction, the user can sign the transaction to transfer their tokens to another address and you are going to submit the transaction and pay the gas fees for him.
 
 
+
+
 :::info PREREQUISITES 
 - nodejs with at least version 16
-- npm installed
-- ethersjs 5
+- npm 
+- ethers.js 5
+- a smart contract deployed from a Starton template
 
 :::
 
+:::note Starton Library
 
-
-:::info STARTON LIBRARY
-
-You will need to have an already deployed token from the Starton library (it can be ERC20, ERC721 or ERC1155). Smart contract templates from Starton library integrates metatransactions.
-You do not need to deploy a specific metatransaction template.
+You will need to have an already deployed token from the Starton library (it can be ERC20, ERC721 or ERC1155). Smart contract templates from Starton library integrates meta transactions.
+You do not need to deploy a specific meta transaction template.
 
 :::
+
 
 ## Computing the signature of the user of the transaction
 
-The main feature with metatransaction will come with the `executeMetaTransaction` function. 
+The main feature of meta transaction consists of the `executeMetaTransaction` function. 
 
 The function requires arguments we need to compute. First, you need to compute the signature of the user of the transaction. 
 
@@ -170,4 +168,4 @@ Once it’s done you can execute the meta transaction like this:
 ```
 
 
-Now that everything it’s done, you can connect your front-end where users will sign transactions. They can then be stored in a back-end to be executed in a meta transaction.
+Now that everything is done, you can connect your front-end where users will sign transactions. They can then be stored in a back-end to be executed in a meta transaction.

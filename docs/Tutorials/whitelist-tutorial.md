@@ -17,6 +17,12 @@ This system is called a whitelist sale and it is what we are going to see today.
 
 :::
 
+:::note
+
+To deploy a Sale contract, you must have deployed your NFT by deploying an ERC721 contract first. Learn how to [Deploy your NFT with Starton](/Tutorials/deploy-Nfts-with-Binance.md)
+
+:::
+
 **In this tutorial, we will:**
 
 -   [Create a merkle root from all approved addresses](#creating-a-merkle-root-from-all-approved-addresses)
@@ -25,11 +31,7 @@ This system is called a whitelist sale and it is what we are going to see today.
 
 
 
-:::info 
 
-To deploy a Sale contract, you must have deployed an ERC721 contract first. 
-
-:::
 
 To deploy this contract, you need to compute a special parameter called *definitiveMerkleRoot*.
 

@@ -290,9 +290,14 @@ module.exports = {
 				"Tutorials/creating-token-ERC20-fixed",
 				"Tutorials/creating-token-ERC20-mintable",
 				"Tutorials/whitelist-tutorial",
+				"Tutorials/create-an-NFT-collection-sale",
 				"Tutorials/metatransaction"
 			],
-		},
+		},{
+                                                                                 type: "html",
+                                                                                 value: "<br style='margin: 0.5rem 0 0.5rem 0;'/>",
+                                                                                 defaultStyle: true,
+                                                                               },
 		{
 			type: "category",
 			label: "From the interface",
