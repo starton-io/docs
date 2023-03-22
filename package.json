@@ -1,6 +1,6 @@
 {
   "name": "starton-docs",
-  "version": "3.0.52",
+  "version": "3.0.53",
   "license": "MIT",
   "private": true,
   "scripts": {
@@ -43,7 +43,7 @@
     "raw-loader": "^4.0.2",
     "react": "17.0.2",
     "react-dom": "^17.0.2",
-    "redocusaurus": "^1.4.0",
+    "redocusaurus": "^1.6.1",
     "spotlight": "^1.2.0",
     "swagger-ui": "^4.14.1",
     "uikit": "^3.15.17"

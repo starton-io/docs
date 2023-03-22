@@ -81,7 +81,7 @@ module.exports = {
 						route: '/api/doc',
 					},
 				],
-				themes: ['docusaurus-theme-redoc'],
+				theme: ['docusaurus-theme-redoc'],
 			},
 		],
 	],
