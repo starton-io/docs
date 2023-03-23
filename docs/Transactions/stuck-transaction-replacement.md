@@ -26,24 +26,23 @@ Transaction management strategy is set at a project level. You need to set it fo
 To check your current Relayer strategy, you can use the following snippet. Simply enter your api key
 and select the network on which you want to set up your Relayer strategy.
 
-```jsx showLineNumbers
-const axios = require("axios")
-
-const startonAPI = axios.create({
-    baseURL: "https://api.starton.io",
-    headers: {
-        "x-api-key": "YOUR_API_KEY",
-    },
+```jsx
+// AUTHENTICATING TO THE API USING YOUR API KEY
+const startonApi = axios.create({
+	baseURL: "https://api.starton.io",
+	headers: {
+		"x-api-key": "Your API KEY ",
+	},
 })
-
-startonAPI.get("/v3/setting/relayer/polygon-mumbai")
-    .then(res=>console.log(res.data))
-    .catch(e=>console.log(e))
+/// RETRIEVE SETTINGS
+startonApi.get("/v3/setting/relayer/{network}").then((response) => {
+	console.log(response.data)
+})
 ```
 
 Before you set your strategy, by default, this request will return:
 
-```jsx showLineNumbers
+```jsx
 {
 "id": "string",
 "projectId": "string",
@@ -74,26 +73,26 @@ The following parameters will be used to set your own gas strategy:
 To set your current Relayer strategy, you can use the following snippet. Simply enter your api key
 and select the network on which you want to set up your Relayer strategy. Then, you will set the parameters, seen above, according to your needs.
 
-```jsx showLineNumbers
-const axios = require("axios")
-
-const startonAPI = axios.create({
-    baseURL: "https://api.starton.io",
-    headers: {
-        "x-api-key": "YOUR_API_KEY",
-    },
+```jsx
+// AUTHENTICATING TO THE API USING YOUR API KEY
+const startonApi = axios.create({
+  baseURL: 'https://api.starton.io',
+  headers: {
+    'x-api-key': 'Your API KEY ',
+  },
+});
+///
+ startonApi.post('/v3/setting/relayer/{network}{
+  "unstuckMaxGasPrice": "string",
+  "unstuckMissingNonce": true,
+  "unstuckMissingNonceDelay": 3600,// in seconds
+  "unstuckCustomGasPrice": true,
+  "unstuckAutomaticGasPrice": true,
+  "unstuckGasPriceDelay": 3600 // in seconds
+}')
+     .then((response) => {
+	console.log(response.data)
 })
-
-startonAPI.patch("/v3/setting/relayer/binance-testnet", {
-    unstuckMaxGasPrice: "150000000000", // price in wei.
-    unstuckMissingNonce: true,
-    unstuckMissingNonceDelay: 300, // in seconds
-    unstuckCustomGasPrice: true,
-    unstuckAutomaticGasPrice: true,
-    unstuckGasPriceDelay: 300, // in seconds
-})
-    .then(res=>console.log(res.data))
-    .catch(e=>console.log(e))
 ```
 
 If the request is successful, your settings have been changed. To understand any other return, you can see our [API reference](https://docs.starton.io/intro#tag/SettingRelayer).

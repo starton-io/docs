@@ -41,19 +41,28 @@ After a message is signed, the message and the signature cannot be modified and 
 
 ```jsx showLineNumbers
 const axios = require("axios")
-
-const startonAPI = axios.create({
-    baseURL: "https://api.starton.io",
-    headers: {
-        "x-api-key": "YOUR_API_KEY",
-    },
+// AUTHENTICATING TO THE API USING YOUR API KEY
+const startonApi = axios.create({
+	baseURL: "https://api.starton.io",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
 })
 
-startonAPI.post("/v3/kms/wallet/0x694F07CEEc0869aa0dB5E8157FA538268F28B23f/sign-message", {
-    message: "Hello Starton."
-})
-    .then(res=>console.log(res.data))
-    .catch(e=>console.log(e))
+// SIGNING A MESSAGE
+const signMessage = async (address, message) => {
+	try {
+		return await startonApi.post(`/v3/kms/wallet/${address}/sign-message`, {
+			message, // The message you want to sign with the address required in the route.
+		})
+	} catch (error) {
+		console.log(error.response.data)
+	}
+}
+
+signMessage("0x", "Hello, World!")
+	.then((response) => console.log(response))
+	.catch((error) => console.log(error))
 ```
 
 </TabItem>

@@ -14,25 +14,35 @@ You can pin content already available on IPFS with Starton using the Content IDe
 
 <Tabs>
 <TabItem value="code" label="From Code">
-
-```jsx showLineNumbers
-const axios = require("axios");
-
-const startonApi = axios.create({
-    baseURL: "https://api.starton.io",
-    headers: {
+<CodeBlock language="jsx" showLineNumbers>
+{`  const axios = require("axios");
+    const FormData = require("form-data");
+    const fs = require("fs");
+    // AUTHENTICATING TO THE API USING YOUR API KEY
+    const startonApi = axios.create({
+      baseURL: "https://api.starton.io",
+      headers: {
         "x-api-key": "YOUR_API_KEY",
-    },
-});
-
-startonApi.post("/v3/ipfs/pin", {
-    name: "pin name",
-    cid: "bafybeid7ybbefggfv6y7gkkbyt3tpi647p66mrmcjkujrlbfbtb6mmbklq",
-    metadata: { your: "additionnal", meta: "data" },
-})
-    .then(res=>console.log(res.data))
-    .catch(e=>console.log(e))
-```
+      },
+    });
+    // PINNING A FILE FROM CID
+    const pinFromCID = async (cid, name) => {
+    const fromCid = await startonApi.post("/v3/ipfs/pin", {
+      name: name of the file you would like to pin ,
+      cid: cid of the file you would like to pin,
+      metadata: { your: "additionnal", meta: "data" },
+    });
+    return fromCid.data;
+  };
+  // Enter the information for your file
+  pinFromCID(
+    "CID of the file",
+    "from cid"
+  )
+    .then((res) => console.log(res))
+    .catch((error) => console.log(error))
+`}
+</CodeBlock>
 </TabItem>
 <TabItem value="dashboard" label="From Webapp">
 

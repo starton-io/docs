@@ -574,7 +574,9 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
     line-height: 20px;
 }
 
-
+.navbar-sidebar, .menu__link.icon {
+    display: none;
+}
 
 .theme-doc-sidebar-menu, .menu__link,
 .theme-doc-toc-desktop, .table-of-contents, .toc-highlight {
@@ -682,3 +684,6 @@ html[data-theme='dark'] .theme-doc-toc-desktop .table-of-contents .table-of-cont
             padding-bottom: 4px;
         }
 
+.container, .container--fluid, .margin-vert--lg {
+
+                                                         }
