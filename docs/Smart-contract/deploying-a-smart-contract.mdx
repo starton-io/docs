@@ -26,24 +26,25 @@ To do this, you can query Starton’s API. First you need to authenticate using 
 Create an API key from the dashboard in the [Developer section](/Developer/API.md).
 Using this API key, we can make a call using the following JS code:
 
-```jsx
+```jsx showLineNumbers
 const axios = require("axios")
 
-const http = axios.create({
-    baseURL: "https://api.starton.io/v3",
+const startonAPI = axios.create({
+    baseURL: "https://api.starton.io",
     headers: {
-        "x-api-key": ‘YOUR_API_KEY’,
+        "x-api-key": "YOUR_API_KEY",
     },
 })
-http.get('/smart-contract-template').then(response => {
-    console.log(response.data)
-})
+
+startonAPI.get('/v3/smart-contract-template')
+    .then(res=>console.log(res.data))
+    .catch(e=>console.log(e))
 ```
 
 Be sure to replace `x-api-key value` with your own API key!
 When querying the API, it should return a list of template items:
 
-```jsx
+```jsx showLineNumbers
 {
   "id": "ERC20_META_TRANSACTION",
   "name": "ERC20 Fungible Token with fixed supply",
@@ -103,21 +104,36 @@ Let’s call our token the DemoToken, with DEMO as its ticker and an initial sup
 
 Here is the code to deploy the contract (Axios being configured as before):
 
-```jsx
-http.post("/smart-contract/from-template", {
-	network: "ethereum-goerli",
-	templateid: "ERC20_META_TRANSACTION",
-	name: "ERC20 Fungible Token with fixed supply",
-	description: "Our own crypto token.",
-	params: ["1000000", "DemoToken", "DEMO"],
-}).then((response) => {
-	console.log(response.data)
+```jsx showLineNumbers
+const axios = require("axios")
+
+const startonAPI = axios.create({
+    baseURL: "https://api.starton.io",
+    headers: {
+        "x-api-key": "YOUR_API_KEY",
+    },
 })
+
+startonAPI.post("/v3/smart-contract/from-template", {
+    network: "polygon-mumbai",
+    templateId: "ERC20_MINT_META_TRANSACTION",
+    name: "My token with starton",
+    signerWallet: "0x694F07CEEc0869aa0dB5E8157FA538268F28B23f",
+    description: "Description on my token",
+    params: [
+        "DemoToken",
+        "DEMO",
+        "1000000000000000000000000",
+        "0x694F07CEEc0869aa0dB5E8157FA538268F28B23f"
+    ],
+})
+    .then(res=>console.log(res.data))
+    .catch(e=>console.log(e))
 ```
 
 The expected result:
 
-```jsx
+```jsx showLineNumbers
 {
   "id": "ERC20_META_TRANSACTION",
   "name": "DemoToken",

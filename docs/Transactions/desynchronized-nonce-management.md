@@ -13,28 +13,49 @@ Nonce management works for a specific address and network at a time. Please make
 
 :::
 
+## Getting the next available nonce for an address 
+
+With the following request, you can retrieve the next available nonce for an address on a network: 
+
+```jsx showLineNumbers 
+
+const axios = require("axios")
+
+const startonAPI = axios.create({
+    baseURL: "https://api.starton.io",
+    headers: {
+        "x-api-key": "YOUR_API_KEY",
+    },
+})
+
+startonAPI.get("/v3/kms/wallet/0x694F07CEEc0869aa0dB5E8157FA538268F28B23f/avalanche-fuji/nonce/available")
+    .then(res=>console.log(res.data))
+    .catch(e=>console.log(e))
+
+
+```
+
+## Resynchronizing nonces 
+
 You can make the following request, by replacing parameters with:
 
 -   **YOUR_API_KEY**: a Starton API Key
 -   **address**: the address of your key on your KMS
 -   **network**: the network on which you wish to resynchronize nonces
 
-```jsx
+```jsx 
 const axios = require("axios")
 
-const axiosInstance = axios.create({
+const startonAPI = axios.create({
 	baseURL: "https://api.starton.io/",
 	headers: {
 		"x-api-key": "YOUR_API_KEY",
 	},
 })
 
-axiosInstance
-	.post("/v3/kms/wallet/{address}/{network}/nonce/resync", {})
-
-	.then((response) => {
-		console.log(response.data)
-	})
+startonAPI.post("/v3/kms/wallet/0x694F07CEEc0869aa0dB5E8157FA538268F28B23f/avalanche-fuji/nonce/resync")
+    .then(res=>console.log(res.data))
+    .catch(e=>console.log(e))
 ```
 
 If your request is successful, the next nonce available will be returned.

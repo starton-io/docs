@@ -36,6 +36,8 @@ On the **Developer** section, you can generate new API keys or revoke the previo
 The API key will be needed in your code if you try to call Connect's API endpoints (as the x-api-key variable in the Headers of the requests).
 
 ```jsx showLineNumbers
+const axios = require("axios")
+
 const startonApi = axios.create({
 	baseURL: "https://api.starton.io",
 	headers: {
@@ -64,13 +66,13 @@ In this example, the call will return results 6 to 10.
 ```jsx
 const axios = require("axios")
 
-const http = axios.create({
+const startonApi = axios.create({
     baseURL: "https://api.starton.io/v3",
     headers: {
         "x-api-key": ‘YOUR_API_KEY’,
     },
 })
-http.get('/smart-contract-template?limit=5&page=2').then(response => {
+startonApi.get('/smart-contract-template?limit=5&page=2').then(response => {
     console.log(response.data)
 })
 ```
@@ -86,13 +88,13 @@ If the watchers you needs are on "avalanche-fuji", you could make the following 
 ```jsx
 const axios = require("axios")
 
-const http = axios.create({
+const startonApi = axios.create({
     baseURL: "https://api.starton.io/v3",
     headers: {
         "x-api-key": ‘YOUR_API_KEY’,
     },
 })
-http.get('/watcher?network=polygon-mumbai').then(response => {
+startonApi.get('/watcher?network=polygon-mumbai').then(response => {
     console.log(response.data)
 })
 ```
