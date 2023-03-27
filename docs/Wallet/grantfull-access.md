@@ -68,13 +68,10 @@ Before granting access to your KMS, you need to create a Policy to define permis
 
 1. Click **Create user** to get the **Access Key Id** and **Secret Access Key** for your KMS.
 
-## Importing the wallet on Starton
+## Importing a Key Management System  on Starton
 
-1. From the Dashboard, click **Wallets**.
-1. Click **+ Wallet**.
-1. Select **Connect your KMS to manage existing and new wallets**.
+1. From the Dashboard, click **Settings**.
 1. In **KMS**, click **+ KMS**.
-1. Click **Next**.
 1. Enter your KMS information:
 
 | Parameter             | Description                                                                                                               |
@@ -85,7 +82,19 @@ Before granting access to your KMS, you need to create a Policy to define permis
 | **Secret access key** | The **Secret access key** of the new IAM user available after completing [this step](#create-a-new-iam-user-for-starton). |
 | **Region**            | The **Region** on which you want to create the wallet. For example `eu-west-3`.                                           |
 
-You can now dynamically create new wallets from your code.
+1. Click **Create**.
+
+You can now dynamically create new wallets from your code or from the interface.
+
+
+:::info CREATING A WALLET FROM A KMS 
+
+1. To create a wallet from your KMS, go to **Wallet**. 
+1. Click **+Wallet** and click **CONNECT YOUR KMS AND GRAND FULL ACCESS TO STARTON**. 
+1. From there, you can select the KMS imported. 
+1. Click Next. 
+
+::: 
 
 **Related topics**
 
