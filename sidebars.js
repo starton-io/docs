@@ -33,10 +33,17 @@ module.exports = {
                  type: "html",
                  value: "<br style='margin: 0 0 0 0;'/>",
                  defaultStyle: true,
-               },
-		/*  {
-      Dashboard: ['Dashboard/dashboard','Dashboard/create-new-project'],
-    },*/
+               },{
+                               type: "html",
+                               value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>DASHBOARD</header>",
+                               defaultStyle: true,
+                             },
+
+     'Dashboard/dashboard','Dashboard/compute-units',{
+                       type: "html",
+                       value: "<br style='margin: 0 0 0 0;'/>",
+                       defaultStyle: true,
+                     },
          {
               type: "html",
               value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>RELAYER</header>",
