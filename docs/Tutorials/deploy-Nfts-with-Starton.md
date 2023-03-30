@@ -209,12 +209,12 @@ We can now make the complete flow in only a few lines of code.
 
 > Notice that you need to define the receiver of the NFT and set the imgBuffer variable.
 
-```jsx
+```jsx showLineNumbers
 const RECEIVER_ADDRESS = ""
 const imgBuffer = ""
 const ipfsImg = await uploadImageOnIpfs(imgBuffer, "filename.png")
-const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImg.pinStatus.pin.cid)
-const nft = await mintNft(RECEIVER_ADDRESS, ipfsMetadata.pinStatus.pin.cid)
+const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImgData.cid)
+const nft = await mintNft(RECEIVER_ADDRESS, ipfsMetadata.cid)
 ```
 
 Annnnnd it’s done! Congratulations!

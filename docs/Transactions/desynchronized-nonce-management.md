@@ -19,22 +19,23 @@ You can make the following request, by replacing parameters with:
 -   **address**: the address of your key on your KMS
 -   **network**: the network on which you wish to resynchronize nonces
 
-```jsx
+```jsx showLineNumbers
 const axios = require("axios")
 
-const axiosInstance = axios.create({
-	baseURL: "https://api.starton.io/",
-	headers: {
-		"x-api-key": "YOUR_API_KEY",
-	},
+const startonAPI = axios.create({
+    baseURL: "https://api.starton.io",
+    headers: {
+        "x-api-key": "YOUR_API_KEY",
+    },
 })
 
-axiosInstance
-	.post("/v3/kms/wallet/{address}/{network}/nonce/resync", {})
+startonAPI.get("/v3/kms/wallet/0x694F07CEEc0869aa0dB5E8157FA538268F28B23f/avalanche-fuji/nonce/available")
+    .then(res=>console.log(res.data))
+    .catch(e=>console.log(e))
 
-	.then((response) => {
-		console.log(response.data)
-	})
+startonAPI.post("/v3/kms/wallet/0x694F07CEEc0869aa0dB5E8157FA538268F28B23f/avalanche-fuji/nonce/resync")
+    .then(res=>console.log(res.data))
+    .catch(e=>console.log(e))
 ```
 
 If your request is successful, the next nonce available will be returned.
