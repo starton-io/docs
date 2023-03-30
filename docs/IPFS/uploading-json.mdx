@@ -17,29 +17,23 @@ You can upload content on IPFS. Starton IPFS is a storage and pinning service, w
 
 ```jsx showLineNumbers
     const axios = require("axios");
-    const FormData = require("form-data");
-    const fs = require("fs");
+    
     // AUTHENTICATING TO THE API USING YOUR API KEY
     const startonApi = axios.create({
-      baseURL: "https://api.starton.io",
-      headers: {
-        "x-api-key": "YOUR_API_KEY",
-      },
+        baseURL: "https://api.starton.io",
+        headers: {
+            "x-api-key": "YOUR_API_KEY",
+        },
     });
-    // UPLOAD JSON TO IPFS.
-    const uploadJsonToIpfs = async (json, name) => {
-    const ipfsJson = await startonApi.post("/v3/ipfs/json", {
-      name: name of your json,
-      content: json,
-      metadata: { your: "additionnal", meta: "data" },
-    });
-    return ipfsJson;
-    };
-    // ENTERING YOUR JSON'S INFORMATION
-    uploadJsonToIpfs({ "metadata": "data" }, "Json name")
-      .then((res) => console.log(res))
-      .catch((e) => console.log(e));
-
+    
+    startonApi.post("/v3/ipfs/json", {
+        name: "json name", // name of your json file on starton.
+        content: { "my": "object" }, // json object.
+        // optional metadata stored on starton database.
+        metadata: { your: "additional", meta: "data" },
+    })
+        .then(res=>console.log(res.data))
+        .catch(e=>console.log(e))
 ```
 
 </TabItem>

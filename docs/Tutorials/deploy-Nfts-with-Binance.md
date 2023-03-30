@@ -27,7 +27,7 @@ To enter a name on the marketplace’s dashboard and perceive fees when someone 
 
 Here are the values we will use:
 
-```jsx
+```jsx showLineNumbers
 {
   "name": “My Super NFT on BNB“,
   "description": “You’ve never seen NFTs this beautiful.”,
@@ -122,7 +122,7 @@ You will see next how to upload dynamically our images on IPFS from code with th
 
 ### Prepare our connection to the Starton API
 
-```jsx
+```jsx showLineNumbers
 const axios = require("axios")
 const FormData = require("form-data")
 const starton = axios.create({
@@ -149,7 +149,7 @@ The best solution is to store it somewhere else and only store a reference on-ch
 
 We can create a simple function like this one:
 
-```jsx
+```jsx showLineNumbers
 // The image variable should be a buffer
 async function uploadImageOnIpfs(image, name) {
 	let data = new FormData()
@@ -171,7 +171,7 @@ By calling this function, providing our image as a buffer as a parameter, we sho
 Consult the [metadata standard format](https://docs.element.market/welcome-to-element/) on your marketplace's documentation.
 We can define a new function using our image’s CID to upload the metadata on IPFS:
 
-```jsx
+```jsx showLineNumbers
 async function uploadMetadataOnIpfs(imgCid) {
 	const metadataJson = {
 		name: `A Wonderful NFT`,
@@ -193,7 +193,7 @@ Feel free to change the name and description that suit your needs.
 
 Finally, we can call our smart contract “mint” function with the receiver’s address and the CID of the metadata we just uploaded:
 
-```jsx
+```jsx showLineNumbers
 const SMART_CONTRACT_NETWORK = "binance-testnet"
 const SMART_CONTRACT_ADDRESS = ""
 const WALLET_IMPORTED_ON_STARTON = ""
@@ -216,12 +216,12 @@ We can now make the complete flow in only a few lines of code.
 
 > Notice that you need to define the receiver of the NFT and set the imgBuffer variable.
 
-```jsx
+```jsx showLineNumbers
 const RECEIVER_ADDRESS = ""
 const imgBuffer = ""
 const ipfsImg = await uploadImageOnIpfs(imgBuffer, "filename.png")
-const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImg.pinStatus.pin.cid)
-const nft = await mintNft(RECEIVER_ADDRESS, ipfsMetadata.pinStatus.pin.cid)
+const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImgData.cid)
+const nft = await mintNft(RECEIVER_ADDRESS, ipfsMetadata.cid)
 ```
 
 </TabItem>

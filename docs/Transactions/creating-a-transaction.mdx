@@ -15,41 +15,22 @@ Here you can create a simple transaction. For all advanced parameters, check the
 ```jsx showLineNumbers
 const axios = require("axios")
 
-const startonApi = axios.create({
-	baseURL: "https://api.starton.io",
-	headers: {
-		"x-api-key": "YOUR_API_KEY",
-	},
+const startonAPI = axios.create({
+    baseURL: "https://api.starton.io",
+    headers: {
+        "x-api-key": "YOUR_API_KEY",
+    },
 })
 
-const createTx = async (value, to, signerWallet, network) => {
-	try {
-		return await startonApi.post("/v3/transaction", {
-			value,
-			to, // receiving wallet
-			signerWallet, // sender wallet
-			network,
-			// speed: speed, //optional: low, average, fast, fastest or custom (must be combined with customGas)
-			// metadata: {"your": "custom", "meta": "data"} // optional
-			// data: "0x1234" // optional
-			// customGas: { // optional:must be combined with custom speed.(values in wei)
-			// gasPrice: "1000000000", // this field is only required for pre EIP-1155 networks such as (binance-testnet)
-			// maxFeePerGas: "100000000", // This field is required for post EIP-1155 networks
-			// maxPriorityFeePerGas: "100000000", // This field is required for post EIP-1155 networks
-		})
-	} catch (error) {
-		console.log(error.response.data)
-	}
-}
-createTx(
-	"1",
-	"0x0000000000000000000000000000000000000000",
-	"0x0000000000000000000000000000000000000000", // From: Wallet sending
-	"binance-testnet", //network on which the transaction will appear
-	"average", //Optional: speed of your transaction, WARNING: your transaction speed has an impact on gas fees
-)
-	.then((response) => console.log(response))
-	.catch((error) => console.log(error))
+startonAPI.post("/v3/transaction", {
+    network: "polygon-mumbai",
+    signerWallet: "0x694F07CEEc0869aa0dB5E8157FA538268F28B23f",
+    from: "0x694F07CEEc0869aa0dB5E8157FA538268F28B23f",
+    to: "0x6d86C7046CCfA2022BFcad18F0C993B55e1512dE",
+    value: "100", // in wei.
+})
+    .then(res=>console.log(res.data))
+    .catch(e=>console.log(e))
 ```
 
 -   More on [Transactions](/Transactions/creating-a-transaction.mdx)
