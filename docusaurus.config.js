@@ -126,7 +126,7 @@ module.exports = {
 						type: 'search',
 						position: 'right',
 					},
-					{ to: 'blog/fungible-vs-non-fungible-tokens', label: 'Guides', position: 'right' },
+					{ to: 'blog/web3auth', label: 'Guides', position: 'right' },
 					{
 						type: 'doc',
 						position: 'left',

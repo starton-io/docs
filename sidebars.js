@@ -298,7 +298,9 @@ module.exports = {
 				"Tutorials/creating-token-ERC20-mintable",
 				"Tutorials/whitelist-tutorial",
 				"Tutorials/create-an-NFT-collection-sale",
-				"Tutorials/metatransaction"
+				"Tutorials/metatransaction",
+				"Tutorials/starton-web3auth"
+
 			],
 		},{
                                                                                  type: "html",
