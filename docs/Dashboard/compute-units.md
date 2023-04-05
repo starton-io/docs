@@ -22,11 +22,11 @@ The Dashboard is currently a beta feature.
 
 Depending on your subscription plan, there may be different monthly usage quotas.
 
-:::-->
+:::
 
 In every Starton plan, you get a specific amount of monthly calls available. The number of compute units varies based on the plan you select. Please visit the **[pricing page](https://www.starton.io/)** for more information on compute units for each plan.
 
-
+-->
 ## Estimating compute unit needs
 
 Compute units are counted based on your usage of the following:
@@ -54,13 +54,10 @@ The price of an API call is the exact amount of compute units that will be count
 | Route  | Operation | Cost in compute units |
 | --- | --- | --- |
 | /v3/ipfs/pin | PinCreate | 50 |
-| /v3/ipfs/pin/{id} | PinGetOne | 50 |
 | /v3/ipfs/file | IpfsFileCreate | 50 |
 | /v3/ipfs/folder | IpfsFolderCreate | 50 |
 | /v3/ipfs/json | IpfsJsonCreate | 50 |
-| /v3/data/{network}/erc20/{contractAddress}/balance | DataBalanceNative | 20 |
-| /v3/data/{network}/address/{address}/balance/native | DataBalanceNative | 20 |
-| /v3/transaction | TransactionGetAll | 20 |
+| /v3/data/{network}/erc20/{contractAddress}/balance | DataBalanceERC20 | 20 |
 | /v3/transaction | TransactionCreate | 750 |
 | /v3/smart-contract/from-bytecode | SmartContractCreateFromBytecode | 750 |
 | /v3/smart-contract/from-template | SmartContractCreateFromTemplate | 750 |

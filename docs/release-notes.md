@@ -3,6 +3,11 @@ title: 2023
 displayed-sidebar: connectSidebar
 ---
 # 2023
+## April 
+
+- **Discover Starton Dashboard and Compute Units system**
+
+  Starton introduces a new way of managing your blockchain needs. You can now accurately estimate the cost of using computing resources for your projects with compute units on the Dashboard. For the duration of the Beta, all limitations regarding projects are removed so that you can try Starton at its full potential and determine your usage. [Read More](/Dashboard/dashboard.mdx)
 
 ## March 
 
