@@ -20,9 +20,11 @@ To build the solution, we followed three steps:
 
    We started by installing the Web3Auth library and instantiating it in his front-end code. We then created a button that will trigger the Web3Auth authentication modal when clicked. The modal will prompt the user to connect with their social login.
 
-   :::info
-   To integrate Web3Auth, you can use the Integration builder by making sure you select the [W3A modal](https://web3auth.io/docs/integration-builder?lang=NEXT&chain=ETH&evmFramework=WEB3&customAuth=NONE&mfa=DEFAULT&whitelabel=NO&useModal=YES&web3AuthNetwork=TESTNET&rnMode=EXPO&stepIndex=0).
-   :::
+  
+   >
+   >To integrate Web3Auth, you can use the Integration builder by making sure you select the [W3A modal](https://web3auth.io/docs/integration-builder?lang=NEXT&chain=ETH&evmFramework=WEB3&customAuth=NONE&mfa=DEFAULT&whitelabel=NO&useModal=YES&web3AuthNetwork=TESTNET&rnMode=EXPO&stepIndex=0).
+   >
+
 
    Once the user is connected, we use the Web3Auth wallet to sign the transaction wrapped in the meta-transaction later, to ensure the transaction is valid and authorized by the user's wallet.
 
