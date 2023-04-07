@@ -42,4 +42,4 @@ You can access the Starton standard Smart contract template library.
 ## Support
 
 On the freemium plan, you benefit from our Community Support.
-To upgrade to our premium plans, [contact us](https://discord.starton.io).
+To upgrade to our premium plans, [contact us](https://discord.starton.com).

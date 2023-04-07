@@ -9,7 +9,7 @@ keywords: [ERC-1155, ERC1155, Deploy, Starton, Smart contracts, parameters, func
 This meta-transaction version enables you to send transactions on behalf of your users so they can use their NFT without having to pay for gas fees.
 It also includes the blacklist feature. It allows the owner to block one or more addresses from transferring tokens on behalf of your users for example if you want to block the sales happening in a marketplace.
 Notice that we do not store any content in the smart contract. Smart contract store only references. It is up to smart contract readers to find the content using references.
-Starton provides an <a href="https://app.starton.io/ipfs">IPFS integration</a> in case you need to host your NFT content.
+Starton provides an <a href="https://app.starton.com/ipfs">IPFS integration</a> in case you need to host your NFT content.
 
 :::caution
 

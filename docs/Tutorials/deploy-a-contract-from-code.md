@@ -25,7 +25,7 @@ We can create an API key from the dashboard in the Developer section. Using this
 const axios = require("axios")
 
 const http = axios.create({
-    baseURL: "https://api.starton.io/v3",
+    baseURL: "https://api.starton.com/v3",
     headers: {
         "x-api-key": ‘YOUR_API_KEY’,
     },

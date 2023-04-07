@@ -1,6 +1,6 @@
 {
   "index_name": "starton",
-  "start_urls": ["https://docs.starton.io/docs/home"],
+  "start_urls": ["https://docs.starton.com/docs/home"],
   "selectors": {
     "lvl0": "#content header h1",
     "lvl1": "#content article h1",

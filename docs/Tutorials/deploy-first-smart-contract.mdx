@@ -18,8 +18,8 @@ To start let's create your own token.
 :::note You will need:
 
 -   [Node.js](https://nodejs.org/en/)
--   [Starton wallet](https://starton.io/). At creation, Starton provides you with faucet on some networks to fund your first deployment. 
--   [Starton API Key](https://starton.io/). To create one, see [Starton API](/Developer/API.md). 
+-   [Starton wallet](https://starton.com/). At creation, Starton provides you with faucet on some networks to fund your first deployment. 
+-   [Starton API Key](https://starton.com/). To create one, see [Starton API](/Developer/API.md). 
 -   An address to fund your smart contract transaction 
 :::
 
@@ -65,7 +65,7 @@ Now for the good part, let's connect Starton to your application.
     ```jsx showLineNumbers
     // AUTHENTICATING TO THE API USING YOUR API KEY
     const startonApi = axios.create({
-    	baseURL: "https://api.starton.io",
+    	baseURL: "https://api.starton.com",
     	headers: {
     		"x-api-key": "YOUR API KEY ",
     	},
@@ -75,7 +75,7 @@ Now for the good part, let's connect Starton to your application.
 ## Deploying your first Smart contract
 
 To create a smart contract from the code of your application, use the following snippet.
-You can find the full list of endpoints in our <a href="https://docs.starton.io/intro#tag/SmartContract">API reference</a>.
+You can find the full list of endpoints in our <a href="https://docs.starton.com/intro#tag/SmartContract">API reference</a>.
 Find more information about smart contracts parameters in the [smart contract references section](/Smart-contract/parameters-and-functions.mdx).
 
 ```jsx showLineNumbers
@@ -116,7 +116,7 @@ Now that you've created your app, you can interact with your smart contract.
 <div class="row-is-multiline">
 
 <div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
 		<h3>Check your smart contract on the Dashboard</h3>
 		<div class="button-card__inner">
 			<p color="white">Go to <b>Starton Dashboard</b> and check all the transactions of your smart contracts at one glance.</p>
@@ -137,13 +137,13 @@ To start, we will call a simple function to put our contract in a pause state.
 To get notified of the transactions of your smart contracts, you can also [create a watcher](/Tutorials/monitoring-blockchain-activity.mdx).
 
 To interact with your smart contract from the code of your application, use the following snippet.
-You can find the full list of endpoints in our <a href="https://docs.starton.io/intro#tag/SmartContract">API reference</a>.
+You can find the full list of endpoints in our <a href="https://docs.starton.com/intro#tag/SmartContract">API reference</a>.
 
 ```jsx showLineNumbers
 const axios = require("axios")
 
 const axiosInstance = axios.create({
-	baseURL: "https://api.starton.io",
+	baseURL: "https://api.starton.com",
 	headers: {
 		"x-api-key": "PUT HERE YOUR API KEY",
 	},

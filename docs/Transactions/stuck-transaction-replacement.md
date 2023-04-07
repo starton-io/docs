@@ -30,7 +30,7 @@ and select the network on which you want to set up your Relayer strategy.
 const axios = require("axios")
 
 const startonAPI = axios.create({
-    baseURL: "https://api.starton.io",
+    baseURL: "https://api.starton.com",
     headers: {
         "x-api-key": "YOUR_API_KEY",
     },
@@ -78,7 +78,7 @@ and select the network on which you want to set up your Relayer strategy. Then, 
 const axios = require("axios")
 
 const startonAPI = axios.create({
-    baseURL: "https://api.starton.io",
+    baseURL: "https://api.starton.com",
     headers: {
         "x-api-key": "YOUR_API_KEY",
     },
@@ -96,4 +96,4 @@ startonAPI.patch("/v3/setting/relayer/binance-testnet", {
     .catch(e=>console.log(e))
 ```
 
-If the request is successful, your settings have been changed. To understand any other return, you can see our [API reference](https://docs.starton.io/intro#tag/SettingRelayer).
+If the request is successful, your settings have been changed. To understand any other return, you can see our [API reference](https://docs.starton.com/intro#tag/SettingRelayer).

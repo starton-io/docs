@@ -36,7 +36,7 @@ It should look like: `whs_lDtcN3gDEaY_Yg3aony8077Lr-9wa5JyxAitUvfg886y9JDs4mVoY9
 <div class="row-is-multiline">
 
 <div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
 		<h3>Get your signing key from the Dashboard</h3>
 		<div class="button-card__inner">
 			<p color="white">Go to <b>Starton Dashboard</b> and get your signing key in the developer section.</p>

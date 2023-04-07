@@ -29,5 +29,5 @@ npm run serve
 
 ## Documentation
 
-Find out more on how to use Starton in our [Documentation](https://docs.starton.io).
+Find out more on how to use Starton in our [Documentation](https://docs.starton.com).
 

@@ -56,7 +56,7 @@ The complete list of available networks can be found in Relayer.
 const axios = require("axios")
 
 const http = axios.create({
-    baseURL: "https://api.starton.io/v3",
+    baseURL: "https://api.starton.com/v3",
     headers: {
         "x-api-key": 'YOUR_API_KEY',
     },
@@ -87,7 +87,7 @@ You can then use the address or the transactionHash to check it on the blockchai
 <div class="row-is-multiline">
 
 <div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
 		<h3>Check your Smart contract on the Dashboard</h3>
 		<div class="button-card__inner">
 			<p color="white">Go to <b>Starton Dashboard</b> and check all the transactions of your smart contract at one glance.</p>
