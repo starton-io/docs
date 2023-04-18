@@ -269,7 +269,7 @@ module.exports = {
                                            value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>SETTINGS</header>",
                                            defaultStyle: true,
                                          },
-		"Settings/create-new-project",{
+		"Settings/create-new-project","Settings/managing-plans",{
                                                        type: "html",
                                                        value: "<br style='margin: 0.5rem 0 0.5rem 0;'/>",
                                                        defaultStyle: true,
@@ -303,10 +303,10 @@ module.exports = {
 
 			],
 		},{
-                                                                                 type: "html",
-                                                                                 value: "<br style='margin: 0.5rem 0 0.5rem 0;'/>",
-                                                                                 defaultStyle: true,
-                                                                               },
+             type: "html",
+             value: "<br style='margin: 0.5rem 0 0.5rem 0;'/>",
+             defaultStyle: true,
+           },
 		{
 			type: "category",
 			label: "From the interface",
