@@ -42,12 +42,12 @@ We now have the content of our metadata, we need to upload it on IPFS.
 
 To upload our files on IPFS we will now use the [Starton IPFS](/IPFS/understanding-IPFS.md) pinning service.
 
-As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.io/ipfs).
+As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.com/ipfs).
 
 <div class="row-is-multiline">
 
 <div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
 		<h3>Upload a file on the Dashboard</h3>
 		<div class="button-card__inner">
 			<p color="white">Go to <b>Starton Dashboard</b> and upload all your files in three clicks.</p>
@@ -126,7 +126,7 @@ You will see next how to upload dynamically our images on IPFS from code with th
 const axios = require("axios")
 const FormData = require("form-data")
 const starton = axios.create({
-	baseURL: "https://api.starton.io/v3",
+	baseURL: "https://api.starton.com/v3",
 	headers: {
 		"x-api-key": "YOUR_STARTON_API_KEY",
 	},
@@ -139,7 +139,7 @@ Do not forget the replace the x-api-key value by your own! It is needed to authe
 
 :::
 
-You can find your API keys and generate new ones in [the API section](https://app.starton.io/api).
+You can find your API keys and generate new ones in [the API section](https://app.starton.com/api).
 
 ### Upload an image on IPFS with the Starton API
 

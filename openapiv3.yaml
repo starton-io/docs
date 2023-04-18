@@ -1,7 +1,7 @@
 ---
 openapi: 3.0.0
 servers:
-  - url: https://api.starton.io/
+  - url: https://api.starton.com/
     description: Default server
 
 extends:
@@ -2773,7 +2773,7 @@ paths:
     post:
       operationId: SmartContractCall
       summary: 'Calls Smart contract located at {address} on {network}'
-      description: 'Find out more on [state and status](https://docs.starton.io/docs/Transactions/state-and-status) in our functional documentation'
+      description: 'Find out more on [state and status](https://docs.starton.com/docs/Transactions/state-and-status) in our functional documentation'
       parameters:
       - name: network
         description: 'Specifies the network on which the smart contract is deployed'
@@ -3070,7 +3070,7 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/NOT_AUTHENTICATED'
       tags:
-        - SettingRelayer
+        - Settings Relayer
     patch:
       operationId: SettingRelayerUpdate
       summary: 'Updating the Relayer settings for a project'
@@ -3117,7 +3117,7 @@ paths:
                 oneOf:
                   - $ref: '#/components/schemas/COULD_NOT_FIND_RESOURCE'
       tags:
-        - SettingRelayer
+        - Settings Relayer
 info:
   title: 'Starton Connect: Documentation'
   description: |
@@ -3160,6 +3160,8 @@ tags:
   description: The list of API endpoints related to transactions
 - name: Api Key
   description: The list of API endpoints related to API Key
+- name: Settings Relayer
+  description: The list of API endpoints related to your transaction management
 components:
   securitySchemes:
     bearer:

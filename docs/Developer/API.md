@@ -37,7 +37,7 @@ The API key will be needed in your code if you try to call Connect's API endpoin
 
 ```jsx showLineNumbers
 const startonApi = axios.create({
-	baseURL: "https://api.starton.io",
+	baseURL: "https://api.starton.com",
 	headers: {
 		"x-api-key": "YOUR_API_KEY",
 	},
@@ -65,7 +65,7 @@ In this example, the call will return results 6 to 10.
 const axios = require("axios")
 
 const http = axios.create({
-    baseURL: "https://api.starton.io/v3",
+    baseURL: "https://api.starton.com/v3",
     headers: {
         "x-api-key": ‘YOUR_API_KEY’,
     },
@@ -87,7 +87,7 @@ If the watchers you needs are on "avalanche-fuji", you could make the following 
 const axios = require("axios")
 
 const http = axios.create({
-    baseURL: "https://api.starton.io/v3",
+    baseURL: "https://api.starton.com/v3",
     headers: {
         "x-api-key": ‘YOUR_API_KEY’,
     },

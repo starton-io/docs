@@ -104,7 +104,7 @@ And when we will upload our contract-level metadata on IPFS we will get a CID ba
 
 To upload our files on IPFS we will now use the [Starton IPFS](/IPFS/understanding-IPFS.md) pinning service.
 
-As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.io/ipfs)
+As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.com/ipfs)
 Once done, a column “CID” appears with a value for our file that starts with “Qm”. This is the value we need for the Contract Uri Suffix of our smart contract!
 We can finally deploy our contract!
 
@@ -127,7 +127,7 @@ The process of minting a new NFT and sending it to an address goes in three step
 const axios = require("axios")
 const FormData = require("form-data")
 const starton = axios.create({
-	baseURL: "https://api.starton.io/v3",
+	baseURL: "https://api.starton.com/v3",
 	headers: {
 		"x-api-key": "YOUR_STARTON_API_KEY",
 	},
@@ -136,7 +136,7 @@ const starton = axios.create({
 
 > Do not forget to replace the x-api-key value by your own! It is needed to authenticate yourself with our API.
 
-You can find your API keys and generate new ones in [the API section](https://app.starton.io/api).
+You can find your API keys and generate new ones in [the API section](https://app.starton.com/api).
 
 ### Upload an image on IPFS with the Starton API
 
@@ -229,7 +229,7 @@ We have seen in this tutorial how to upload NFTs on a decentralised file system,
 <div class="row-is-multiline">
 
 <div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
 		<h3>Check your Smart contract on the Dashboard</h3>
 		<div class="button-card__inner">
 			<p color="white">Go to <b>Starton Dashboard</b> and check all the transactions of your smart contract at one glance.</p>

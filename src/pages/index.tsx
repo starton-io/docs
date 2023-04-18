@@ -14,7 +14,7 @@ function Home() {
 				<div className="container container--fluid">
 					<h1>Starton Documentation</h1>
 					<p>Turn any app into a blockchain app.</p>
-					<a href="https://docs.starton.io/docs/overview">
+					<a href="https://docs.starton.com/docs/overview">
 						<button class="buttonHome" type="button">
 							Get Started
 						</button>

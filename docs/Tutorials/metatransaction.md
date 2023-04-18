@@ -48,7 +48,7 @@ async function createMetatransaction() {
   // Load the configuration necessary to use axios with starton
   const apiKey = ""; // It isn't recommanded to put his api key directly in his code but for the easiness of the tutorial we are going to put it here
   const network = ""; // Need to set the network for this
-  const url = "https://api.staging.starton.io/v3/smart-contract";
+  const url = "https://api.staging.starton.com/v3/smart-contract";
   const config = {
     headers: {
       "x-api-key": apiKey,
@@ -157,7 +157,7 @@ Once it’s done you can execute the meta transaction like this:
 ```jsx
 // Submit the transaction to the interact
   await axios.post(
-    `https://api.starton.io/v3/smart-contract/${network}/${contractAddress}/call`,
+    `https://api.starton.com/v3/smart-contract/${network}/${contractAddress}/call`,
     {
       functionName: "executeMetaTransaction",
       params: [await wallet.getAddress(), functionSignature, r, s, v],

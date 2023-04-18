@@ -28,7 +28,7 @@ To transfer tokens to your wallet, you can make a transfer using transactions to
 const axios = require("axios")
 // AUTHENTICATING TO THE API USING YOUR API KEY
 const startonApi = axios.create({
-	baseURL: "https://api.starton.io",
+	baseURL: "https://api.starton.com",
 	headers: {
 		"x-api-key": "YOUR_API_KEY",
 	},
@@ -80,7 +80,7 @@ You can withdraw funds from a wallet using transactions via our API or using our
 <Tabs>
 <TabItem value="code" label="From Code">
 To withdraw tokens from a wallet you can create a transaction from a wallet.
-You can find the full list of networks in our <a href="https://docs.starton.io/intro#tag/Transaction/operation/TransactionCreate">API reference</a>.
+You can find the full list of networks in our <a href="https://docs.starton.com/intro#tag/Transaction/operation/TransactionCreate">API reference</a>.
 
 WARNING: your transaction speed has an impact on gas fees
 
@@ -88,7 +88,7 @@ WARNING: your transaction speed has an impact on gas fees
     const axios = require("axios")
     
     const axiosInstance = axios.create({
-    baseURL: "https://api.starton.io",
+    baseURL: "https://api.starton.com",
     headers: {
         "x-api-key": "PUT HERE YOUR API KEY",
             },

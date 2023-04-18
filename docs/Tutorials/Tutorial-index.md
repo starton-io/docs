@@ -20,7 +20,7 @@ title: Index
 
 UNDER CONSTRUCTION [How to test webhooks locally with ngrok](https://www.notion.so/How-to-test-webhooks-locally-with-ngrok-c1cf3fdcd8194cbb9c6e618681a344f9)
 
-UNDER CONSTRUCTION [Connect Twitter to the Avalanche Blockchain with Starton](https://blog.starton.io/connect-twitter-to-the-avalanche-blockchain-with-starton-4853235cd8d0?source=user_profile---------6----------------------------)
+UNDER CONSTRUCTION [Connect Twitter to the Avalanche Blockchain with Starton](https://blog.starton.com/connect-twitter-to-the-avalanche-blockchain-with-starton-4853235cd8d0?source=user_profile---------6----------------------------)
 
 ## Discovering Web 3 (under construction)
 

@@ -16,7 +16,7 @@ It also includes the blacklist feature. It allows the owner to block one or more
 
 Notice that we do not store any content in the smart contract. Smart contract store only references. It is up to smart contract readers to find the content using references.
 
-Starton provides an <a href="https://app.starton.io/ipfs">IPFS integration</a> in case you need to host your NFT content.
+Starton provides an <a href="https://app.starton.com/ipfs">IPFS integration</a> in case you need to host your NFT content.
 
 :::caution
 
