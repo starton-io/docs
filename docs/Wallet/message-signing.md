@@ -43,7 +43,7 @@ After a message is signed, the message and the signature cannot be modified and 
 const axios = require("axios")
 
 const startonAPI = axios.create({
-    baseURL: "https://api.starton.io",
+    baseURL: "https://api.starton.com",
     headers: {
         "x-api-key": "YOUR_API_KEY",
     },

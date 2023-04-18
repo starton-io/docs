@@ -11,8 +11,8 @@ Let's create a project to make a transaction using Starton.
 You will need:
 
 -   [Node.js](https://nodejs.org/en/)
--   [Starton wallet](https://starton.io/)
--   [Starton API Key](https://starton.io/)
+-   [Starton wallet](https://starton.com/)
+-   [Starton API Key](https://starton.com/)
 -   A wallet address to receive the transaction.
 
 ## Creating an Application project
@@ -57,7 +57,7 @@ Now for the good part, let's connect Starton to your application.
     ```jsx showLineNumbers
     // AUTHENTICATING TO THE API USING YOUR API KEY
     const startonApi = axios.create({
-    	baseURL: "https://api.starton.io",
+    	baseURL: "https://api.starton.com",
     	headers: {
     		"x-api-key": "YOUR API KEY ",
     	},

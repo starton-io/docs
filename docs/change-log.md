@@ -1,18 +1,24 @@
 ---
-title: V3
+title: Starton Changelogs
 displayed-sidebar: connectSidebar
 ---
 
-# Starton V3
+# Starton Changelogs
+
+## API domain migration
+
+Starton domain has migrated from `api.starton.io` to `api.starton.com`. All API requests to Starton must now be redirected to the new domain. 
+
+## V3 
 
 Starton V3 has been deployed. Check out what's changing on the API side.
 
-## GLOBAL
+### GLOBAL
 
 -   `/v2/`changed to `/v3/`. For most endpoints, `/v2/` will be deprecated in the near future. All new endpoints will be on `/v3/`.
 -   You can now store and query a lot of entities by `metadata` allowing you to store additional information.
 
-## LIBRARY
+### LIBRARY
 
 No breaking change from v2 to v3, but some IDs will be deprecated in the future.
 
@@ -20,7 +26,7 @@ No breaking change from v2 to v3, but some IDs will be deprecated in the future.
 -   New `tag` and `blockchain` filter to allow you to query it more easily.
 -   Filter by `name` now do a partial find.
 
-## NOTIFY
+### NOTIFY
 
 No breaking change from v2 to v3
 
@@ -28,14 +34,14 @@ No breaking change from v2 to v3
 -   New `paused` filter.
 -   New `name` filter.
 
-## PROJECT
+### PROJECT
 
 No breaking change from v2 to v3
 
 -   New `color` field.
 -   You can now edit project name, description, color, and metadata.
 
-## API KEY
+### API KEY
 
 Big Breaking change from v2 to v3.
 
@@ -45,11 +51,11 @@ Big Breaking change from v2 to v3.
 -   New `name` and `description` field.
 -   Better format: now API keys are prefixed by live* and test keys (coming soon) will be prefixed by test*.
 
-## AUTH
+### AUTH
 
 -   Brand new Authentication system.
 
-## IPFS
+### IPFS
 
 Big Breaking change from v2 to v3.
 
@@ -58,7 +64,7 @@ Big Breaking change from v2 to v3.
 -   New endpoint to get storage usage.
 -   V2 API `/v2/pinning` is still available but will be deprecated in the near future.
 
-## WALLET
+### WALLET
 
 Breaking change.
 

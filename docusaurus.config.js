@@ -76,7 +76,7 @@ module.exports = {
 				specs: [
 					{
 						id: 'using-single-json',
-						spec: 'openapiv3.yaml', //'https://api.starton.io/v3/relayer/docs-json'
+						spec: 'openapiv3.yaml', //'https://api.starton.com/v3/relayer/docs-json'
 						//route: '/docs/api/'
 						route: '/api/doc',
 					},
@@ -144,7 +144,7 @@ module.exports = {
 						position: 'right',
 					},
 					{
-						href: 'https://discord.starton.io',
+						href: 'https://discord.starton.com',
 						label: 'Support',
 						position: 'right',
 					},
@@ -180,7 +180,7 @@ module.exports = {
 						items: [
 							{
 								label: 'Discord',
-								href: 'https://discord.starton.io',
+								href: 'https://discord.starton.com',
 							},
 							{
 								label: 'Twitter',
@@ -193,7 +193,7 @@ module.exports = {
 						items: [
 							{
 								label: 'Blog',
-								href: 'https://blog.starton.io/',
+								href: 'https://blog.starton.com/',
 							},
 							{
 								label: 'GitHub',

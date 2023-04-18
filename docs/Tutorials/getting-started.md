@@ -10,7 +10,7 @@ By creating a free account on Starton, you can deploy and interact with your Sma
 
 ### Creating an free account
 
-1. Go to [Starton.io](https://app.starton.io/register).
+1. Go to [starton.com](https://app.starton.com/register).
 1. Enter your information.
 1. Click **Create an account**.
 
@@ -36,7 +36,7 @@ To use Starton from your application, you can instead:
 
 ```jsx
 const http = axios.create({
-	baseURL: "https://api.starton.io/v3",
+	baseURL: "https://api.starton.com/v3",
 	headers: {
 		"x-api-key": "YOUR_API_KEY", //API KEY COPIED FROM STARTON
 	},
@@ -57,7 +57,7 @@ When deploying and interacting with **Smart Contracts** on testnet, you can crea
 
 You can now use your wallet.
 
-You can also import your own KMS at any time and change ownership of your Smart contract. Read more in [Tutorials](https://docs.starton.io/tutorials/how-to-change-the-smart-contracts-ownership)
+You can also import your own KMS at any time and change ownership of your Smart contract. Read more in [Tutorials](https://docs.starton.com/tutorials/how-to-change-the-smart-contracts-ownership)
 
 ## Deploying your first Smart contract
 

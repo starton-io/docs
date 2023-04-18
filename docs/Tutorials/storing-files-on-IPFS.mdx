@@ -20,8 +20,8 @@ To do so, prepare your files, include the following code snippet in your applica
 :::note You will need:
 
 -   [Node.js](https://nodejs.org/en/)
--   [Starton wallet](https://starton.io/)
--   [Starton API Key](https://starton.io/). To create one, see [Starton API](/Developer/API.md).
+-   [Starton wallet](https://starton.com/)
+-   [Starton API Key](https://starton.com/). To create one, see [Starton API](/Developer/API.md).
 -   A file to upload
 :::
 
@@ -67,7 +67,7 @@ Now for the good part, let's connect Starton to your application.
     ```jsx showLineNumbers
     // AUTHENTICATING TO THE API USING YOUR API KEY
     const startonApi = axios.create({
-    	baseURL: "https://api.starton.io",
+    	baseURL: "https://api.starton.com",
     	headers: {
     		"x-api-key": "YOUR API KEY ",
     	},
@@ -89,7 +89,7 @@ For sending files it should be multipart/form-data.
  const fs = require("fs")
  // AUTHENTICATING TO THE API USING YOUR API KEY
  const startonApi = axios.create({
-     baseURL: "https://api.starton.io",
+     baseURL: "https://api.starton.com",
      headers: {
          "x-api-key": "YOUR_API_KEY",
      },
@@ -144,7 +144,7 @@ You uploaded your first file on IPFS with Starton. Congratulations!
 <div class="row-is-multiline">
 
 <div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
 		<h3>Check your file on the Dashboard</h3>
 		<div class="button-card__inner">
 			<p color="white">Go to <b>Starton Dashboard</b> and check all your files at one glance.</p>

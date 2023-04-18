@@ -8,7 +8,7 @@ In this tutorial, we will create a tracker for wallet with Starton and Zapier. W
 
 You will need:
 
--   a [Starton Account](https://starton.io)
+-   a [Starton Account](https://starton.com)
 -   a [Zapier Account](https://zapier.com)
 -   a [Google drive Account](https://sheets.google.com)
 
@@ -35,7 +35,7 @@ Zapier provides you with a `Webhook URL`. We will need this URL in our Watcher o
 <div class="row-is-multiline">
 
 <div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
 		<h3>Go to the Dashboard</h3>
 		<div class="button-card__inner">
 			<p color="white">Go to <b>Starton Dashboard</b> to create your watcher easily.</p>
@@ -45,11 +45,11 @@ Zapier provides you with a `Webhook URL`. We will need this URL in our Watcher o
 
 </div>
 
-1. In [Starton](https://app.starton.io/monitor), go to `Monitor`.
+1. In [Starton](https://app.starton.com/monitor), go to `Monitor`.
 
 1. Click `+ Watcher`.
 
-1. Select a `Type of notification` and click `Next`. You can use `Address Activity` to track when an address receives base currency or creates a transaction. For more information, check out [Available event types](https://docs.beta.starton.io//docs/Watcher/available-event-types).
+1. Select a `Type of notification` and click `Next`. You can use `Address Activity` to track when an address receives base currency or creates a transaction. For more information, check out [Available event types](https://docs.beta.starton.com//docs/Watcher/available-event-types).
 
 1. Enter the watcher's `Name` and `Description`. Click `Next`.
 
@@ -59,7 +59,7 @@ Zapier provides you with a `Webhook URL`. We will need this URL in our Watcher o
 
 1. Copy the URL and paste in `Webhook URL`.
 
-1. Enter the number of `Confirmations Blocks` to wait before receiving the notification. More information [on confirmation blocks](https://docs.beta.starton.io/docs/Watcher/confirmation-blocks).
+1. Enter the number of `Confirmations Blocks` to wait before receiving the notification. More information [on confirmation blocks](https://docs.beta.starton.com/docs/Watcher/confirmation-blocks).
 
 For this example we use BSC Testnet, so we use 48 confirmation blocks.
 

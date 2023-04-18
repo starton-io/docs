@@ -14,7 +14,7 @@ In Starton, watchers use webhook as event notifications.
 
 You can create a URL to receive webhooks using several methods.
 
-For example, you can use Zapier to create a webhook. See our use case tutorial, [Track a wallet activity on a Googlesheets using Starton and Zapier](https://docs.starton.io/docs/Tutorials/track-wallet-activity).
+For example, you can use Zapier to create a webhook. See our use case tutorial, [Track a wallet activity on a Googlesheets using Starton and Zapier](https://docs.starton.com/docs/Tutorials/track-wallet-activity).
 
 [Webhook.site](https://webhook.site/) provides you with addresses for testing and debbuging.
 

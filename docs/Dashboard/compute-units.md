@@ -24,7 +24,7 @@ Depending on your subscription plan, there may be different monthly usage quotas
 
 :::
 
-In every Starton plan, you get a specific amount of monthly calls available. The number of compute units varies based on the plan you select. Please visit the **[pricing page](https://www.starton.io/)** for more information on compute units for each plan.
+In every Starton plan, you get a specific amount of monthly calls available. The number of compute units varies based on the plan you select. Please visit the **[pricing page](https://www.starton.com/)** for more information on compute units for each plan.
 
 -->
 ## Estimating compute unit needs
@@ -67,7 +67,7 @@ The price of an API call is the exact amount of compute units that will be count
 
 ### WEB3 Usage examples 
 
-<!--If you already have an idea of your WEB3 needs, go to the **[pricing page](https://www.starton.io/)** and use our simulator to understand how many compute units you would need.-->
+<!--If you already have an idea of your WEB3 needs, go to the **[pricing page](https://www.starton.com/)** and use our simulator to understand how many compute units you would need.-->
 
 We have prepared two examples for you to understand what you can do with compute units.
 

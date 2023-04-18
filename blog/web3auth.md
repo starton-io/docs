@@ -49,4 +49,4 @@ To build the solution, we followed three steps:
    By following these steps, we were able to build a Meta-Transaction site using Web3Auth and Starton. His users can now transfer Starton tokens to other users using meta transactions, making the process more efficient and cost-effective.
 
 
-Want to use our project? Go to our tutorial section, [CREATING METATRANSACTIONS WITH WEB3AUTH AND STARTON](https://docs.starton.io/docs/Tutorials/starton-web3auth)
+Want to use our project? Go to our tutorial section, [CREATING METATRANSACTIONS WITH WEB3AUTH AND STARTON](https://docs.starton.com/docs/Tutorials/starton-web3auth)

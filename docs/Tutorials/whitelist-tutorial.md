@@ -68,7 +68,7 @@ After you computed the root of the Merkle Tree, you can deploy the contract:
 const axios = require("axios")
 
 const axiosInstance = axios.create({
-    baseURL: "https://api.starton.io",
+    baseURL: "https://api.starton.com",
     headers: { "x-api-key": "PUT HERE YOUR API KEY" },
 })
 
@@ -122,7 +122,7 @@ First, let's get the minter role:
     const axios = require("axios")
     
     const axiosInstance = axios.create({
-        baseURL: "https://api.starton.io",
+        baseURL: "https://api.starton.com",
         headers: {
         "x-api-key": "PUT HERE YOUR API KEY",
     },
@@ -146,7 +146,7 @@ To grant the minter role to your contract, you can use the following request:
 const axios = require("axios")
 
 const axiosInstance = axios.create({
-    baseURL: "https://api.starton.io",
+    baseURL: "https://api.starton.com",
     headers: { "x-api-key": "PUT HERE YOUR API KEY" },
 })
 

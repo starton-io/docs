@@ -20,8 +20,8 @@ When the conditions of a watcher are met, the watcher triggers and sends a commu
 :::note You will need:
 
 -   [Node.js](https://nodejs.org/en/)
--   [Starton wallet](https://starton.io/)
--   [Starton API Key](https://starton.io/). To create one, see [Starton API](/Developer/API.md).
+-   [Starton wallet](https://starton.com/)
+-   [Starton API Key](https://starton.com/). To create one, see [Starton API](/Developer/API.md).
 -   An address to monitor
 :::
 
@@ -69,7 +69,7 @@ Now for the good part, let's connect Starton to your application.
     ```jsx showLineNumbers
     // AUTHENTICATING TO THE API USING YOUR API KEY
     const startonApi = axios.create({
-    	baseURL: "https://api.starton.io",
+    	baseURL: "https://api.starton.com",
     	headers: {
     		"x-api-key": "YOUR API KEY ",
     	},
@@ -80,7 +80,7 @@ Now for the good part, let's connect Starton to your application.
 
 
 To create a watcher from the code of your application, use the following snippet.
-You can find the full list of networks and event types in our <a href="https://docs.starton.io/intro#tag/Watcher/operation/WatcherCreateOne">API reference</a>.
+You can find the full list of networks and event types in our <a href="https://docs.starton.com/intro#tag/Watcher/operation/WatcherCreateOne">API reference</a>.
 
 ```jsx showLineNumbers
 // Use the watcher creation endpoint
@@ -122,7 +122,7 @@ You uploaded your first watcher with Starton. Congratulations!
 <div class="row-is-multiline">
 
 <div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
 		<h3>Check all the events of your watcher on the Dashboard</h3>
 		<div class="button-card__inner">
 			<p color="white">Go to <b>Starton Dashboard</b> and check all your events at one glance.</p>

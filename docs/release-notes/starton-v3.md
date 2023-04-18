@@ -7,36 +7,36 @@ displayed-sidebar: connectSidebar
 
 -   **Starton got a brand-new look**
 
-    New version, new look. As we started to scale our product, it was important for us to have a look that reflects our spirit. But look is not all, as you will see, all our user workflows were rethought for you to get the most out of Starton with as little friction as possible. [Read more](https://app.starton.io/)
+    New version, new look. As we started to scale our product, it was important for us to have a look that reflects our spirit. But look is not all, as you will see, all our user workflows were rethought for you to get the most out of Starton with as little friction as possible. [Read more](https://app.starton.com/)
 
 -   **You can now connect your third-party wallets (Metamask)**
 
-    When deploying or interacting with a smart contract you can now use a third-party wallet. Metamask is the first to join the list of third-party wallet providers you can connect with on Starton. [Read more](https://docs.starton.io/docs/Wallet/connecting-an-external-wallet)
+    When deploying or interacting with a smart contract you can now use a third-party wallet. Metamask is the first to join the list of third-party wallet providers you can connect with on Starton. [Read more](https://docs.starton.com/docs/Wallet/connecting-an-external-wallet)
 
 -   **Starton provides you with a new user-centric documentation center**
 
-    As developers, we know that documentation is as important as the product itself. On the new documentation center, you can find out how to use every feature, call the API or follow tutorials to discover the app. [Read more](https://docs.starton.io/)
+    As developers, we know that documentation is as important as the product itself. On the new documentation center, you can find out how to use every feature, call the API or follow tutorials to discover the app. [Read more](https://docs.starton.com/)
 
 -   **You can now use new smart contracts templates**
 
-    Are you ready to take your smart contract game to the next level? We have new templates available, so get busy and try them out! Deploy a smart contract to sell NFTs, run auctions, or manage metatransactions. [Read more](https://docs.starton.io/docs/Smart-contract/parameters-and-functions)
+    Are you ready to take your smart contract game to the next level? We have new templates available, so get busy and try them out! Deploy a smart contract to sell NFTs, run auctions, or manage metatransactions. [Read more](https://docs.starton.com/docs/Smart-contract/parameters-and-functions)
 
 -   **Starton now provides extended logs of your transaction**
 
-    With the new extended logs, you can get more detailed information about your transaction. These extended logs will provide you with a more detailed look at the transactions that are being processed in your projects. [Read more](https://docs.starton.io/docs/Transactions/understanding-the-relayer)
+    With the new extended logs, you can get more detailed information about your transaction. These extended logs will provide you with a more detailed look at the transactions that are being processed in your projects. [Read more](https://docs.starton.com/docs/Transactions/understanding-the-relayer)
 
 -   **You can now use Starton from the integrated dev mode**
 
-    This new feature will make it easier for you to integrate Starton into your project using code. This feature is available in all services of Starton. [Read more](https://docs.starton.io/docs/Developer/Discovering-coding-interface)
+    This new feature will make it easier for you to integrate Starton into your project using code. This feature is available in all services of Starton. [Read more](https://docs.starton.com/docs/Developer/Discovering-coding-interface)
 
 -   **Deploy your own smart contracts using your own code**
 
-    Deploy with our Relayer your contracts using your ABI and Bytecode on all supported blockchains and use all the features from Starton on it. [Read more](https://docs.starton.io/docs/Smart-contract/deploying-from-bytecode)
+    Deploy with our Relayer your contracts using your ABI and Bytecode on all supported blockchains and use all the features from Starton on it. [Read more](https://docs.starton.com/docs/Smart-contract/deploying-from-bytecode)
 
 -   **You can now implement a Gas strategy according to your needs**
 
-    Gas management is complex. Starton can either handle gas management according to your desired speed or follow a custom strategy you implement through gas settings. [Read more](https://docs.starton.io/docs/Transactions/understanding-gas)
+    Gas management is complex. Starton can either handle gas management according to your desired speed or follow a custom strategy you implement through gas settings. [Read more](https://docs.starton.com/docs/Transactions/understanding-gas)
 
 -   **You can now find all your transactions in one list**
 
-    We've made it easier for you to keep track of your transactions. With the introduction of the new transaction list, you will be able to see all transactions made using Starton on your deployed or imported smart contract. [Read more](https://docs.starton.io/docs/Transactions/state-and-status)
+    We've made it easier for you to keep track of your transactions. With the introduction of the new transaction list, you will be able to see all transactions made using Starton on your deployed or imported smart contract. [Read more](https://docs.starton.com/docs/Transactions/state-and-status)

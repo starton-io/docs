@@ -9,7 +9,7 @@ In this tutorial, you will learn how to sell an NFT in an Auction.
 <div class="row-is-multiline">
 
 <div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.io/projects">
+	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
 		<h3>Deploy your Smart contracts on the Dashboard</h3>
 		<div class="button-card__inner">
 			<p color="white">Go to <b>Starton Dashboard</b>, deploy your smart contracts and check all the transactions of your smart contract at one glance.</p>
@@ -44,7 +44,7 @@ We now have the content of our metadata, we need to upload it on IPFS.
 
 To upload our files on IPFS we will now use the [Starton IPFS](/IPFS/understanding-IPFS.md) pinning service.
 
-As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.io/ipfs).
+As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.com/ipfs).
 
 1. Go to **IPFS**.
 1. Click **Upload**.

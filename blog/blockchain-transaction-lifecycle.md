@@ -110,7 +110,7 @@ How Starton helps:
 - Unstuck missing nonce. You can customize the monitor the way you want:
 - Would you like Starton to reallocate a missing nonce?
 - How long you would like the Relayer to wait before we unstuck it?
-For more information please read our full documentation: https://docs.starton.io/connect/api-doc/relayer/project
+For more information please read our full documentation: https://docs.starton.com/connect/api-doc/relayer/project
 
 Example:
 Your mint transaction is now on the network waiting to be included in a block. Unfortunately, the gas price increases and, you have not enough in your wallet to cover gas and pay for the transaction. Starton sends you a notification explaining that your transaction is in error due to insufficient funds. You add tokens to your wallet and send your transaction again. This time everything is ok, you get the “mined” status for your transaction, showing that a miner included it in a block.
