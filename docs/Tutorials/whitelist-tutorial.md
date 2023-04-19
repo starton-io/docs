@@ -11,8 +11,8 @@ This system is called a whitelist sale and it is what we are going to see today.
 
 - nodejs (version 16 or over)
 - npm 
-- ethersjs 5
-- merkltreejs
+- ethers v5
+- merkletreejs
 - a deployed ERC721 NFT contract
 
 :::
@@ -30,9 +30,6 @@ To deploy a Sale contract, you must have deployed your NFT by deploying an ERC72
 -   [Interact with the contract](#interacting-with-the-contract)
 
 
-
-
-
 To deploy this contract, you need to compute a special parameter called *definitiveMerkleRoot*.
 
 ## Creating a merkle root from all approved addresses 
@@ -43,15 +40,15 @@ It is a data structure that can store many data in a limited space which ends up
 To be able to generate this parameter, you will need to use this code snippet:
 
 ```jsx showLineNumbers
-import { keccak256 } from "ethers/lib/utils";
+import { ethers } from "ethers";
 import { MerkleTree } from "merkletreejs";
 
 // Compute the root of the merkletree
 const addresses = [
-	/* The addresses of the wallets allowed to mint */
+    /* The addresses of the wallets allowed to mint */
 ];
-const leaves = addresses.map((addr) => keccak256(addr));
-merkleTree = new MerkleTree(leaves, keccak256, { sortPairs: true });
+const leaves = addresses.map((addr) => ethers.keccak256(addr));
+const merkleTree = new MerkleTree(leaves, ethers.keccak256, { sortPairs: true });
 const rootHash = merkleTree.getRoot();
 ```
 :::caution 
