@@ -259,7 +259,7 @@ module.exports = {
            value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>TOOLS</header>",
            defaultStyle: true,
          },
-		"tools/integrating-tools","tools/Using-zapier-integration",{
+		"tools/integrating-tools","tools/Using-zapier-integration","tools/role-bot-discord",{
                                                                                                                           type: "html",
                                                                                                                           value: "<br style='margin: 1rem 0 1rem 0;'/>",
                                                                                                                           defaultStyle: true,
