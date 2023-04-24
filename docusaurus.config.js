@@ -62,10 +62,14 @@ module.exports = {
 					// Please change this to your repo.
 					// Remove this to remove the "edit this page" links.
 				},
-
 				theme: {
 					customCss: require.resolve('./src/css/starton.css'),
 				},
+				...(process.env.GTM_KEY && {
+					googleTagManager: {
+						containerId: process.env.GTM_KEY,
+					},
+				}),
 			}),
 		],
 		[
@@ -109,7 +113,6 @@ module.exports = {
 			},
 
 			navbar: {
-
 				logo: {
 					alt: 'Starton Logo',
 					src: 'img/starton.svg',
@@ -134,11 +137,12 @@ module.exports = {
 						label: 'Tutorials',
 					},
 					{
-                    type: 'doc',
-                    position: 'right',
-                    docId: 'release-notes',
-                    label: 'Release notes',
-                      					},{
+						type: 'doc',
+						position: 'right',
+						docId: 'release-notes',
+						label: 'Release notes',
+					},
+					{
 						href: 'https://github.com/starton-io',
 						label: 'GitHub',
 						position: 'right',
