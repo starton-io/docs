@@ -9,7 +9,7 @@ Starton offers four different plans to cater to the diverse needs of its users, 
 
 In addition, Starton offers two plans designed to meet the needs of teams who require premium support and higher rate limits. These plans come with dedicated support from our team, who will work closely with users to ensure they get the most out of the platform. The higher rate limits offered by these plans allow teams to scale their applications to meet their growing needs.
 
-You can subscribe to Starton plans on the Billing tab of [app.starton.io](https://app.starton.io)
+You can subscribe to Starton plans on the Billing tab of [app.starton.com](https://app.starton.com/projects/default/billing)
 
 > If you’re experiencing an exceptional increase in volume for your current month. You can also increase your limite when you run out of compute units. For more information, see **[pricing page](https://www.starton.io/pricing)**.
 
@@ -22,6 +22,8 @@ An upgrade refers to any change in your plan that increases the capacity of your
 > Your new plan will take effect immediately after upgrading. You can use 100% of the capabilities of your new plan right away.
 >
 
+![Upgrading plans](src/upgrading-plans.png)
+
 ### Adding Extra units
 
 To prevent your project from being frozen, you can allow your project to use extra units.
@@ -29,6 +31,8 @@ To prevent your project from being frozen, you can allow your project to use ext
 When you subscribe to Starton plans, you have access to a certain amount of compute units that you can use to run your applications. However, to avoid project freeze and ensure continuity of production, you can set a strategy allowing your plan to go over your compute unit limits.
 
 When you choose to allow extra units to your plan, you can either set a limit for the amount of authorized extra units or allow for the unlimited overage. The former option ensures that you have control over the number of extra units being used, while the latter option allows for flexibility and the ability to handle unexpected spikes in usage.
+
+![Extra units](src/extra-units.png)
 
 ## Unsubscribing from the plan
 
@@ -53,6 +57,8 @@ You are not considered actively subscribed to Starton services when your plan is
 >
 
 ## Managing your billing
+
+![Invoices and settings](src/invoices-settings.png)
 
 ### Downloading invoices
 
