@@ -299,7 +299,8 @@ module.exports = {
 				"Tutorials/whitelist-tutorial",
 				"Tutorials/create-an-NFT-collection-sale",
 				"Tutorials/metatransaction",
-				"Tutorials/starton-web3auth"
+				"Tutorials/starton-web3auth",
+				"Tutorials/ai-nft-collection"
 
 			],
 		},{
