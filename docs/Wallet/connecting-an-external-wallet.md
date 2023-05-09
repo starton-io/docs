@@ -9,6 +9,12 @@ keywords: [Wallet, Starton, Smart contracts, Metamask, Transaction]
 
 When deploying and interacting with **Smart Contracts**, you can use an external wallet to sign transactions. **Starton** supports **Metamask**.
 
+:::caution
+
+Third-party wallets, such as Metamask are not available from the API.
+
+:::
+
 :::info
 
 Transactions signed with third-party wallets are not displayed on the dashboard.

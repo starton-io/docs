@@ -22,7 +22,7 @@ You will need
 >
 >DALL-E 2 is an artificial intelligence (AI) model developed by OpenAI. DALL-E 2 is designed to generate images from textual descriptions.
 >
->It is capable of generating complex and detailed images. It can create images that are up to 512x512 pixels in size, and can generate multiple objects and textures within a single image. DALL-E 2 can also create images that are animated and can be interacted with.
+>It is capable of generating complex and detailed images. It can create images that are up to 1024x1024 pixels in size, and can generate multiple objects and textures within a single image. DALL-E 2 can also create images that are animated and can be interacted with.
 
 ## INSTALLING THE PROJECT
 
@@ -87,6 +87,7 @@ Visit [http://localhost:3000](http://localhost:3000/) to test your project.
 
 ## GENERATING AND DEPLOYING YOUR COLLECTION
 
+Once started, visit [http://localhost:3000](http://localhost:3000/) to enter the following parameters:
 1. Enter the **receiver wallet** of the NFT (where you want to send the NFTs).
 2. Select the **network** on which you want to deploy your NFTs. 
    If you are testing, then use the testnet network, and if you are ready to deploy, use the mainnet network (between Polygon, Avalanche, Binance, and Ethereum).
