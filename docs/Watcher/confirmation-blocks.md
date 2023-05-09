@@ -32,11 +32,11 @@ Each network has a different block speed, and thus a different recommended value
 | ethereum-mainnet  | 12                              |
 | ethereum-goerli   | 12                              |
 | Binance           |
-| binance-mainnet   | 48                              |
-| binance-testnet   | 48                              |
+| binance-mainnet   | 80                              |
+| binance-testnet   | 80                              |
 | Avalanche         |
 | avalanche-mainnet | 80                              |
-| avalanche-fuji    | 160                             |
+| avalanche-fuji    | 80                              |
 | Polygon           |                                 |
-| polygon-mainnet   | 50                              |
-| polygon-mumbai    | 50                              |
+| polygon-mainnet   | 180                             |
+| polygon-mumbai    | 180                             |

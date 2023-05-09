@@ -76,5 +76,5 @@ There is a possibility for you to upgrade your credit card information.
 
 **Related topics**
 
-- [Discovering Starton compute units](docs/Dashboard/compute-units)
+- [Discovering Starton compute units](/docs/Dashboard/compute-units)
 - [Discovering the Dashboard](/docs/Dashboard/)
