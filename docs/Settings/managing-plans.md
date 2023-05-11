@@ -5,15 +5,13 @@ title: Managing plans
 
 # Managing plans
 
-Starton offers four different plans to cater to the diverse needs of its users, specifically designed to meet the different requirements of solo developers and teams. The first two plans are perfect for those who are looking for a platform to build their applications, providing a wide range of tools and services to make WEB3 development smooth and efficient.
+Starton offers plans to cater to the diverse needs of its users, specifically designed to meet the different requirements of solo developers and teams. The first two plans are perfect for those who are looking for a platform to build their applications, providing a wide range of tools and services to make WEB3 development smooth and efficient.
 
 In addition, Starton offers two plans designed to meet the needs of teams who require premium support and higher rate limits. These plans come with dedicated support from our team, who will work closely with users to ensure they get the most out of the platform. The higher rate limits offered by these plans allow teams to scale their applications to meet their growing needs.
 
 You can subscribe to Starton plans on the Billing tab of [app.starton.com](https://app.starton.com/projects/default/billing)
 
 > If you’re experiencing an exceptional increase in volume for your current month. You can also increase your limite when you run out of compute units. For more information, see **[pricing page](https://www.starton.io/pricing)**.
-
-
 
 ## Upgrading plans
 
@@ -47,7 +45,7 @@ When canceling your plan, your project is reverted to our free plan.
 
 ### Reactivating subscription
 
-Before the change is effective, if your subscription is canceled and you want to reactivate it, you can go to the Billing section of your account. There, a banner will notify you of all the details of your cancellation. You will be informed of when the change will occur.
+Before the change is effective, if your subscription is canceled and you want to reactivate it, you can go to the Billing section of your account. There, a banner will notify you of all the details of your cancellation. You will be informed when the change will occur.
 
 The **Reactivate subscription** button enables you change your mind and subscribe to your plan again.
 
@@ -64,7 +62,7 @@ You are not considered actively subscribed to Starton services when your plan is
 
 To access your invoices, go to **Billing.**
 
-You will first be able to consult the date of your next invoice as well as a link that will enable you to download all of your invoices. This information can be extremely useful for keeping track of your payments.
+You will first be able to consult the date of your next invoice as well as a link that will enable you to download all of your invoices to keep track of your payments. 
 
 Additionally, having a record of all of your invoices can be helpful for financial reporting.
 

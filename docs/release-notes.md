@@ -7,7 +7,7 @@ displayed-sidebar: connectSidebar
 
 - **Launching Starton plans and extra units** 
 
-  You can now subscribe to a plan that fits your needs. Starton offers four different plans to cater to the diverse needs of its users, specifically designed to meet the different requirements of solo developers and teams. Check out our website to understand our plans. Once subscribed, you can allow more compute units or upgrade plans. [Read More](https://www.starton.com/pricing)
+  You can now subscribe to a plan that fits your needs. Starton offers plans to cater to the diverse needs of its users, specifically designed to meet the different requirements of solo developers and teams. Check out our website to understand our plans. Once subscribed, you can allow more compute units. [Read More](https://www.starton.com/pricing)
 
 - **Discover Starton Dashboard and Compute Units system**
 
