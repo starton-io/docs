@@ -20,8 +20,6 @@ An upgrade refers to any change in your plan that increases the capacity of your
 > Your new plan will take effect immediately after upgrading. You can use 100% of the capabilities of your new plan right away.
 >
 
-![Upgrading plans](src/upgrading-plans.png)
-
 ### Adding Extra units
 
 To prevent your project from being frozen, you can allow your project to use extra units.
