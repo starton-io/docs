@@ -7,11 +7,11 @@ title: Managing plans
 
 Starton offers plans to cater to the diverse needs of its users, specifically designed to meet the different requirements of solo developers and teams. The first two plans are perfect for those who are looking for a platform to build their applications, providing a wide range of tools and services to make WEB3 development smooth and efficient.
 
-In addition, Starton offers two plans designed to meet the needs of teams who require premium support and higher rate limits. These plans come with dedicated support from our team, who will work closely with users to ensure they get the most out of the platform. The higher rate limits offered by these plans allow teams to scale their applications to meet their growing needs.
+In addition, Starton offers a plan designed to meet the needs of teams who require premium support and higher rate limits. This plan comes with dedicated support from our team, who will work closely with users to ensure they get the most out of the platform. The higher rate limits offered by this plan allows teams to scale their applications to meet their growing needs.
 
 You can subscribe to Starton plans on the Billing tab of [app.starton.com](https://app.starton.com/projects/default/billing)
 
-> If you’re experiencing an exceptional increase in volume for your current month. You can also increase your limite when you run out of compute units. For more information, see **[pricing page](https://www.starton.io/pricing)**.
+> If you’re experiencing an exceptional increase in volume for your current month. You can also increase your limit when you run out of compute units. For more information, see **[pricing page](https://www.starton.io/pricing)**.
 
 ## Upgrading plans
 
