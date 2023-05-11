@@ -17,16 +17,16 @@ The Dashboard is currently a beta feature.
 
 :::
 
-<!--
+
 :::info
 
 Depending on your subscription plan, there may be different monthly usage quotas.
 
 :::
 
-In every Starton plan, you get a specific amount of monthly calls available. The number of compute units varies based on the plan you select. Please visit the **[pricing page](https://www.starton.com/)** for more information on compute units for each plan.
+With every Starton plan, you get a specific amount of monthly calls available. The number of compute units varies based on the plan you select. Please visit the **[pricing page](https://www.starton.com/)** for more information on compute units.
 
--->
+
 ## Estimating compute unit needs
 
 Compute units are counted based on your usage of the following:
@@ -43,7 +43,7 @@ Compute units are counted based on your usage of the following:
 
 :::info Be aware of simulations.
 
-When deploying a smart contract from the API, you can set the simulation parameter to true. For more information, see (link to api ref). In this case you are going to need two API calls to deploy your smart contract. From the web application, the simulation is part of the deployment which is why it counts as two deployments.
+When deploying a smart contract from the API, you can set the simulation parameter to true. For more information, see the [API reference](https://docs.starton.com/intro). In this case you are going to need two API calls to deploy your smart contract. From the web application, the simulation is part of the deployment which is why it counts as two deployments.
 
 :::
 
@@ -67,7 +67,7 @@ The price of an API call is the exact amount of compute units that will be count
 
 ### WEB3 Usage examples 
 
-<!--If you already have an idea of your WEB3 needs, go to the **[pricing page](https://www.starton.com/)** and use our simulator to understand how many compute units you would need.-->
+If you already have an idea of your WEB3 needs, go to the **[pricing page](https://www.starton.com/)** and use our simulator to understand how many compute units you would need.
 
 We have prepared two examples for you to understand what you can do with compute units.
 
@@ -91,15 +91,14 @@ Here is the breakdown of the cost of WEB3 Gaming use case with 10 000 of daily u
 |  |  | Daily Total | 8085000 |
 |  |  | Monthly total | 242550000 |
 
-<!--
+
 ## Understanding Starton Rate limits
 
 A rate limit is a restriction that an API places on the number of times a user or client can access the server within a certain time period. Depending on your plan, you will benefit from a specific rate limit.
 
-| Plan  | Rate limit  |
-| --- | --- |
-| Free | 50 requests/min |
-| Pro  | 100 requests/min |
-| Team | 200 requests/min |
-| Enterprise | 500 requests/min |
--->
+| Plan      | Rate limit               |
+|-----------|--------------------------|
+| Free      | 50 requests/min          |
+| Developer | 100 requests/min         |
+| Business  | up to 10000 requests/min |
+
