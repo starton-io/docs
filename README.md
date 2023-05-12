@@ -94,4 +94,4 @@ Please adhere to Starton's [Code of Conduct](/CODE_OF_CONDUCT.md).
 ## Authors
 
 - Starton [support@starton.com](mailto:support@starton.com)
-- Firstname Lastname
+- Loubna Benzaama [loubna@starton.com](mailto:loubna@starton.com)
