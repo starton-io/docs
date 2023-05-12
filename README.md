@@ -31,6 +31,9 @@ To install the project, first clone the repository and go inside project directo
 To run this project, you will need to add the following environment variables to your .env file
 
 * `NODE_ENV` : is a system environment variable that Node exposes into running scripts
+* `URL` : the URL of the documentation (example: https://docs.starton.com)
+* `SEGMENT_KEY` : [Segment](https://segment.com/docs/) API key
+* `GTM_KEY` : [Google Tag Manager](https://developers.google.com/tag-platform/tag-manager/web/datalayer) API Key
 
 ## Run Locally
 
