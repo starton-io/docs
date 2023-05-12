@@ -80,7 +80,7 @@ Find out more on how to use Starton in our [Documentation](https://docs.starton.
 
 Contributions are always welcome!
 
-See [CONTRIBUTING.md](/CONTRIBUTING.md) for ways to get started.
+See [Contributing](/CONTRIBUTING.md) for ways to get started.
 
 Please adhere to Starton's [Code of Conduct](/CODE_OF_CONDUCT.md).
 
