@@ -1,7 +1,7 @@
 {
   "name": "starton-docs",
   "version": "3.1.9",
-  "license": "MIT",
+  "license": "Apache-2.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
