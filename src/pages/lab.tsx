@@ -19,6 +19,7 @@ import {
 	StartonFooterLinkList,
 } from '@site/src/components/v2/StartonFooter'
 import { StartonButton } from '@site/src/components/v2/Button'
+import { Snippet } from '@site/src/components/v2/Snippet'
 
 /*
 |--------------------------------------------------------------------------
@@ -57,6 +58,7 @@ const Lab: React.FC = () => {
 				<Link href="https://www.google.com/" target="_blank" variant="reverse">
 					Documentation
 				</Link>
+				<Snippet />
 			</Box>
 			<StartonFooter>
 				<StartonFooterHead>
