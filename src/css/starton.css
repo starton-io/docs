@@ -167,8 +167,8 @@ h1,
 h2,
 h3,
 h4 {
-	font-family: PP Neue Machina;
-	text-transform: uppercase;
+	/*font-family: PP Neue Machina;*/
+	/*text-transform: uppercase;*/
 }
 
 h1 {
@@ -348,7 +348,7 @@ border-radius: 0px;
 }
 
 h4 {
-	color: #01e6cd;
+	/*color: #01e6cd;*/
 	text-decoration: none;
 }
 
@@ -365,8 +365,8 @@ h2.anchor {
 }
 
 h4 {
-	color: #01e6cd;
-	text-decoration: none;
+	/*color: #01e6cd;*/
+	/*text-decoration: none;*/
 }
 
 .img {

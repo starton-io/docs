@@ -4,16 +4,14 @@
 | Author : Philippe DESPLATS (philippe@starton.com)
 */
 
-import React from "react";
-import { getInitColorSchemeScript } from "@mui/material/styles";
-import { Experimental_CssVarsProvider as CssVarsProvider } from "@mui/material/styles";
-import theme from "@site/src/components/MuiTheme";
+import React from "react"
+import theme from "@site/src/components/MuiTheme"
+import { ThemeProvider } from "@mui/material"
 
 export default function Root({ children }): JSX.Element {
-    return (
-        <React.Fragment>
-            {getInitColorSchemeScript()}
-            <CssVarsProvider theme={theme}>{children}</CssVarsProvider>
-        </React.Fragment>
-    );
+	return (
+		<React.Fragment>
+			<ThemeProvider theme={theme}>{children}</ThemeProvider>
+		</React.Fragment>
+	)
 }
