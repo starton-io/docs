@@ -1,36 +1,37 @@
-import React from "react"
-import { useHistory } from "@docusaurus/router"
-import clsx from "clsx"
-import VersionDropdown from "@theme/NavbarItem/DocsVersionDropdownNavbarItem"
-import useGlobalData from "@docusaurus/useGlobalData"
+import React from 'react'
+import { useHistory } from '@docusaurus/router'
+import clsx from 'clsx'
+import VersionDropdown from '@theme/NavbarItem/DocsVersionDropdownNavbarItem'
+import useGlobalData from '@docusaurus/useGlobalData'
 
-import SectionsMenu from "../SectionsMenu"
-import useSectionMenu from "../../lib/useSectionMenu"
-import styles from "./styles.module.css"
+import SectionsMenu from '../SectionsMenu'
+import useSectionMenu from '../../lib/useSectionMenu'
+import styles from './styles.module.css'
 
 export default function SidebarMenu() {
 	const router = useHistory()
 	const { id, sections, isMultiSection, isNew } = useSectionMenu()
 	const globalData = useGlobalData()
-	const allDocs = globalData["docusaurus-plugin-content-docs"]
+	const allDocs = globalData['docusaurus-plugin-content-docs']
 
 	if (!sections) return null
 
 	const handleSectionChange = (selectedSection) => {
 		if (selectedSection !== id) {
 			const { pathname, hash } = router.location
-			const page = `/${selectedSection}/` + pathname.split("/").slice(2).join("/")
+			const page = `/${selectedSection}/` + pathname.split('/').slice(2).join('/')
 
 			const selectedSectionDocs = allDocs[selectedSection].versions[0].docs
 
 			if (selectedSectionDocs.find((doc) => doc.path === page)) {
-				const path = page + (hash && hash.length > 0 ? "#" + hash : "")
+				const path = page + (hash && hash.length > 0 ? '#' + hash : '')
 				router.push(path)
 			} else {
 				router.push(selectedSectionDocs[0].path)
 			}
 		}
 	}
+	const { currentSection, data } = sections
 
 	if (!isMultiSection) {
 		return (
@@ -45,9 +46,6 @@ export default function SidebarMenu() {
 			</div>
 		)
 	}
-
-	const { currentSection, data } = sections
-
 	return (
 		<div className={styles.multiSectionContainer}>
 			{Object.keys(data).map((section) => {
@@ -62,14 +60,14 @@ export default function SidebarMenu() {
 						className={clsx(styles.section, isCurrentSection && styles.sectionActive)}
 						onClick={navigateToFirstSection}
 						onKeyDown={(e) => {
-							if (e.code === "Space" || e.code == "Enter") {
+							if (e.code === 'Space' || e.code == 'Enter') {
 								navigateToFirstSection()
 							}
 						}}
 						tabIndex={0}
 						key={section}
 					>
-						<div className={styles.label + (isNew ? " new-badge" : "")}>{name}</div>
+						<div className={styles.label + (isNew ? ' new-badge' : '')}>{name}</div>
 						<div>
 							{isCurrentSection ? (
 								<div className={styles.row}>

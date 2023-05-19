@@ -5,7 +5,7 @@
 */
 
 import React from 'react'
-import { styled, Box, BoxProps, Typography, useTheme } from '@mui/material'
+import { styled, Box, BoxProps, Typography } from '@mui/material'
 import { ArrowLargeTopRight } from '@starton/react-ui-iconography'
 
 /*
@@ -14,9 +14,9 @@ import { ArrowLargeTopRight } from '@starton/react-ui-iconography'
 |--------------------------------------------------------------------------
 */
 export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
-	boxProps?: Omit<BoxProps, 'children'>
+	boxProps?: BoxProps
 	children: React.ReactNode
-	color?: 'primary' | 'reverse'
+	variant?: 'primary' | 'reverse'
 }
 
 /*
@@ -25,8 +25,8 @@ export interface LinkProps extends React.AnchorHTMLAttributes<HTMLAnchorElement>
 |--------------------------------------------------------------------------
 */
 const LinkStyled = styled(Box, {
-	shouldForwardProp: (propName) => propName !== 'color',
-})<LinkProps>(({ theme, color }) => ({
+	shouldForwardProp: (propName) => propName !== 'variant',
+})<Pick<LinkProps, 'boxProps' | 'variant'>>(({ theme, variant }) => ({
 	display: 'flex',
 	alignItems: 'center',
 	justifyContent: 'space-between',
@@ -36,7 +36,7 @@ const LinkStyled = styled(Box, {
 	borderBottomWidth: 1,
 	borderBottomStyle: 'solid',
 	borderBottomColor: theme.palette.divider,
-	...(color === 'primary' && {
+	...(variant === 'primary' && {
 		color: theme.palette.text.primary,
 		'& .MuiSvgIcon-root path': {
 			transition: theme.transitions.create(['fill']),
@@ -50,7 +50,7 @@ const LinkStyled = styled(Box, {
 			},
 		},
 	}),
-	...(color === 'reverse' && {
+	...(variant === 'reverse' && {
 		color: theme.palette.reverse.main,
 		'& .MuiSvgIcon-root path': {
 			transition: theme.transitions.create(['fill']),
@@ -72,14 +72,13 @@ const LinkStyled = styled(Box, {
 |--------------------------------------------------------------------------
 */
 export const Link: React.FC<LinkProps> = (props) => {
-	const { children, boxProps, color, ...anchorProps } = props
-	const theme = useTheme()
+	const { children, boxProps, variant, ...anchorProps } = props
 
 	// Render
 	//--------------------------------------------------------------------------
 	return (
 		<a {...anchorProps}>
-			<LinkStyled {...boxProps} color={color}>
+			<LinkStyled variant={variant} {...boxProps}>
 				{typeof children === 'string' ? <Typography>{children}</Typography> : null}
 				<ArrowLargeTopRight sx={{ width: 16, height: 16 }} />
 			</LinkStyled>
@@ -88,5 +87,5 @@ export const Link: React.FC<LinkProps> = (props) => {
 }
 
 Link.defaultProps = {
-	color: 'primary',
+	variant: 'primary',
 }
