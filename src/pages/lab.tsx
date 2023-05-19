@@ -11,6 +11,7 @@ import { RocketLaunchOutlined } from '@mui/icons-material'
 import { CardIndex } from '@site/src/components/v2/CardIndex'
 import { TypographyLink } from '@site/src/components/v2/TypographyLink'
 import { CardPost } from '@site/src/components/v2/CardPost'
+import { Link } from '@site/src/components/v2/Link'
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,12 @@ const Lab: React.FC = () => {
 				date="March 20th 2023"
 				labels={[{ label: 'Label' }, { label: 'Label 1' }, { label: 'Label 2' }]}
 			/>
+			<Link href="https://www.google.com/" target="_blank">
+				Documentation
+			</Link>
+			<Link href="https://www.google.com/" target="_blank" color="reverse">
+				Documentation
+			</Link>
 		</Box>
 	)
 }
