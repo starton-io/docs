@@ -31,6 +31,7 @@ const CardIndexStyled = styled(Box)(({ theme }) => ({
 	gap: theme.spacing(2),
 	padding: theme.spacing(2),
 	backgroundColor: 'transparent',
+
 	'& .MuiSvgIcon-root': {
 		transition: theme.transitions.create(['transform']),
 	},

@@ -91,7 +91,7 @@ module.exports = {
 					},
 					{
 						href: 'https://github.com/starton-io',
-						label: 'GitHub',
+						// label: 'GitHub',
 						'aria-label': 'GitHub',
 						className: 'navbar__icon navbar__github',
 						position: 'right',
@@ -106,6 +106,7 @@ module.exports = {
 						'aria-label': 'Login',
 						className: 'navbar__button',
 						position: 'right',
+						target: '_blank',
 					},
 					// {
 					// 	type: 'docsVersionDropdown',

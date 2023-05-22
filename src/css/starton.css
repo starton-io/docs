@@ -371,10 +371,6 @@ h2.anchor {
 	margin: 0;
 }
 
-/*.navbar__link:not(.navbar__link--active):hover {*/
-/*    background: var(--color-Neutral_Hover);*/
-/*}*/
-
 html[data-theme="dark"] .theme-doc-sidebar-menu .menu__link,
 html[data-theme="dark"],
 .theme-doc-toc-desktop,
@@ -558,7 +554,7 @@ a:active {
 }
 
 html .DocSearch-Button {
-	border-radius: 6px !important;
+	border-radius: 500px !important;
 	font-weight: 400 !important;
 	background: #f9fafd;
 	border: 1px solid #c1c6dd;
@@ -578,6 +574,10 @@ html[data-theme="dark"] .DocSearch-Button {
 
 html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 	color: var(--docsearch-muted-color);
+}
+
+.DocSearch-Button-Keys {
+	color: white !important;
 }
 
 .DocSearch-Button:hover {
@@ -707,6 +707,10 @@ html[data-theme="dark"],
 	font-weight: bold;
 }
 
+.navbar__items--right > :last-child {
+	padding-right: inherit;
+}
+
 .navbar__logo {
 	width: 104px;
 	vertical-align: center;
@@ -714,11 +718,47 @@ html[data-theme="dark"],
 	padding-bottom: 4px;
 }
 
-/*.navbar__icon:hover:before {*/
-/*	background-color: var(--ifm-navbar-link-hover-color);*/
-/*}*/
+.navbar__button {
+	font-family: 'Inter', Arial, sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 100%;
+	letter-spacing: -0.16px;
+	color: #01FEE2;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	box-sizing: border-box;
+	border: 1px solid #435160;
+	height: calc(100% - 8px);
+	padding: 8px 16px !important;
+	display: flex;
+	align-content: center;
+}
 
-/*.navbar__github:before {*/
-/*	mask: url("/img/github.svg") no-repeat 100% 100%;*/
-/*	mask-size: cover;*/
-/*}*/
+.navbar__button:hover {
+	background: #01FEE2;
+	color: #151a1f;
+}
+
+.navbar__button svg {
+	display: none;
+}
+
+.navbar__icon:before {
+	content: "";
+	display: flex;
+	height: 24px;
+	width: 24px;
+	background-color: var(--ifm-navbar-link-color);
+}
+
+.navbar__icon:hover:before {
+	background-color: var(--ifm-navbar-link-hover-color);
+}
+
+.navbar__github:before {
+	mask: url("/img/github.svg") no-repeat 100% 100%;
+	mask-size: cover;
+}
