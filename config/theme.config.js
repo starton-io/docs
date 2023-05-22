@@ -11,6 +11,8 @@ module.exports = {
 	themeConfig:
 		/**@type {import('@docusaurus/preset-classic').ThemeConfig}*/
 		({
+			// Plugins
+			// ----------------------------------------------------------------------------
 			algolia: {
 				appId: 'KZLUI8PR4I',
 				// Clé d'API publique : il est possible de la committer en toute sécurité
@@ -21,16 +23,33 @@ module.exports = {
 				// Facultatif : chemin pour la page de recherche qui est activée par défaut (`false` pour le désactiver)
 				searchPagePath: 'search',
 			},
+
+			liveCodeBlock: {
+				/**
+				 * La position du terrain de jeu en direct, au-dessus ou au-dessous de l'éditeur
+				 * Valeurs possibles : "top" | "bottom"
+				 */
+				playgroundPosition: 'bottom',
+			},
+
+			// Theme
+			// ----------------------------------------------------------------------------
 			colorMode: {
 				defaultMode: 'dark',
 				disableSwitch: true,
 			},
+
+			// Docs configurations
+			// ----------------------------------------------------------------------------
 			docs: {
 				sidebar: {
 					autoCollapseCategories: true,
 				},
 			},
+			copyright: `Copyright © ${new Date().getFullYear()} Starton Documentation, Inc. Built with Docusaurus.`,
 
+			// Navbar
+			// ----------------------------------------------------------------------------
 			navbar: {
 				logo: {
 					alt: 'Starton Logo',
@@ -42,50 +61,63 @@ module.exports = {
 						docId: 'overview',
 						position: 'left',
 						label: 'Docs',
+						'aria-label': 'Docs',
 					},
-					{ to: 'intro', label: 'API', position: 'left' },
 					{
-						type: 'search',
-						position: 'right',
+						to: 'intro',
+						label: 'API',
+						'aria-label': 'API',
+						position: 'left',
 					},
-					{ to: 'blog/web3auth', label: 'Guides', position: 'right' },
 					{
 						type: 'doc',
 						position: 'left',
 						docId: 'Tutorials/Home',
 						label: 'Tutorials',
+						'aria-label': 'Tutorials',
+					},
+					{
+						to: 'blog/web3auth',
+						label: 'Guides',
+						'aria-label': 'Guides',
+						position: 'right',
 					},
 					{
 						type: 'doc',
 						position: 'right',
 						docId: 'release-notes',
 						label: 'Release notes',
+						'aria-label': 'Release notes',
 					},
 					{
 						href: 'https://github.com/starton-io',
 						label: 'GitHub',
+						'aria-label': 'GitHub',
+						className: 'navbar__icon navbar__github',
 						position: 'right',
 					},
 					{
-						href: 'https://discord.starton.com',
-						label: 'Support',
+						type: 'search',
 						position: 'right',
 					},
-					/*  {
-            type: 'docsVersionDropdown',
-            position: 'right',
-            dropdownItemsAfter: [{to: '/versions', label: 'All versions'}],
-            dropdownActiveClassDisabled: false,
-          },*/
+					{
+						href: 'https://auth.starton.com/login',
+						label: 'Login',
+						'aria-label': 'Login',
+						className: 'navbar__button',
+						position: 'right',
+					},
+					// {
+					// 	type: 'docsVersionDropdown',
+					// 	position: 'right',
+					// 	dropdownItemsAfter: [{ to: '/versions', label: 'All versions' }],
+					// 	dropdownActiveClassDisabled: false,
+					// },
 				],
 			},
-			liveCodeBlock: {
-				/**
-				 * La position du terrain de jeu en direct, au-dessus ou au-dessous de l'éditeur
-				 * Valeurs possibles : "top" | "bottom"
-				 */
-				playgroundPosition: 'bottom',
-			},
+
+			// Footer
+			// ----------------------------------------------------------------------------
 			footer: {
 				style: 'dark',
 				links: [
@@ -132,7 +164,5 @@ module.exports = {
 			prism: {
 				theme: require('prism-react-renderer/themes/dracula'),
 			},
-
-			copyright: `Copyright © ${new Date().getFullYear()} Starton Documentation, Inc. Built with Docusaurus.`,
 		}),
 }
