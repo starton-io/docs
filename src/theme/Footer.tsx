@@ -10,10 +10,10 @@ import {
 	StartonFooterBody,
 	StartonFooterHead,
 	StartonFooterLinkList,
-} from '@site/src/components/v2/StartonFooter'
-import { StartonButton } from '@site/src/components/v2/Button'
+} from '@site/src/components/commons/StartonFooter'
+import { StartonButton } from '@site/src/components/commons/Button'
 import { Typography, useTheme } from '@mui/material'
-import { Link } from '@site/src/components/v2/Link'
+import { Link } from '@site/src/components/commons/Link'
 import { SocialDiscord, SocialLinkedin, SocialTwitter, Starton } from '@starton/react-ui-iconography'
 
 /*

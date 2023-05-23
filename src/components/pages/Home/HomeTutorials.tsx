@@ -7,23 +7,16 @@
 import React from 'react'
 import { Container, styled, Typography } from '@mui/material'
 import Grid from '@mui/material/Grid'
-import { CardIndex } from '@site/src/components/v2/CardIndex'
-import { TypographyLink } from '@site/src/components/v2/TypographyLink'
-import { CardPost } from '@site/src/components/v2/CardPost'
+import { CardIndex } from '@site/src/components/commons/CardIndex'
+import { TypographyLink } from '@site/src/components/commons/TypographyLink'
+import { CardPost } from '@site/src/components/commons/CardPost'
+import { SectionContainer } from '@site/src/components/commons/SectionContainer'
 
 /*
 |--------------------------------------------------------------------------
 | Styles
 |--------------------------------------------------------------------------
 */
-const SectionContainer = styled(Container)(({ theme }) => ({
-	padding: theme.spacing(6, 3),
-	[theme.breakpoints.up('md')]: {
-		padding: theme.spacing(6, 0),
-		flexDirection: 'row',
-	},
-}))
-
 const SectionTitle = styled(Typography)(({ theme }) => ({
 	color: theme.palette.text.secondary,
 	fontWeight: 400,
@@ -41,7 +34,7 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
 */
 export function HomeTutorials() {
 	return (
-		<SectionContainer maxWidth={false}>
+		<SectionContainer>
 			<Grid container spacing={3} direction={'column'}>
 				<Grid item xs={12}>
 					<SectionTitle>Last tutorials</SectionTitle>

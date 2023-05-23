@@ -9,7 +9,7 @@ import { styled } from '@mui/material'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
-import { Snippet } from '@site/src/components/v2/Snippet'
+import { Snippet } from '@site/src/components/commons/Snippet'
 
 /*
 |--------------------------------------------------------------------------
@@ -20,7 +20,7 @@ const HeroBanner = styled(Container)(({ theme }) => ({
 	backgroundColor: theme.palette.background.paper2,
 	padding: theme.spacing(6, 3),
 	[theme.breakpoints.up('md')]: {
-		padding: theme.spacing(6, 0),
+		padding: theme.spacing(6, 6),
 		flexDirection: 'row',
 	},
 }))

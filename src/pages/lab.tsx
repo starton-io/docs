@@ -6,20 +6,20 @@
 
 import React from 'react'
 import { Box, Typography, useTheme } from '@mui/material'
-import { CardTitle } from '@site/src/components/v2/CardTitle'
+import { CardTitle } from '@site/src/components/commons/CardTitle'
 import { RocketLaunchOutlined } from '@mui/icons-material'
-import { CardIndex } from '@site/src/components/v2/CardIndex'
-import { TypographyLink } from '@site/src/components/v2/TypographyLink'
-import { CardPost } from '@site/src/components/v2/CardPost'
-import { Link } from '@site/src/components/v2/Link'
+import { CardIndex } from '@site/src/components/commons/CardIndex'
+import { TypographyLink } from '@site/src/components/commons/TypographyLink'
+import { CardPost } from '@site/src/components/commons/CardPost'
+import { Link } from '@site/src/components/commons/Link'
 import {
 	StartonFooter,
 	StartonFooterBody,
 	StartonFooterHead,
 	StartonFooterLinkList,
-} from '@site/src/components/v2/StartonFooter'
-import { StartonButton } from '@site/src/components/v2/Button'
-import { Snippet } from '@site/src/components/v2/Snippet'
+} from '@site/src/components/commons/StartonFooter'
+import { StartonButton } from '@site/src/components/commons/Button'
+import { Snippet } from '@site/src/components/commons/Snippet'
 
 /*
 |--------------------------------------------------------------------------
