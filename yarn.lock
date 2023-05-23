@@ -1503,7 +1503,7 @@
     react-helmet-async "*"
     react-loadable "npm:@docusaurus/react-loadable@5.5.2"
 
-"@docusaurus/plugin-client-redirects@^2.4.0":
+"@docusaurus/plugin-client-redirects@^2.4.1":
   version "2.4.1"
   resolved "https://registry.yarnpkg.com/@docusaurus/plugin-client-redirects/-/plugin-client-redirects-2.4.1.tgz#a28afcc4a1cb7657168ce37a57efd3194c20a53a"
   integrity sha512-tp0j16gaLIJ4p+IR0P6KDOFsTOGGMY54MNPnmM61Vaqqt5omLqsuKUO8UlCGU1oW/4EIQOhXYy99XYY5MjE+7A==
