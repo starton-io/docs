@@ -114,6 +114,13 @@ const StartonButtonStyled = styled(Button, {
 				borderColor: theme.palette.divider,
 				backgroundColor:
 					color && color !== 'inherit' ? theme.palette[color].hover : theme.palette.primary.hover,
+				...(color === 'reverse'
+					? {
+							color: theme.palette.reverse.contrastText,
+					  }
+					: {
+							color: color && color !== 'inherit' ? theme.palette[color].main : color,
+					  }),
 			}),
 			...(variant === 'contained' && {
 				borderColor: color && color !== 'inherit' ? theme.palette[color].dark : theme.palette.primary.dark,

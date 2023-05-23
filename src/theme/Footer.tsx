@@ -31,7 +31,7 @@ function Footer() {
 					size="large"
 					color="reverse"
 					variant="outlined"
-					startIcon={<Starton fill={theme.palette.background.default} />}
+					startIcon={<Starton fill={'currentColor'} />}
 				>
 					Website
 				</StartonButton>
@@ -39,7 +39,7 @@ function Footer() {
 					size="large"
 					color="reverse"
 					variant="outlined"
-					startIcon={<SocialTwitter fill={theme.palette.background.default} />}
+					startIcon={<SocialTwitter fill={'currentColor'} />}
 				>
 					Twitter
 				</StartonButton>
@@ -47,7 +47,7 @@ function Footer() {
 					size="large"
 					color="reverse"
 					variant="outlined"
-					startIcon={<SocialDiscord fill={theme.palette.background.default} />}
+					startIcon={<SocialDiscord fill={'currentColor'} />}
 				>
 					Discord
 				</StartonButton>
@@ -55,7 +55,7 @@ function Footer() {
 					size="large"
 					color="reverse"
 					variant="outlined"
-					startIcon={<SocialLinkedin fill={theme.palette.background.default} />}
+					startIcon={<SocialLinkedin fill={'currentColor'} />}
 				>
 					LinkedIn
 				</StartonButton>
