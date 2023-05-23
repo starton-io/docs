@@ -60,7 +60,7 @@ export const CardIndex: React.FC<CardIndexProps> = (props) => {
 			<CardIndexStyled {...boxProps}>
 				<Box display="flex" flexDirection="column" gap={1}>
 					<Box display="flex" justifyContent="space-between">
-						<Typography variant="h4" color="text.primary">
+						<Typography variant="h4" component={'h2'} color="text.primary">
 							{title}
 						</Typography>
 						<ArrowLargeTopRight fill={theme.palette.text.primary} sx={{ width: 16, height: 16 }} />
