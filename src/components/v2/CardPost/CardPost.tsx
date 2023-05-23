@@ -5,7 +5,7 @@
 */
 
 import React from 'react'
-import { BoxProps, Chip, ChipProps, styled, Typography, useTheme } from '@mui/material'
+import { BoxProps, Chip, ChipProps, Grid, styled, Typography, useTheme } from '@mui/material'
 import Box from '@mui/material/Box'
 import { StartonType } from '@starton/react-ui-iconography'
 
@@ -38,6 +38,7 @@ const CardPostStyled = styled(Box)(({ theme }) => ({
 	justifyContent: 'space-between',
 	minHeight: 200,
 	transition: theme.transitions.create(['background-color']),
+	width: '100%',
 	'& .MuiSvgIcon-root': {
 		transition: theme.transitions.create(['transform']),
 	},
@@ -78,7 +79,9 @@ export const CardPost: React.FC<CardPostProps> = (props) => {
 						</Typography>
 					</Box>
 				</Box>
-				<Box>{labels && labels.map((chip) => <ChipStyled {...chip} />)}</Box>
+				<Box display="flex" gap={2}>
+					{labels && labels.map((chip) => <ChipStyled {...chip} />)}
+				</Box>
 			</CardPostStyled>
 		</a>
 	)

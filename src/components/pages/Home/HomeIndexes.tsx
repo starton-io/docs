@@ -37,9 +37,9 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
 export function HomeIndexes() {
 	return (
 		<SectionContainer maxWidth={false}>
-			<Grid container spacing={2}>
+			<Grid container spacing={2} alignItems={'flex-start'}>
 				{/* GETTING STARTED */}
-				<Grid container spacing={2} item lg={4}>
+				<Grid container spacing={3} item lg={4}>
 					<Grid item xs={12}>
 						<SectionTitle>Getting started</SectionTitle>
 					</Grid>
@@ -79,7 +79,7 @@ export function HomeIndexes() {
 				</Grid>
 
 				{/* RELAYER */}
-				<Grid container spacing={2} item lg={4}>
+				<Grid container spacing={3} item lg={4}>
 					<Grid item xs={12}>
 						<SectionTitle>Relayer</SectionTitle>
 					</Grid>
@@ -117,7 +117,7 @@ export function HomeIndexes() {
 				</Grid>
 
 				{/* MONITOR */}
-				<Grid container spacing={2} item lg={4}>
+				<Grid container spacing={3} item lg={4}>
 					<Grid item xs={12}>
 						<SectionTitle>Monitor</SectionTitle>
 					</Grid>

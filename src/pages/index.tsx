@@ -8,6 +8,7 @@ import React from 'react'
 import Layout from '@theme/Layout'
 import { HomeHero } from '@site/src/components/pages/Home/HomeHero'
 import { HomeIndexes } from '@site/src/components/pages/Home/HomeIndexes'
+import { HomeTutorials } from '@site/src/components/pages/Home/HomeTutorials'
 
 /*
 |--------------------------------------------------------------------------
@@ -22,6 +23,9 @@ function Home() {
 
 			{/* SECTIONS */}
 			<HomeIndexes />
+
+			{/* TUTORIALS */}
+			<HomeTutorials />
 		</Layout>
 	)
 }
