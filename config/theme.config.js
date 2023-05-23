@@ -3,6 +3,8 @@
 | Filename : theme.config.js
 */
 
+const prisma = require('prism-react-renderer')
+
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
@@ -163,7 +165,7 @@ module.exports = {
 			// Prism
 			// ----------------------------------------------------------------------------
 			prism: {
-				theme: require('prism-react-renderer/themes/dracula'),
+				theme: prisma.themes.dracula,
 			},
 		}),
 }
