@@ -735,3 +735,10 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 	mask: url("/img/github.svg") no-repeat 100% 100%;
 	mask-size: cover;
 }
+
+@media (max-width: 996px) {
+	.searchBox_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module {
+		position: initial !important;
+		margin-right: var(--ifm-navbar-padding-horizontal);
+	}
+}

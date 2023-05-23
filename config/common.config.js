@@ -14,7 +14,7 @@ module.exports = {
 	baseUrl: '/',
 	onBrokenLinks: 'warn',
 	onBrokenMarkdownLinks: 'warn',
-	favicon: 'img/logo.svg',
+	favicon: '/img/logo.svg',
 
 	// GitHub pages deployment config.
 	// If you aren't using GitHub pages, you don't need these.

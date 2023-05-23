@@ -74,7 +74,7 @@ function Footer() {
 					<Link href="https://docs.starton.com/intro" variant="reverse">
 						API
 					</Link>
-					<Link href="https://docs.starton.com/docs/Tutorials/Home" variant="reverse">
+					<Link href="https://docs.starton.com/tutorials" variant="reverse">
 						Tutorials
 					</Link>
 					<Link href="https://docs.starton.com/blog/web3auth" variant="reverse">

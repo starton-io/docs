@@ -72,11 +72,10 @@ module.exports = {
 						position: 'left',
 					},
 					{
-						type: 'doc',
-						position: 'left',
-						docId: 'Tutorials/Home',
 						label: 'Tutorials',
+						href: '/tutorials',
 						'aria-label': 'Tutorials',
+						position: 'left',
 					},
 					{
 						to: 'blog/web3auth',

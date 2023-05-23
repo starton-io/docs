@@ -1,6 +1,6 @@
 /*
 | Developed by Dirupt
-| Filename : HomeHero.tsx
+| Filename : PageHeader.tsx
 | Author : Philippe DESPLATS (philippe@di-rupt.com)
 */
 
@@ -10,6 +10,17 @@ import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import { Snippet } from '@site/src/components/commons/Snippet'
+
+/*
+|--------------------------------------------------------------------------
+| Contracts
+|--------------------------------------------------------------------------
+*/
+export interface PageHeaderProps {
+	title: React.ReactNode | string
+	subTitle?: string
+	description?: string
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -44,15 +55,13 @@ const HeroTitle = styled(Typography)(({ theme }) => ({
 | Component
 |--------------------------------------------------------------------------
 */
-export function HomeHero() {
+export const PageHeader: React.FC<PageHeaderProps> = (props) => {
 	return (
 		<HeroBanner maxWidth={false}>
 			<Grid container justifyContent={'space-between'} alignItems={'flex-end'}>
 				<Grid item>
-					<HeroSubtitle variant={'subtitle2'}>Welcome on</HeroSubtitle>
-					<HeroTitle variant={'h1'}>
-						Starton <span>documentation</span>
-					</HeroTitle>
+					<HeroSubtitle variant={'subtitle2'}>{props.subTitle}</HeroSubtitle>
+					<HeroTitle variant={'h1'}>{props.title}</HeroTitle>
 				</Grid>
 				<Grid item>
 					<Snippet />
@@ -61,3 +70,10 @@ export function HomeHero() {
 		</HeroBanner>
 	)
 }
+
+/*
+|--------------------------------------------------------------------------
+| Component configurations
+|--------------------------------------------------------------------------
+*/
+PageHeader.displayName = 'PageHeader'

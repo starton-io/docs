@@ -6,9 +6,9 @@
 
 import React from 'react'
 import Layout from '@theme/Layout'
-import { HomeHero } from '@site/src/components/pages/Home/HomeHero'
 import { HomeIndexes } from '@site/src/components/pages/Home/HomeIndexes'
 import { HomeTutorials } from '@site/src/components/pages/Home/HomeTutorials'
+import { PageHeader } from '@site/src/components/commons/PageHeader'
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +19,14 @@ function Home() {
 	return (
 		<Layout title="Starton Hub | Documentation, Guides, Tutorials">
 			{/* HERO BANNER */}
-			<HomeHero />
+			<PageHeader
+				subTitle={'Welcome on'}
+				title={
+					<React.Fragment>
+						Starton <span>Documentation</span>
+					</React.Fragment>
+				}
+			/>
 
 			{/* SECTIONS */}
 			<HomeIndexes />
