@@ -17,7 +17,11 @@ import { CardPost } from '@site/src/components/v2/CardPost'
 |--------------------------------------------------------------------------
 */
 const SectionContainer = styled(Container)(({ theme }) => ({
-	padding: theme.spacing(6, 0),
+	padding: theme.spacing(6, 3),
+	[theme.breakpoints.up('md')]: {
+		padding: theme.spacing(6, 0),
+		flexDirection: 'row',
+	},
 }))
 
 const SectionTitle = styled(Typography)(({ theme }) => ({
@@ -44,28 +48,33 @@ export function HomeTutorials() {
 				</Grid>
 
 				<Grid container spacing={2} item xs={12}>
-					<Grid item xs={12} lg={4}>
+					<Grid item xs={12} md={4}>
 						<CardPost
 							href="https://docs.starton.com/docs/Tutorials/ai-nft-collection"
 							title="Generating your NFT collection with AI"
-							date="March 20th 2023"
-							labels={[{ label: 'Label' }, { label: 'Label 1' }, { label: 'Label 2' }]}
+							date="April 2023"
+							labels={[{ label: 'NFT' }, { label: 'AI' }, { label: 'CODE' }, { label: 'ADVANCED' }]}
 						/>
 					</Grid>
-					<Grid item xs={12} lg={4}>
+					<Grid item xs={12} md={4}>
 						<CardPost
 							href="https://docs.starton.com/docs/Tutorials/starton-web3auth"
 							title="Creating metatransactions with Web3Auth and Starton"
-							date="March 20th 2023"
-							labels={[{ label: 'Label' }, { label: 'Label 1' }, { label: 'Label 2' }]}
+							date="March 2023"
+							labels={[{ label: 'AUTH' }, { label: 'WALLET' }, { label: 'CODE' }, { label: 'ADVANCED' }]}
 						/>
 					</Grid>
-					<Grid item xs={12} lg={4}>
+					<Grid item xs={12} md={4}>
 						<CardPost
 							href="https://docs.starton.com/docs/Tutorials/track-wallet-activity"
 							title="Track a wallet activity on a GoogleSheets using Starton and Zapier"
-							date="March 20th 2023"
-							labels={[{ label: 'Label' }, { label: 'Label 1' }, { label: 'Label 2' }]}
+							date="December 2022"
+							labels={[
+								{ label: 'ZAPIER' },
+								{ label: 'MONITOR' },
+								{ label: 'INTERFACE' },
+								{ label: 'BEGINNER' },
+							]}
 						/>
 					</Grid>
 				</Grid>

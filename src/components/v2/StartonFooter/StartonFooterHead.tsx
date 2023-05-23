@@ -27,8 +27,11 @@ const FooterHeadStyled = styled(Box)(({ theme }) => ({
 	display: 'flex',
 	justifyContent: 'space-between',
 	alignItems: 'center',
+	flexDirection: 'column',
+	gap: theme.spacing(3),
 	[theme.breakpoints.up('md')]: {
 		padding: theme.spacing(7, 9, 5),
+		flexDirection: 'row',
 	},
 }))
 
@@ -61,7 +64,7 @@ export const StartonFooterHead: React.FC<StartonFooterHeadProps> = (props) => {
 			<StartonLogoContainer variant="square">
 				<StartonType fill="black" />
 			</StartonLogoContainer>
-			<Box display="flex" gap={1}>
+			<Box display="flex" gap={1} flexWrap={'wrap'} justifyContent={{ xs: 'center', md: 'flex-end' }}>
 				{children}
 			</Box>
 		</FooterHeadStyled>

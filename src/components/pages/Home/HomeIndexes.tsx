@@ -16,7 +16,11 @@ import { TypographyLink } from '@site/src/components/v2/TypographyLink'
 |--------------------------------------------------------------------------
 */
 const SectionContainer = styled(Container)(({ theme }) => ({
-	padding: theme.spacing(6, 0),
+	padding: theme.spacing(6, 3),
+	[theme.breakpoints.up('md')]: {
+		padding: theme.spacing(6, 0),
+		flexDirection: 'row',
+	},
 }))
 
 const SectionTitle = styled(Typography)(({ theme }) => ({
@@ -39,7 +43,7 @@ export function HomeIndexes() {
 		<SectionContainer maxWidth={false}>
 			<Grid container spacing={2} alignItems={'flex-start'}>
 				{/* GETTING STARTED */}
-				<Grid container spacing={3} item lg={4}>
+				<Grid container spacing={3} item md={4}>
 					<Grid item xs={12}>
 						<SectionTitle>Getting started</SectionTitle>
 					</Grid>
@@ -79,7 +83,7 @@ export function HomeIndexes() {
 				</Grid>
 
 				{/* RELAYER */}
-				<Grid container spacing={3} item lg={4}>
+				<Grid container spacing={3} item md={4}>
 					<Grid item xs={12}>
 						<SectionTitle>Relayer</SectionTitle>
 					</Grid>
@@ -117,7 +121,7 @@ export function HomeIndexes() {
 				</Grid>
 
 				{/* MONITOR */}
-				<Grid container spacing={3} item lg={4}>
+				<Grid container spacing={3} item md={4}>
 					<Grid item xs={12}>
 						<SectionTitle>Monitor</SectionTitle>
 					</Grid>

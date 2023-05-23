@@ -18,7 +18,11 @@ import { Snippet } from '@site/src/components/v2/Snippet'
 */
 const HeroBanner = styled(Container)(({ theme }) => ({
 	backgroundColor: theme.palette.background.paper2,
-	padding: theme.spacing(12, 0),
+	padding: theme.spacing(6, 3),
+	[theme.breakpoints.up('md')]: {
+		padding: theme.spacing(6, 0),
+		flexDirection: 'row',
+	},
 }))
 
 const HeroSubtitle = styled(Typography)(({ theme }) => ({
