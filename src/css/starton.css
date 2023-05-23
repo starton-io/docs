@@ -33,15 +33,15 @@
 /* Fonts */
 @font-face {
 	font-family: "PP Neue Machina";
-	src: url(PPNeueMachina-InktrapSemibold.ttf);
+	src: url("/fonts/PPNeueMachina-InktrapSemibold.ttf");
 }
 @font-face {
 	font-family: "Fira Code";
-	src: url(FiraCode-Bold.ttf);
+	src: url("/fonts/FiraCode-Bold.ttf");
 }
 @font-face {
 	font-family: "Inter";
-	src: url(Inter-Regular.ttf);
+	src: url("/fonts/Inter-Regular.ttf");
 }
 
 /* Prism modifications */
@@ -217,9 +217,9 @@ pre {
 	color: #678298;
 }
 
-div.class[*="codeBlockContainer"] {
-	color: #678298;
-}
+/*div.class[*="codeBlockContainer"] {*/
+/*	color: #678298;*/
+/*}*/
 
 .barre1 {
 	position: absolute;
@@ -372,18 +372,12 @@ h2.anchor {
 }
 
 html[data-theme="dark"] .theme-doc-sidebar-menu .menu__link,
-html[data-theme="dark"],
-.theme-doc-toc-desktop,
-.table-of-contents,
-.toc-highlight {
+html[data-theme="dark"] .theme-doc-toc-desktop .table-of-contents .toc-highlight {
 	color: white;
 }
 
 html[data-theme="dark"] .theme-doc-sidebar-menu .menu__link--active,
-html[data-theme="dark"],
-.theme-doc-toc-desktop,
-.table-of-contents,
-.table-of-contents__link--active {
+html[data-theme="dark"] .theme-doc-toc-desktop .table-of-contents .table-of-contents__link--active {
 	color: #01e6cd;
 	background-color: #29343d;
 }
@@ -639,27 +633,6 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 	will-change: initial !important;
 
 	margin: 0;
-}
-
-/*.navbar__link:not(.navbar__link--active):hover {*/
-/*	background: var(--color-Neutral_Hover);*/
-/*}*/
-
-html[data-theme="dark"] .theme-doc-sidebar-menu .menu__link,
-html[data-theme="dark"],
-.theme-doc-toc-desktop,
-.table-of-contents,
-.toc-highlight {
-	color: white;
-}
-
-html[data-theme="dark"] .theme-doc-sidebar-menu .menu__link--active,
-html[data-theme="dark"],
-.theme-doc-toc-desktop,
-.table-of-contents,
-.table-of-contents__link--active {
-	color: #01e6cd;
-	background-color: #29343d;
 }
 
 .theme-doc-sidebar-menu,
