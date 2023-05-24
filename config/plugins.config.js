@@ -10,16 +10,6 @@
 module.exports = {
 	plugins: [
 		'@docusaurus/theme-live-codeblock',
-		// ...(process.env.SEGMENT_KEY && [
-		// 	[
-		// 		'docusaurus-plugin-segment',
-		// 		{
-		// 			apiKey: process.env.SEGMENT_KEY,
-		// 			// Add other options here.
-		// 		},
-		// 	],
-		// ]),
-
 		// Redirections plugin
 		// Link : https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-client-redirects
 		// ----------------------------------------------------------------------------
