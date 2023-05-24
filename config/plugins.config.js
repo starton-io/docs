@@ -23,15 +23,17 @@ module.exports = {
 		// Redirections plugin
 		// Link : https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-client-redirects
 		// ----------------------------------------------------------------------------
-		'@docusaurus/plugin-client-redirects',
-		{
-			redirects: [
-				// /docs/oldDoc -> /docs/newDoc
-				{
-					from: '/docs/Tutorials/Home',
-					to: '/tutorials',
-				},
-			],
-		},
+		[
+			'@docusaurus/plugin-client-redirects',
+			{
+				redirects: [
+					// /docs/oldDoc -> /docs/newDoc
+					{
+						from: '/docs/Tutorials/Home',
+						to: '/tutorials',
+					},
+				],
+			},
+		],
 	],
 }
