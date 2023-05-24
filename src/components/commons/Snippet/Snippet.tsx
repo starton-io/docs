@@ -5,7 +5,7 @@
 */
 
 import React from 'react'
-import { styled, Typography } from '@mui/material'
+import { styled, Typography, TypographyProps } from '@mui/material'
 import Box from '@mui/material/Box'
 
 /*
@@ -33,8 +33,25 @@ const SnippetStyled = styled(Box)(({ theme }) => ({
 	borderWidth: 1,
 	borderStyle: 'solid',
 	borderColor: theme.palette.divider,
-	width: 'fit-content',
+	maxWidth: 400,
+	width: '100%',
+	minWidth: 'initial',
+	[theme.breakpoints.up('md')]: {
+		fontSize: theme.typography.h5.fontSize,
+		minWidth: 400,
+	},
 }))
+
+const SnippetTypography = styled((props) => <Typography component={'span'} {...props} />)<TypographyProps>(
+	({ theme }) => ({
+		...theme.typography.caption,
+		textTransform: 'uppercase',
+		fontSize: 12,
+		[theme.breakpoints.up('md')]: {
+			fontSize: theme.typography.h5.fontSize,
+		},
+	}),
+)
 
 /*
 |--------------------------------------------------------------------------
@@ -55,23 +72,13 @@ export const Snippet: React.FC<SnippetProps> = () => {
 	//--------------------------------------------------------------------------
 	return (
 		<SnippetStyled>
-			<Typography textTransform="uppercase" minWidth={400} variant="h6">
-				<Typography textTransform="uppercase" component="span" color="primary.main">
-					const{' '}
-				</Typography>
-				<Typography textTransform="uppercase" component="span" color="text.primary">
-					documentation ={' '}
-				</Typography>
-				<Typography textTransform="uppercase" component="span" color="warning.main">
-					state("
-				</Typography>
-				<Typography textTransform="uppercase" component="span" color="text.primary">
-					{lines[currentIndex]}
-				</Typography>
-				<Typography textTransform="uppercase" component="span" color="warning.main">
-					")
-				</Typography>
-			</Typography>
+			<SnippetTypography>
+				<SnippetTypography color="primary.main">const </SnippetTypography>
+				<SnippetTypography color="text.primary">documentation = </SnippetTypography>
+				<SnippetTypography color="warning.main">state("</SnippetTypography>
+				<SnippetTypography color="text.primary">{lines[currentIndex]}</SnippetTypography>
+				<SnippetTypography color="warning.main">")</SnippetTypography>
+			</SnippetTypography>
 		</SnippetStyled>
 	)
 }

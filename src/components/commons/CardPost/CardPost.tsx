@@ -83,7 +83,7 @@ export const CardPost: React.FC<CardPostProps> = (props) => {
 						</Typography>
 					</Box>
 				</Box>
-				<Box display="flex" gap={2}>
+				<Box display="flex" flexWrap={'wrap'} gap={{ xs: 1, md: 2 }}>
 					{labels && labels.map((chip, index) => <ChipStyled key={index} {...chip} />)}
 				</Box>
 			</CardPostStyled>
