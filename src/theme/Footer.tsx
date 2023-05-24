@@ -119,7 +119,7 @@ function Footer() {
 					<Link href="/tutorials" variant="reverse">
 						Tutorials
 					</Link>
-					<Link href="/blog/web3auth" variant="reverse">
+					<Link href="/blog" variant="reverse">
 						Guide
 					</Link>
 				</StartonFooterLinkList>
