@@ -2,6 +2,10 @@
 title: Onboarding on Starton
 ---
 
+import { RocketLaunchOutlined } from '@mui/icons-material'
+import { CardTitle } from '@site/src/components/commons/CardTitle'
+import { Starton } from '@starton/react-ui-iconography'
+
 # Onboarding on Starton
 
 By creating a free account on Starton, you can deploy and interact with your Smart contract, store files on IPFS and watch your transactions.
@@ -11,16 +15,9 @@ The first thing we will need is an account in Starton.
 
 ## Creating an account
 
-<div class="row-is-multiline">
-<div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
-		<h3>Don't have an account? </h3>
-		<div class="button-card__inner">
-			<p color="white">Go to <b>Starton Dashboard</b>, create your free account and start building.</p>
-		</div>
-	</a>
-</div>
-</div>
+<CardTitle icon={<Starton fill='primary' />} href="https://auth.starton.com/register" target="_blank">
+    Create an account for free
+</CardTitle>
 
 ## Setting up your API key
 
@@ -51,7 +48,7 @@ You can now use your wallet.
 
 :::caution
 
-We do not advise you to transfer mainnet funds on this wallet. Though possible, this wallet is meant for test only. 
+We do not advise you to transfer mainnet funds on this wallet. Though possible, this wallet is meant for test only.
 
 :::
 

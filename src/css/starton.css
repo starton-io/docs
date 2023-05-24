@@ -52,7 +52,7 @@
 /* Custom code */
 .hero {
 	margin: auto;
-	background-color: #151a1f;
+	background-color: #1A1F25;
 	color: white;
 	padding: 2rem;
 }
@@ -70,7 +70,7 @@
 	width: 235px;
 	height: 56px;
 	/* palette/divider */
-	background-color: #151a1f;
+	background-color: #1A1F25;
 	border: 1px solid #3e4e5c;
 	border-radius: 8px;
 	text-transform: uppercase;
@@ -113,21 +113,21 @@ header.hero {
 }
 
 .heroBanner_qdFl {
-	background-color: #151a1f;
+	background-color: #1A1F25;
 	color: #01e6cd;
 }
 
 .hero--primary {
-	background-color: #151a1f;
+	background-color: #1A1F25;
 }
 .main-wrapper {
-	background-color: #151a1f;
+	background-color: #1A1F25;
 }
 .main {
-	background-color: #151a1f;
+	background-color: #1A1F25;
 }
 .contents {
-	background-color: #151a1f;
+	background-color: #1A1F25;
 }
 .theme-doc-sidebar-container {
 	background-color: #0e1114;
@@ -139,17 +139,17 @@ header.hero {
 /*.row.{background-color: #1F272E;}*/
 
 footer {
-	background-color: #151a1f;
+	background-color: #1A1F25;
 	border-top: 0.5px solid #3e4e5c;
 }
 .footer--dark {
-	background-color: #151a1f;
+	background-color: #1A1F25;
 }
 .docMainContainer_gTbr {
-	background-color: #151a1f;
+	background-color: #1A1F25;
 }
 body {
-	background-color: #151a1f;
+	background-color: #1A1F25;
 }
 
 p,
@@ -460,7 +460,7 @@ html[data-theme="dark"] .theme-doc-toc-desktop .table-of-contents .table-of-cont
 		padding: 80px 16px 24px 16px;
 		margin: 30px;
 		text-decoration: none;
-		background-color: #151a1f;
+		background-color: #1A1F25;
 		word-wrap: break-word;
 		flex: 1;
 	}
@@ -712,7 +712,7 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 
 .navbar__button:hover {
 	background: #01FEE2;
-	color: #151a1f;
+	color: #1A1F25;
 }
 
 .navbar__button svg {

@@ -32,6 +32,8 @@ const CardTitleStyled = styled(Box)(({ theme }) => ({
 	borderColor: theme.palette.divider,
 	backgroundColor: theme.palette.background.paper,
 	position: 'relative',
+	width: '100%',
+
 	'& .MuiSvgIcon-root': {
 		transition: theme.transitions.create(['transform']),
 	},

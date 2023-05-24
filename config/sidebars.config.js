@@ -297,7 +297,6 @@ module.exports = {
 		},
 	],
 	tutorialSidebar: [
-		'Tutorials/Home',
 		{
 			type: 'category',
 			label: 'From Code',

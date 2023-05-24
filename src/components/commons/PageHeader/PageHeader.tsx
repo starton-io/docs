@@ -29,9 +29,9 @@ export interface PageHeaderProps {
 */
 const HeroBanner = styled(Container)(({ theme }) => ({
 	backgroundColor: theme.palette.background.paper2,
-	padding: theme.spacing(6, 3),
+	padding: theme.spacing(8, 3, 6),
 	[theme.breakpoints.up('md')]: {
-		padding: theme.spacing(6, 6),
+		padding: theme.spacing(8, 6, 6),
 		flexDirection: 'row',
 	},
 }))
@@ -50,6 +50,10 @@ const HeroTitle = styled(Typography)(({ theme }) => ({
 	},
 }))
 
+const HeroDescription = styled(Typography)(({ theme }) => ({
+	color: theme.palette.text.primary,
+}))
+
 /*
 |--------------------------------------------------------------------------
 | Component
@@ -60,10 +64,13 @@ export const PageHeader: React.FC<PageHeaderProps> = (props) => {
 		<HeroBanner maxWidth={false}>
 			<Grid container justifyContent={'space-between'} alignItems={'flex-end'}>
 				<Grid item>
-					<HeroSubtitle variant={'subtitle2'}>{props.subTitle}</HeroSubtitle>
+					{props.subTitle ? <HeroSubtitle variant={'subtitle2'}>{props.subTitle}</HeroSubtitle> : null}
 					<HeroTitle variant={'h1'}>{props.title}</HeroTitle>
+					{props.description ? (
+						<HeroDescription variant={'body1'}>{props.description}</HeroDescription>
+					) : null}
 				</Grid>
-				<Grid item>
+				<Grid item marginTop={{ xs: 6 }}>
 					<Snippet />
 				</Grid>
 			</Grid>

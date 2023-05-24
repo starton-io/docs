@@ -12,9 +12,21 @@ import {
 	StartonFooterLinkList,
 } from '@site/src/components/commons/StartonFooter'
 import { StartonButton } from '@site/src/components/commons/Button'
-import { Typography, useTheme } from '@mui/material'
+import { Box, styled, Typography, useTheme } from '@mui/material'
 import { Link } from '@site/src/components/commons/Link'
 import { SocialDiscord, SocialLinkedin, SocialTwitter, Starton } from '@starton/react-ui-iconography'
+
+/*
+|--------------------------------------------------------------------------
+| Styles
+|--------------------------------------------------------------------------
+*/
+const FooterCopyright = styled(Box)(({ theme }) => ({
+	padding: theme.spacing(0, 3, 2),
+	[theme.breakpoints.up('md')]: {
+		padding: theme.spacing(0, 9, 2),
+	},
+}))
 
 /*
 |--------------------------------------------------------------------------
@@ -68,16 +80,16 @@ function Footer() {
 					<Typography variant="subtitle2" color={theme.palette.background.default} textTransform="uppercase">
 						Documentation
 					</Typography>
-					<Link href="https://docs.starton.com/docs/overview" variant="reverse">
+					<Link href="/docs/overview" variant="reverse">
 						Documentation
 					</Link>
-					<Link href="https://docs.starton.com/intro" variant="reverse">
+					<Link href="/intro" variant="reverse">
 						API
 					</Link>
-					<Link href="https://docs.starton.com/tutorials" variant="reverse">
+					<Link href="/tutorials" variant="reverse">
 						Tutorials
 					</Link>
-					<Link href="https://docs.starton.com/blog/web3auth" variant="reverse">
+					<Link href="/blog/web3auth" variant="reverse">
 						Guide
 					</Link>
 				</StartonFooterLinkList>
@@ -85,7 +97,7 @@ function Footer() {
 					<Typography variant="subtitle2" color={theme.palette.background.default} textTransform="uppercase">
 						Other links
 					</Typography>
-					<Link href="https://docs.starton.com/docs/release-notes" variant="reverse">
+					<Link href="/docs/release-notes" variant="reverse">
 						Release note
 					</Link>
 					<Link href="https://github.com/starton-io" target="_blank" variant="reverse">
@@ -93,6 +105,13 @@ function Footer() {
 					</Link>
 				</StartonFooterLinkList>
 			</StartonFooterBody>
+			<FooterCopyright>
+				<Typography
+					color={'secondary.main'}
+					variant={'body1'}
+					textAlign={{ xs: 'center', md: 'left' }}
+				>{`Copyright © ${new Date().getFullYear()} Starton Documentation, Inc. Built with Docusaurus.`}</Typography>
+			</FooterCopyright>
 		</StartonFooter>
 	)
 }

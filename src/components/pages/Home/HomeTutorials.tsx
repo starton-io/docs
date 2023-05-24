@@ -11,6 +11,7 @@ import { CardIndex } from '@site/src/components/commons/CardIndex'
 import { TypographyLink } from '@site/src/components/commons/TypographyLink'
 import { CardPost } from '@site/src/components/commons/CardPost'
 import { SectionContainer } from '@site/src/components/commons/SectionContainer'
+import { TUTORIALS_LIST } from '@site/src/mock/tutorials.mock'
 
 /*
 |--------------------------------------------------------------------------
@@ -33,6 +34,10 @@ const SectionTitle = styled(Typography)(({ theme }) => ({
 |--------------------------------------------------------------------------
 */
 export function HomeTutorials() {
+	const lastTutorials = React.useMemo(() => {
+		return TUTORIALS_LIST.sort((a, b) => b.date.getTime() - a.date.getTime()).slice(0, 3)
+	}, [])
+
 	return (
 		<SectionContainer>
 			<Grid container spacing={3} direction={'column'}>
@@ -41,41 +46,15 @@ export function HomeTutorials() {
 				</Grid>
 
 				<Grid container spacing={2} item xs={12}>
-					<Grid item xs={12} md={4}>
-						<CardPost
-							href="https://docs.starton.com/docs/Tutorials/ai-nft-collection"
-							title="Generating your NFT collection with AI"
-							date="April 2023"
-							labels={[{ label: 'NFT' }, { label: 'AI' }, { label: 'CODE' }, { label: 'ADVANCED' }]}
-						/>
-					</Grid>
-					<Grid item xs={12} md={4}>
-						<CardPost
-							href="https://docs.starton.com/docs/Tutorials/starton-web3auth"
-							title="Creating metatransactions with Web3Auth and Starton"
-							date="March 2023"
-							labels={[{ label: 'AUTH' }, { label: 'WALLET' }, { label: 'CODE' }, { label: 'ADVANCED' }]}
-						/>
-					</Grid>
-					<Grid item xs={12} md={4}>
-						<CardPost
-							href="https://docs.starton.com/docs/Tutorials/track-wallet-activity"
-							title="Track a wallet activity on a GoogleSheets using Starton and Zapier"
-							date="December 2022"
-							labels={[
-								{ label: 'ZAPIER' },
-								{ label: 'MONITOR' },
-								{ label: 'INTERFACE' },
-								{ label: 'BEGINNER' },
-							]}
-						/>
-					</Grid>
+					{lastTutorials.map((tutorial, index) => (
+						<Grid key={index} item xs={12} md={4}>
+							<CardPost {...tutorial} />
+						</Grid>
+					))}
 				</Grid>
 
 				<Grid item xs={12} textAlign={'center'}>
-					<TypographyLink href="https://docs.starton.com/docs/Tutorials" target="_blank">
-						+ See more
-					</TypographyLink>
+					<TypographyLink href="/tutorials">+ See more</TypographyLink>
 				</Grid>
 			</Grid>
 		</SectionContainer>

@@ -8,6 +8,7 @@ import React from 'react'
 import { BoxProps, Chip, ChipProps, Grid, styled, Typography, useTheme } from '@mui/material'
 import Box from '@mui/material/Box'
 import { StartonType } from '@starton/react-ui-iconography'
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 
 /*
 |--------------------------------------------------------------------------
@@ -16,7 +17,7 @@ import { StartonType } from '@starton/react-ui-iconography'
 */
 export interface CardPostProps extends React.AnchorHTMLAttributes<HTMLAnchorElement> {
 	boxProps?: BoxProps
-	date: string
+	date: Date
 	title: string
 	labels?: Array<ChipProps>
 }
@@ -58,6 +59,7 @@ const ChipStyled = styled(Chip)(({ theme }) => ({
 |--------------------------------------------------------------------------
 */
 export const CardPost: React.FC<CardPostProps> = (props) => {
+	const { i18n } = useDocusaurusContext()
 	const { children, title, date, boxProps, labels, ...anchorProps } = props
 
 	// Render
@@ -68,7 +70,9 @@ export const CardPost: React.FC<CardPostProps> = (props) => {
 				<Box display="flex" flexDirection="column" gap={1}>
 					<Box display="flex" justifyContent="space-between">
 						<Typography color="text.secondary" variant="caption">
-							{date}
+							{new Intl.DateTimeFormat(i18n.currentLocale, { month: 'long', year: 'numeric' }).format(
+								date,
+							)}
 						</Typography>
 						<StartonType sx={{ width: 100, height: 16 }} />
 					</Box>

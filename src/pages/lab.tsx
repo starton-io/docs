@@ -20,6 +20,7 @@ import {
 } from '@site/src/components/commons/StartonFooter'
 import { StartonButton } from '@site/src/components/commons/Button'
 import { Snippet } from '@site/src/components/commons/Snippet'
+import { StartonUtils } from '@site/src/utils/starton.utils'
 
 /*
 |--------------------------------------------------------------------------
@@ -49,7 +50,7 @@ const Lab: React.FC = () => {
 					href="https://www.google.com/"
 					target="_blank"
 					title="Interact with a contract from code"
-					date="March 20th 2023"
+					date={StartonUtils.getDateFromYearAndMonth(2023, 4)}
 					labels={[{ label: 'Label' }, { label: 'Label 1' }, { label: 'Label 2' }]}
 				/>
 				<Link href="https://www.google.com/" target="_blank">
