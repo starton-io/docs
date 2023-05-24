@@ -49,8 +49,8 @@ const CardPostStyled = styled(Box)(({ theme }) => ({
 }))
 
 const ChipStyled = styled(Chip)(({ theme }) => ({
-	backgroundColor: theme.palette.secondary.hover,
-	color: theme.palette.secondary.light,
+	backgroundColor: theme.palette.primary.hover,
+	color: theme.palette.primary.main,
 }))
 
 /*

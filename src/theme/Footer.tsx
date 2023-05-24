@@ -39,41 +39,71 @@ function Footer() {
 	return (
 		<StartonFooter>
 			<StartonFooterHead>
-				<StartonButton
-					size="large"
-					color="reverse"
-					variant="outlined"
-					startIcon={<Starton fill={'currentColor'} />}
+				<a href={'https://www.starton.com'} target={'_blank'} style={{ width: 'fit-content' }} rel="noreferrer">
+					<StartonButton
+						size="large"
+						color="reverse"
+						variant="outlined"
+						startIcon={<Starton fill={'currentColor'} />}
+					>
+						Website
+					</StartonButton>
+				</a>
+				<a
+					href={'https://twitter.com/starton_com'}
+					target={'_blank'}
+					style={{ width: 'fit-content' }}
+					rel="noreferrer"
 				>
-					Website
-				</StartonButton>
-				<StartonButton
-					size="large"
-					color="reverse"
-					variant="outlined"
-					startIcon={<SocialTwitter fill={'currentColor'} />}
+					<StartonButton
+						size="large"
+						color="reverse"
+						variant="outlined"
+						startIcon={<SocialTwitter fill={'currentColor'} />}
+					>
+						Twitter
+					</StartonButton>
+				</a>
+				<a
+					href={'https://discord.starton.com/'}
+					target={'_blank'}
+					style={{ width: 'fit-content' }}
+					rel="noreferrer"
 				>
-					Twitter
-				</StartonButton>
-				<StartonButton
-					size="large"
-					color="reverse"
-					variant="outlined"
-					startIcon={<SocialDiscord fill={'currentColor'} />}
+					<StartonButton
+						size="large"
+						color="reverse"
+						variant="outlined"
+						startIcon={<SocialDiscord fill={'currentColor'} />}
+					>
+						Discord
+					</StartonButton>
+				</a>
+				<a
+					href={'https://www.linkedin.com/company/starton-io/'}
+					target={'_blank'}
+					style={{ width: 'fit-content' }}
+					rel="noreferrer"
 				>
-					Discord
-				</StartonButton>
-				<StartonButton
-					size="large"
-					color="reverse"
-					variant="outlined"
-					startIcon={<SocialLinkedin fill={'currentColor'} />}
+					<StartonButton
+						size="large"
+						color="reverse"
+						variant="outlined"
+						startIcon={<SocialLinkedin fill={'currentColor'} />}
+					>
+						LinkedIn
+					</StartonButton>
+				</a>
+				<a
+					href={'https://auth.starton.com/login'}
+					target={'_blank'}
+					style={{ width: 'fit-content' }}
+					rel="noreferrer"
 				>
-					LinkedIn
-				</StartonButton>
-				<StartonButton size="large" color="reverse" variant="contained" startIcon={<Starton />}>
-					Login
-				</StartonButton>
+					<StartonButton size="large" color="reverse" variant="contained" startIcon={<Starton />}>
+						Login
+					</StartonButton>
+				</a>
 			</StartonFooterHead>
 			<StartonFooterBody>
 				<StartonFooterLinkList>

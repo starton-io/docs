@@ -42,7 +42,7 @@ export function HomeIndexes() {
 					</Grid>
 					<Grid item xs={12}>
 						<CardIndex
-							href="https://docs.starton.com/tutorials/deploy-first-smart-contract"
+							href="/docs/Tutorials/deploy-first-smart-contract"
 							title="DEPLOYING YOUR FIRST SMART CONTRACT"
 							description="Start by deploying a smart contract from Code"
 						>
@@ -53,7 +53,7 @@ export function HomeIndexes() {
 					</Grid>
 					<Grid item xs={12}>
 						<CardIndex
-							href="https://docs.starton.com/tutorials/storing-files-on-IPFS"
+							href="/docs/Tutorials/storing-files-on-IPFS"
 							title="STORING YOUR FIRST FILE ON IPFS"
 							description="Upload content on a distributed storage network from Code"
 						>
@@ -64,7 +64,7 @@ export function HomeIndexes() {
 					</Grid>
 					<Grid item xs={12}>
 						<CardIndex
-							href="https://docs.starton.com/tutorials/monitoring-blockchain-activity"
+							href="/docs/Tutorials/monitoring-blockchain-activity"
 							title="MONITORING BLOCKCHAIN ACTIVITY"
 							description="Create your first watcher to monitor events from Code"
 						>

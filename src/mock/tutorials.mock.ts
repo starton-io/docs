@@ -47,19 +47,19 @@ export const TUTORIALS_LIST: Array<CardPostProps> = [
 	{
 		title: 'Track a wallet activity on a GoogleSheets using Starton and Zapier',
 		date: StartonUtils.getDateFromYearAndMonth(2023, 2),
-		labels: [{ label: 'ZAPIER' }, { label: 'MONITOR' }, { label: 'INTERFACE' }, { label: 'BEGINNER' }],
+		labels: [{ label: 'ZAPIER' }, { label: 'MONITOR' }, { label: 'NO-CODE' }, { label: 'BEGINNER' }],
 		href: '/docs/Tutorials/track-wallet-activity',
 	},
 	{
 		title: 'How to create your own limited supply token (ERC20)',
 		date: StartonUtils.getDateFromYearAndMonth(2023, 1),
-		labels: [{ label: 'CODE' }, { label: 'INTERFACE' }, { label: 'TOKEN' }, { label: 'FIXED SUPPLY' }],
+		labels: [{ label: 'CODE' }, { label: 'NO-CODE' }, { label: 'TOKEN' }, { label: 'FIXED SUPPLY' }],
 		href: '/docs/Tutorials/creating-token-ERC20-fixed',
 	},
 	{
 		title: 'How to create your own cryptocurrency (ERC20)',
 		date: StartonUtils.getDateFromYearAndMonth(2023, 1),
-		labels: [{ label: 'CODE' }, { label: 'INTERFACE' }, { label: 'TOKEN' }, { label: 'MINTABLE' }],
+		labels: [{ label: 'CODE' }, { label: 'NO-CODE' }, { label: 'TOKEN' }, { label: 'MINTABLE' }],
 		href: '/docs/Tutorials/creating-token-ERC20-mintable',
 	},
 	{
@@ -71,7 +71,7 @@ export const TUTORIALS_LIST: Array<CardPostProps> = [
 	{
 		title: 'How to sell an NFT in an auction',
 		date: StartonUtils.getDateFromYearAndMonth(2023, 1),
-		labels: [{ label: 'INTERFACE' }, { label: 'NFT' }, { label: 'SALE' }, { label: 'AUCTION' }],
+		labels: [{ label: 'NO-CODE' }, { label: 'NFT' }, { label: 'SALE' }, { label: 'AUCTION' }],
 		href: '/docs/Tutorials/create-an-NFT-auction',
 	},
 	{
@@ -95,13 +95,13 @@ export const TUTORIALS_LIST: Array<CardPostProps> = [
 	{
 		title: 'Deploy your NFTs on BNB smart chain with Starton',
 		date: StartonUtils.getDateFromYearAndMonth(2022, 11),
-		labels: [{ label: 'INTERFACE' }, { label: 'NFT' }, { label: 'DEPLOY' }],
+		labels: [{ label: 'NO-CODE' }, { label: 'NFT' }, { label: 'DEPLOY' }],
 		href: '/docs/Tutorials/deploy-Nfts-with-Binance',
 	},
 	{
 		title: "How to change the smart contracts' ownership",
 		date: StartonUtils.getDateFromYearAndMonth(2022, 11),
-		labels: [{ label: 'INTERFACE' }, { label: 'ROLES' }, { label: 'SMART CONTRACT' }],
+		labels: [{ label: 'NO-CODE' }, { label: 'ROLES' }, { label: 'SMART CONTRACT' }],
 		href: '/docs/Tutorials/how-to-change-the-smart-contracts-ownership',
 	},
 ]
