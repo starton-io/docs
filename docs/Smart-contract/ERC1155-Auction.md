@@ -12,14 +12,15 @@ keywords: [ERC-1155, ERC1155, Deploy, Starton, Smart contracts, parameters, func
 ## Parameters
 
 | Parameter                     | Description                                                                                     |
-| ----------------------------- | ----------------------------------------------------------------------------------------------- |
+|-------------------------------| ----------------------------------------------------------------------------------------------- |
 | **definitiveTokenAddress**    | The token address of the ERC721 that you want to sell.                                          |
 | **definitiveFeeReceiver**     | The address that will receive the amount paid for the NFTs.                                     |
 | **initialStartingPrice**      | The initial price offered for the NFT.                                                          |
 | **initialMinPriceDifference** | The minimum price increase to place a bid on top of the current auction winner.                 |
 | **initialStartTime**          | The time at which the sale will begin and users can bid. Timestamp in seconds.                  |
 | **initialEndTime**            | The time when the sale will end and users couldn't bid anymore. Timestamp in seconds.           |
-| **initialTokenURI**           | The URI that will be append in the end of the base token URI for the token that will be minted. |
+| **initialTokenId**            | The token id of the token that will be minted for the auction. |
+| **initialTokenAmount**        | The amount of tokens that will be minted for the auction. |
 
 ## Functions
 

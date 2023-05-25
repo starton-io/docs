@@ -16,7 +16,7 @@ keywords: [ERC-1155, ERC1155, Deploy, Starton, Smart contracts, parameters, func
 	<li><strong>definitiveTokenAddress:</strong> The token address of the ERC721 that you want to sell</li>
 	<li><strong>definitiveStartTime: </strong> The time when the sale will begin and users can mint tokens</li>
 	<li><strong>definitiveEndTime: </strong> The time when the sale will end and users couldn't mint anymore tokens</li>
-	<li><strong>definitiveMaxTokensPerAddres: </strong> The maximum amount of otkens that can be minted by a single address</li>
+	<li><strong>definitiveMaxTokensPerAddress: </strong> The maximum amount of tokens that can be minted by a single address</li>
 	<li><strong>definitiveMaxSupply: </strong> The maximum amount of tokens that can be minted during the sale</li>
 	<li><strong>definitiveFeeReceiver: </strong> The address that will receive all the price paid to mint the NFTs</li>
 	</ul>

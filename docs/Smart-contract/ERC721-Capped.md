@@ -19,13 +19,15 @@ Starton provides an <a href="https://app.starton.com/ipfs">IPFS integration</a> 
 ## Parameters
 
 -   **definitiveName:** The name of your smart contract which will be reflected on-chain.
--   **DefinitiveSymbol:** The symbol associated with the NFT or its collection.
--   **DefinitiveMaxSupply:** The maximum number of NFT that can be minted.
+-   **definitiveSymbol:** The symbol associated with the NFT or its collection.
+-   **definitiveMaxSupply:** The maximum number of NFT that can be minted.
 -   **initialBaseTokenUri:** Will be used to concatenate NFT URIs :
     -   Using IPFS: `ipfs://ipfs/`
     -   Using a centralised server: `https://yourapi.com/endpoint/`
 -   **initialContractUri:** The URI of the metadata that will be used to give more details about the description.
 -   **initialOwnerOrMultisigContract:** The address that will own the NFT Collection.
+-   **definitiveRoyaltyFee:** The value that will be payed as royalty fees
+-   **definitiveFeeReceiver:** The address that will receive the royalty fees
 
 ## Functions
 
