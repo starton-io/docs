@@ -27,11 +27,14 @@ To use this contract, you will need to import the etherjs library, create and si
 ## Parameters
 
 -   **definitiveName:** The name of your smart contract which will be reflected on-chain.
--   **initialTokenUri:** Will be used to get the token URI.
+-   **definitiveSymbol:** The symbol associated with the NFT or its collection.
+-   **initialBaseTokenUri:** Will be used to get the token URI.
     -   Using IPFS: `ipfs://ipfs/`
     -   Using a centralised server: `https://yourapi.com/endpoint/`
 -   **initialContractUri:** The URI of the metadata that will be used to give more details about the description.
 -   **initialOwnerOrMultisigContract:** The address that will own the NFT Collection.
+-   **definitiveRoyaltyFee:** The value that will be payed as royalty fees
+-   **definitiveFeeReceiver:** The address that will receive the royalty fees
 
 ## Functions
 
