@@ -1,10 +1,10 @@
 ---
-title: ADDRESS_SENT_NATIVE_CURRENCY
+title: Address Sent Native Currency
 ---
 
 # ADDRESS_SENT_NATIVE_CURRENCY
 
-Triggers when an address sends some of the blockchain's native tokens (ex: ETH for Ethereum)
+Triggers when a transfer event is created from an address, to track when native tokens are sent.
 Here is an example of the payload sent to the webhook as a POST request when the event is triggered.
 You can find more details about the [transaction object](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) (please notice that it inherits the [Transaction](https://docs.ethers.io/v5/api/utils/transactions/#Transaction).
 The receipt object is described [here](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionReceipt).
