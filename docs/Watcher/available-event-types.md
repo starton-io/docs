@@ -8,11 +8,16 @@ keywords: [Available event types, Starton, Watchers, Monitor, Transaction]
 
 The currently available event types are:
 
+## Monitoring Blockchain addresses
 | Event type                         | Description                                                                                                                                                         |
 |------------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `ADDRESS ACTIVITY`                 | Triggers when a transfer from or to an address is created, to track when native tokens transactions are created.|
 | `ADDRESS RECEIVED NATIVE CURRENCY` | Triggers when a transfer to an address is created, to track when native tokens are received.                                                                    |
 | `ADDRESS SENT NATIVE CURRENCY`     | Triggers when a transfer event is created from an address, to track when native tokens are sent.                                                                        |
+
+## Monitoring Smart Contracts
+| Event type                         | Description                                                                                                                                                         |
+|------------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `EVENT TRANSFER`                   | Triggers when an ERC20 contract emits a transfer event, to track when tokens are moved.                                                                                                                         |
 | `EVENT MINT`                       | Triggers when an ERC20 contract emits a transfer event where sending address is 0x0, to track when new tokens are created.                                                                                                                           |
 | `EVENT APPROVAL`                   | Triggers when an ERC20 contract emits an approval event, to track when a new allowance has been granted or revoked.                                                                                                                |

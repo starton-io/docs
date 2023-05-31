@@ -3,6 +3,13 @@ title: 2023
 displayed-sidebar: connectSidebar
 ---
 # 2023
+
+## May 
+
+- **Announcing Custom Events in Monitor**
+
+    We are excited to announce the release of a new feature in Watcher - Custom Events! With this feature, you can now set up watchers to monitor specific events emitted by smart contracts on the blockchain. This gives you greater flexibility and control over the events you want to track and respond to.[Read More](Watcher/custom-event.mdx)
+
 ## April 
 
 - **Launching Starton plans and extra units** 
