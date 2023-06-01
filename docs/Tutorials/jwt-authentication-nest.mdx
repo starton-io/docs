@@ -1,21 +1,20 @@
-# How to create a JWT-based authentication with NestJS
+---
+title: Creating a JWT-based authentication with NestJS
+---
+
+# Creating a JWT-based authentication with NestJS
+
 
 ⌛ 1.5 hours
 
 🟡 intermediary difficulty
 
-[https://github.com/delicious-mango/jwt-auth-tuto](https://github.com/delicious-mango/jwt-auth-tuto)
 
-<aside>
-💡 In this tutorial, you will learn how to create a JSON Web Token (JWT) based authentication system with NestJS - a progressive Node.js framework. JWT is a standardized and widely used method for securely transmitting information between parties. It is commonly used for authentication and authorization purposes in web applications.
+This tutorial will guide you through the process of building an authentication system based on JSON Web Tokens (JWT) using NestJS, a progressive Node.js framework. JWT is a widely adopted and standardized approach for securely exchanging data between different entities. It is commonly employed in web applications for tasks such as authentication and authorization.
 
-</aside>
+You can find the full project [in our Github repository](https://github.com/delicious-mango/jwt-auth-tuto)
 
-## Table of content
-
----
-
-## Prerequisites
+:::info Prerequisites
 
 Before we begin, make sure that you have the following installed on your machine:
 
@@ -26,10 +25,10 @@ Before we begin, make sure that you have the following installed on your machine
     yarn global add @nestjs/cli
     ```
 
-
 We will use MongoDB for our database. You can create a free instance on [Mongo Atlas](https://www.mongodb.com/fr-fr/atlas/database). Make sure to retrieve the connection URL from your dashboard.
 
-## Step 1: Create a new NestJS project
+:::
+## Creating a new NestJS project
 
 First, let's create a new NestJS project using the Nest CLI. Open your terminal and run the following command:
 
@@ -39,30 +38,33 @@ nest new jwt-auth-tuto --strict
 
 This will create a new NestJS project in a directory named `jwt-auth-tuto`.
 
-## Step 2: Install necessary packages
+## Installing packages
 
 Next, we need to install the following packages:
 
-### Dev dependencies
+### Development dependencies
 
-- `prisma` - an ORM to interact with the DB
-- `@types/.*`: provide the necessary typings for you to use libraries or modules in your TypeScript code with type checking and IntelliSense support.
+Prisma: Prisma is an ORM (Object-Relational Mapping) tool that we will use to interact with the database. It provides an intuitive and efficient way to perform database operations, such as querying, creating, updating, and deleting records, using a type-safe API.
+'@types/.*': These packages provide the necessary type definitions for external libraries or modules in your TypeScript code. They enable type checking and provide IntelliSense support, enhancing the development experience and helping to prevent type-related errors.
 
-To install these development packages cd into `jwt-auth-tuto`, run the following command:
+To install these development packages:
 
-```bash
-yarn add -D prisma @types/uuid @types/bcrypt @types/cookie-parser
-```
+1. Go to `jwt-auth-tuto`, 
+2. Run the following command:
+
+  ```bash
+  yarn add -D prisma @types/uuid @types/bcrypt @types/cookie-parser
+  ```
 
 ### Dependencies
 
-- `@nestjs/jwt` - NestJS package for JWT-based authentication
-- `bcrypt` - a package to hash passwords
-- `@prisma/client` - the database client for the Prisma ORM that provides a type-safe API for querying your database.
-- `class-validator`: allows you to easily define validation constraints for properties of your classes using decorators.
-- `class-transformer`: allows you to transform plain JavaScript or TypeScript objects to instances of classes.
-- `uuid`: a package to easily create ***U***niversally ***U***nique ***Id***entifiers
-- `cookie-paser`: A middleware to parse `Cookie` header and populate `req.cookies` with an object keyed by the cookie names.
+- **@nestjs/jwt**: We will utilize this NestJS package to implement JWT-based authentication, ensuring secure transmission of information between parties.
+- **bcrypt**: To enhance security, we will employ this package for hashing passwords, adding an extra layer of protection to user credentials.
+- **@prisma/client**: We will leverage this database client in conjunction with the Prisma ORM to interact with the database, benefiting from a type-safe API for efficient and reliable database queries.
+- **class-validator**: By utilizing decorators provided by this package, we can easily define and enforce validation constraints for the properties of our classes, ensuring data integrity and consistency.
+- **class-transformer**: This package allows us to effortlessly convert plain JavaScript or TypeScript objects into instances of classes, enabling convenient manipulation and transformation of data.
+- **uuid**: To generate universally unique identifiers (UUIDs), we will rely on this package, providing us with reliable and distinct identifiers for various purposes.
+- **cookie-parser**: Implementing this middleware will enable us to parse the Cookie header and conveniently access the cookie data through the req.cookies object, simplifying cookie handling and management.
 
 To install these packages, run the following command:
 
@@ -70,12 +72,15 @@ To install these packages, run the following command:
 yarn add @nestjs/jwt bcrypt @prisma/client class-validator class-transformer uuid cookie-parser
 ```
 
-## Step 3: Create Prisma models
+## Prisma Models 
 
-<aside>
-💡 A model is a representation of a collection
+### Creating Prisma models
 
-</aside>
+:::info 
+
+A model is a representation of a collection
+
+:::
 
 We need 2 models for our app:
 
@@ -104,9 +109,9 @@ model User {
 }
 ```
 
-- The `id` field is a unique identifier for the user (it is mapped to _id in the DB)
-- The `email` field is a unique field for the user's email address
-- The `password` field is used to store the user's hashed password
+- `id`: unique identifier for the user (it is mapped to _id in the DB)
+- `email`: field for the user's email address
+- `password`: field used to store the user's hashed password
 
 Now, let’s move on the `RevokedToken` collection. You can add it after the `User` model:
 
@@ -132,7 +137,7 @@ This will also generate the Prisma Client, an auto-generated and type-safe query
 
 </aside>
 
-## Step 4: Wrap the Prisma Client
+### Wrapping the Prisma Client
 
 When setting up your NestJS application, you'll want to abstract away the Prisma Client API for database queries within a service. To get started, you can create a new `PrismaService` that takes care of instantiating `PrismaClient` and connecting to your database.
 
@@ -183,7 +188,7 @@ import { PrismaService } from './prisma.service';
 export class PrismaModule {}
 ```
 
-## Step 5: Create a user resource
+## Creating a user resource
 
 Now that we have installed the necessary packages, set up the User model and generated the Prisma Client we can create a user resource in our API.
 
@@ -214,8 +219,6 @@ Files ending by `.spec.ts` are unit test files, we will see how to set them up i
   A NestJS service is a class that contains business logic and functionality that can be shared across different parts of an application. It provides a way to encapsulate and separate concerns related to data access, manipulation, and transformation from the rest of the application logic. This layer is responsible to interact with the data layer.
 
 
-### Summary
-
 In the context of a NestJS application, we can think of a layered architecture where each layer serves a specific purpose and has its own set of responsibilities.
 
 - At the highest level, we have the **Controllers layer**, which handles incoming requests and orchestrates the flow of control in the application by invoking corresponding methods or functions in the underlying Services layer.
@@ -223,12 +226,13 @@ In the context of a NestJS application, we can think of a layered architecture w
 
 By separating concerns into these layers, we can achieve a modular and scalable architecture that promotes code reusability, maintainability, and testability.
 
-## Step 6: Import and configure the JwtModule
+## Importing and configuring the Json web token Module
 
-<aside>
-💡 [JWT](https://jwt.io/) stands for JSON Web Token, which is a compact, self-contained mechanism for securely transmitting information between parties as a JSON object. JWTs are often used for authentication and authorization purposes in web applications.
+:::info ABOUT JWT
 
-</aside>
+[JWT](https://jwt.io/) stands for JSON Web Token, which is a compact, self-contained mechanism for securely transmitting information between parties as a JSON object. JWTs are often used for authentication and authorization purposes in web applications.
+
+:::
 
 NestJS provides a JwtModule that uses [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken) under-the-hood. We can import it in our UserModule to be able to use utility functions related to JWTs.
 
@@ -270,7 +274,7 @@ Once you have generated a strong secret, add it to your `.env` file as `JWT_SECR
 
 </aside>
 
-## Step 7: Create authentication endpoints
+## Creating authentication endpoints
 
 Now, let's create an authentication controller to handle authentication requests such as registration, sign-in and sign-out. Open `src/user/auth.controller.ts` and add the following code:
 
@@ -506,7 +510,7 @@ export class AuthGuard implements CanActivate {
 
 We can now implement the business logic of these routes. In order to do so, we will create a `UserService`. It will handle user authentication and token generation.
 
-## Step 7: Create a user service
+## Creating a user service
 
 Let's create a user service to handle user-related tasks such as authentication, adding or fetching users from a database. Open the file named `src/user/user.service.ts` and add the following code:
 
@@ -578,7 +582,7 @@ The `revokeToken` method revokes a JWT token by adding it to the `revokedToken` 
 
 The `getById` method retrieves a user by its Id from the database. If the user does not exist, it throws an exception. This method is used in the `getMe` method of the `UserController` to retrieve a user's data based on the JWT payload.
 
-## Step 8: Test the authentication system
+## Testing the authentication system
 
 Finally, let's test our authentication system. Start your NestJS server by running the following command in your terminal:
 
@@ -606,7 +610,7 @@ If everything is set up correctly, you should receive a response with a JWT toke
 
 ```
 
-### Remove the password from the response
+### Removing the password from the response
 
 Even though the password returned in the response is hashed, it is a good practice to remove it from the response.
 
@@ -659,10 +663,6 @@ If you retest your routes, password should have disappeared from responses.
 
 Congratulations! You have successfully created a JWT-based authentication system with NestJS.
 
-## Conclusion
+## Results 
 
-In this tutorial, we have learned how to create a JWT-based authentication system with NestJS. We started by setting up a Prisma service and generating a Prisma Client, then created a user resource with a layered architecture. We then imported and configured the JwtModule, and created an authentication controller to handle authentication requests. After that we talked about Guards and how to use them to protect your routes. Finally, we created a user service to handle user-related tasks, and tested the authentication system.
-
----
-
-[README.md](How%20to%20create%20a%20JWT-based%20authentication%20with%20Nest%202c63a314fd064cd3b30f9b2212390c72/README%20md%20f312dbab3457489fb0c7c29315544236.md)
+Thank you for following this tutorial. Together, we learned to create a JWT-based authentication system with NestJS. We set up a Prisma service and generated a Prisma Client, created a user resource with a layered architecture, configured the JwtModule, and implemented an authentication controller. We also explored Guards for route protection, built a user service, and conducted thorough testing.
