@@ -5,9 +5,9 @@ title: Creating a JWT-based authentication with NestJS
 # Creating a JWT-based authentication with NestJS
 
 
-⌛ 1.5 hours
+⌛ 1 hour and a half
 
-🟡 intermediary difficulty
+🟡 Difficulty: Intermediate 
 
 
 This tutorial will guide you through the process of building an authentication system based on JSON Web Tokens (JWT) using NestJS, a progressive Node.js framework. JWT is a widely adopted and standardized approach for securely exchanging data between different entities. It is commonly employed in web applications for tasks such as authentication and authorization.
@@ -132,10 +132,10 @@ yarn prisma db push
 
 This will also generate the Prisma Client, an auto-generated and type-safe query builder that's *tailored* to your data.
 
-<aside>
-⚠️ Every time you make changes to your `prisma/shema.prisma` file, always remember to push the changes to your database to regenerate an updated Prisma Client.
+:::caution
+Every time you make changes to your `prisma/shema.prisma` file, always remember to push the changes to your database to regenerate an updated Prisma Client.
 
-</aside>
+:::
 
 ### Wrapping the Prisma Client
 
@@ -263,7 +263,7 @@ We configure the `JwtModule` using `register()`, passing in a configuration o
 
 See [here](https://github.com/nestjs/jwt/blob/master/README.md) for more on the Nest `JwtModule` and [here](https://github.com/auth0/node-jsonwebtoken#usage) for more details on the available configuration options.
 
-<aside>
+:::info
 💡 To generate a strong secret, you can run the following command in your terminal:
 
 ```tsx
@@ -272,7 +272,7 @@ node -e "console.log(require('crypto').randomBytes(256).toString('base64'));"
 
 Once you have generated a strong secret, add it to your `.env` file as `JWT_SECRET`
 
-</aside>
+:::
 
 ## Creating authentication endpoints
 
@@ -361,10 +361,10 @@ This code defines a `UserController` with different methods to handle authentica
 
 Sign-up and sign-in routes require a body with the shape of a `SignInDto`
 
-<aside>
-💡 DTO stands for **D**ata **T**ransfer **O**bjects. They are defined by classes and are useful to validate inputs.
+:::info
+DTO stands for **D**ata **T**ransfer **O**bjects. They are defined by classes and are useful to validate inputs.
 
-</aside>
+:::
 
 Create a `src/user/dto/SignIn.dto.ts` file and add the following code to it:
 
@@ -407,10 +407,10 @@ bootstrap();
 
 The `revoke-token` route is protected by a ***guard.***
 
-<aside>
+:::info
 💡 Guards determines if the request will be handled or not by the controller / route it protects
 
-</aside>
+:::
 
 Here we use a guard to check if the client is authenticated, and attach a `user` object to the request. The `user` object is the payload of the JWT. Thus, protected routes have access to the `user` via the request if they need to.
 
@@ -512,7 +512,9 @@ We can now implement the business logic of these routes. In order to do so, we w
 
 ## Creating a user service
 
-Let's create a user service to handle user-related tasks such as authentication, adding or fetching users from a database. Open the file named `src/user/user.service.ts` and add the following code:
+Let's create a user service to handle user-related tasks such as authentication, adding or fetching users from a database. 
+
+Open the file named `src/user/user.service.ts` and add the following code:
 
 ```tsx
 import { Injectable, NotFoundException } from '@nestjs/common';
@@ -565,22 +567,17 @@ export class UserService {
   }
 }
 ```
+### Sign up Method
+The `signUp method` is responsible for creating a new user in the database. It utilizes the create method of the prisma.user object to store the user's information. Additionally, it generates a JSON Web Token (JWT) using the signAsync method from the JwtService object, which is provided by the @nestjs/jwt package. This method returns both the user object and the corresponding token.
 
-### Sign up
+### Sign in Method
+The `signIn method` verifies if a user with the specified email exists in the database. It achieves this by utilizing the findUnique method of the prisma.user object. If the user is found, a JWT token is generated for authentication using the signAsync method from the JwtService object. The method then returns the user object along with the associated token.
 
-The `signUp` method creates a new user in the database using the `create` method of the `prisma.user` object. It generates a JWT token using the `signAsync` method of the `JwtService` object, which is provided by the `@nestjs/jwt` package. It returns the `user` object and the `token`.
+### Revoke Token Method
+The `revokeToken` method invalidates a JWT token by adding it to the revokedToken collection in the database. This is accomplished by utilizing the create method of the prisma.revokedToken object. The method returns a boolean value indicating the success or failure of the token revocation process.
 
-### Sign in
-
-The `signIn` method checks if the user with the given email exists in the database using the `findUnique` method of the `prisma.user` object. If the user is found, it generates a JWT token for the user using the `signAsync` method of the `JwtService` object. It returns the `user` object and the `token`.
-
-### Revoke token
-
-The `revokeToken` method revokes a JWT token by adding it to the `revokedToken` collection in the database using the `create` method of the `prisma.revokedToken` object. It returns a `boolean`
-
-### Get by id
-
-The `getById` method retrieves a user by its Id from the database. If the user does not exist, it throws an exception. This method is used in the `getMe` method of the `UserController` to retrieve a user's data based on the JWT payload.
+### Get by ID Method
+The `getById` method retrieves a user from the database based on their unique ID. If the user does not exist, an exception is thrown. This method is primarily utilized in the getMe method of the UserController to fetch the user's data based on the JWT payload.
 
 ## Testing the authentication system
 
@@ -614,10 +611,10 @@ If everything is set up correctly, you should receive a response with a JWT toke
 
 Even though the password returned in the response is hashed, it is a good practice to remove it from the response.
 
-<aside>
+:::info
 💡 Nest’s ***interceptors*** are useful to transform response object at the end of the request-response cycle.
 
-</aside>
+:::
 
 Run this command to generate `src/interceptors/remove-password/remove-password.interceptor.ts`:
 
@@ -652,10 +649,10 @@ export class RemovePasswordInterceptor implements NestInterceptor {
 
 Add `@UseInterceptors(RemovePasswordInterceptor)` before the routes you want to intercept.
 
-<aside>
-⚠️ This don’t work on controllers in *library specific mode* (sign-up / sign-in routes)
+:::caution
+⚠️ Controllers in *library specific mode* (sign-up / sign-in routes) do not enable this.
 
-</aside>
+:::
 
 If you retest your routes, password should have disappeared from responses.
 
