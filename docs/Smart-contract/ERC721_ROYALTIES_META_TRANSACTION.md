@@ -1,10 +1,10 @@
 ---
-title: ERC721 NFT Smart Contract
+title: ERC721 NFT Smart Contract (with royalties)
 description: The smart contract standard to manage unique tokens.
 keywords: [ERC-721, ERC721, Deploy, Starton, Smart contracts, parameters, functions]
 ---
 
-# ERC721 NFT Smart Contract
+# ERC721 NFT Smart Contract (with royalties)
 
 The meta-transaction smart contract template to manage multiple-copies NFTs. Though their content is identical, each NFT has a different token ID. In a video game, you can sell an NFT and pay for gas in place of the NFT receiver. Within this standard, the token is linked to its owner's address and to the URI (Unique Resource Identifier), which references the NFT content).
 
@@ -33,6 +33,8 @@ To use this contract, you will need to import the etherjs library, create and si
     -   Using a centralised server: `https://yourapi.com/endpoint/`
 -   **initialContractUri:** The URI of the metadata that will be used to give more details about the description.
 -   **initialOwnerOrMultisigContract:** The address that will own the NFT Collection.
+-   **definitiveRoyaltyFee:** The fraction of sale price representing the royalty fees
+-   **definitiveFeeReceiver:** The address that will receive the royalty fees
 
 ## Functions
 

@@ -161,6 +161,9 @@ module.exports = {
 								'Smart-contract/ERC721-Meta',
 								'Smart-contract/ERC721-Capped',
 								'Smart-contract/ERC1155-Meta',
+								'Smart-contract/ERC721_ROYALTIES_META_TRANSACTION',
+                                'Smart-contract/ERC721_ROYALTIES_CAPPED_META_TRANSACTION',
+                                'Smart-contract/ERC1155_ROYALTIES_META_TRANSACTION',
 							],
 						},
 						{
@@ -205,29 +208,41 @@ module.exports = {
 			},
 			collapsed: true,
 			items: [
-				'Watcher/creating-a-watcher',
-				{
-					type: 'category',
-					label: 'Available event types',
-					link: {
-						type: 'doc',
-						id: 'Watcher/available-event-types',
-					},
-					collapsed: true,
-					items: [
-						'Watcher/address_activity',
-						'Watcher/address_receive_native_currency',
-						'Watcher/address_sent_native_currency',
-						'Watcher/event_approval',
-						'Watcher/event_mint',
-						'Watcher/event_transfer',
-						'Watcher/erc721_event_transfer',
-						'Watcher/erc1155_event_single',
-						'Watcher/erc1155_event_transfer_batch',
-					],
-				},
+				'Watcher/creating-a-watcher','Watcher/watcher-state-and-status'
+
 			],
-		},
+		},{
+          					type: 'category',
+          					label: 'events',
+          					link: {
+          						type: 'doc',
+          						id: 'Watcher/available-event-types',
+          					},
+          					collapsed: true,
+          					items: [{
+                                  type: 'category',
+                                  label: 'Monitoring blockchain addresses',
+                                  collapsed: true,
+                                  items: [
+          						'Watcher/address_activity',
+          						'Watcher/address_receive_native_currency',
+          						'Watcher/address_sent_native_currency',	],
+                                                                         				},
+                                   {
+                                  type: 'category',
+                                  label: 'Monitoring smart contracts',
+                                  collapsed: true,
+                                  items: [
+          						'Watcher/event_approval',
+          						'Watcher/event_mint',
+          						'Watcher/event_transfer',
+          						'Watcher/erc721_event_transfer',
+          						'Watcher/erc1155_event_single',
+          						'Watcher/erc1155_event_transfer_batch',
+          						'Watcher/custom-event'],
+                                                                         				},
+          					],
+          				},
 		{
 			type: 'category',
 			label: 'Webhooks',
@@ -239,7 +254,7 @@ module.exports = {
 			items: ['Tutorials/testing-webhooks-locally-ngrok'],
 		},
 		'Watcher/confirmation-blocks',
-		'Watcher/watcher-state-and-status',
+
 		{
 			type: 'html',
 			value: "<br style='margin: 0.5rem 0 0.5rem 0;'/>",

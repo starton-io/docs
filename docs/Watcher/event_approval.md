@@ -1,10 +1,10 @@
 ---
-title: EVENT_APPROVAL
+title: ERC20 Event approval
 ---
 
-# EVENT_APPROVAL
+# ERC20 Event approval (EVENT_APPROVAL)
 
-Triggers when a new approval is made on contract.
+Triggers when an ERC20 contract emits an approval event, to track when a new allowance has been granted or revoked.
 The associated address should be the address of the smart contract on which the event is emitted.
 Here is an example of the payload sent to the webhook as a POST request when the event is triggered.
 You can find more details about the [transaction object](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) (please notice that it inherits the [Transaction](https://docs.ethers.io/v5/api/utils/transactions/#Transaction).
