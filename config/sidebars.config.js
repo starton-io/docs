@@ -161,6 +161,9 @@ module.exports = {
 								'Smart-contract/ERC721-Meta',
 								'Smart-contract/ERC721-Capped',
 								'Smart-contract/ERC1155-Meta',
+								'Smart-contract/ERC721_ROYALTIES_META_TRANSACTION',
+                                'Smart-contract/ERC721_ROYALTIES_CAPPED_META_TRANSACTION',
+                                'Smart-contract/ERC1155_ROYALTIES_META_TRANSACTION',
 							],
 						},
 						{

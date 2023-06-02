@@ -26,8 +26,7 @@ Starton provides an <a href="https://app.starton.com/ipfs">IPFS integration</a> 
     -   Using a centralised server: `https://yourapi.com/endpoint/`
 -   **initialContractUri:** The URI of the metadata that will be used to give more details about the description.
 -   **initialOwnerOrMultisigContract:** The address that will own the NFT Collection.
--   **definitiveRoyaltyFee:** The value that will be payed as royalty fees
--   **definitiveFeeReceiver:** The address that will receive the royalty fees
+
 
 ## Functions
 

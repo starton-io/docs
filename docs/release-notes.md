@@ -4,6 +4,12 @@ displayed-sidebar: connectSidebar
 ---
 # 2023
 
+## June 
+
+- **Now supporting royalties**
+    
+    Starton now offers three smart contracts supporting the NFT Royalty Standard which enable you to set and retrieve royalty payment information by filling two new parameters in the contructor of your smart contract at deployment. 
+
 ## May 
 
 - **Announcing Custom Events in Monitor**
