@@ -12,7 +12,7 @@ The receipt object is described [here](https://docs.ethers.io/v5/api/providers/t
 ```jsx
 {
   "projectId": "string",
-  "event": "ADDRESS_SENT_NATIVE_CURRENCY",
+  "event": "ADDRESS_RECEIVED_NATIVE_CURRENCY",
   "data": {
     "transaction": {
       "hash": "string",
