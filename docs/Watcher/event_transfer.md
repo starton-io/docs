@@ -1,10 +1,10 @@
 ---
-title: EVENT_TRANSFER
+title: ERC20 Event transfer
 ---
 
-# EVENT_TRANSFER
+# ERC20 Event transfer (EVENT_TRANSFER)
 
-Triggers when an ERC20 transfers tokens.
+Triggers when an ERC20 contract emits a transfer event, to track when tokens are moved.  
 The associated address should be the address of the smart contract on which the event is emitted.
 Here is an example of the payload sent to the webhook as a POST request when the event is triggered.
 You can find more details about the [transaction object](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) (please notice that it inherits the [Transaction](https://docs.ethers.io/v5/api/utils/transactions/#Transaction).

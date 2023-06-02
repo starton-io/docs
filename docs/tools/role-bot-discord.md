@@ -12,7 +12,7 @@ You can give roles to server members according to the tokens they own, fungible 
 To use the bot you need to:
 
 - Create an account on [Starton](https://app.starton.io) to get an API key
-- Create an account on [Discord](https://www.discord.com) to join the [Discord Developer Portal](https://discord.com/developers/applications)
+- Create an account on [Discord](https://www.discord.com)
 
 :::
 

@@ -1,38 +1,33 @@
 ---
-title: ERC721 NFT Smart Contract
+title: ERC721 limited supply NFT deployment (with royalties)
 description: The smart contract standard to manage unique tokens.
 keywords: [ERC-721, ERC721, Deploy, Starton, Smart contracts, parameters, functions]
 ---
 
-# ERC721 NFT Smart Contract
+# ERC721 limited supply NFT deployment (with royalties)
 
-The meta-transaction smart contract template to manage multiple-copies NFTs. Though their content is identical, each NFT has a different token ID. In a video game, you can sell an NFT and pay for gas in place of the NFT receiver. Within this standard, the token is linked to its owner's address and to the URI (Unique Resource Identifier), which references the NFT content).
+The capped meta-transaction smart contract template for single-copy Non Fungible Tokens (NFT). In a video game, you can sell an NFT and pay for gas in place of the NFT receiver. Within this standard, the token is linked to its owner's address and to the URI (Unique Resource Identifier) which references the NFT content.
 
-The ERC721 is a smart contract standard which is specialised in single-copy Non Fungible Tokens (NFT) and out-of-the-box compatible with Opensea. In an ERC721, every NFT is unique which means you have to reference the content for each NFT.
+This version enables you to send transactions on behalf of your users so they can use their NFT without having to pay for gas fees. In contrast to the standard version of meta-transaction where you can mint infinite amount of NFTS, here you can set a maximum limit to the supply of NFTs.
 
-This version enables you to send transactions on behalf of your users so they can use their NFT without having to pay for gas fees.
-
-It also includes the blacklist feature. It allows the owner to block one or more addresses from transfering tokens on behalf of your users for example if you want to block the sales happening in a marketplace.
+It also includes another feature which is called blacklist. It allows the owner to blacklist one or more addresses to transfer tokens on behalf of your users for example if you want to block sales happening in a marketplace.
 
 Notice that we do not store any content in the smart contract. Smart contract store only references. It is up to smart contract readers to find the content using references.
 
 Starton provides an <a href="https://app.starton.com/ipfs">IPFS integration</a> in case you need to host your NFT content.
 
-:::caution
-
-To use this contract, you will need to import the etherjs library, create and sign a typeTransaction before you can use the function executeMetadata().
-
-:::
-
 ## Parameters
 
 -   **definitiveName:** The name of your smart contract which will be reflected on-chain.
 -   **definitiveSymbol:** The symbol associated with the NFT or its collection.
--   **initialBaseTokenUri:** Will be used to get the token URI.
+-   **definitiveMaxSupply:** The maximum number of NFT that can be minted.
+-   **initialBaseTokenUri:** Will be used to concatenate NFT URIs :
     -   Using IPFS: `ipfs://ipfs/`
     -   Using a centralised server: `https://yourapi.com/endpoint/`
 -   **initialContractUri:** The URI of the metadata that will be used to give more details about the description.
 -   **initialOwnerOrMultisigContract:** The address that will own the NFT Collection.
+-   **definitiveRoyaltyFee:** The fraction of sale price representing the royalty fees
+-   **definitiveFeeReceiver:** The address that will receive the royalty fees
 
 ## Functions
 
@@ -71,6 +66,7 @@ To use this contract, you will need to import the etherjs library, create and si
 | isApprovedForAll       | (address owner, address operator)                                                             | Returns true if the operator can transfer all the tokens owned by owner.                                                                                                                                                                                                              |
 | tokenOfOwnerByIndex    | (address owner, uint256 tokenId)                                                              | Returns the nth tokens minted by a specified address.                                                                                                                                                                                                                                 |
 | tokenByIndex           | (uint256 index)                                                                               | Returns the token id of the nth token minted.                                                                                                                                                                                                                                         |
+| maxSupply              | None                                                                                          | Returns the max amount of tokens that can ever be minted.                                                                                                                                                                                                                             |
 | contractURI            | None                                                                                          | Returns a public URL that contains the metadata of the collection                                                                                                                                                                                                                     |
 | lockMint               | None                                                                                          | Revokes the ability to mint. Sender must have the LOCKER_ROLE.                                                                                                                                                                                                                        |
 | lockMetadata           | None                                                                                          | Revokes the ability to change metadata. Sender must have the LOCKER_ROLE.                                                                                                                                                                                                             |

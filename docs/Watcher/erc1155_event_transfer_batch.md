@@ -1,10 +1,10 @@
 ---
-title: ERC1155_EVENT_TRANSFER_BATCH
+title: ERC1155 Event transfer batch
 ---
 
-# ERC1155_EVENT_TRANSFER_BATCH
+# ERC1155 Event transfer batch (ERC1155_EVENT_TRANSFER_BATCH)
 
-Triggers when an ERC1155 transfers a batch of NFT tokens.
+Triggers when an ERC1155 contract emits a batch transfer event, to track when several NFTs are moved.
 The associated address should be the address of the smart contract on which the event is emitted.
 Here is an example of the payload sent to the webhook as a POST request when the event is triggered.
 You can find more details about the [transaction object](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) (please notice that it inherits the [Transaction](https://docs.ethers.io/v5/api/utils/transactions/#Transaction).

@@ -1,10 +1,10 @@
 ---
-title: ERC1155 Deployment of a Collection of NFTs
+title: ERC1155 Deployment of a Collection of NFTs (with royalties)
 description: The smart contract standard to manage unique tokens.
 keywords: [ERC-1155, ERC1155, Deploy, Starton, Smart contracts, parameters, functions]
 ---
 
-# ERC1155 Deployment of a Collection of NFTs
+# ERC1155 Deployment of a Collection of NFTs (with royalties)
 
 This meta-transaction version enables you to send transactions on behalf of your users so they can use their NFT without having to pay for gas fees.
 It also includes the blacklist feature. It allows the owner to block one or more addresses from transferring tokens on behalf of your users for example if you want to block the sales happening in a marketplace.
@@ -25,7 +25,8 @@ To use this contract, you will need to import the etherjs library, create and si
     -   Using a centralised server: `https://yourapi.com/endpoint/{id}`
 -   **initialContractUri:** The URI of the metadata that will be used to give more details about the description.
 -   **initialOwnerOrMultisigContract:** The address that will own the NFT Collection
-
+-   **definitiveRoyaltyFee:** The fraction of sale price representing the royalty fees
+-   **definitiveFeeReceiver:** The address that will receive the royalty fees
 
 ## Functions
 

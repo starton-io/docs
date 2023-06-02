@@ -1,10 +1,10 @@
 ---
-title: ADDRESS_ACTIVITY
+title: Address Activity
 ---
 
-# ADDRESS_ACTIVITY
+# Address Activity
 
-Triggers when an address receives base currency or creates a transaction.
+Triggers when a transfer from or to an address is created, to track when native tokens transactions are created.
 Here is an example of the payload sent to the webhook as a POST request when the event is triggered.
 You can find more details about the [transaction object](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) (please notice that it inherits the [Transaction](https://docs.ethers.io/v5/api/utils/transactions/#Transaction).
 The receipt object is described [here](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionReceipt).

@@ -1,10 +1,10 @@
 ---
-title: EVENT_MINT
+title: ERC20 Event Mint 
 ---
 
-# EVENT_MINT
+# ERC20 Event mint (EVENT_MINT)
 
-Triggers when an ERC20 mints new tokens.
+Triggers when an ERC20 contract emits a transfer event where sending address is 0x0, to track when new tokens are created.
 The associated address should be the address of the smart contract on which the event is emitted.
 Here is an example of the payload sent to the webhook as a POST request when the event is triggered.
 You can find more details about the [transaction object](https://docs.ethers.io/v5/api/providers/types/#providers-TransactionResponse) (please notice that it inherits the [Transaction](https://docs.ethers.io/v5/api/utils/transactions/#Transaction).
