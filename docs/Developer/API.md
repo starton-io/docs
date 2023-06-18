@@ -20,7 +20,7 @@ Often resources have one or more methods that can be performed on them over HTTP
 
 To use Starton Connect from your code, you will need to authenticate yourself to the API through an API key.
 
-### What is an API Key ?
+### What is an API Key?
 
 An API key (Application Programming Key) is used to authenticate yourself to an API.
 For example, Starton can generate API keys related to the use of Connect, so you can call our API from your code and authenticate yourself with it.
@@ -77,11 +77,11 @@ http.get('/smart-contract-template?limit=5&page=2').then(response => {
 
 ### Filtering your API calls
 
-You can filter your API calls using parameters. For example, if you created watchers and want to get the watchers you created on a specific networks you can use:
+You can filter your API calls using parameters. For example, if you created watchers and want to get the watchers you created on a specific network you can use:
 
 `/v3/watcher?network=network_of_your_watcher`
 
-If the watchers you needs are on "avalanche-fuji", you could make the following call:
+If the watchers you need are on "avalanche-fuji", you could make the following call:
 
 ```jsx
 const axios = require("axios")
