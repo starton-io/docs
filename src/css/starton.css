@@ -195,9 +195,6 @@ h1 {
 	text-decoration: none;
 }
 
-blockquote {
-	color: #01e6cd;
-}
 
 .overview {
 	height: 300px;
@@ -209,13 +206,6 @@ svg {
 	margin-bottom: 0;
 }
 
-code {
-	color: #678298;
-}
-
-pre {
-	color: #678298;
-}
 
 /*div.class[*="codeBlockContainer"] {*/
 /*	color: #678298;*/
