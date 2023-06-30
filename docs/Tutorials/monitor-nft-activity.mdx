@@ -1,41 +1,65 @@
 ---
-title: How to notify your users when they receive an NFT?
+title: Notifying users when they receive an NFT
 ---
+import { RocketLaunchOutlined } from '@mui/icons-material'
+import { CardTitle } from '@site/src/components/commons/CardTitle'
+import { Starton } from '@starton/react-ui-iconography'
 
-
-# How to notify your users when they receive an NFT?
+# Notifying users when they receive an NFT
 
 ⏳ 2h
 
-🟠 medium / advanced
+🟠  advanced
 
 
 
 <aside>
-💡 In this tutorial you will learn how to send an email to your users when they receive an NFT. We will use the Starton API to watch for transfers on-chain and nodemailer to send the notification
+In this tutorial you will learn how to send an email to your users when they receive an NFT. We will use the Starton API to watch for transfers on-chain and nodemailer to send the notification.
 
 </aside>
+
+
+
+
+
+
+:::caution
+
+ This tutorial is the continuation of the [How to create a JWT-based authentication with NestJS](/Tutorials/jwt-authentication-nest.mdx) tutorial. We recommend you to do it first before starting this one.
+
+:::
+
+<CardTitle icon={<Starton fill='primary' />} href="https://github.com/starton-io/tutorials-how-to-notify-an-nft-transfer-by-email-with-nextjs" target="_blank">
+Find the full project in our Github repository.
+</CardTitle>
+
+
 
 :::info Prerequisites
-
-<aside>
-⚠️ This tutorial is the continuation of the [How to create a JWT-based authentication with NestJS](https://www.notion.so/How-to-create-a-JWT-based-authentication-with-NestJS-2c63a314fd064cd3b30f9b2212390c72?pvs=21) tutorial. We recommend you to do it first before starting this one.
-
-</aside>
 
 Before we begin, make sure that you have the following installed on your machine:
 
 - Node.js (version 18 or higher)
 - NestJS CLI
+- Dependencies explained right below
+- a Watcher. To create a watcher, go to [**Monitoring blockchain activity**](/Tutorials/monitoring-blockchain-activity.mdx).
+- an ERC1155 smart contract.  To deploy your ERC1155 NFT collection smart contract, go to [**How to create a one-to-many NFT collection**](/Tutorials/creating-NFT-collection.mdx).
+
+
+
+We will use MongoDB for our database. You can create a free instance on [Mongo Atlas](https://www.mongodb.com/fr-fr/atlas/database). Make sure to retrieve the connection URL from your dashboard.
+:::
+
+## Setting up your environment
+
+### Installing Nestjs CLI
+
+To install Nestjs CLI, run: 
 
     ```bash
     yarn global add @nestjs/cli
     ```
-
-
-We will use MongoDB for our database. You can create a free instance on [Mongo Atlas](https://www.mongodb.com/fr-fr/atlas/database). Make sure to retrieve the connection URL from your dashboard.
-
-## Dependencies
+### Installing Dependencies
 
 - `axios`: A promise based HTTP client for Node.js
 - `nodemailer`: A package that allow easy email sending
@@ -44,23 +68,12 @@ We will use MongoDB for our database. You can create a free instance on [Mongo A
 yarn add axios nodemailer
 ```
 
-## Dev dependencies
+### Dev dependencies
 
 - `@types/.*`: provide the necessary typings for you to use libraries or modules in your TypeScript code with type checking and IntelliSense support
 
-:::
 
-## Deploying an NFT collection
-
-For this tutorial, we need to deploy an ERC1155 smart contract. You can do it via the Starton’s dashboard.
-
-## Watcher  
-
-To be able to receive notification from Starton about
-
-
-
-# Update the `schema.prisma` file
+## Update the `schema.prisma` file
 
 In the last tutorial we have generated a `schema.prisma` file inside the `prisma` directory. Update it to add different collections:
 
@@ -130,11 +143,6 @@ model RevokedToken {
 }
 ```
 
-<aside>
-⚠️ `Red` fields are of *Non-scalar types* (non-native types, relations) such as the `items` field in the `User` collection are **not** represented in the underlying database
-
-</aside>
-
 ## User
 
 The `***User***` collection is defined to store user information. It has the following fields:
@@ -197,7 +205,7 @@ The `***RevokedToken***` collection is defined to store information about revoke
 - `id`: The unique identifier for the revoked token, generated automatically.
 - `jti`: The "JWT ID" of the revoked token, which must be unique.
 
-## Update the Sign-up route
+## Updating the Sign-up route
 
 In the last tutorial our users registered themselves to our app with an email and a password. Since we want to monitor when they receive an NFT, we need to ask them for their public key at registration.
 
@@ -245,9 +253,9 @@ Update the DTO type in the controller:
 
 ---
 
-# Create a `Starton` module
+## Creating a `Starton` module
 
-To make our life easier we will create a `StartonModule`. This module will wrap API calls into utility methods.
+To simplify development, we will create a `StartonModule`. This module will wrap API calls into utility methods.
 
 ```tsx
 nest g module starton
@@ -316,7 +324,7 @@ Next, we define three wrappers for common API calls: transfers, mints, and burns
 
 </aside>
 
-## `initTransfer`
+### `initTransfer`
 
 Initiate an NFT **transfer** by making a `safeTransferFrom` function call to the smart-contract
 
@@ -325,7 +333,7 @@ Initiate an NFT **transfer** by making a `safeTransferFrom` function call to the
 
 </aside>
 
-## `initMint`
+### `initMint`
 
 Initiate an NFT ********mint******** by making a `mint` function call to the smart-contract
 
@@ -334,7 +342,7 @@ Initiate an NFT ********mint******** by making a `mint` function call to the sma
 
 </aside>
 
-## `initBurn`
+### `initBurn`
 
 Initiate an NFT ********burn******** by making a `burn` function call to the smart-contract
 
@@ -362,7 +370,7 @@ import { StartonService } from './starton.service';
 export class StartonModule {}
 ```
 
-# Create an `EmailModule`
+## Creating an `EmailModule`
 
 We will encapsulate the functions responsible for sending emails in a service that will be exported from the `EmailModule`.
 
@@ -420,9 +428,9 @@ In the constructor, we call the `verify` method to check if we are authenticated
 
 We also define a single method, `sendEmail`, which takes a recipient email address, subject, and message body as parameters and send the email.
 
-# Create an `Item` resource
+## Create an `Item` resource
 
-## ItemService
+### ItemService
 
 Now that we have all the necessary utility services, we need services for adding and updating items in the database.
 
@@ -534,7 +542,7 @@ The `ItemService` is responsible for managing items in the database. It provides
 
 </aside>
 
-## ItemModule
+### ItemModule
 
 Now that we have an Item service we need to export it in a module to be able to use it elsewhere.
 
@@ -565,9 +573,9 @@ export class ItemModule {}
 
 ---
 
-# Create a `Transfer` resource
+## Create a `Transfer` resource
 
-## TransferService
+### TransferService
 
 ```tsx
 /*
@@ -599,7 +607,7 @@ export class TransferService {
 
 The `create` method adds a new record to the `Transfer` collection of the database. We will call this method every time a transfer happens.
 
-## TransferController
+### TransferController
 
 First things first, let’s generate the TransferController:
 
@@ -607,7 +615,7 @@ First things first, let’s generate the TransferController:
 nest g controller transfer
 ```
 
-### Watcher & Webhook
+#### Watcher & Webhook
 
 For our app to be notified of a Transfer event, we need to set up a *Watcher* on Starton. A Watcher is a condition that is checked upon inspection of each block. When the watcher is triggered, it sends a POST request to a *webhook* containing data about the event. You can find how to create a Watcher [here](https://docs.starton.com/docs/Watcher/creating-a-watcher).
 
@@ -792,7 +800,7 @@ export class StartonGuard implements CanActivate {
 
 In it, we retrieve the Request object, the payload of the body and the signature. Then, we compute the signature again using the payload and the signing key (you can find yours in your Starton’s dashboard under: ************Your project > Developer > Webhook************). Finally we compare the signature we computed with the one provided in the header of the request we retrieved previously. If they match, we allow access to the endpoint, and if not it responds with an error.
 
-### Utility endpoints
+#### Utility endpoints
 
 Next, we add endpoints to allow minting, burning and transfers of items.
 
@@ -835,7 +843,7 @@ async burn(@Body() burnDto: MintDto) {
 
 All the 3 endpoints calls methods of the Starton wrapper service. Thus, Starton can make the smart contract function calls to apply changes on-chain. Every call to this endpoint ends up in a Transfer event on-chain, which triggers our webhook and applies changes to the database.
 
-## TransferModule
+### TransferModule
 
 Finally, we group TransferService and TransferController in a TransferModule:
 
@@ -866,7 +874,7 @@ Now that everything looks fine you can test your code by running
 yarn start
 ```
 
-# Congratulations !
+## Congratulations!
 
 You successfully created an email notification system that is triggered every time a transfer occurs on your ERC1155 NFTs collection !
 

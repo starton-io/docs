@@ -2,6 +2,10 @@
 title: Creating a JWT-based authentication with NestJS
 ---
 
+import { RocketLaunchOutlined } from '@mui/icons-material'
+import { CardTitle } from '@site/src/components/commons/CardTitle'
+import { Starton } from '@starton/react-ui-iconography'
+
 # Creating a JWT-based authentication with NestJS
 
 
@@ -12,7 +16,12 @@ title: Creating a JWT-based authentication with NestJS
 
 This tutorial will guide you through the process of building an authentication system based on JSON Web Tokens (JWT) using NestJS, a progressive Node.js framework. JWT is a widely adopted and standardized approach for securely exchanging data between different entities. It is commonly employed in web applications for tasks such as authentication and authorization.
 
-You can find the full project [in our Github repository](https://github.com/delicious-mango/jwt-auth-tuto)
+
+
+<CardTitle icon={<Starton fill='primary' />} href="https://github.com/starton-io/tutorial-how-to-implement-jwt-auth-with-nestjs" target="_blank">
+Find the full project in our Github repository.
+</CardTitle>
+
 
 :::info Prerequisites
 
@@ -585,7 +594,6 @@ Finally, let's test our authentication system. Start your NestJS server by runni
 
 ```
 yarn start
-
 ```
 
 Then, send a POST request to `http://localhost:3000/user/auth/sign-up` with the following JSON payload:
@@ -595,7 +603,6 @@ Then, send a POST request to `http://localhost:3000/user/auth/sign-up` with the 
   "email": "johndoe@example.com",
   "password": "P@ssw0rd"
 }
-
 ```
 
 If everything is set up correctly, you should receive a response with a JWT token in the Cookie header:
@@ -604,7 +611,6 @@ If everything is set up correctly, you should receive a response with a JWT toke
 {
   "user": User
 }
-
 ```
 
 ### Removing the password from the response
