@@ -333,6 +333,8 @@ module.exports = {
 				'Tutorials/metatransaction',
 				'Tutorials/starton-web3auth',
 				'Tutorials/ai-nft-collection',
+				'Tutorials/jwt-authentication-nest',
+				'Tutorials/monitor-nft-activity',
 			],
 		},
 		{
