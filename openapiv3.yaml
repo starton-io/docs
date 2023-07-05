@@ -772,20 +772,10 @@ paths:
         schema:
           type: string
       - name: network
-        description: Network on which are deployed the webhooks.
+        description: Network on which are deployed the watchers.
         required: false
         in: query
         schema:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-fuji
-          - avalanche-mainnet
           type: string
       - name: type
         required: false
@@ -1621,15 +1611,6 @@ paths:
           required: true
           in: path
           schema:
-            enum:
-              - ethereum-mainnet
-              - ethereum-goerli
-              - binance-mainnet
-              - binance-testnet
-              - polygon-mainnet
-              - polygon-mumbai
-              - avalanche-mainnet
-              - avalanche-fuji
             type: string
       responses:
         '200':
@@ -1663,15 +1644,6 @@ paths:
           required: true
           in: path
           schema:
-            enum:
-              - ethereum-mainnet
-              - ethereum-goerli
-              - binance-mainnet
-              - binance-testnet
-              - polygon-mainnet
-              - polygon-mumbai
-              - avalanche-mainnet
-              - avalanche-fuji
             type: string
         - name: address
           required: true
@@ -1710,15 +1682,6 @@ paths:
           required: true
           in: path
           schema:
-            enum:
-              - ethereum-mainnet
-              - ethereum-goerli
-              - binance-mainnet
-              - binance-testnet
-              - polygon-mainnet
-              - polygon-mumbai
-              - avalanche-mainnet
-              - avalanche-fuji
             type: string
         - name: contractAddress
           required: true
@@ -2009,16 +1972,6 @@ paths:
         required: true
         in: path
         schema:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
       responses:
         '200':
@@ -2073,16 +2026,6 @@ paths:
         required: true
         in: path
         schema:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
       responses:
         '201':
@@ -2124,16 +2067,6 @@ paths:
         required: false
         in: query
         schema:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
       - name: transactionHash
         description: 'The transaction hash of the smart contract'
@@ -2297,12 +2230,6 @@ paths:
         required: true
         in: path
         schema:
-          enum:
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-testnet
-          - polygon-mumbai
-          - avalanche-fuji
           type: string
       requestBody:
         required: true
@@ -2347,16 +2274,6 @@ paths:
         required: true
         in: path
         schema:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
       responses:
         '200':
@@ -2398,16 +2315,6 @@ paths:
         required: false
         in: query
         schema:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
       - name: address
         description: 'The address of the wallet'
@@ -2479,16 +2386,6 @@ paths:
         required: true
         in: path
         schema:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
       - name: address
         description: 'Specifies the address of the smart contract'
@@ -2528,16 +2425,6 @@ paths:
         required: true
         in: path
         schema:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
       - name: address
         description: 'The address of the smart contract'
@@ -2583,16 +2470,6 @@ paths:
         required: true
         in: path
         schema:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
       - name: address
         required: true
@@ -2780,16 +2657,6 @@ paths:
         required: true
         in: path
         schema:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
       - name: address
         description: 'Specifies the address at which the smart contract is deployed'
@@ -2883,16 +2750,6 @@ paths:
         required: true
         in: path
         schema:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
       - name: address
         description: 'Specifies the address of the contract'
@@ -2954,16 +2811,6 @@ paths:
         required: true
         in: path
         schema:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
       - name: address
         description: 'Specifies the address of the smart contract.'
@@ -3045,15 +2892,6 @@ paths:
           required: true
           in: path
           schema:
-            enum:
-              - ethereum-mainnet
-              - ethereum-goerli
-              - binance-mainnet
-              - binance-testnet
-              - polygon-mainnet
-              - polygon-mumbai
-              - avalanche-mainnet
-              - avalanche-fuji
             type: string
       responses:
         '200':
@@ -3079,15 +2917,6 @@ paths:
           required: true
           in: path
           schema:
-            enum:
-              - ethereum-mainnet
-              - ethereum-goerli
-              - binance-mainnet
-              - binance-testnet
-              - polygon-mainnet
-              - polygon-mumbai
-              - avalanche-mainnet
-              - avalanche-fuji
             type: string
       requestBody:
         required: true
@@ -3960,16 +3789,6 @@ components:
         address:
           type: string
         network:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-fuji
-          - avalanche-mainnet
           type: string
         projectId:
           type: string
@@ -4039,16 +3858,6 @@ components:
         txHash:
           type: string
         network:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-fuji
-          - avalanche-mainnet
           type: string
         status:
           enum:
@@ -4113,16 +3922,6 @@ components:
         network:
           description: Network of the watcher
           type: string
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-fuji
-          - avalanche-mainnet
         type:
           description: Type of events watched
           type: string
@@ -4137,7 +3936,7 @@ components:
           - ERC1155_EVENT_TRANSFER_BATCH
           - EVENT_MINT
           - EVENT_APPROVAL
-          - NEW_BLOCK
+          - CUSTOM_EVENT
         webhookUrl:
           description: URL of the webhook
           type: string
@@ -4158,16 +3957,6 @@ components:
           type: array
           items:
             type: string
-            enum:
-            - ethereum-mainnet
-            - ethereum-ropsten
-            - ethereum-goerli
-            - binance-mainnet
-            - binance-testnet
-            - polygon-mainnet
-            - polygon-mumbai
-            - avalanche-fuji
-            - avalanche-mainnet
         name:
           description: Name of the watchers
           type: string
@@ -4965,16 +4754,6 @@ components:
       properties:
         network:
           type: string
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
         low:
           type: object
         average:
@@ -5063,16 +4842,6 @@ components:
         chainId:
           type: number
         network:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
         data:
           type: string
@@ -5519,16 +5288,6 @@ components:
         network:
           description: Network on which are deployed the smart contracts.
           type: string
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
         nonce:
           description: 'Index of the transaction. Used to prevent replay attacks.'
           type: number
@@ -5575,16 +5334,6 @@ components:
           type: string
         network:
           type: string
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
     SettingRelayer:
       type: object
       properties:
@@ -5593,16 +5342,6 @@ components:
         projectId:
           type: string
         network:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
         unstuckMaxGasPrice:
           "$ref": "#/components/schemas/GasPriceInfo"
@@ -5697,12 +5436,6 @@ components:
           type: string
         network:
           type: string
-          enum:
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-testnet
-          - polygon-mumbai
-          - avalanche-fuji
         userId:
           type: string
         txHash:
@@ -5744,16 +5477,6 @@ components:
         description:
           type: string
         network:
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
           type: string
         abi:
           type: array
@@ -6136,18 +5859,8 @@ components:
           description: Maximum gas fees you're willing to pay
           type: string
         network:
-          description: network on which the transaction will occur
+          description: Network on which the transaction will occur
           type: string
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
         bytecode:
           description: Bytecode of the smart contract
           type: string
@@ -6238,16 +5951,6 @@ components:
         network:
           description: Network on which are deployed the smart contracts
           type: string
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
         signerWallet:
           description: Address of the wallet signing the transaction
           type: string
@@ -6386,16 +6089,6 @@ components:
           type: string
         network:
           type: string
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
       required:
       - response
       - functionName
@@ -6456,16 +6149,6 @@ components:
         network:
           description: Network on which are deployed the smart contracts.
           type: string
-          enum:
-          - ethereum-mainnet
-          - ethereum-ropsten
-          - ethereum-goerli
-          - binance-mainnet
-          - binance-testnet
-          - polygon-mainnet
-          - polygon-mumbai
-          - avalanche-mainnet
-          - avalanche-fuji
         description:
           description: Description of this smart contract that will be displayed on our dashboard
           type: string
