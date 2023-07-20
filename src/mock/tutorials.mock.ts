@@ -24,7 +24,7 @@ export const TUTORIALS_LIST: Array<CardPostProps> = [
       		title: 'Creating a JWT-based authentication with NestJS',
       		date: StartonUtils.getDateFromYearAndMonth(2023, 6),
       		labels: [{ label: 'NestJS' }, { label: 'AUTH' }, { label: 'CODE' }, { label: 'ADVANCED' }],
-      		href: '/docs/Tutorials/jwt-authentication',
+      		href: '/docs/Tutorials/jwt-authentication-nest',
       	},
     {
     		title: 'Notifying users when they receive an NFT',
