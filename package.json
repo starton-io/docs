@@ -49,6 +49,7 @@
     "openapi": "^1.0.1",
     "path": "npm:path-browserify@^1.0.1",
     "path-browserify": "^1.0.1",
+    "posthog-docusaurus": "^2.0.0",
     "prism-react-renderer": "^2.0.4",
     "raw-loader": "^4.0.2",
     "react": "^17.0.2",
