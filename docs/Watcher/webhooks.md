@@ -10,6 +10,19 @@ Webhooks are a term used to describe an HTTP request that is triggered by an eve
 
 In Starton, watchers use webhook as event notifications.
 
+:::info WEBHOOK VALIDATION 
+
+When setting up a webhook with Starton, your designated webhook server must be valid and responsive.
+
+Starton not only tests webhooks when creating watchers but also upon resuming a paused watcher. During these tests, the following message will be sent to your server: "Starton webhook test for responding server." This signifies that Starton is validating that your server is up.
+
+All payloads we send, including test messages, are signed. You can verify these signatures to ensure that the webhook calls are genuinely from Starton.
+
+To understand how to authenticate and verify that the webhook calls are genuinely originating from Starton, please refer to our detailed guide:  [How to Ensure Notify's Webhooks are from Starton](https://docs.starton.com/docs/Tutorials/how-to-ensure-notifys-webhooks-are-from-starton).
+
+:::
+
+This callout provides a concise and direct explanation, ensuring that users are aware of the importance of webhook validity, testing, and payload verification.
 ## Creating a URL to receive a webhook
 
 You can create a URL to receive webhooks using several methods.
