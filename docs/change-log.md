@@ -1,6 +1,6 @@
 ---
 title: Starton Changelogs
-displayed-sidebar: connectSidebar
+
 ---
 
 # Starton Changelogs
