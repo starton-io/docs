@@ -14,14 +14,6 @@ module.exports = {
 		// Link : https://docusaurus.io/docs/api/plugins/@docusaurus/plugin-client-redirects
 		// ----------------------------------------------------------------------------
 		[
-              "posthog-docusaurus",
-              {
-                apiKey: process.env.POSTHOG_KEY,
-                appUrl: process.env.POSTHOG_URL, // optional
-                enableInDevelopment: true, // optional
-                // other options are passed to posthog-js init as is
-              },
-            ],[
 			'@docusaurus/plugin-client-redirects',
 			{
 				redirects: [
