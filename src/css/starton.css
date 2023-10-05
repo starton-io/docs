@@ -320,6 +320,53 @@ svg {
 	border-spacing: 16px;
 }
 
+.button-card {
+  display: flex;
+  flex-direction: column;
+  outline: 0.5px solid #01e6cd;
+  padding: 1rem; /* using relative unit */
+  text-decoration: none;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.button-card:hover {
+  background-color: #1e2224;
+}
+
+.row-is-multilineGS {
+  display: flex;
+  flex-wrap: wrap; /* allows the columns to wrap if needed */
+  margin-left: -0.5rem; /* compensates for the column margins */
+  margin-right: -0.5rem; /* compensates for the column margins */
+}
+
+.col {
+  flex: 1; /* allows the columns to grow and take available space */
+  padding-left: 0.5rem; /* gives space between the cards */
+  padding-right: 0.5rem; /* gives space between the cards */
+  box-sizing: border-box;
+  min-width: calc(50% - 1rem); /* ensures a minimum width for the cards, subtracting the padding */
+}
+
+.col {
+  flex: 1; /* allows the columns to grow and take available space */
+  padding-left: 0.5rem; /* gives space between the cards */
+  padding-right: 0.5rem; /* gives space between the cards */
+  box-sizing: border-box;
+  min-width: calc(30% - 1rem); /* ensures a minimum width for the cards, subtracting the padding */
+}
+
+
+/* Mobile-first approach: Adjusts the layout for larger screens */
+@media (max-width: 600px) {
+  .col {
+    min-width: 100%; /* makes the cards take the full width on small screens */
+  }
+}
+
+
+
 h4 {
 	/*color: #01e6cd;*/
 	text-decoration: none;

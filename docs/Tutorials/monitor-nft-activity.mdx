@@ -56,9 +56,9 @@ We will use MongoDB for our database. You can create a free instance on [Mongo A
 
 To install Nestjs CLI, run: 
 
-    ```bash
-    yarn global add @nestjs/cli
-    ```
+```bash
+yarn global add @nestjs/cli
+```
 ### Installing Dependencies
 
 - `axios`: A promise based HTTP client for Node.js
@@ -145,7 +145,7 @@ model RevokedToken {
 
 ## User
 
-The `***User***` collection is defined to store user information. It has the following fields:
+The `*User*` collection is defined to store user information. It has the following fields:
 
 - `id`: The unique identifier for the user, generated automatically.
 - `email`: The user's email address, which must be unique.
@@ -158,7 +158,7 @@ The `***User***` collection is defined to store user information. It has the fol
 
 ## Collection
 
-The `***Collection***` collection is defined to store information about NFT collections. It has the following fields:
+The `*Collection*` collection is defined to store information about NFT collections. It has the following fields:
 
 - `id`: The unique identifier for the collection, generated automatically.
 - `contractAddress`: The public address of the contract that manages the collection on the blockchain.
@@ -169,7 +169,7 @@ The `***Collection***` collection is defined to store information about NFT coll
 
 ## Item
 
-The `***Item***` collection is defined to store information about NFTs. It has the following fields:
+The `*Item*` collection is defined to store information about NFTs. It has the following fields:
 
 - `id`: The unique identifier for the NFT, generated automatically.
 - `collection`: The collection that the NFT belongs to.
@@ -184,7 +184,7 @@ The `***Item***` collection is defined to store information about NFTs. It has t
 
 ## Transfer
 
-The `***Transfer***` collection is defined to store information about transfers of NFTs. It has the following fields:
+The `*Transfer*` collection is defined to store information about transfers of NFTs. It has the following fields:
 
 - `id`: The unique identifier for the transfer, generated automatically.
 - `item`: The `Item` object representing the NFT that was transferred.
@@ -200,7 +200,7 @@ The `***Transfer***` collection is defined to store information about transfers 
 
 ## RevokedToken
 
-The `***RevokedToken***` collection is defined to store information about revoked JWT tokens. It has the following fields:
+The `*RevokedToken*` collection is defined to store information about revoked JWT tokens. It has the following fields:
 
 - `id`: The unique identifier for the revoked token, generated automatically.
 - `jti`: The "JWT ID" of the revoked token, which must be unique.
@@ -335,7 +335,7 @@ Initiate an NFT **transfer** by making a `safeTransferFrom` function call to the
 
 ### `initMint`
 
-Initiate an NFT ********mint******** by making a `mint` function call to the smart-contract
+Initiate an NFT *mint* by making a `mint` function call to the smart-contract
 
 <aside>
 ⚠️ The signerWallet must have the `MINTER_ROLE` to be able to mint tokens.
@@ -344,7 +344,7 @@ Initiate an NFT ********mint******** by making a `mint` function call to the sma
 
 ### `initBurn`
 
-Initiate an NFT ********burn******** by making a `burn` function call to the smart-contract
+Initiate an NFT *burn* by making a `burn` function call to the smart-contract
 
 <aside>
 ⚠️ The signerWallet must either be the owner of the token or have approval to transfer it
@@ -422,7 +422,7 @@ export class EmailService {
 }
 ```
 
-To send emails, we use [nodemailer](https://nodemailer.com/smtp/), a package that abstracts SMTP to make it easier to send emails. The first step is to define a `transporter`, which is responsible for transmitting emails. This can be done by calling the `createTransport` function and passing a configuration object as an argument to it. For this example we use `[smtp.elasticemail.com](http://smtp.elasticemail.com)` as host. You can  create an account and generate SMTP credentials for free on [their website](https://app.elasticemail.com/api/settings/manage-smtp).
+To send emails, we use [nodemailer](https://nodemailer.com/smtp/), a package that abstracts SMTP to make it easier to send emails. The first step is to define a `transporter`, which is responsible for transmitting emails. This can be done by calling the `createTransport` function and passing a configuration object as an argument to it. For this example we use [smtp.elasticemail.com](http://smtp.elasticemail.com) as host. You can  create an account and generate SMTP credentials for free on [their website](https://app.elasticemail.com/api/settings/manage-smtp).
 
 In the constructor, we call the `verify` method to check if we are authenticated correctly and that the server is ready to accept messages.
 
