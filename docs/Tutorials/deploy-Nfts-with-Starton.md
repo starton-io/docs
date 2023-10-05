@@ -242,3 +242,7 @@ We have seen in this tutorial how to upload NFTs on a decentralised file system,
 We hope you liked this tutorial and that you will follow along in this epic journey of making Web3 the new standard for Internet!
 We are very eager to see what you can build with NFTs.
 Do not hesitate to share what you’ve done!
+
+You can also deploy your smart contract from our web application.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/x5h-COA8B3Q?si=WxgC1WtlvGcoMi3O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>

@@ -4,159 +4,172 @@ title: Storing your first file on IPFS
 
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
+import CodeBlock from "@theme/CodeBlock"
+import walletPage from "./img/wallets-page.png"
+import { RocketLaunchOutlined } from '@mui/icons-material'
+import { CardTitle } from '@site/src/components/commons/CardTitle'
+import { Starton } from '@starton/react-ui-iconography'
+
 
 # Storing your first file on IPFS
 
-You can use Starton to turn your application into a dApp in a few steps.
 
-Let's integrate blockchain into your application project to store a file on IPFS using Starton.
-You can also upload files from Dashboard, see [Uploading on IPFS](/IPFS/uploading-on-ipfs.mdx).
+You can use Starton to integrate blockchain into your application in a few steps. Let's upload a file from Code with Starton's API.
 
-IPFS is a distributed file-sharing system designed to store large dataset.
-From a simple json, to your entire website front-end, you can upload and pin files on IPFS using our API.
 
-To do so, prepare your files, include the following code snippet in your application and fill in the parameters.
+:::info not a developer?
+To follow this tutorial, you will need **coding experience**. If it's not your case, you can still upload your files:
 
-:::note You will need:
 
--   [Node.js](https://nodejs.org/en/)
--   [Starton wallet](https://starton.com/)
--   [Starton API Key](https://starton.com/). To create one, see [Starton API](/Developer/API.md).
--   A file to upload
+<div class="row-is-multilineGS">
+    <div class="col col-2 cardsGS">
+        <a class="button-card button-card--vertical" href="https://app.starton.com/projects/default/ipfs">
+            <h4>From Starton app</h4>
+            <div class="button-card__inner">
+                <p color="white">An easy-to-use interface to upload files to IPFS.</p>
+            </div>
+        </a>
+    </div>
+    <div class="col col-2 cardsGS">
+        <a class="button-card button-card--vertical" href="https://www.youtube.com/watch?v=i38ndAVGNb0">
+            <h4>From Zapier</h4>
+            <div class="button-card__inner">
+                <p color="white">To pair our no-code integration with external apps and services. </p>
+            </div>
+        </a>
+    </div>
+</div>
+
 :::
 
-## Creating an Application project
 
-1. Create a directory for your app.
-1. Create a directory named `src`.
-1. In your terminal, install the express package using
-   `npm i express`
-1. In `src`, create a `index.js` file.
-1. In `index.js`, enter the following lines to set up a port for your project:
+## Step 1 - Initialize the project
 
-```jsx showLineNumbers
-const express = require("express")
-const routes = require("./routes")
-const app = express()
-app.use(bodyParser.json())
-const port = 3001 // Port of the project
+1. Start by creating a directory for your project.
 
-app.set("port", port) // Set the port of the project
-app.use("/", routes)
-app.listen(port, () => {
-	console.log(`Server listening on port ${port}`)
-})
-```
+    ```bash
+    mkdir upload-ipfs
+    ```
+1. Then, get into your project directory.
 
-This will deploy your app on port `3001`.
+    ```bash
+    cd upload-ipfs
+    ```
+1. With your project directory set up, install the dependencies.
 
-Now for the good part, let's connect Starton to your application.
+    ```bash
+    yarn add axios form-data fs
+    ```
+   - [Axios](https://axios-http.com/docs/intro) allows you to make request to the Starton API.
+   - [form-data](https://www.npmjs.com/package/form-data) facilitates the creation and submission of form data using HTTP requests.
+   - [fs](https://nodejs.org/api/fs.html) (File System module in Node.js) provides you with functionalities to interact with the file system on your server or local machine.
 
-## Connecting Starton to your application
 
-1. In src, create a `routes.js` file.
+1. Then, use`touch` to create a `index.js` file and open it with your favorite editor.
 
-    ```jsx showLineNumbers
-    const express = require("express")
-    const axios = require("axios")
-    const router = express.Router()
+    ```bash
+    touch index.js
     ```
 
-1. In it, first authenticate with your API KEY.
+## Step 2 - Add starton to your project
 
-    ```jsx showLineNumbers
-    // AUTHENTICATING TO THE API USING YOUR API KEY
-    const startonApi = axios.create({
-    	baseURL: "https://api.starton.com",
-    	headers: {
-    		"x-api-key": "YOUR API KEY ",
-    	},
-    })
-    ```
+1. First, import `axios`.
 
-## Uploading your files on IPFS
+   ```jsx showLineNumbers
+   const axios = require("axios")
+   ```
 
-Optional: you can include additional metadata (information beyond the file) with your upload.
+1. Then, initialize `axios` using Starton URL and authenticate with your API KEY.
 
-POST requests with a body should have the Content-Type header with value application/json.
-For sending files it should be multipart/form-data.
+   <CardTitle icon={<Starton fill='primary' />} href="https://app.starton.com/projects/default/developer" target="_blank">
+   Create an API key
+   </CardTitle>
+   <br/>
 
-1. Make an API call to create a transaction.
+   ```jsx showLineNumbers
+      const starton = axios.create({
+          baseURL: "https://api.starton.com",
+          headers: {
+              "x-api-key": "YOUR API KEY",
+          },
+      })
+   ```
 
- ```jsx showLineNumbers
- const axios = require("axios")
- const FormData = require("form-data")
- const fs = require("fs")
- // AUTHENTICATING TO THE API USING YOUR API KEY
- const startonApi = axios.create({
-     baseURL: "https://api.starton.com",
+## Step 3 - Upload a file to IPFS
+
+:::caution Watch your uploads
+Files on IPFS are immutable and can be widely replicated. Once uploaded, anyone can access your file and removal is almost impossible challenging. Think twice before sharing!
+:::
+
+1. Grab any file from your computer. You can also generate an image using [generative AI](/docs/Tutorials/ai-nft-collection). 
+
+   ```jsx showLineNumbers
+   const buffer = fs.readFileSync("./path/of/your/file.png")
+   ```
+1. Prepare the file for the request.
+
+   ```jsx showLineNumbers
+   let data = new FormData()
+   data.append("file", buffer, "name of your file")
+   ```
+   
+1. Send the file to IPFS. 
+
+   ```jsx showLineNumbers
+   starton.post("/v3/ipfs/file", data, {
      headers: {
-         "x-api-key": "YOUR_API_KEY",
+         "Content-type": `multipart/form-data; boundary=${data.getBoundary()}`,
      },
- })
- // UPLOAD FILE TO IPFS.
- const uploadFileToIpfs = async (path, name) => {
-     const buffer = fs.readFileSync(path)
-     let data = new FormData()
-     data.append("file", buffer, name)
-     // By setting "isSync" to "true, the request will wait for the pin before completing"
-     data.append("isSync", "false")
-     // Optional: you can add metadata to your file (object stringified)
-     const metadata = JSON.stringify({ your: "additionnal", meta: "data" })
-     data.append("metadata", metadata)
-     try {
-         const ipfsFile = await startonApi.post("/v3/ipfs/file", data, {
-             headers: {
-                 "Content-type": `multipart/form-data; boundary=${data.getBoundary()}`,
-             },
-         })
-         return ipfsFile.data
-     } catch (error) {
-         console.error(error)
-     }
- }
- // ENTERING YOUR FILE'S INFORMATION
- uploadFileToIpfs("./path/of/your/file.png", "name of your file")
-     .then((res) => {
-         console.log(res)
-     })
-     .catch((e) => {
-         console.log(e)
-     })
- ```
+   }).then(response => {
+      console.log({
+         cid: response.data.cid,
+         gatewayUrl: `https://eu.starton-ipfs.com/ipfs/${response.data.cid}`
+      })
+   }).catch(error => console.error(error.response.data))
 
-1. Display a message on your `localhost:3001` to inform you that the transaction is successful.
+   ```
 
-    ```jsx showLineNumbers
-    router.get("/", (req, res) => {
-    	res.send("Upload successful")
-    })
+   You can also upload [folders](/docs/IPFS/uploading-folder), [JSON files](/docs/IPFS/uploading-json) or [pin existing files using their CID](/docs/IPFS/pinning-file). 
 
-    module.exports = router
-    ```
 
-## Starting your application
+1. Almost done! Now we can execute it to get your first file stored on IPFS!
 
-1. In your terminal, run `node src`.
+   ```bash
+   node index.js
+   ```
+And just like that, your first file is now stored on IPFS!
 
-You uploaded your first file on IPFS with Starton. Congratulations!
+<br/>
 
-<div class="row-is-multiline">
+<CardTitle icon={<Starton fill='primary' />} href="https://app.starton.com/projects/default/ipfs" target="_blank">
+Check all your files on Starton Web Application
+</CardTitle>
+<br/><br/>
 
-<div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
-		<h3>Check your file on the Dashboard</h3>
-		<div class="button-card__inner">
-			<p color="white">Go to <b>Starton Dashboard</b> and check all your files at one glance.</p>
-		</div>
-	</a>
-</div>
+Congratulations on uploading your first file on IPFS! 
+In this tutorial, you discovered how to upload your first file on IPFS but this is only the first step.
 
+
+### Learn how to
+<div class="row-is-multilineGS">
+    <div class="col col-2 cardsGS">
+        <a class="button-card button-card--vertical" href="https://www.youtube.com/watch?v=x5h-COA8B3Q">
+            <h3>Deploy a smart contract</h3>
+            <div class="button-card__inner">
+                <p color="white">Create your first NFT. </p>
+            </div>
+        </a>
+    </div>
+    <div class="col col-2 cardsGS">
+        <a class="button-card button-card--vertical" href="/docs/Tutorials/monitoring-blockchain-activity">
+            <h3>Monitor blockchain activity</h3>
+            <div class="button-card__inner">
+                <p color="white">Get notified of any address's activity on an EVM network. </p>
+            </div>
+        </a>
+    </div>
 </div>
 
 
-**Related topics**
 
--   More on [Storage](/IPFS/understanding-IPFS.md)
--   More on [Using IPFS](/IPFS/uploading-on-ipfs.mdx)
--   More on [Starton API](/Developer/API.md)
+
