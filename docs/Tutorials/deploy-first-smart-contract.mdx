@@ -5,166 +5,208 @@ title: Deploying your first Smart contract
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
 import CodeBlock from "@theme/CodeBlock"
+import walletPage from "./img/wallets-page.png"
+import { RocketLaunchOutlined } from '@mui/icons-material'
+import { CardTitle } from '@site/src/components/commons/CardTitle'
+import { Starton } from '@starton/react-ui-iconography'
 
 # Deploying your first Smart contract
 
-You can use Starton to integrate blockchain into your application in a few steps.
+You can use Starton to integrate blockchain into your application in a few steps. Let's create a project to deploy a smart contract from Code with Starton's API.
 
-Let's create a project to deploy a smart contract from Code with Starton's API. To deploy a smart contract from Dashboard, see [Deploying a smart contract](/Smart-contract/deploying-a-smart-contract.mdx).
 
-**Starton** provides you with a library of smart contracts templates.
-To start let's create your own token.
+:::info not a developer? 
+To follow this tutorial, you will need **coding experience**. If it's not your case, you can still deploy your smart contract:
 
-:::note You will need:
 
--   [Node.js](https://nodejs.org/en/)
--   [Starton wallet](https://starton.com/). At creation, Starton provides you with faucet on some networks to fund your first deployment. 
--   [Starton API Key](https://starton.com/). To create one, see [Starton API](/Developer/API.md). 
--   An address to fund your smart contract transaction 
+<div class="row-is-multilineGS">
+    <div class="col col-2 cardsGS">
+        <a class="button-card button-card--vertical" href="https://www.youtube.com/watch?v=x5h-COA8B3Q">
+            <h4>From Starton app</h4>
+            <div class="button-card__inner">
+                <p color="white">Perfect if you want to deploy only a couple of smart contracts.</p>
+            </div>
+        </a>
+    </div>
+    <div class="col col-2 cardsGS">
+        <a class="button-card button-card--vertical" href="https://www.youtube.com/watch?v=i38ndAVGNb0">
+            <h4>From Zapier</h4>
+            <div class="button-card__inner">
+                <p color="white">To pair our no-code integration with external apps and services. </p>
+            </div>
+        </a>
+    </div>
+</div>
+
 :::
 
-## Creating an Application project
 
-1. Create a directory for your app.
-1. Create a directory named `src`.
-1. In your terminal, install the express package using
-   `npm i express`
-1. In `src`, create a `index.js` file.
-1. In `index.js`, enter the following lines to set up a port for your project:
+## Step 1 - Initialize the project
 
-```jsx showLineNumbers
-const express = require("express")
-const routes = require("./routes")
-const app = express()
-app.use(bodyParser.json())
-const port = 3001 // Port of the project
+1. Start by creating a directory for your project:
 
-app.set("port", port) // Set the port of the project
-app.use("/", routes)
-app.listen(port, () => {
-	console.log(`Server listening on port ${port}`)
-})
-```
+    ```bash
+    mkdir starton-deploy
+    ```
+1. Then, get into your project directory:
 
-This will deploy your app on port `3001`.
+    ```bash
+    cd starton-deploy
+    ```
+1. With your project directory set up, install the dependencies:
 
-Now for the good part, let's connect Starton to your application.
+    ```bash
+    npm add axios
+    ```
+   This library will allow you to make request to the Starton API. For more information on axios, check out [Axios documentation](https://axios-http.com/docs/intro). 
 
-## Connecting Starton to your application
+1. Then, use`touch` to create a `index.js` file and open it with your favorite editor.
 
-1. In src, create a `routes.js` file.
-
-    ```jsx showLineNumbers
-    const express = require("express")
-    const axios = require("axios")
-    const router = express.Router()
+    ```bash
+    touch index.js
     ```
 
-1. In it, first authenticate with your API KEY.
+## Step 2 - Add starton to your project
 
-    ```jsx showLineNumbers
-    // AUTHENTICATING TO THE API USING YOUR API KEY
-    const startonApi = axios.create({
-    	baseURL: "https://api.starton.com",
-    	headers: {
-    		"x-api-key": "YOUR API KEY ",
-    	},
-    })
+1. First, import `axios`. 
+
+   ```jsx showLineNumbers
+   const axios = require("axios")
    ```
 
-## Deploying your first Smart contract
+1. Then, initialize `axios` using Starton URL and authenticate with your API KEY.
 
-To create a smart contract from the code of your application, use the following snippet.
-You can find the full list of endpoints in our <a href="https://docs.starton.com/intro#tag/SmartContract">API reference</a>.
-Find more information about smart contracts parameters in the [smart contract references section](/Smart-contract/parameters-and-functions.mdx).
+   <CardTitle icon={<Starton fill='primary' />} href="https://app.starton.com/projects/default/developer" target="_blank">
+   Create an API key
+   </CardTitle>
+   <br/>
 
-```jsx showLineNumbers
- // DEPLOYING YOUR SMART CONTRACT
-axiosInstance
-	.post("/v3/smart-contract/from-template", {
-		network: "binance-testnet",
-		signerWallet: "0x0000000000000000000000000000000000000000",
-		templateId: "ERC20_META_TRANSACTION",
-		name: "My first smart token",
-		description: "This is the first smart contract I deploy. ",
-		params: ["My first token ", "MFT", "1000000000", "0x0000000000000000000000000000000000000000"],
-		speed: "average",
-	})
-	.then((response) => {
-		console.log(response.data)
-	})
-```
+   ```jsx showLineNumbers
+      const starton = axios.create({
+          baseURL: "https://api.starton.com",
+          headers: {
+              "x-api-key": "YOUR API KEY",
+          },
+      })
+   ```
 
-1. Display a message on your `localhost:3001` to inform you that the transaction is successful.
+## Step 3 - Creating a wallet
 
-    ```jsx showLineNumbers
-    router.get("/", (req, res) => {
-    	res.send("Upload successful")
-    })
+Before we can continue you will need a Starton Wallet to sign our transaction.
 
-    module.exports = router
-    ```
-   
-## Starting your application
+:::info Starton Wallet 
+Starton Wallet uses a KMS. Metamask is unavailable when using Starton from code. Since it is a browser extension, Starton API cannot access it from your project.
+For more information, see **[Understanding Key Management Systems](/docs/Wallet/understanding-key-management-systems)**.
+:::
 
-1. In your terminal, run `node src`.
+We recommend you to create your wallet on Starton web application, but you can also create it from code if you'd like to automate it.
 
-You deployed your first smart contract with Starton. Congratulations!
+<Tabs>
+    <TabItem value="dashboard" label="From Dashboard">
+        <div><ol>
+               <li>From Dashboard, go to <a href="https://app.starton.com/projects/default/wallet">Wallet</a>.</li>
+               <li>Click <b>+ Wallet</b>.</li>
+            </ol>
+   <br/><br/></div>
+        <img src={walletPage}  />
+    </TabItem>
+    <TabItem value="code" label="From Code">
+    For this tutorial, you will create a wallet on Starton's KMS. But when you want to go on production, you should import your own KMS<a href="https://docs.starton.com/docs/Wallet/connecting-aws-kms">Learn more</a>.
+   <br/><br/>
 
-Now that you've created your app, you can interact with your smart contract. 
+   ```jsx showLineNumbers 
+   starton.post("/v3/kms/wallet", { 
+      "description": "string", 
+      "name": "string", 
+      "kmsId": "kms_00000000000000000000000000000000" 
+   }) 
+   .then((response) => console.log(`New wallet address: ${response.data.address}`) 
+   .catch(error) => console.error(error.response.data) 
+   ```
 
-<div class="row-is-multiline">
-
-<div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
-		<h3>Check your smart contract on the Dashboard</h3>
-		<div class="button-card__inner">
-			<p color="white">Go to <b>Starton Dashboard</b> and check all the transactions of your smart contracts at one glance.</p>
-		</div>
-	</a>
-</div>
-
-</div>
+</TabItem>
+</Tabs>
 
 
-## Interacting with your first Smart contract
 
-To check that everything went your way, you can see the activity of your Smart contract.
+## Step 4 - Deploy your ERC20 token
 
-You can interact with the smart contract we just created.
-To start, we will call a simple function to put our contract in a pause state.
+:::info Starton Library
+For this tutorial, you will deploy your own ERC20 token. **Starton** provides you with a library of smart contracts templates.**[Learn more](/docs/Smart-contract/understanding-smart-contracts)**. 
+:::
 
-To get notified of the transactions of your smart contracts, you can also [create a watcher](/Tutorials/monitoring-blockchain-activity.mdx).
-
-To interact with your smart contract from the code of your application, use the following snippet.
-You can find the full list of endpoints in our <a href="https://docs.starton.com/intro#tag/SmartContract">API reference</a>.
+Now, let's write your first API call!
 
 ```jsx showLineNumbers
-const axios = require("axios")
-
-const axiosInstance = axios.create({
-	baseURL: "https://api.starton.com",
-	headers: {
-		"x-api-key": "PUT HERE YOUR API KEY",
-	},
+starton.post("/v3/smart-contract/from-template", {
+    "network": "binance-testnet", // you can choose any network
+    "signerWallet": "YOUR STARTON WALLET", // This will be the wallet that pay the fee. Must be on starton, cannot be a Metamask wallet 
+    "templateId": "ERC20_META_TRANSACTION", // you can choose another template
+    "name": "My first smart token", // the name that will be displayed on the dashboard, not on chain
+    "description": "This is the first smart contract I deploy. ", // same, dashboard description and optional
+    "params": [
+        "My first token ", // Your smart contract name, on chain
+        "MFT", // the symbol of your token
+        "10000" + "000000000000000000", // 10000 token supply + 18 zero.
+        "ANY WALLET YOU WANT" // The wallet that will receive the token supply, can be a starton wallet or metamask
+    ],
+    "speed": "average", // The fees you will pay on chain. More info HERE
 })
-
-axiosInstance
-	.post("/v3/smart-contract/binance-testnet/0x6Ea6e02a3C3dA7C690f1169C4e3e11a413875307/call", {
-		functionName: "pause",
-		params: [],
-		signerWallet: "0x5CCa311b2DFe4EDeA94a4aF086cA9954d3c06d23",
-		speed: "average",
-	})
-	.then((response) => {
-		console.log(response.data)
-	})
+.then((response) => {
+    console.log({
+        transactionHash: response.data.transaction.transactionHash,
+        smartContractAddress: response.data.smartContract.address
+        explorer: `https://testnet.bscscan.com/tx/${response.data.transaction.transactionHash}`
+    })
+}).catch(error) => console.error(error.response.data)
 ```
+Congratulations on your first request. Let's dive into what we just did:  
+- The endpoint `/v3/smart-contract/from-template` allows you to deploy audited smart contracts. You can also [deploy smart contract your own code](/docs/Smart-contract/deploying-from-bytecode), or [import an existing contract](/docs/Smart-contract/importing-smart-contract)
+- We selected a blockchain network for your deployment: `binance-testnet`. You can choose any network from our list of [supported networks](/docs/overview#supported-networks-and-service-availability)
+- We used the [Starton KMS](/docs/Wallet/understanding-key-management-systems) to sign the transaction and pay gas fee. This allows you to [automate transactions](/blog/blockchain-transaction-lifecycle), but also to sponsor the end-user fees with [gasless transaction](/docs/Tutorials/metatransaction)
+- We used a ERC20 template. You can find more templates in [Starton Library](/docs/Smart-contract/understanding-smart-contracts)
+- We had to put 18 zeros after "10000" as the smart contract will read the amount in wei (the equivalent of cents, except there are 18 decimals and not 2).
+- We selected an average speed for your transaction. But with Starton [everything is customizable](/docs/Transactions/understanding-gas#gas-speed). You can also [set up a gas strategy](/docs/Transactions/stuck-transaction-replacement) to automate the management of your transactions. 
+
+Almost done! Now we can execute it to get our first contract deployed!
+   ```bash
+   node index.js
+   ```
+And voilà, your first contract is deployed!
+```jsx showLineNumbers
+{
+    transactionHash: "0x43462af8448e34ea5cddbb73b4dcf5c0c04fa6155111273a1573ec6c4c9a59e8",
+    smartContractAddress: "0xB4B4a180f065b2461eF64359909fb0cfCb04D986",
+    explorer: "https://testnet.bscscan.com/tx/0x43462af8448e34ea5cddbb73b4dcf5c0c04fa6155111273a1573ec6c4c9a59e8"
+}
+```
+<br/>
+
+<CardTitle icon={<Starton fill='primary' />} href="https://app.starton.com/projects/default/smart-contract" target="_blank">
+ Check all of your transactions on Starton Web Application
+</CardTitle>
+<br/><br/>
+
+Congratulations on deploying your first smart contract! 
+In this tutorial, you discovered how to deploy your first smart contract but this is only the first step. 
 
 
-**Related topics**
-
--   More on [Smart Contracts templates ](/Smart-contract/parameters-and-functions.mdx)
--   More on [deploying a Smart Contract from bytecode](/Smart-contract/deploying-from-bytecode.mdx)
--   More on [Starton API](/Developer/API.md)
-
+### Learn how to 
+<div class="row-is-multilineGS">
+    <div class="col col-2 cardsGS">
+        <a class="button-card button-card--vertical" href="/docs/Smart-contract/interacting-with-a-smart-contract">
+            <h3>Interact with a smart contract</h3>
+            <div class="button-card__inner">
+                <p color="white">Call smart contract's function to read and write on the blockchain. </p>
+            </div>
+        </a>
+    </div>
+    <div class="col col-2 cardsGS">
+        <a class="button-card button-card--vertical" href="/docs/Tutorials/monitoring-blockchain-activity">
+            <h3>Monitor a smart contract</h3>
+            <div class="button-card__inner">
+                <p color="white">Get notified of the activity on your smart contract, or any address. </p>
+            </div>
+        </a>
+    </div>
+</div>
