@@ -46,22 +46,19 @@ To follow this tutorial, you will need **coding experience**. If it's not your c
 1. Start by creating a directory for your project.
 
     ```bash
-    mkdir upload-ipfs
+    mkdir monitor-blockchain
     ```
 1. Then, get into your project directory.
 
     ```bash
-    cd upload-ipfs
+    cd monitor-blockchain
     ```
 1. With your project directory set up, install the dependencies.
 
     ```bash
-    yarn add axios form-data fs
+    npm add axios
     ```
-   - [Axios](https://axios-http.com/docs/intro) allows you to make request to the Starton API.
-   - [form-data](https://www.npmjs.com/package/form-data) facilitates the creation and submission of form data using HTTP requests.
-   - [fs](https://nodejs.org/api/fs.html) (File System module in Node.js) provides you with functionalities to interact with the file system on your server or local machine.
-
+   This library will allow you to make request to the Starton API. For more information on axios, check out [Axios documentation](https://axios-http.com/docs/intro).
 
 1. Then, use`touch` to create a `index.js` file and open it with your favorite editor.
 
@@ -85,12 +82,12 @@ To follow this tutorial, you will need **coding experience**. If it's not your c
    <br/>
 
    ```jsx showLineNumbers
-      const starton = axios.create({
-          baseURL: "https://api.starton.com",
-          headers: {
-              "x-api-key": "YOUR API KEY",
-          },
-      })
+    const starton = axios.create({
+      baseURL: "https://api.starton.com",
+      headers: {
+          "x-api-key": "YOUR API KEY",
+      },
+   })
    ```
 
 ## Step 3 - Creating a watcher 
@@ -98,15 +95,13 @@ To follow this tutorial, you will need **coding experience**. If it's not your c
 :::info What is a Watcher?
 
 A watcher is a powerful tool that lets you monitor blockchain events in real-time. 
-With Starton, you can set up watchers to monitor activities such as address activities, balance changes, or even smart contract events. 
-
-
+With Starton, you can set up watchers to monitor activities such as address activities, balance changes, or even smart contract events.
 :::
 
 1. Set up the watcher parameters
    ```jsx showLineNumbers
       // Let's create your watcher
-      startonApi.post("/v3/watcher", {
+      starton.post("/v3/watcher", {
          name: "Name of your watcher",
          type: "ADDRESS_ACTIVITY",
          address: "0x000000000000",
@@ -137,7 +132,7 @@ And just like that, your first watcher is now live on Starton!
 
 <br/>
 
-<CardTitle icon={<Starton fill='primary' />} href="https://app.starton.com/projects/default/watcher" target="_blank">
+<CardTitle icon={<Starton fill='primary' />} href="https://app.starton.com/projects/default/monitor" target="_blank">
 Check all triggered events on Starton Web Application
 </CardTitle>
 <br/><br/>
@@ -157,7 +152,7 @@ In this tutorial, you discovered how to monitor blockchain activity but this is 
         </a>
     </div>
     <div class="col col-2 cardsGS">
-        <a class="button-card button-card--vertical" href="docs/Tutorials/monitor-nft-activity">
+        <a class="button-card button-card--vertical" href="/docs/Tutorials/monitor-nft-activity">
             <h3>Notify users when they receive an NFT</h3>
             <div class="button-card__inner">
                 <p color="white"> Learn how to send an email to your users when they receive an NFT.</p>
