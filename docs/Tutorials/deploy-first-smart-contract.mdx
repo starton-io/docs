@@ -58,7 +58,6 @@ To follow this tutorial, you will need **coding experience**. If it's not your c
     ```bash
     npm add axios
     ```
-   This library will allow you to make request to the Starton API. For more information on axios, check out [Axios documentation](https://axios-http.com/docs/intro). 
 
 1. Then, use`touch` to create a `index.js` file and open it with your favorite editor.
 
@@ -83,11 +82,11 @@ To follow this tutorial, you will need **coding experience**. If it's not your c
 
    ```jsx showLineNumbers
       const starton = axios.create({
-          baseURL: "https://api.starton.com",
-          headers: {
-              "x-api-key": "YOUR API KEY",
-          },
-      })
+      baseURL: "https://api.starton.com",
+      headers: {
+          "x-api-key": "YOUR API KEY",
+      },
+   })
    ```
 
 ## Step 3 - Creating a wallet
@@ -127,12 +126,15 @@ We recommend you to create your wallet on Starton web application, but you can a
 </TabItem>
 </Tabs>
 
+:::caution Faucet
+To interact with the blockchain you will need the native currency of this blockchain to pay the gas fees. On the testnet, you can **[claim free faucet here](https://medium.com/@CroutonDigital/crypto-testnet-faucet-list-d5d0bacec341)**
+:::
 
 
 ## Step 4 - Deploy your ERC20 token
 
 :::info Starton Library
-For this tutorial, you will deploy your own ERC20 token. **Starton** provides you with a library of smart contracts templates.**[Learn more](/docs/Smart-contract/understanding-smart-contracts)**. 
+For this tutorial, you will deploy your own ERC20 token. **Starton** provides you with a library of smart contracts templates. **[Learn more](/docs/Smart-contract/understanding-smart-contracts)**. 
 :::
 
 Now, let's write your first API call!
@@ -151,14 +153,13 @@ starton.post("/v3/smart-contract/from-template", {
         "ANY WALLET YOU WANT" // The wallet that will receive the token supply, can be a starton wallet or metamask
     ],
     "speed": "average", // The fees you will pay on chain. More info HERE
-})
-.then((response) => {
+}).then((response) => {
     console.log({
         transactionHash: response.data.transaction.transactionHash,
-        smartContractAddress: response.data.smartContract.address
+        smartContractAddress: response.data.smartContract.address,
         explorer: `https://testnet.bscscan.com/tx/${response.data.transaction.transactionHash}`
     })
-}).catch(error) => console.error(error.response.data)
+}).catch(error => console.error(error.response.data))
 ```
 Congratulations on your first request. Let's dive into what we just did:  
 - The endpoint `/v3/smart-contract/from-template` allows you to deploy audited smart contracts. You can also [deploy smart contract your own code](/docs/Smart-contract/deploying-from-bytecode), or [import an existing contract](/docs/Smart-contract/importing-smart-contract)

@@ -58,12 +58,10 @@ To follow this tutorial, you will need **coding experience**. If it's not your c
 1. With your project directory set up, install the dependencies.
 
     ```bash
-    yarn add axios form-data fs
+    npm add axios form-data
     ```
    - [Axios](https://axios-http.com/docs/intro) allows you to make request to the Starton API.
    - [form-data](https://www.npmjs.com/package/form-data) facilitates the creation and submission of form data using HTTP requests.
-   - [fs](https://nodejs.org/api/fs.html) (File System module in Node.js) provides you with functionalities to interact with the file system on your server or local machine.
-
 
 1. Then, use`touch` to create a `index.js` file and open it with your favorite editor.
 
@@ -104,6 +102,8 @@ Files on IPFS are immutable and can be widely replicated. Once uploaded, anyone 
 1. Grab any file from your computer. You can also generate an image using [generative AI](/docs/Tutorials/ai-nft-collection). 
 
    ```jsx showLineNumbers
+   const fs = require("fs")
+   const FormData = require("form-data")
    const buffer = fs.readFileSync("./path/of/your/file.png")
    ```
 1. Prepare the file for the request.
