@@ -21,6 +21,10 @@ module.exports = {
 						from: '/docs/Tutorials/Home',
 						to: '/tutorials',
 					},
+					{
+						from: '/api',
+						to: '/api-reference',
+					},
 				],
 			},
 		],

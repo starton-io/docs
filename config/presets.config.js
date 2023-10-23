@@ -41,20 +41,20 @@ module.exports = {
 				}),
 			}),
 		],
-		[
-			'redocusaurus',
-			/**@type {import('@docusaurus/preset-classic').Options} */
-			{
-				// Plugin Options for loading OpenAPI files
-				specs: [
-					{
-						id: 'using-single-json',
-						spec: 'openapiv3.yaml', //'https://api.starton.com/v3/relayer/docs-json'
-						route: '/api/doc',
-					},
-				],
-				theme: ['docusaurus-theme-redoc'],
-			},
-		],
+		// [
+		// 	'redocusaurus',
+		// 	/**@type {import('@docusaurus/preset-classic').Options} */
+		// 	{
+		// 		// Plugin Options for loading OpenAPI files
+		// 		specs: [
+		// 			{
+		// 				id: 'using-single-json',
+		// 				spec: 'openapiv3.yaml', //'https://api.starton.com/v3/relayer/docs-json'
+		// 				route: '/api/doc',
+		// 			},
+		// 		],
+		// 		theme: ['docusaurus-theme-redoc'],
+		// 	},
+		// ],
 	],
 }

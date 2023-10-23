@@ -72,11 +72,17 @@ module.exports = {
 						position: 'left',
 					},
 					{
-						to: 'intro',
-						label: 'API',
-						'aria-label': 'API',
+						label: 'API Reference',
+						href: '/api-reference',
+						'aria-label': 'API Reference',
 						position: 'left',
 					},
+					// {
+					// 	to: 'intro',
+					// 	label: 'API',
+					// 	'aria-label': 'API',
+					// 	position: 'left',
+					// },
 					{
 						to: 'blog/web3auth',
 						label: 'Guides',
