@@ -66,15 +66,15 @@ module.exports = {
 						'aria-label': 'Docs',
 					},
 					{
-						to: 'intro',
-						label: 'API',
-						'aria-label': 'API',
-						position: 'left',
-					},
-					{
 						label: 'Tutorials',
 						href: '/tutorials',
 						'aria-label': 'Tutorials',
+						position: 'left',
+					},
+					{
+						to: 'intro',
+						label: 'API',
+						'aria-label': 'API',
 						position: 'left',
 					},
 					{
