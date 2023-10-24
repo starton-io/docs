@@ -779,3 +779,15 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 		margin-right: var(--ifm-navbar-padding-horizontal);
 	}
 }
+
+.api-container a {
+	color: inherit;
+}
+
+.api-container .references-layout {
+	height: calc(100vh - 60px) !important;
+}
+
+.scalar-api-client, #headlessui-portal-root {
+	height: auto !important;
+}

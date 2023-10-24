@@ -4,7 +4,6 @@
 | Author : Philippe DESPLATS (philippe@di-rupt.com)
 */
 
-import styles from './styles.module.css'
 import React from 'react'
 import Layout from '@theme/Layout'
 
@@ -48,8 +47,8 @@ export default function ApiReferencePage() {
 	}, [])
 
 	return (
-		<Layout title="Starton Hub | Documentation, Guides, Tutorials">
-			<div className={styles.apicontainer} id={'api-reference-root'}>
+		<Layout title="Starton Hub | Documentation, Guides, Tutorials" noFooter>
+			<div className={'api-container'} id={'api-reference-root'}>
 				<script id="api-reference" data-url="/api/swagger.json"></script>
 			</div>
 		</Layout>
