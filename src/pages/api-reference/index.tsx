@@ -14,34 +14,17 @@ import Layout from '@theme/Layout'
 */
 export default function ApiReferencePage() {
 	React.useEffect(() => {
-		// Create a script element to load the Scalar script
 		const scalarScript = document.createElement('script')
 		scalarScript.src = 'https://www.unpkg.com/@scalar/api-reference'
 		scalarScript.async = true
 
-		// Create a script element to load Swagger file
-		// const swaggerScript = document.createElement('script')
-		// swaggerScript.id = 'api-reference'
-		// swaggerScript['data-url'] = 'http://localhost:3000/api/swagger.json'
-		// swaggerScript.async = true
-
-		// Script hooks
-		// swaggerScript.onload = () => {
-		// 	// The script has loaded, you can now use any functions or objects from it
-		// 	console.log('Swagger script has been loaded.')
-		// }
 		scalarScript.onload = () => {
-			// The script has loaded, you can now use any functions or objects from it
 			console.log('Scalar script has been loaded.')
 		}
 
-		// Append the script element to the document's head
-		// document.body.appendChild(swaggerScript)
 		document.body.appendChild(scalarScript)
 
-		// Cleanup: remove the script element when the component unmounts
 		return () => {
-			// document.body.removeChild(swaggerScript)
 			document.body.removeChild(scalarScript)
 		}
 	}, [])
@@ -49,7 +32,11 @@ export default function ApiReferencePage() {
 	return (
 		<Layout title="Starton Hub | Documentation, Guides, Tutorials" noFooter>
 			<div className={'api-container'} id={'api-reference-root'}>
-				<script id="api-reference" data-url="/api/swagger.json"></script>
+				<script
+					id="api-reference"
+					data-url="https://raw.githubusercontent.com/starton-io/starton-openapi/master/starton-openapi.json"
+					data-proxy-url="https://api.scalar.com/request-proxy"
+				></script>
 			</div>
 		</Layout>
 	)
