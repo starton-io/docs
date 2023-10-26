@@ -15,7 +15,7 @@ import Layout from '@theme/Layout'
 export default function ApiReferencePage() {
 	React.useEffect(() => {
 		const scalarScript = document.createElement('script')
-		scalarScript.src = 'https://www.unpkg.com/@scalar/api-reference'
+		scalarScript.src = 'https://www.unpkg.com/@scalar/api-reference@0.8.4'
 		scalarScript.async = true
 
 		scalarScript.onload = () => {
