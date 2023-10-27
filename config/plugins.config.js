@@ -22,7 +22,7 @@ module.exports = {
 						to: '/tutorials',
 					},
 					{
-						from: '/api',
+						from: '/intro',
 						to: '/api-reference',
 					},
 				],
