@@ -788,6 +788,18 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 	height: calc(100vh - 60px) !important;
 }
 
+/* SCALAR */
+.dark-mode {
+	--default-theme-background-1: --ifm-footer-background-color !important;
+	--default-theme-color-accent: --ifm-color-primary !important;
+}
+
 .scalar-api-client, #headlessui-portal-root {
 	height: auto !important;
 }
+
+.api-container .show-api-client-button--get {
+	background-color: #01e6cd !important;
+}
+
+/* END - SCALAR */
