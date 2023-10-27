@@ -791,6 +791,7 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 /* SCALAR */
 .dark-mode {
 	--default-theme-background-1: --ifm-footer-background-color !important;
+	--default-theme-background-2: #0F1114 !important;
 	--default-theme-color-accent: --ifm-color-primary !important;
 }
 
@@ -802,4 +803,15 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 	background-color: #01e6cd !important;
 }
 
+.api-container pre {
+	background: rgba(15, 17, 20, 0.50) !important;
+}
+
+.api-container .markdown pre code {
+	margin: 0 !important;
+}
+
+.api-container .section {
+	max-width: 100% !important;
+}
 /* END - SCALAR */
