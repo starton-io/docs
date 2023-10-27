@@ -814,4 +814,8 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 .api-container .section {
 	max-width: 100% !important;
 }
+
+.api-container .references-navigation-list, .api-container .references-navigation-list .sidebar {
+	background-color: #1A1F25 !important;
+}
 /* END - SCALAR */
