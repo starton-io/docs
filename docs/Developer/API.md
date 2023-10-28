@@ -3,18 +3,11 @@ title: Using Starton API
 description: Learn how to use Starton API
 keywords: [Starton, REST, API]
 ---
+import { RocketLaunchOutlined } from '@mui/icons-material'
+import { CardTitle } from '@site/src/components/commons/CardTitle'
+import { Starton } from '@starton/react-ui-iconography'
 
 # Using Starton API
-
-## Understanding REST APIs
-
-An API is an application programming interface. It is a set of routines, functions, data structures and other tools that make possible for computers program to communicate with each other.
-
-Starton API is a REST API. A REST API is an application program interface that uses HTTP requests to send information between client and server.
-
-It's a protocol that works over the web and uses URLs (Uniform Resource Locators) to identify resources. Information or content can be accessed at a URLs location, such as JSON, HTML, audio files or images.
-
-Often resources have one or more methods that can be performed on them over HTTP (Hypertext Transfer Protocol), such as GET, POST, PUT and DELETE. The action represented by the first and last of these is clear; but POST and PUT have specific meanings: use POST to create resources; use PUT to update them.
 
 ## Authenticating on Starton API
 
@@ -30,6 +23,12 @@ API keys are linked to your projects/account, so anyone gaining access to your A
 ### Generating an API Key
 
 On the **Developer** section, you can generate new API keys or revoke the previous ones (for example, if they leaked).
+
+<CardTitle icon={<Starton fill='primary' />} href="https://app.starton.com/projects/default/developer" target="_blank">
+Create an API key
+</CardTitle>
+
+
 
 ### Using an API Key
 
@@ -52,12 +51,12 @@ API calls can return a large number of items. It can be very useful to set the n
 
 This information is set in the path of your request. You can use:
 
--   limit: the number of results returned by page. By default, this number is set to 100.
--   page: the page returned. By default, the page returned is the first. 
+-   **limit**: the number of results returned by page. By default, this number is set to 100.
+-   https://app.starton.com/projects/prj_0aabc65114714d15ac1d5fdae59ef4f5/developer: the page returned. By default, the page returned is the first. 
 
 For example if you want to get the list of templates Starton will return, you will use the path:
 
-`v3/smart-contract-template?limit=5&page=2`
+`/smart-contract-template?limit=5&page=2`
 
 In this example, the call will return results 6 to 10.
 
@@ -79,7 +78,7 @@ http.get('/smart-contract-template?limit=5&page=2').then(response => {
 
 You can filter your API calls using parameters. For example, if you created watchers and want to get the watchers you created on a specific networks you can use:
 
-`/v3/watcher?network=network_of_your_watcher`
+`/watcher?network=network_of_your_watcher`
 
 If the watchers you needs are on "avalanche-fuji", you could make the following call:
 

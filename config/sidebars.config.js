@@ -26,7 +26,9 @@ module.exports = {
         defaultStyle: true,
         },
 		'overview',
-		'getting-started',
+		'getting-started/supported-networks',
+		'onboarding',
+		'Developer/API',
 		'Dashboard/compute-units',
 		{
 			type: 'html',
@@ -248,10 +250,10 @@ module.exports = {
                             ],
         		},
 		{
-			type: 'html',
-			value: "<br style='margin: 0.5rem 0 0.5rem 0;'/>",
-			defaultStyle: true,
-		},
+        			type: 'html',
+        			value: "<br style='margin: 0 0 0 0;'/>",
+        			defaultStyle: true,
+        		},
 
 		{
 			type: 'html',
@@ -262,10 +264,10 @@ module.exports = {
 		'tools/Using-zapier-integration',
 		'tools/role-bot-discord',
 		{
-			type: 'html',
-			value: "<br style='margin: 1rem 0 1rem 0;'/>",
-			defaultStyle: true,
-		},
+        			type: 'html',
+        			value: "<br style='margin: 0 0 0 0;'/>",
+        			defaultStyle: true,
+        		},
 		{
 			type: 'html',
 			value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>SETTINGS</header>",
@@ -274,10 +276,10 @@ module.exports = {
 		'Settings/create-new-project',
 		'Settings/managing-plans',
 		{
-			type: 'html',
-			value: "<br style='margin: 0.5rem 0 0.5rem 0;'/>",
-			defaultStyle: true,
-		},
+        			type: 'html',
+        			value: "<br style='margin: 0 0 0 0;'/>",
+        			defaultStyle: true,
+        		},
 	],
 	tutorialSidebar: [
 		{
