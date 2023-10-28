@@ -21,6 +21,14 @@ module.exports = {
 						from: '/docs/Tutorials/Home',
 						to: '/tutorials',
 					},
+					{
+						from: '/intro',
+						to: '/api-reference',
+					},
+                     {
+                        from: '/docs/Smart-contract/ERC721-Meta.md',
+                        to: '/tutorials',
+                    },
 				],
 			},
 		],

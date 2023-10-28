@@ -43,7 +43,7 @@ Compute units are counted based on your usage of the following:
 
 :::info Be aware of simulations.
 
-When deploying a smart contract from the API, you can set the simulation parameter to true. For more information, see the [API reference](https://docs.starton.com/intro). In this case you are going to need two API calls to deploy your smart contract. From the web application, the simulation is part of the deployment which is why it counts as two deployments.
+When deploying a smart contract from the API, you can set the simulation parameter to true. For more information, see the [API reference](https://docs.starton.com/api-reference). In this case you are going to need two API calls to deploy your smart contract. From the web application, the simulation is part of the deployment which is why it counts as two deployments.
 
 :::
 

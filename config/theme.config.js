@@ -66,17 +66,23 @@ module.exports = {
 						'aria-label': 'Docs',
 					},
 					{
-						to: 'intro',
-						label: 'API',
-						'aria-label': 'API',
-						position: 'left',
-					},
-					{
 						label: 'Tutorials',
 						href: '/tutorials',
 						'aria-label': 'Tutorials',
 						position: 'left',
 					},
+					{
+						label: 'API Reference',
+						href: '/api-reference',
+						'aria-label': 'API Reference',
+						position: 'left',
+					},
+					// {
+					// 	to: 'intro',
+					// 	label: 'API',
+					// 	'aria-label': 'API',
+					// 	position: 'left',
+					// },
 					{
 						to: 'blog/web3auth',
 						label: 'Guides',

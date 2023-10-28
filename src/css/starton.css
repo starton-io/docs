@@ -577,7 +577,6 @@ a:active {
 	color: red;
 	font-size: 1.1em;
 	font-weight: bold;
-	text-transform: uppercase;
 }
 
 .DocSearch-Button-Placeholder {
@@ -779,3 +778,43 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 		margin-right: var(--ifm-navbar-padding-horizontal);
 	}
 }
+
+.api-container a {
+	color: inherit;
+}
+
+.api-container .references-layout {
+	height: calc(100vh - 60px) !important;
+}
+
+/* SCALAR */
+.dark-mode {
+	--default-theme-background-1: --ifm-footer-background-color !important;
+	--default-theme-background-2: #0F1114 !important;
+	--default-theme-color-accent: --ifm-color-primary !important;
+}
+
+.scalar-api-client, #headlessui-portal-root {
+	height: auto !important;
+}
+
+.api-container .show-api-client-button--get {
+	background-color: #01e6cd !important;
+}
+
+.api-container pre {
+	background: rgba(15, 17, 20, 0.50) !important;
+}
+
+.api-container .markdown pre code {
+	margin: 0 !important;
+}
+
+.api-container .section {
+	max-width: 100% !important;
+}
+
+.api-container .references-navigation-list, .api-container .references-navigation-list .sidebar {
+	background-color: #1A1F25 !important;
+}
+/* END - SCALAR */
