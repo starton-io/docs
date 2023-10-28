@@ -49,7 +49,7 @@ To use this bot:
 
 :::caution 
 
-Your contract must be imported on Starton before using this command. To import your contract, you can call this [endpoint](https://docs.starton.com/intro#tag/SmartContract/operation/SmartContractImportExisting) or use our web application [our web application](https://app.starton.com/projects/default/smart-contract). 
+Your contract must be imported on Starton before using this command. To import your contract, you can call this [endpoint](https://docs.starton.com/api-reference) or use our web application [our web application](https://app.starton.com/projects/default/smart-contract). 
 
 :::
    

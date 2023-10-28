@@ -22,15 +22,13 @@ module.exports = {
 						to: '/tutorials',
 					},
 					{
-<<<<<<< HEAD
 						from: '/intro',
 						to: '/api-reference',
 					},
-=======
+                     {
                         from: '/docs/Smart-contract/ERC721-Meta.md',
                         to: '/tutorials',
                     },
->>>>>>> a72d26b (docs: changing structure with existing content)
 				],
 			},
 		],
