@@ -1,8 +1,8 @@
 ---
-title: Understanding the Relayer
+title: Understanding the transaction manager
 ---
 
-# Understanding the Relayer
+# Understanding the transaction manager 
 
 The **Relayer** is a blockchain transaction management solution to create transactions, deploy and interact with smart contracts on the behalf of a user.
 
@@ -22,8 +22,8 @@ To resume, the **Relayer** acts as an API layer above blockchain protocols for s
 
 Pre-chain, the Relayer:
 
--   **Checks transaction**: The relayer verifies that the transaction format is valid.
--   Estimates **gas price**: The relayer checks with blockchain providers and estimates how much the user will pay per unit of gas as a fee.
+-   **Checks transaction**: The Relayer verifies that the transaction format is valid.
+-   Estimates **gas price**: The Relayer checks with blockchain providers and estimates how much the user will pay per unit of gas as a fee.
 -   Estimates **gas limit**
 -   Sets a nonce to indicate the order of transactions:
 -   Sign with a KMS (AWS)

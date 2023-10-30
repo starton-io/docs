@@ -3,8 +3,10 @@ title: Understanding Monitor
 description: Monitor inspects every block on all supported blockchains to continuously check for activity..
 keywords: [Starton, Watchers, Monitor, Transaction]
 ---
+import { CardTitle } from '@site/src/components/commons/CardTitle'
+import { Starton } from '@starton/react-ui-iconography'
 
-# Understanding Monitor
+# Blockchain Network Monitor
 
 **Monitor** inspects every block on all supported blockchains to continuously check for activity.
 **Watchers** represent conditions that are checked upon inspection of the block.
@@ -15,11 +17,31 @@ When the conditions of a watcher are met, the watcher triggers and create a webh
 Webhooks can't be received on localhost. During development, you can use ngrok or webhook.site to provide you with a URL. Read more on [**Webhooks**](https://docs.starton.com/docs/Tutorials/testing-webhooks-locally-ngrok). 
 :::
 
-**Monitor** enables you to have automated processes that will listen to activity on the blockchain.
+**Monitor** enables you to have automated processes that will listen to activity on the blockchain. You can create watchers to monitor specific events on any supported, and get notified on your backend when they are triggered.
 
-You can create watchers to monitor specific events on any supported, and get notified on your backend when they are triggered.
 
-![Watcher](src/Watcher.png)
+
+<CardTitle icon={<Starton fill='primary' />} href="/docs/Watcher/creating-a-watcher">
+Creating a watcher
+</CardTitle>
+<br/>
+<CardTitle icon={<Starton fill='primary' />} href="/docs/Watcher/available-event-types">
+Available event types
+</CardTitle>
+<br/>
+<CardTitle icon={<Starton fill='primary' />} href="/docs/Watcher/custom-event">
+Custom events
+</CardTitle>
+<br/>
+<CardTitle icon={<Starton fill='primary' />} href="/docs/Watcher/webhooks">
+Webhooks
+</CardTitle>
+<br/>
+<CardTitle icon={<Starton fill='primary' />} href="/docs/Watcher/confirmation-blocks">
+Confirmation blocks
+</CardTitle>
+<br/>
+
 
 **Related topics**
 
