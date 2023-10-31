@@ -42,49 +42,14 @@ module.exports = {
 		},
 		{
 			type: 'category',
-			label: 'Transaction Management',
-			link: {
-				type: 'doc',
-				id: 'Transactions/understanding-the-relayer',
-			},
-			collapsed: true,
-			items: [
-				'Transactions/creating-a-transaction',
-				{
-					type: 'category',
-					label: 'Understanding state and status',
-					link: {
-						type: 'doc',
-						id: 'Transactions/state-and-status',
-					},
-					collapsed: true,
-					items: ['Transactions/manual-action-required'],
-				},
-
-				'Transactions/understanding-gas',
-				,
-				{
-					type: 'category',
-					label: 'Understanding nonce',
-					link: {
-						type: 'doc',
-						id: 'Transactions/understanding-nonce',
-					},
-					collapsed: true,
-					items: ['Transactions/desynchronized-nonce-management'],
-				},
-				'Transactions/stuck-transaction-replacement',
-			],
-		},
-		{
-			type: 'category',
 			label: 'Smart Contracts Management',
 			link: {
 				type: 'doc',
-				id: 'Smart-contract/understanding-smart-contracts',
+				id: 'Smart-contract/smart-contract-management',
 			},
 			collapsed: true,
-			items: [{
+			items: ['Smart-contract/understanding-smart-contracts',
+			{
                     			type: 'category',
                     			label: 'Deploying Smart Contracts',
                     			collapsed: true,
@@ -110,7 +75,7 @@ module.exports = {
         						{
         							'Creating fungible tokens': [
         								/*'Smart-contract/ERC20-fixed',
-                     'Smart-contract/ERC20-mintable',*/
+                                        'Smart-contract/ERC20-mintable',*/
         								'Smart-contract/ERC20-fixed-Meta',
         								'Smart-contract/ERC20-mintable-Meta',
         							],
@@ -147,6 +112,42 @@ module.exports = {
         					],
 
 		},
+        {
+            type: 'category',
+            label: 'Transaction Management',
+            link: {
+                type: 'doc',
+                id: 'Transactions/transaction-management',
+            },
+            collapsed: true,
+            items: ['Transactions/understanding-the-relayer',
+                'Transactions/creating-a-transaction',
+                {
+                    type: 'category',
+                    label: 'Understanding state and status',
+                    link: {
+                        type: 'doc',
+                        id: 'Transactions/state-and-status',
+                    },
+                    collapsed: true,
+                    items: ['Transactions/manual-action-required'],
+                },
+
+                'Transactions/understanding-gas',
+                ,
+                {
+                    type: 'category',
+                    label: 'Understanding nonce',
+                    link: {
+                        type: 'doc',
+                        id: 'Transactions/understanding-nonce',
+                    },
+                    collapsed: true,
+                    items: ['Transactions/desynchronized-nonce-management'],
+                },
+                'Transactions/stuck-transaction-replacement',
+            ],
+        },
 		{
 			type: 'category',
 			label: 'Network monitoring',
@@ -157,49 +158,49 @@ module.exports = {
 			collapsed: true,
 			items: [
 				'Watcher/creating-a-watcher','Watcher/watcher-state-and-status',{
-                                                                                          					type: 'category',
-                                                                                          					label: 'events',
-                                                                                          					link: {
-                                                                                          						type: 'doc',
-                                                                                          						id: 'Watcher/available-event-types',
-                                                                                          					},
-                                                                                          					collapsed: true,
-                                                                                          					items: [{
-                                                                                                                  type: 'category',
-                                                                                                                  label: 'Monitoring blockchain addresses',
-                                                                                                                  collapsed: true,
-                                                                                                                  items: [
-                                                                                          						'Watcher/address_activity',
-                                                                                          						'Watcher/address_receive_native_currency',
-                                                                                          						'Watcher/address_sent_native_currency',	],
-                                                                                                                                                         				},
-                                                                                                                   {
-                                                                                                                  type: 'category',
-                                                                                                                  label: 'Monitoring smart contracts',
-                                                                                                                  collapsed: true,
-                                                                                                                  items: [
-                                                                                          						'Watcher/event_approval',
-                                                                                          						'Watcher/event_mint',
-                                                                                          						'Watcher/event_transfer',
-                                                                                          						'Watcher/erc721_event_transfer',
-                                                                                          						'Watcher/erc1155_event_single',
-                                                                                          						'Watcher/erc1155_event_transfer_batch',
-                                                                                          						'Watcher/custom-event'],
-                                                                                                                                                         				},
-                                                                                          					],
-                                                                                          				},{
-                                                                                                          			type: 'category',
-                                                                                                          			label: 'Webhooks',
-                                                                                                          			link: {
-                                                                                                          				type: 'doc',
-                                                                                                          				id: 'Watcher/webhooks',
-                                                                                                          			},
-                                                                                                          			collapsed: true,
-                                                                                                          			items: ['Tutorials/testing-webhooks-locally-ngrok'],
-                                                                                                          		},
-                                                                                                          		'Watcher/confirmation-blocks',
+                type: 'category',
+                label: 'Events',
+                link: {
+                    type: 'doc',
+                    id: 'Watcher/available-event-types',
+                },
+                collapsed: true,
+                items: [{
+                      type: 'category',
+                      label: 'Monitoring blockchain addresses',
+                      collapsed: true,
+                      items: [
+                    'Watcher/address_activity',
+                    'Watcher/address_receive_native_currency',
+                    'Watcher/address_sent_native_currency',	],
+                                                                            },
+                       {
+                      type: 'category',
+                      label: 'Monitoring smart contracts',
+                      collapsed: true,
+                      items: [
+                    'Watcher/event_approval',
+                    'Watcher/event_mint',
+                    'Watcher/event_transfer',
+                    'Watcher/erc721_event_transfer',
+                    'Watcher/erc1155_event_single',
+                    'Watcher/erc1155_event_transfer_batch',
+                    'Watcher/custom-event'],
+                                                                            },
+                ],
+            },{
+                        type: 'category',
+                        label: 'Webhooks',
+                        link: {
+                            type: 'doc',
+                            id: 'Watcher/webhooks',
+                        },
+                        collapsed: true,
+                        items: ['Tutorials/testing-webhooks-locally-ngrok'],
+                    },
+                    'Watcher/confirmation-blocks',
 
-			],
+],
 		},
 {
 			type: 'category',
@@ -238,10 +239,10 @@ module.exports = {
         			label: 'File Storage',
         			link: {
         				type: 'doc',
-        				id: 'IPFS/understanding-IPFS',
+        				id: 'IPFS/file-storage',
         			},
         			collapsed: true,
-        			items: [
+        			items: ['IPFS/understanding-IPFS',
                             'IPFS/uploading-on-ipfs',
                             'IPFS/uploading-folder',
                             'IPFS/uploading-json',
