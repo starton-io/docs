@@ -4,7 +4,9 @@ title: Transaction Manager
 import { CardTitle } from '@site/src/components/commons/CardTitle'
 import { Starton } from '@starton/react-ui-iconography'
 
-The Transaction Manager is the heart of Starton regarding pre-chain management. It allows you to send a large number of transactions with peace of mind and handles all the complexity, assuring that your transactions will be on-chain as soon as possible. But the blockchain is complex and sometimes you can encounter problems such as:
+# Transaction Manager
+
+The **Transaction Manager** is the heart of Starton regarding **pre-chain management**. It allows you to send a **large number of transactions** with peace of mind and handles all the complexity, assuring that **your transactions will be on-chain as soon as possible**. But the blockchain is complex and sometimes you can encounter problems such as:
 
 - Lost transaction
 - Nonce issue
@@ -14,11 +16,44 @@ The Transaction Manager is the heart of Starton regarding pre-chain management. 
 
 The Transaction Manager role is to handle these errors when possible and otherwise to inform users of the transaction status so they can take action.
 
+## Getting Started
+
 <CardTitle icon={<Starton fill='primary' />} href="/docs/Transactions/creating-a-transaction">
 Create my first transaction
 </CardTitle>
 <br/>
+
+<div class="row is-multiline">
+<div class="col col--5">
+<h2>Guides</h2>
+<div class="button-card__inner">
+
+<a href="https://docs.starton.com/docs/Transactions/understanding-the-relayer"><h5>Transaction management</h5></a>
+<a href="https://docs.starton.com/docs/Transactions/state-and-status"><h5>Transaction states and status</h5></a>
+<a href="https://docs.starton.com/docs/Transactions/understanding-gas"><h5>Gas management</h5></a>
+<a href="https://docs.starton.com/docs/Transactions/understanding-nonce"><h5>Nonces</h5></a>
+
+</div>
+
+</div>
+
+<div class="col col--5">
+<h2>Main API Endpoints</h2>
+<div class="button-card__inner">
+
+<a href="/api-reference#tag/transaction-manager/[post]/v3/transaction"><h5>Create a new transaction</h5></a>
+<a href="/api-reference#tag/transaction-manager/[get]/v3/transaction"><h5>Retrieve a List of Transactions</h5></a>
+<a href="/api-reference#tag/transaction-manager/[patch]/v3/setting/relayer/{network}"><h5>Update Relayer Settings</h5></a>
+<a href="/api-reference#tag/transaction-manager/[get]/v3/kms/wallet/{address}/{network}/nonce/available"><h5>Retrieve Available Nonces for a wallet</h5></a>
+<a href="/api-reference#tag/transaction-manager/[post]/v3/kms/wallet/{address}/{network}/nonce/resync"><h5>Synchronize Nonces for a wallet</h5></a>
+
+</div></div>
+</div>
+
+
+## Tutorials 
+
 <CardTitle icon={<Starton fill='primary' />} href="/docs/Tutorials/metatransaction">
-Send gassless transaction
+Send gasless transaction
 </CardTitle>
-<br/>
+<br/>   

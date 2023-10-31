@@ -6,24 +6,40 @@ import { Starton } from '@starton/react-ui-iconography'
 
 # Understanding Storage
 
-Blockchains are made to store transaction information.
-As each node in the blockchain network holds same copy of registry which contains the whole history of every transaction on the network, storing data on the blockchain is very costly.
+Welcome to Starton Storage, designed to provide access to IPFS, facilitating the storage and management of digital assets. The service enables users to upload files, folders, and manage NFT metadata through a set of APIs. 
 
-As a result, large dataset are stored on a different network. **IPFS (InterPlanetary FileSystem)** is specifically designed to store and access files. **IPFS** is a distributed file-sharing system using peer-to-peer network.
+Starton Storage provides comprehensive guides on IPFS, URI, and CID, and offers main API endpoints for various storage operations. Starton Storage ensures content availability by hosting it on dedicated nodes, reducing the need for continuous maintenance and represents a practical solution for users looking to leverage decentralized storage.
 
-On IPFS, each node hosts a set of files and makes it available to anyone.
-To retrieve content, hosted by at least one active node in the network.
-
-**Starton Storage** offers to host your content on our nodes to ensure their availability at all-time without maintenance needs.
-
-
+## Getting Started
 <CardTitle icon={<Starton fill='primary' />} href="/docs/IPFS/pinning-file">
 Uploading files and folders 
 </CardTitle>
 <br/>
-<CardTitle icon={<Starton fill='primary' />} href="/docs/IPFS/pinning-file">
-Uploading your NFT metadata
-</CardTitle>
-<br/>
 
+
+<div class="row is-multiline">
+<div class="col col--5">
+<h2>Guides</h2>
+<div class="button-card__inner">
+
+<a href="https://docs.starton.com/docs/IPFS/understanding-IPFS"><h5>About IPFS</h5></a>
+<a href="https://docs.starton.com/docs/Transactions//docs/IPFS/understanding-IPFS#uri-and-cid"><h5>URI and CID</h5></a>
+<a href="https://docs.starton.com/docs/Tutorials/uploading-metadata-NFT"><h5>Uploading your NFT <br/>metadata on IPFS</h5></a>
+
+
+</div>
+
+</div>
+
+<div class="col col--5">
+<h2>Main API Endpoints</h2>
+<div class="button-card__inner">
+
+<a href="/api-reference#tag/ipfs/[post]/v3/ipfs/file"><h5>Upload a file</h5></a>
+<a href="/api-reference#tag/ipfs/[post]/v3/ipfs/pin"><h5>Pin Existing IPFS File</h5></a>
+<a href="/api-reference#tag/ipfs/[get]/v3/ipfs/storage-used"><h5>Retrieve Current Storage Usage</h5></a>
+
+
+</div></div>
+</div>
 

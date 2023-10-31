@@ -12,39 +12,62 @@ import { Starton } from '@starton/react-ui-iconography'
 **Watchers** represent conditions that are checked upon inspection of the block.
 When the conditions of a watcher are met, the watcher triggers and create a webhook and send to the server url provided during the watcher's creation.
 
-:::caution 
-
-Webhooks can't be received on localhost. During development, you can use ngrok or webhook.site to provide you with a URL. Read more on [**Webhooks**](https://docs.starton.com/docs/Tutorials/testing-webhooks-locally-ngrok). 
+:::caution
+Webhooks can't be received on localhost. During development, you can use ngrok or webhook.site to provide you with a URL. Read more on [**Webhooks**](https://docs.starton.com/docs/Tutorials/testing-webhooks-locally-ngrok).
 :::
 
 **Monitor** enables you to have automated processes that will listen to activity on the blockchain. You can create watchers to monitor specific events on any supported, and get notified on your backend when they are triggered.
 
+## Getting Started
+
+<CardTitle icon={<Starton fill='primary' />} href="/docs/Tutorials/monitoring-blockchain-activity">
+Getting started: Monitoring blockchain activity
+</CardTitle>
 
 
-<CardTitle icon={<Starton fill='primary' />} href="/docs/Watcher/creating-a-watcher">
-Creating a watcher
+
+<div class="row is-multiline">
+<div class="col col--5">
+<h2>Guides</h2>
+<div class="button-card__inner">
+
+<a href="https://docs.starton.com/docs/Transactions/understanding-the-relayer"><h5>Transaction management</h5></a>
+<a href="https://docs.starton.com/docs/Transactions/state-and-status"><h5>Transaction states <br/>and status</h5></a>
+<a href="https://docs.starton.com/docs/Transactions/understanding-gas"><h5>Gas management</h5></a>
+
+
+</div>
+
+</div>
+
+<div class="col col--5">
+<h2>Main API Endpoints</h2>
+<div class="button-card__inner">
+
+<a href="/api-reference#tag/monitor/[post]/v3/watcher"><h5>Create a New Watcher</h5></a>
+<a href="/api-reference#tag/monitor/[get]/v3/watcher/{id}/event"><h5>Fetches the list of events <br/>for a watcher</h5></a>
+<a href="/api-reference#tag/monitor/[get]/v3/watcher/{id}/event/{eventId}"><h5>Get a watcher event</h5></a>
+
+
+</div></div>
+</div>
+
+
+
+
+
+## Tutorials 
+<CardTitle icon={<Starton fill='primary' />} href="/docs/Tutorials/how-to-ensure-notifys-webhooks-are-from-starton">
+How to ensure Monitor's webhooks are from Starton
 </CardTitle>
 <br/>
-<CardTitle icon={<Starton fill='primary' />} href="/docs/Watcher/available-event-types">
-Available event types
+<CardTitle icon={<Starton fill='primary' />} href="/Tutorials/track-wallet-activity">
+Track a wallet activity on a Googlesheets using Zapier
 </CardTitle>
 <br/>
-<CardTitle icon={<Starton fill='primary' />} href="/docs/Watcher/custom-event">
-Custom events
-</CardTitle>
-<br/>
-<CardTitle icon={<Starton fill='primary' />} href="/docs/Watcher/webhooks">
-Webhooks
-</CardTitle>
-<br/>
-<CardTitle icon={<Starton fill='primary' />} href="/docs/Watcher/confirmation-blocks">
-Confirmation blocks
+<CardTitle icon={<Starton fill='primary' />} href="/Tutorials/monitor-nft-activity">
+Notifying users when they receive an NFT
 </CardTitle>
 <br/>
 
 
-**Related topics**
-
--   More on [Transactions](/Transactions/creating-a-transaction.mdx)
--   More on [Watchers](creating-a-watcher.mdx)
--   More on [Developer mode](/Developer/Discovering-coding-interface.md)

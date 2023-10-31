@@ -42,42 +42,6 @@ module.exports = {
 		},
 		{
 			type: 'category',
-			label: 'Transaction Management',
-			link: {
-				type: 'doc',
-				id: 'Transactions/transaction-management',
-			},
-			collapsed: true,
-			items: ['Transactions/understanding-the-relayer',
-				'Transactions/creating-a-transaction',
-				{
-					type: 'category',
-					label: 'Understanding state and status',
-					link: {
-						type: 'doc',
-						id: 'Transactions/state-and-status',
-					},
-					collapsed: true,
-					items: ['Transactions/manual-action-required'],
-				},
-
-				'Transactions/understanding-gas',
-				,
-				{
-					type: 'category',
-					label: 'Understanding nonce',
-					link: {
-						type: 'doc',
-						id: 'Transactions/understanding-nonce',
-					},
-					collapsed: true,
-					items: ['Transactions/desynchronized-nonce-management'],
-				},
-				'Transactions/stuck-transaction-replacement',
-			],
-		},
-		{
-			type: 'category',
 			label: 'Smart Contracts Management',
 			link: {
 				type: 'doc',
@@ -104,14 +68,14 @@ module.exports = {
         					label: 'Smart Contract Library',
         					link: {
         						type: 'doc',
-        						id: 'Smart-contract/smart-contract-library',
+        						id: 'Smart-contract/parameters-and-functions',
         					},
         					collapsed: true,
-        					items: ['Smart-contract/parameters-and-functions',
+        					items: [
         						{
         							'Creating fungible tokens': [
         								/*'Smart-contract/ERC20-fixed',
-                     'Smart-contract/ERC20-mintable',*/
+                                        'Smart-contract/ERC20-mintable',*/
         								'Smart-contract/ERC20-fixed-Meta',
         								'Smart-contract/ERC20-mintable-Meta',
         							],
@@ -148,6 +112,42 @@ module.exports = {
         					],
 
 		},
+        {
+            type: 'category',
+            label: 'Transaction Management',
+            link: {
+                type: 'doc',
+                id: 'Transactions/transaction-management',
+            },
+            collapsed: true,
+            items: ['Transactions/understanding-the-relayer',
+                'Transactions/creating-a-transaction',
+                {
+                    type: 'category',
+                    label: 'Understanding state and status',
+                    link: {
+                        type: 'doc',
+                        id: 'Transactions/state-and-status',
+                    },
+                    collapsed: true,
+                    items: ['Transactions/manual-action-required'],
+                },
+
+                'Transactions/understanding-gas',
+                ,
+                {
+                    type: 'category',
+                    label: 'Understanding nonce',
+                    link: {
+                        type: 'doc',
+                        id: 'Transactions/understanding-nonce',
+                    },
+                    collapsed: true,
+                    items: ['Transactions/desynchronized-nonce-management'],
+                },
+                'Transactions/stuck-transaction-replacement',
+            ],
+        },
 		{
 			type: 'category',
 			label: 'Network monitoring',
