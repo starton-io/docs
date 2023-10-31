@@ -1,0 +1,45 @@
+---
+title: About Wallets
+---
+import { CardTitle } from '@site/src/components/commons/CardTitle'
+import { Starton } from '@starton/react-ui-iconography'
+
+# Understanding Storage
+
+Welcome to Starton Storage, designed to provide access to IPFS, facilitating the storage and management of digital assets. The service enables users to upload files, folders, and manage NFT metadata through a set of APIs. 
+
+Starton Storage provides comprehensive guides on IPFS, URI, and CID, and offers main API endpoints for various storage operations. Starton Storage ensures content availability by hosting it on dedicated nodes, reducing the need for continuous maintenance and represents a practical solution for users looking to leverage decentralized storage.
+
+## Getting Started
+<CardTitle icon={<Starton fill='primary' />} href="/docs/IPFS/pinning-file">
+Uploading files and folders 
+</CardTitle>
+<br/>
+
+
+<div class="row is-multiline">
+<div class="col col--5">
+<h2>Guides</h2>
+<div class="button-card__inner">
+
+<a href="https://docs.starton.com/docs/IPFS/understanding-IPFS"><h5>About IPFS</h5></a>
+<a href="https://docs.starton.com/docs/Transactions//docs/IPFS/understanding-IPFS#uri-and-cid"><h5>URI and CID</h5></a>
+<a href="https://docs.starton.com/docs/Tutorials/uploading-metadata-NFT"><h5>Uploading your NFT <br/>metadata on IPFS</h5></a>
+
+
+</div>
+
+</div>
+
+<div class="col col--5">
+<h2>Main API Endpoints</h2>
+<div class="button-card__inner">
+
+<a href="/api-reference#tag/ipfs/[post]/v3/ipfs/file"><h5>Upload a file</h5></a>
+<a href="/api-reference#tag/ipfs/[post]/v3/ipfs/pin"><h5>Pin Existing IPFS File</h5></a>
+<a href="/api-reference#tag/ipfs/[get]/v3/ipfs/storage-used"><h5>Retrieve Current Storage Usage</h5></a>
+
+
+</div></div>
+</div>
+

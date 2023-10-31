@@ -1,17 +1,15 @@
 ---
-title: Understanding Storage
+title: Understanding IPFS
 description: IPFS (InterPlanetary FileSystem) is specifically designed to store and access files. IPFS is a distributed file-sharing system using peer-to-peer network.
 keywords: [IPFS, smart contract, upload]
 ---
 
-# Understanding Storage
+# Understanding IPFS
 
 Blockchains are made to store transaction information.
 As each node in the blockchain network holds same copy of registry which contains the whole history of every transaction on the network, storing data on the blockchain is very costly.
 
 As a result, large dataset are stored on a different network. **IPFS (InterPlanetary FileSystem)** is specifically designed to store and access files. **IPFS** is a distributed file-sharing system using peer-to-peer network.
-
-![Decentralized vs distributed](img/IPFS.png)
 
 On IPFS, each node hosts a set of files and makes it available to anyone.
 To retrieve content, hosted by at least one active node in the network.

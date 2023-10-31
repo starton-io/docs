@@ -1,5 +1,5 @@
 ---
-title: CONFIRMATION BLOCKS
+title: Confirmation Blocks
 description: Learn about confirmation blocks
 keywords: [Confirmation blocks, Starton, Watchers, Monitor, Transaction]
 ---
