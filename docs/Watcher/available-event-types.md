@@ -8,17 +8,23 @@ keywords: [Available event types, Starton, Watchers, Monitor, Transaction]
 
 The currently available event types are:
 
-| Event type                         | Description                                                                                                                                                          |
-| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ADDRESS_ACTIVITY`                 | Triggers when an address receives base currency or creates a transaction. |
-| `ADDRESS_RECEIVED_NATIVE_CURRENCY` | Triggers when an address receives some of the blockchain's native tokens (ex: ETH for Ethereum)                                                                      |
-| `ADDRESS_SENT_NATIVE_CURRENCY`     | Triggers when an address sends some of the blockchain's native tokens (ex: ETH for Ethereum)                                                                         |
-| `EVENT_TRANSFER`                   | Triggers when an ERC20 transfers tokens.                                                                                                                             |
-| `EVENT_MINT`                       | Triggers when an ERC20 mints new tokens.                                                                                                                             |
-| `EVENT_APPROVAL`                   | Triggers when a new approval is made on contract.                                                                                                                    |
-| `ERC721_EVENT_TRANSFER`            | Triggers when an ERC721 transfers an NFT token.                                                                                                                      |
-| `ERC1155_EVENT_TRANSFER_SINGLE`    | Triggers when an ERC1155 transfers a single NFT token.                                                                                                               |
-| `ERC1155_EVENT_TRANSFER_BATCH`     | Triggers when an ERC1155 transfers a batch of NFT tokens.                                                                                                            |
+## Monitoring Blockchain addresses
+| Event type                         | Description                                                                                                                                                         |
+|------------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `ADDRESS ACTIVITY`                 | Triggers when a transfer from or to an address is created, to track when native tokens transactions are created.|
+| `ADDRESS RECEIVED NATIVE CURRENCY` | Triggers when a transfer to an address is created, to track when native tokens are received.                                                                    |
+| `ADDRESS SENT NATIVE CURRENCY`     | Triggers when a transfer event is created from an address, to track when native tokens are sent.                                                                        |
+
+## Monitoring Smart Contracts
+| Event type                         | Description                                                                                                                                                         |
+|------------------------------------| ------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `EVENT TRANSFER`                   | Triggers when an ERC20 contract emits a transfer event, to track when tokens are moved.                                                                                                                         |
+| `EVENT MINT`                       | Triggers when an ERC20 contract emits a transfer event where sending address is 0x0, to track when new tokens are created.                                                                                                                           |
+| `EVENT APPROVAL`                   | Triggers when an ERC20 contract emits an approval event, to track when a new allowance has been granted or revoked.                                                                                                                |
+| `ERC721 EVENT TRANSFER`            | Triggers when an ERC721 contract emits a transfer event, to track when an NFT is moved.                                                                                                                       |
+| `ERC1155 EVENT TRANSFER SINGLE`    | Triggers when an ERC1155 contract emits a transfer event, to track when one NFT is moved.                                                                                                             |
+| `ERC1155 EVENT TRANSFER BATCH`     | Triggers when an ERC1155 contract emits a batch transfer event, to track when several NFTs are moved.                                                                                                      |
+| `Custom Event(s)`                  | Triggers when a smart contract emits one or multiple events you select from your ABI.                                                                                                     |
 
 **Related topics**
 

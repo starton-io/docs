@@ -3,6 +3,23 @@ title: 2023
 displayed-sidebar: connectSidebar
 ---
 # 2023
+
+## June 
+
+- **Discord Communities management simplified**
+    
+    Starton started making community management easy by providing you with a bot to verify roles on Discord. We added a feature for you to reward users using commands on your server. Airdrop tokens and NFTs to create engaged WEB3 communities. [Read More](tools/role-bot-discord.md)
+
+- **Now supporting royalties**
+    
+    Starton now offers three smart contracts supporting the NFT Royalty Standard which enable you to set and retrieve royalty payment information by filling two new parameters in the contructor of your smart contract at deployment. [Read More](Smart-contract/parameters-and-functions.mdx)
+
+## May 
+
+- **Announcing Custom Events in Monitor**
+
+    We are excited to announce the release of a new feature in Watcher - Custom Events! With this feature, you can now set up watchers to monitor specific events emitted by smart contracts on the blockchain. This gives you greater flexibility and control over the events you want to track and respond to. [Read More](Watcher/custom-event.mdx)
+
 ## April 
 
 - **Launching Starton plans and extra units** 

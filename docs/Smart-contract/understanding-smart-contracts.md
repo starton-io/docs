@@ -31,6 +31,9 @@ The **ERC20** is a **smart contract standard made for fungible tokens** (i.e: in
 The **ERC721** is a smart contract standard which is specialised in **single-copy Non Fungible Tokens** (NFT) and out-of-the-box **compatible with Opensea**.
 In an **ERC721**, every NFT is unique which means you have to reference the content for each NFT.
 
+Learn how to deploy your smart contract from our web application.
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/x5h-COA8B3Q?si=WxgC1WtlvGcoMi3O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 :::info
 
 The **ERC721** can still be used to upload several copies of the same content but is less optimised for this use case than the ERC1155.

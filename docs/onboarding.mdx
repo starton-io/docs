@@ -1,0 +1,98 @@
+---
+title: Onboarding on Starton
+---
+
+import { RocketLaunchOutlined } from '@mui/icons-material'
+import { CardTitle } from '@site/src/components/commons/CardTitle'
+import { Starton } from '@starton/react-ui-iconography'
+
+# Onboarding on Starton
+
+By creating a free account on Starton, you can deploy and interact with your Smart contract, store files on IPFS and watch your transactions.
+There are a few things you need to get from Starton Dashboard, regardless of whether you want to use Starton from the interface or the API.
+
+The first thing we will need is an account in Starton.
+
+## Creating an account
+
+<CardTitle icon={<Starton fill='primary' />} href="https://auth.starton.com/register" target="_blank">
+    Create an account for free
+</CardTitle>
+
+## Setting up your API key
+
+You need to be authenticated by Starton's API. To do so, let's create your API key:
+
+1. From the **Menu**, click **Developer**.
+1. Click **+ API key**.
+1. Enter your key information.
+1. Click **Next**.
+
+You created your first API key. Learn how to authenticate using your API key in your application in our [Developer](/Developer/API.md) section.
+
+:::caution
+
+Note that your API key should be SECRET. With it, anyone could call the Starton API on your behalf. For security purposes, API keys are only accessible once at creation.
+
+:::
+
+## Setting up a wallet on Starton
+
+When deploying and interacting with **Smart Contracts** on testnet, you can create a wallet on Starton KMS to sign transactions.
+
+1. From **Dashboard**, go to **Wallet**.
+1. Click **Add a wallet**.
+1. Enter a **Name** and a **Description** for your wallet.
+
+You can now use your wallet.
+
+:::caution
+
+We do not advise you to transfer mainnet funds on this wallet. Though possible, this wallet is meant for test only.
+
+:::
+
+
+You can also import your own KMS at any time and change ownership of your Smart contract. Read more in [Tutorials](/Tutorials/how-to-change-the-smart-contracts-ownership.md).
+
+## What's next?
+
+Let's create an app. Select one of the following guides to fit your usecase.
+
+Now that you're all set, what would you like to do with Starton in your app?
+
+## Choose your use case
+
+<div class="row-is-multiline">
+
+<div class="col col--2" class="cards">
+<a href="/docs/Tutorials/deploy-first-smart-contract"><h3>Deploy</h3>
+<div class="button-card__inner">
+<p color="white">Deploy your first smart contract. </p>
+</div>
+</a>
+</div>
+
+<div class="col col--2" class="cards">
+<a href="/docs/Tutorials/storing-files-on-IPFS"><h3>Store</h3>
+<div class="button-card__inner">
+<p>Upload files on IPFS with Starton.</p>
+</div>
+</a>
+</div>
+
+<div class="col col--2" class="cards">
+<a href="/docs/Tutorials/monitoring-blockchain-activity"><h3>Monitor</h3>
+<div class="button-card__inner">
+<p>Monitor blockchain events with watchers.</p>
+</div>
+</a>
+</div>
+</div>
+
+
+**Related topics**
+
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
+-   More on [Relayer](/Transactions/understanding-the-relayer.md)
+-   More on [Key Management Systems](/Wallet/understanding-key-management-systems.md)

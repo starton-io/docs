@@ -96,4 +96,4 @@ startonAPI.patch("/v3/setting/relayer/binance-testnet", {
     .catch(e=>console.log(e))
 ```
 
-If the request is successful, your settings have been changed. To understand any other return, you can see our [API reference](https://docs.starton.com/intro#tag/SettingRelayer).
+If the request is successful, your settings have been changed. To understand any other return, you can see our [API reference](https://docs.starton.com/api-reference).

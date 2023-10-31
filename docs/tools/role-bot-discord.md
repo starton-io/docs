@@ -1,18 +1,18 @@
 ---
-title: Verify roles using Starton Discord bot
+title: Manage your Discord community with Starton bot
 ---
 
-# Verify roles using Starton Discord bot
+# Manage your Discord community with Starton bot
 
-You can verify roles on your Discord server using tokens. The Starton Role bot allows you to use Starton directly from your Discord server!
+Learn how to manage communities by granting roles and rewarding users. You can verify roles on your Discord server using tokens. The Starton Role bot allows you to use Starton directly from your Discord server!
 You can give roles to server members according to the tokens they own, fungible (ERC20) or NFTs (ERC721 / ERC1155).
 
 :::info Prerequisites
 
-To use the bot you need to:
+To use this bot:
 
 - Create an account on [Starton](https://app.starton.io) to get an API key
-- Create an account on [Discord](https://www.discord.com) to join the [Discord Developer Portal](https://discord.com/developers/applications)
+- Create an account on [Discord](https://www.discord.com)
 
 :::
 
@@ -49,13 +49,15 @@ To use the bot you need to:
 
 :::caution 
 
-You must have deployed your contract before importing it (except if you want to use the contract of another person).
+Your contract must be imported on Starton before using this command. To import your contract, you can call this [endpoint](https://docs.starton.com/api-reference) or use our web application [our web application](https://app.starton.com/projects/default/smart-contract). 
 
 :::
    
 This command returns a `contract-id` that you need for the next step.
 
-3. Put a trigger on your contract
+## Verifying roles
+
+1. Put a trigger on your contract
 
     ```bash
     /trigger create {{contract-id}} {{role}}
@@ -67,7 +69,9 @@ This command returns a `contract-id` that you need for the next step.
 
    From now, all verified users that have tokens (or NFTs) from the registered contract will have the role you attributed in the command.
 
-## Using the bot
+
+
+:::info USER ACTION 
 
 Now that your bot is set up, every user on your Discord server can connect his wallet to your bot and get the roles related to their crypto-assets.
 
@@ -77,13 +81,15 @@ Now that your bot is set up, every user on your Discord server can connect his w
 
 In the Discord chat, this command will return a link to verify your profile using your [Metamask wallet](https://metamask.io/).
 
-## List of available commands 
+:::
+
+#### List of available commands 
 
 You can use the following commands to manage your bot.
 
-### CONFIGURATION
+#### CONFIGURATION
 
-#### Initialize the Starton bot your server
+##### Initialize the Starton bot your server
 
 ```bash
   /init
@@ -98,7 +104,7 @@ You can use the following commands to manage your bot.
 | `administrator-role` | `Role`    | **[Required]** Role that can manage the Starton bot |
 | `logging-channel`    | `Channel` | **[Required]** Channel used for the logs            |
 
-#### Update your Starton API key
+##### Update your Starton API key
 
 ```bash
   /update-api-key
@@ -111,7 +117,7 @@ You can use the following commands to manage your bot.
 |:----------------------|:---------|:---------------------------------------------------|
 | `new-starton-api-key` | `String` | **[Required]** New Starton API key (`sk_live_...`) |
 
-#### Regenerate your signing key
+##### Regenerate your signing key
 
 ```bash
   /regenerate-signing-key
@@ -122,24 +128,19 @@ You can use the following commands to manage your bot.
 |:----------|:-----|:------------|
 | /         | /    | /           |
 
-#### Connect your wallet to the Starton Bot
+##### Connect your wallet to the Starton Bot
 
 ```bash
   /connect-wallet
 ```
 
-
 | Parameter | Type | Description |
 |:----------|:-----|:------------|
 | /         | /    | /           |
 
+#### SMART-CONTRACT
 
-
-
-
-### SMART-CONTRACT
-
-#### Import your smart contract
+##### Import your smart contract
 
 ```bash
   /smart-contract import
@@ -154,7 +155,7 @@ You can use the following commands to manage your bot.
 | `contract-name`    | `String` | **[Required]** Name of the smart contract                                                                                                                                                                              |
 | `contract-address` | `String` | **[Required]** Address of the smart contract (`0x...`)                                                                                                                                                                 |
 
-#### Delete an imported smart contract
+##### Delete an imported smart contract
 
 ```bash
   /smart-contract delete
@@ -166,7 +167,7 @@ You can use the following commands to manage your bot.
 |:----------------------|:---------|:-----------------------------------------------------------|
 | `smart-contract-id  ` | `String` | **[Required]** ID of the smart contract you want to delete |
 
-#### List your imported smart contracts
+##### List imported smart contracts
 
 ```bash
   /smart-contract list
@@ -179,12 +180,9 @@ You can use the following commands to manage your bot.
 | /         | /    | /           |
 
 
+#### TRIGGER
 
-
-
-### TRIGGER
-
-#### Create trigger on a registered smart contract
+##### Create trigger on a registered smart contract
 
 ```bash
   /trigger create
@@ -200,7 +198,7 @@ You can use the following commands to manage your bot.
 | `max-amount`        | `Number` | **[Optional]** Maximum amount of token required. (Default none)         |
 | `token-id`          | `String` | **[Optional]** Token ID (for ERC-1155)                                  |
 
-#### Delete a registered trigger
+##### Delete a registered trigger
 
 ```bash
   /trigger delete
@@ -212,7 +210,7 @@ You can use the following commands to manage your bot.
 |:-------------|:---------|:----------------------------------------------------|
 | `trigger-id` | `String` | **[Required]** ID of the trigger you want to delete |
 
-#### List your registered triggers
+##### List registered triggers
 
 ```bash
   /trigger list
@@ -223,5 +221,70 @@ You can use the following commands to manage your bot.
 | Parameter             | Type     | Description                                                          |
 |:----------------------|:---------|:---------------------------------------------------------------------|
 | `smart-contract-id  ` | `String` | **[Required]** ID of the smart contract you want to see the triggers |
+
+## Airdrop tokens to reward your Discord community
+
+You can reward your communities by airdroping token to Discord users. You can also organizer events on your server.
+
+### AIRDROP 
+
+#### Create an airdrop 
+
+The `create command` allows you to create an airdrop. You need to associate it with a channel (mandatory), a signer wallet (mandatory), and a smart contract ID (mandatory). The token metadata field is mandatory for 721 tokens, and the token ID field is mandatory for 1155 tokens. You can also associate a password, a winning percentage, an amount during the airdrop, and a trial interval in seconds (-1 for a one-time participation). Only one airdrop is allowed per channel. The server must be configured to create an airdrop.
+
+```bash
+  /airdrop create
+```
+
+**Permission required : Bot Administrator**
+
+| Parameter         | Type      | Description                                                              |
+|:------------------|:----------|:-------------------------------------------------------------------------|
+| `airdrop-name`    | `String`  | **[Required]** Name of the airdrop                                       |
+| `contract-id`     | `String`  | **[Required]** ID of the smart contract you want to link to this airdrop |
+| `signer-wallet`   | `String`  | **[Required]** Address of the signer wallet of your smart contract       |
+| `airdrop-channel` | `Channel` | **[Required]** Channel in which the user must be to claim the tokens     |
+
+#### Delete an airdrop 
+
+The `delete command` allows you to delete an airdrop using its ID in the database (retrievable via the /airdrop list command).
+
+```bash
+  /airdrop delete
+```
+
+**Permission required : Bot Administrator**
+
+| Parameter      | Type     | Description                                         |
+|:---------------|:---------|:----------------------------------------------------|
+| `airdrop-id  ` | `String` | **[Required]** ID of the airdrop you want to delete |
+
+#### List your airdrops 
+
+The `list command` allows you to list all the airdrops configured on the server.
+
+```bash
+  /airdrop list
+```
+
+**Permission required : Bot Administrator**
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+| /         | /    | /           |
+
+#### Claim an airdrop 
+
+The `claim command` allows all users to claim an airdrop in the appropriate channel. The user must have connected their wallet to claim.
+
+```bash
+  /claim
+```
+
+| Parameter | Type | Description |
+|:----------|:-----|:------------|
+| /         | /    | /           |
+
+
 
 

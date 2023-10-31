@@ -143,4 +143,6 @@ We can also track here our new [DEMO](https://ropsten.etherscan.io/token/0xda96a
 
 Or more generally, we can use the address of the contract to find out how it [interacted with the world](https://ropsten.etherscan.io/address/0xDA96a733ec2C3eC1142A5A1Ef31cfd7755CAE037).
 
-Congratulations for completing this tutorial!
+Congratulations for completing this tutorial! 
+
+You can also deploy your smart contract from our web application.

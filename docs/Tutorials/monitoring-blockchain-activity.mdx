@@ -1,133 +1,165 @@
 ---
 title: Monitoring blockchain activity
 ---
-
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
 import CodeBlock from "@theme/CodeBlock"
+import walletPage from "./img/wallets-page.png"
+import { RocketLaunchOutlined } from '@mui/icons-material'
+import { CardTitle } from '@site/src/components/commons/CardTitle'
+import { Starton } from '@starton/react-ui-iconography'
+
 
 # Monitoring blockchain activity
 
-With **Starton**, you can monitor blockchain activity. Whether it's to watch the activity of a wallet or a smart contract, you can create watchers, triggered by events.
+With **Starton**, you can monitor blockchain activity using [watchers](/docs/Watcher/understanding-watchers). Whether it's to watch the activity of a wallet or a smart contract, you can create watchers, triggered by events.
 
-Let's integrate blockchain into your application project to track the activity of an address using Starton. 
-You can also create watchers from Dashboard, see [Creating a watcher](/Watcher/creating-a-watcher.mdx).
 
-An event is a set of conditions that are checked when a block is inspected.
+:::info not a developer?
+To follow this tutorial, you will need **coding experience**. If it's not your case, you can still create a watcher:
 
-When the conditions of a watcher are met, the watcher triggers and sends a communication to the webhook given during the watcher's creation.
 
-:::note You will need:
+<div class="row-is-multilineGS">
+    <div class="col col-2 cardsGS">
+        <a class="button-card button-card--vertical" href="https://app.starton.com/projects/default/monitor">
+            <h4>From Starton app</h4>
+            <div class="button-card__inner">
+                <p color="white">An easy-to-use interface to monitor blockchain activity.</p>
+            </div>
+        </a>
+    </div>
+    <div class="col col-2 cardsGS">
+        <a class="button-card button-card--vertical" href="https://www.youtube.com/watch?v=i38ndAVGNb0">
+            <h4>From Zapier</h4>
+            <div class="button-card__inner">
+                <p color="white">To pair our no-code integration with external apps and services. </p>
+            </div>
+        </a>
+    </div>
+</div>
 
--   [Node.js](https://nodejs.org/en/)
--   [Starton wallet](https://starton.com/)
--   [Starton API Key](https://starton.com/). To create one, see [Starton API](/Developer/API.md).
--   An address to monitor
 :::
 
 
+## Step 1 - Initialize the project
 
-## Creating an Application project
+1. Start by creating a directory for your project.
 
-1. Create a directory for your app.
-1. Create a directory named `src`.
-1. In your terminal, install the express package using
-   `npm i express`
-1. In `src`, create a `index.js` file.
-1. In `index.js`, enter the following lines to set up a port for your project:
+    ```bash
+    mkdir monitor-blockchain
+    ```
+1. Then, get into your project directory.
 
-```jsx showLineNumbers
-const express = require("express")
-const routes = require("./routes")
-const app = express()
-app.use(bodyParser.json())
-const port = 3001 // Port of the project
+    ```bash
+    cd monitor-blockchain
+    ```
+1. With your project directory set up, install the dependencies.
 
-app.set("port", port) // Set the port of the project
-app.use("/", routes)
-app.listen(port, () => {
-	console.log(`Server listening on port ${port}`)
-})
-```
+    ```bash
+    npm add axios
+    ```
+   This library will allow you to make request to the Starton API. For more information on axios, check out [Axios documentation](https://axios-http.com/docs/intro).
 
-This will deploy your app on port `3001`.
+1. Then, use`touch` to create a `index.js` file and open it with your favorite editor.
 
-Now for the good part, let's connect Starton to your application.
-
-## Connecting Starton to your application
-
-1. In src, create a `routes.js` file.
-
-    ```jsx showLineNumbers
-    const express = require("express")
-    const axios = require("axios")
-    const router = express.Router()
+    ```bash
+    touch index.js
     ```
 
-1. In it, first authenticate with your API KEY.
+## Step 2 - Add Starton to your project
 
-    ```jsx showLineNumbers
-    // AUTHENTICATING TO THE API USING YOUR API KEY
-    const startonApi = axios.create({
-    	baseURL: "https://api.starton.com",
-    	headers: {
-    		"x-api-key": "YOUR API KEY ",
-    	},
-    })
-    ```
+1. First, import `axios`.
 
-## Creating a watcher
+   ```jsx showLineNumbers
+   const axios = require("axios")
+   ```
+
+1. Then, initialize `axios` using Starton URL and authenticate with your API KEY.
+
+   <CardTitle icon={<Starton fill='primary' />} href="https://app.starton.com/projects/default/developer" target="_blank">
+   Create an API key
+   </CardTitle>
+   <br/>
+
+   ```jsx showLineNumbers
+    const starton = axios.create({
+      baseURL: "https://api.starton.com",
+      headers: {
+          "x-api-key": "YOUR API KEY",
+      },
+   })
+   ```
+
+## Step 3 - Creating a watcher 
+
+:::info What is a Watcher?
+
+A watcher is a powerful tool that lets you monitor blockchain events in real-time. 
+With Starton, you can set up watchers to monitor activities such as address activities, balance changes, or even smart contract events.
+:::
+
+1. Set up the watcher parameters
+   ```jsx showLineNumbers
+      // Let's create your watcher
+      starton.post("/v3/watcher", {
+         name: "Name of your watcher",
+         type: "ADDRESS_ACTIVITY",
+         address: "0x000000000000",
+         network: "polygon-mumbai",
+         webhookUrl: "https://xxxxxxx/",
+         confirmationsBlocks: 50
+      }).then((response) => {
+         console.log(response.data)
+      }).catch(error => console.error(error.response.data))
+   ```
+Let's go through the parameters provided to create a watcher:
+
+- name: This field specifies the name of your watcher. Useful for identification purposes, especially if you have multiple watchers set up for the same address or contract at different confirmation speeds [different confirmation speeds](/docs/Watcher/confirmation-blocks).
+- type: The type of blockchain event that you want the watcher to monitor. The ADDRESS_ACTIVITY type, in this context, means the watcher will monitor and notify of any activity related to the provided address but Starton provides you with a [list of events](/docs/Watcher/available-event-types) as well as the possibility to [watch events from your own custom contract](/docs/Watcher/custom-event) .
+- address: This is the specific blockchain address you want to monitor. It can be a wallet address or a smart contract address, depending on the event type you chose.
+- network: This specifies the blockchain network on which is the given address. In the provided example, polygon-mumbai refers to the Mumbai testnet of the Polygon (previously known as Matic) network. For more, see [Supported Networks](/docs/getting-started/overview#supported-networks-and-service-availability).
+- webhookUrl: This URL is where the notifications will be sent when the watched event occurs. Essentially, once the watcher detects the specified event on the blockchain, it will send an HTTP POST request to this URL with details of the event. You can use [https://webhook.site/](https://webhook.site/)  or [test a webhook on your local environment using ngrok](/docs/Tutorials/testing-webhooks-locally-ngrok).
+- confirmationsBlocks: This is the number of confirmed blocks before an event triggers the watcher. It's a safety measure to ensure that the event (like a transaction) is well-confirmed on the blockchain and is not likely to be reversed. The higher the number, the more confirmations are required, and vice versa. Each network has its own default confirmation blocks number, for more information, see [Understanding confirmation blocks](/docs/Watcher/confirmation-blocks). 
 
 
-To create a watcher from the code of your application, use the following snippet.
-You can find the full list of networks and event types in our <a href="https://docs.starton.com/intro#tag/Watcher/operation/WatcherCreateOne">API reference</a>.
 
-```jsx showLineNumbers
-// Use the watcher creation endpoint
-startonApi.post(
-    "/v3/watcher",
-    {
-        name: "Name of your watcher", // Enter a name for your watcher
-        description: "Describe your watcher", // Enter a description for your watcher
-        address: "0x000000000000", // Enter the address to watch (either a wallet or a smart contract)
-        network: "polygon-mumbai",// Enter a network, you can find the list of networks available in our API reference.
-        type: "ADDRESS_ACTIVITY",// Select an event type
-        webhookUrl: "https://xxxxxxx/", // Enter the address of the webhook
-        confirmationsBlocks: 50 // Depending on your needs, select the number of confirmed blocks before an event triggers your watcher
-    }
-).then((response) => {
-    console.log(response.data)
-})
-```
+1. Almost done! Now we can execute it to get our first watcher!
+
+   ```bash
+   node index.js
+   ```
+And just like that, your first watcher is now live on Starton!
+
+<br/>
+
+<CardTitle icon={<Starton fill='primary' />} href="https://app.starton.com/projects/default/monitor" target="_blank">
+Check all triggered events on Starton Web Application
+</CardTitle>
+<br/><br/>
+
+Congratulations on creating your first watcher! 
+In this tutorial, you discovered how to monitor blockchain activity but this is only the first step.
 
 
-1. Display a message on your `localhost:3001` to inform you that the transaction is successful.
-
-    ```jsx showLineNumbers
-    router.get("/", (req, res) => {
-    	res.send("Upload successful")
-    })
-
-    module.exports = router
-    ```
-
-## Starting your application
-
-1. In your terminal, run `node src`.
-
-You uploaded your first watcher with Starton. Congratulations!
-
-
-
-<div class="row-is-multiline">
-
-<div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
-		<h3>Check all the events of your watcher on the Dashboard</h3>
-		<div class="button-card__inner">
-			<p color="white">Go to <b>Starton Dashboard</b> and check all your events at one glance.</p>
-		</div>
-	</a>
+### Learn how to
+<div class="row-is-multilineGS">
+    <div class="col col-2 cardsGS">
+        <a class="button-card button-card--vertical" href="/docs/Tutorials/track-wallet-activity">
+            <h3>Track a wallet activity</h3>
+            <div class="button-card__inner">
+                <p color="white">Using Googlesheets and Zapier </p>
+            </div>
+        </a>
+    </div>
+    <div class="col col-2 cardsGS">
+        <a class="button-card button-card--vertical" href="/docs/Tutorials/monitor-nft-activity">
+            <h3>Notify users when they receive an NFT</h3>
+            <div class="button-card__inner">
+                <p color="white"> Learn how to send an email to your users when they receive an NFT.</p>
+            </div>
+        </a>
+    </div>
 </div>
 
-</div>
+
+

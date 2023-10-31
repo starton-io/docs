@@ -19,8 +19,7 @@ Notice that the baseURI of the ERC1155 contract should be the URI that is linked
 ## Parameters
 
 -   **definitiveTokenAddress:** The token address of the ERC1155 that you want to sell.
--   **definitiveMerkleRoot:** The root of the merkle tree that contains the list of the users that can buy the NFTs
--   **definitivePrice:** The price that the NFTs will be sold for.
+-   **definitiveMerkleRoot:** The root of the merkle tree that contains the list of the users that can buy the NFTs.
 -   **definitiveStartTime:** The time when the sale will begin and users can mint tokens.
 -   **definitiveEndTime:** The time when the sale will end and users couldn't mint anymore tokens.
 -   **definitiveMaxTokensPerAddress:** The maximum amount of tokens that can be minted by a single address.
