@@ -788,33 +788,59 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 }
 
 /* SCALAR */
+.light-mode,
 .dark-mode {
-	--default-theme-background-1: --ifm-footer-background-color !important;
-	--default-theme-background-2: #0F1114 !important;
-	--default-theme-color-accent: --ifm-color-primary !important;
-}
+  color-scheme: dark;
+  --theme-color-1: #fff;
+  --theme-color-2: rgb(135, 153, 171);
+  --theme-color-3: #6d8890;
+  --theme-color-accent: #01e6cd;
+  --theme-background-1: #1A1F26;
+  --theme-background-2: #0f1114;
+  --theme-background-3: #000;
+  --theme-background-accent: rgba(1, 254, 226, 0.1);
 
+  --theme-border-color: rgba(67, 81, 96, .7);
+  --theme-scrollbar-color: rgba(255, 255, 255, 0.24);
+  --theme-scrollbar-color-active: rgba(255, 255, 255, 0.48);
+  --theme-lifted-brightness: 1.45;
+  --theme-backdrop-brightness: 0.5;
+
+  --theme-shadow-1: 0 1px 3px 0 rgb(0, 0, 0, 0.1);
+  --theme-shadow-2: rgba(15, 15, 15, 0.2) 0px 3px 6px,
+    rgba(15, 15, 15, 0.4) 0px 9px 24px, 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+  --theme-button-1: #f6f6f6;
+  --theme-button-1-color: #000;
+  --theme-button-1-hover: #e7e7e7;
+
+  --theme-color-green: #00a400;
+  --theme-color-red: #fa383e;
+  --theme-color-yellow: #ffba00;
+  --theme-color-blue: #3578e5;
+  --theme-color-orange: rgb(229, 121, 26);
+  --theme-color-purple: #b191f9;
+}
+.darklight {
+	display: none !important;
+}
+/* Sidebar */
+.light-mode  .t-doc__sidebar,
+.dark-mode .sidebar {
+  --sidebar-background-1: var(--theme-background-1);
+  --sidebar-item-hover-color: var(--theme-color-accent);
+  --sidebar-item-hover-background: var(--theme-background-2);
+  --sidebar-item-active-background: var(--theme-background-accent);
+  --sidebar-border-color: var(--theme-border-color);
+  --sidebar-color-1: var(--theme-color-1);
+  --sidebar-color-2: var(--theme-color-2);
+  --sidebar-color-active: var(--theme-color-accent);
+  --sidebar-search-background: transparent;
+  --sidebar-search-border-color: var(--theme-border-color);
+  --sidebar-search--color: var(--theme-color-3);
+}
 .scalar-api-client, #headlessui-portal-root {
-	height: auto !important;
+    height: auto !important;
 }
 
-.api-container .show-api-client-button--get {
-	background-color: #01e6cd !important;
-}
-
-.api-container pre {
-	background: rgba(15, 17, 20, 0.50) !important;
-}
-
-.api-container .markdown pre code {
-	margin: 0 !important;
-}
-
-.api-container .section {
-	max-width: 100% !important;
-}
-
-.api-container .references-navigation-list, .api-container .references-navigation-list .sidebar {
-	background-color: #1A1F25 !important;
-}
 /* END - SCALAR */
