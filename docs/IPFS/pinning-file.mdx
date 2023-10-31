@@ -1,5 +1,5 @@
 ---
-title: Pinning CID 
+title: Pinning CID
 description: Learn how to upload on Starton IPFS.
 keywords: [IPFS, smart contract, upload]
 ---
@@ -29,7 +29,7 @@ const startonApi = axios.create({
 startonApi.post("/v3/ipfs/pin", {
     name: "pin name", // name of the file you would like to pin
     cid: "bafybeid7ybbefggfv6y7gkkbyt3tpi647p66mrmcjkujrlbfbtb6mmbklq", // cid of the file you would like to pin
-    metadata: { your: "additionnal", meta: "data" },
+    metadata: { your: "additional", meta: "data" },
 })
     .then(res=>console.log(res.data))
     .catch(e=>console.log(e))

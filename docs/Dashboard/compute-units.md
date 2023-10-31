@@ -81,7 +81,7 @@ Here is a breakdown of the cost of the deployment of a collection of 1000 NFTs i
 | 1000 transactions - mint | 1000 | 750000            |
 |  | Total | 2250800           |
 
-Here is the breakdown of the cost of WEB3 Gaming use case with 10 000 of daily users in average:
+Here is the breakdown of the cost of WEB3 Gaming use case with 10 000 of daily users on average:
 
 | Daily drop | p.day | 10000 | 7500000 |
 | --- | --- | --- | --- |

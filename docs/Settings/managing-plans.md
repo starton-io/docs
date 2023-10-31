@@ -45,7 +45,7 @@ When canceling your plan, your project is reverted to our free plan.
 
 Before the change is effective, if your subscription is canceled and you want to reactivate it, you can go to the Billing section of your account. There, a banner will notify you of all the details of your cancellation. You will be informed when the change will occur.
 
-The **Reactivate subscription** button enables you change your mind and subscribe to your plan again.
+The **Reactivate subscription** button enables you to change your mind and subscribe to your plan again.
 
 > You cannot upgrade your plan if you cancel your subscription.
 

@@ -131,4 +131,4 @@ We can access the list of templates in the [Smart contract section](/Smart-contr
 
 ### Interact with your contract
 
-You can now bid, claim, or start a new auction. The mint of your NFT is made when the bider which has won the auction claims it.
+You can now bid, claim, or start a new auction. The mint of your NFT is made when the bidder which has won the auction claims it.
