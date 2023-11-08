@@ -12,7 +12,7 @@ export default {
 		[
 			'@docusaurus/preset-classic',
 			/**@type {import('@docusaurus/preset-classic').Options} */
-			({
+			{
 				sitemap: {
 					changefreq: 'weekly',
 					priority: 0.5,
@@ -21,15 +21,9 @@ export default {
 				},
 				blog: {
 					showReadingTime: true,
-					// Please change this to your repo.
-					// Remove this to remove the "edit this page" links.
-					//  editUrl:
-					//    'https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/',
 				},
 				docs: {
 					sidebarPath: require.resolve('./sidebars.config'),
-					// Please change this to your repo.
-					// Remove this to remove the "edit this page" links.
 				},
 				theme: {
 					customCss: require.resolve('../src/css/starton.css'),
@@ -39,7 +33,7 @@ export default {
 						containerId: process.env.GTM_KEY,
 					},
 				}),
-			}),
+			},
 		],
 	],
 }

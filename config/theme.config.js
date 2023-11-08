@@ -3,7 +3,7 @@
 | Filename : theme.config.js
 */
 
-const prisma = require('prism-react-renderer')
+import * as prisma from 'prism-react-renderer'
 
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion

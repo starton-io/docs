@@ -21,24 +21,24 @@ To do this, we’ll need to query Connect’s API and to authenticate ourselves 
 
 We can create an API key from the dashboard in the Developer section. Using this API key we can call the API with the following JS code:
 
-```jsx
+```js
 const axios = require("axios")
 
 const http = axios.create({
-    baseURL: "https://api.starton.com/v3",
-    headers: {
-        "x-api-key": ‘YOUR_API_KEY’,
-    },
+	baseURL: "https://api.starton.com/v3",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
 })
-http.get('/smart-contract-template').then(response => {
-    console.log(response.data)
+http.get("/smart-contract-template").then((response) => {
+	console.log(response.data)
 })
 ```
 
 Be sure to replace `x-api-key value` with your own api key!
 When querying the API, it should return a list of template items:
 
-```jsx
+```json
 {
   "id": "ERC20_META_TRANSACTION",
 	"name": "ERC20 Fungible Token with fixed supply",
@@ -112,14 +112,14 @@ http.post("/smart-contract/from-template", {
 
 The expected result:
 
-```jsx
+```json
 {
   "id": "sc_24dce9e26a7d46a7b707e257a6a6cfb2",
   "name": "DemoToken",
   "description": "Our own crypto token.",
   "network": "ethereum-goerli",
   "bytecode": " … ",
-  "abi": [ … ],
+  "abi": [...],
   "projectId": "prj_f2108b28949d47898a39939cbc7277c3",
   "address": "0xDA96a733ec2C3eC1142A5A1Ef31cfd7755CAE037",
   "creationHash": "0xef4313209959d6441e14db5d43905f674a78adba2173b522b7fe37311e135c05",

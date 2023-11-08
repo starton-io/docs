@@ -16,20 +16,20 @@ A variety of tools assist developers in creating, testing, and deploying smart c
 
 ## Advantages from a Developer's Lens
 
-Smart contracts eliminate the need for intermediaries, automating the execution of contract terms when predefined conditions are met. This results in faster transaction times and reduced chances of human error. 
+Smart contracts eliminate the need for intermediaries, automating the execution of contract terms when predefined conditions are met. This results in faster transaction times and reduced chances of human error.
 Once deployed, a smart contract’s code and data are stored on the blockchain, making them immutable and tamper-proof. This ensures that the contract will execute exactly as written. The code of smart contracts is visible on the blockchain, allowing anyone to verify the contract’s functionality and security. This transparency builds trust among parties involved in the contract. By automating processes and removing intermediaries, smart contracts can significantly reduce transaction costs.
 
 ## Technical Challenges and Solutions
 
-- **Debugging and Maintenance** 
+-   **Debugging and Maintenance**
 
 Smart contracts are notoriously difficult to debug and update once they’re deployed on the blockchain. Developers must rigorously test their code using tools like Ganache, a personal blockchain for Ethereum development that you can use to deploy contracts, develop your applications, and run tests. It is available both as a desktop application and a command-line tool.
 
-- **Scalability and Performance** 
+-   **Scalability and Performance**
 
 The decentralized nature of blockchain networks means that every node in the network must process every transaction, which can lead to scalability issues and slow performance. Layer 2 solutions like Optimism and Arbitrum for Ethereum aim to address these issues by processing transactions off-chain before settling on the main blockchain.
 
-- **Security Concerns** 
+-   **Security Concerns**
 
 The immutable nature of smart contracts also means that any vulnerabilities in the code can be exploited, and once funds are stolen, they cannot be recovered. Developers must follow secure coding practices, conduct thorough testing, and potentially employ third-party auditing services to ensure the security of their smart contracts.
 
@@ -38,7 +38,6 @@ The immutable nature of smart contracts also means that any vulnerabilities in t
 **DeFi**: Decentralized Finance (DeFi) is perhaps the most notable use case of smart contracts, enabling automated lending, borrowing, and trading of crypto assets. Below is a simplified example of a smart contract written in Solidity that represents a basic decentralized bank:
 
 ```solidity
-
 pragma solidity 0.8.17;
 
 import "@openzeppelin/contracts/token/ERC20/extensions/ERC20Burnable.sol";
@@ -332,6 +331,6 @@ Smart contracts represent a paradigm shift in how we approach agreements and tra
 
 ## Read more
 
-- [Starton Smart Contract Library](https://docs.starton.com/docs/Smart-contract/parameters-and-functions)
-- [Consensys’ Smart Contract Best Practices](https://consensys.github.io/smart-contract-best-practices/)
-- [Solidity by Example](https://solidity-by-example.org/)
+-   [Starton Smart Contract Library](https://docs.starton.com/docs/Smart-contract/parameters-and-functions)
+-   [Consensys’ Smart Contract Best Practices](https://consensys.github.io/smart-contract-best-practices/)
+-   [Solidity by Example](https://solidity-by-example.org/)
