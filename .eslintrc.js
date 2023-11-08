@@ -5,8 +5,6 @@ module.exports = {
 		'prettier',
 		'plugin:import/recommended',
 		'plugin:import/typescript',
-		'plugin:react/recommended',
-		'plugin:react-hooks/recommended',
 	],
 	plugins: ['@docusaurus', 'prettier', 'import', 'jsx-a11y'],
 	parserOptions: {
@@ -16,10 +14,7 @@ module.exports = {
 	overrides: [
 		{
 			parser: '@typescript-eslint/parser',
-			files: ['*.ts', '*.tsx'], // Your TypeScript files extension
-			// As mentioned in the comments, you should extend TypeScript plugins here,
-			// instead of extending them outside the `overrides`.
-			// If you don't want to extend any rules, you don't need an `extends` attribute.
+			files: ['*.ts', '*.tsx'],
 			extends: [
 				'plugin:@typescript-eslint/eslint-recommended',
 				'plugin:@typescript-eslint/recommended',
@@ -27,7 +22,7 @@ module.exports = {
 			],
 			plugins: ['@typescript-eslint'],
 			parserOptions: {
-				project: ['./tsconfig.json'], // Specify it only for TypeScript files
+				project: ['./tsconfig.json'],
 			},
 			rules: {
 				'@typescript-eslint/ban-ts-comment': 'off',
@@ -45,6 +40,15 @@ module.exports = {
 				'@typescript-eslint/restrict-template-expressions': 'off',
 				'@typescript-eslint/no-use-before-define': ['error', { variables: false }],
 				'@typescript-eslint/explicit-member-accessibility': 'off',
+			},
+		},
+		{
+			parser: '@typescript-eslint/parser',
+			files: ['*.tsx'],
+			extends: ['plugin:react/recommended', 'plugin:react-hooks/recommended'],
+			plugins: ['@typescript-eslint'],
+			parserOptions: {
+				project: ['./tsconfig.json'], // Specify it only for TypeScript files
 			},
 		},
 	],

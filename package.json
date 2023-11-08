@@ -14,7 +14,8 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "lint:fix": "prettier --write src docs",
+    "lint": "eslint .",
+    "prettier:fix": "prettier --write src docs",
     "theme-build": "starton-theme-build"
   },
   "dependencies": {
