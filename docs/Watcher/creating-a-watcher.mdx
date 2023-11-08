@@ -11,7 +11,6 @@ import CodeBlock from "@theme/CodeBlock"
 
 # Creating a watcher
 
-
 ## Creating a watcher from an available event type
 
 You can create a watcher to monitor blockchain event.
@@ -95,7 +94,7 @@ startonApi.post(
         address: "0x000000000000", // Enter the address to watch (either a wallet or a smart contract)
         network: "polygon-mumbai",// Enter a network, you can find the list of networks available in our API reference.
         type: "EVENT_CUSTOM",// Select an event type
-        customEventAbi: {},// Here you will specify the event you want to monitor from the ABI of your contract. 
+        customEventAbi: {},// Here you will specify the event you want to monitor from the ABI of your contract.
         webhookUrl: "https://xxxxxxx/", // Enter the address of the webhook
         confirmationsBlocks: 50 // Depending on your needs, select the number of confirmed blocks before an event triggers your watcher
     }
@@ -114,17 +113,16 @@ startonApi.post(
 1. Fill in the **Settings**.
    ![Watcher constructor](src/constructorwatchercustom.png)
 1. In **Construction**:
-   1. Select a **Blockchain**.
-   1. Select a **Network**.
-   1. Enter an address
-   1. Enter a webhook URL.
+    1. Select a **Blockchain**.
+    1. Select a **Network**.
+    1. Enter an address
+    1. Enter a webhook URL.
 1. In **Confirmation blocks**, enter a number.
-   <img src={GitHubLogo} style={{ width: 500 }} />
+    <img src={GitHubLogo} style={{ width: 500 }} />
 1. Click **Create**.
 
 </TabItem>
 </Tabs>
-
 
 ## Watcher states and status
 
@@ -149,5 +147,5 @@ When **Paused**, a status enables you to understand how to solve the issue.
 **Related topics**
 
 -   More on [Transactions](/Transactions/creating-a-transaction.mdx)
--   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
--   More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.mdx)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.mdx)

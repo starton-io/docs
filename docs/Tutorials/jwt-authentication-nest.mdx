@@ -11,7 +11,7 @@ import { Starton } from '@starton/react-ui-iconography'
 
 ⌛ 1 hour and a half
 
-🟡 Difficulty: Intermediate 
+🟡 Difficulty: Intermediate
 
 
 This tutorial will guide you through the process of building an authentication system based on JSON Web Tokens (JWT) using NestJS, a progressive Node.js framework. JWT is a widely adopted and standardized approach for securely exchanging data between different entities. It is commonly employed in web applications for tasks such as authentication and authorization.
@@ -58,7 +58,7 @@ Prisma: Prisma is an ORM (Object-Relational Mapping) tool that we will use to in
 
 To install these development packages:
 
-1. Go to `jwt-auth-tuto`, 
+1. Go to `jwt-auth-tuto`,
 2. Run the following command:
 
   ```bash
@@ -81,11 +81,11 @@ To install these packages, run the following command:
 yarn add @nestjs/jwt bcrypt @prisma/client class-validator class-transformer uuid cookie-parser
 ```
 
-## Prisma Models 
+## Prisma Models
 
 ### Creating Prisma models
 
-:::info 
+:::info
 
 A model is a representation of a collection
 
@@ -270,7 +270,7 @@ export class AppModule {}
 
 We configure the `JwtModule` using `register()`, passing in a configuration object. It contains the secret we use to sign issued JWTs and their lifetime duration.
 
-See [here](https://github.com/nestjs/jwt/blob/master/README.md) for more on the Nest `JwtModule` and [here](https://github.com/auth0/node-jsonwebtoken#usage) for more details on the available configuration options.
+See [here](https://github.com/nestjs/jwt/blob/master/README.mdx) for more on the Nest `JwtModule` and [here](https://github.com/auth0/node-jsonwebtoken#usage) for more details on the available configuration options.
 
 :::info
 💡 To generate a strong secret, you can run the following command in your terminal:
@@ -521,7 +521,7 @@ We can now implement the business logic of these routes. In order to do so, we w
 
 ## Creating a user service
 
-Let's create a user service to handle user-related tasks such as authentication, adding or fetching users from a database. 
+Let's create a user service to handle user-related tasks such as authentication, adding or fetching users from a database.
 
 Open the file named `src/user/user.service.ts` and add the following code:
 
@@ -666,6 +666,6 @@ If you retest your routes, password should have disappeared from responses.
 
 Congratulations! You have successfully created a JWT-based authentication system with NestJS.
 
-## Results 
+## Results
 
 Thank you for following this tutorial. Together, we learned to create a JWT-based authentication system with NestJS. We set up a Prisma service and generated a Prisma Client, created a user resource with a layered architecture, configured the JwtModule, and implemented an authentication controller. We also explored Guards for route protection, built a user service, and conducted thorough testing.

@@ -3,9 +3,9 @@ title: Using Starton API
 description: Learn how to use Starton API
 keywords: [Starton, REST, API]
 ---
-import { RocketLaunchOutlined } from '@mui/icons-material'
-import { CardTitle } from '@site/src/components/commons/CardTitle'
-import { Starton } from '@starton/react-ui-iconography'
+
+import { CardTitle } from "@site/src/components/commons/CardTitle"
+import { Starton } from "@starton/react-ui-iconography"
 
 # Using Starton API
 
@@ -24,17 +24,15 @@ API keys are linked to your projects/account, so anyone gaining access to your A
 
 On the **Developer** section, you can generate new API keys or revoke the previous ones (for example, if they leaked).
 
-<CardTitle icon={<Starton fill='primary' />} href="https://app.starton.com/projects/default/developer" target="_blank">
-Create an API key
+<CardTitle icon={<Starton fill="primary" />} href="https://app.starton.com/projects/default/developer" target="_blank">
+	Create an API key
 </CardTitle>
-
-
 
 ### Using an API Key
 
 The API key will be needed in your code if you try to call Connect's API endpoints (as the x-api-key variable in the Headers of the requests).
 
-```jsx showLineNumbers
+```js showLineNumbers
 const startonApi = axios.create({
 	baseURL: "https://api.starton.com",
 	headers: {
@@ -52,7 +50,7 @@ API calls can return a large number of items. It can be very useful to set the n
 This information is set in the path of your request. You can use:
 
 -   **limit**: the number of results returned by page. By default, this number is set to 100.
--   https://app.starton.com/projects/prj_0aabc65114714d15ac1d5fdae59ef4f5/developer: the page returned. By default, the page returned is the first. 
+-   https://app.starton.com/projects/prj_0aabc65114714d15ac1d5fdae59ef4f5/developer: the page returned. By default, the page returned is the first.
 
 For example if you want to get the list of templates Starton will return, you will use the path:
 
@@ -60,17 +58,18 @@ For example if you want to get the list of templates Starton will return, you wi
 
 In this example, the call will return results 6 to 10.
 
-```jsx
+```js
 const axios = require("axios")
 
 const http = axios.create({
-    baseURL: "https://api.starton.com/v3",
-    headers: {
-        "x-api-key": ‘YOUR_API_KEY’,
-    },
+	baseURL: "https://api.starton.com/v3",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
 })
-http.get('/smart-contract-template?limit=5&page=2').then(response => {
-    console.log(response.data)
+
+http.get("/smart-contract-template?limit=5&page=2").then((response) => {
+	console.log(response.data)
 })
 ```
 
@@ -82,21 +81,21 @@ You can filter your API calls using parameters. For example, if you created watc
 
 If the watchers you need are on "avalanche-fuji", you could make the following call:
 
-```jsx
+```js
 const axios = require("axios")
 
 const http = axios.create({
-    baseURL: "https://api.starton.com/v3",
-    headers: {
-        "x-api-key": ‘YOUR_API_KEY’,
-    },
+	baseURL: "https://api.starton.com/v3",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
 })
-http.get('/watcher?network=polygon-mumbai').then(response => {
-    console.log(response.data)
+http.get("/watcher?network=polygon-mumbai").then((response) => {
+	console.log(response.data)
 })
 ```
 
 **Related topics**
 
--   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
--   More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.mdx)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.mdx)

@@ -14,11 +14,11 @@ We will use random images uploaded on IPFS (a distributed file storage system) a
 You will :
 
 -   Use a template from Starton for our smart contract (ERC721).
--   Deploy it with Starton from the dashboard. To deploy contracts from code, see [Deploying a smart contract from code](deploy-a-contract-from-code.md).
+-   Deploy it with Starton from the dashboard. To deploy contracts from code, see [Deploying a smart contract from code](deploy-a-contract-from-code.mdx).
 -   Upload the content of our NFTs and their metadata on IPFS.
 -   Interact with our smart contract using Starton API in order to mint the NFTs and give it to a specific address.
 
-If you feel stuck or have questions, feel free to get in touch in our [Discord](deploy-a-contract-from-code.md).
+If you feel stuck or have questions, feel free to get in touch in our [Discord](deploy-a-contract-from-code.mdx).
 We’ll be glad to help you!
 
 ## Choose a smart contract template
@@ -42,7 +42,7 @@ The best solution is to store it somewhere else and only store a reference on-ch
 
 We will deploy the contract only once, so we will do it directly from Starton’s dashboard.
 
-We can access the list of templates in the [Smart contract section](/Smart-contract/understanding-smart-contracts.md).
+We can access the list of templates in the [Smart contract section](/Smart-contract/understanding-smart-contracts.mdx).
 
 1. Select the ERC721 template.
 1. Enter:
@@ -106,7 +106,7 @@ The hash of the content is called a Content IDentifier (CID) on IPFS.
 
 And when we will upload our contract-level metadata on IPFS we will get a CID back, which is the value we need to put as the Contract Suffix Uri in our smart contract.
 
-To upload our files on IPFS we will now use the [Starton IPFS](/IPFS/understanding-IPFS.md) pinning service.
+To upload our files on IPFS we will now use the [Starton IPFS](/IPFS/understanding-IPFS.mdx) pinning service.
 
 As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.com/ipfs)
 Once done, a column “CID” appears with a value for our file that starts with “Qm”. This is the value we need for the Contract Uri Suffix of our smart contract!

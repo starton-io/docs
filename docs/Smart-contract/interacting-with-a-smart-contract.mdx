@@ -26,15 +26,16 @@ To interact with a smart contract, you can first list all the functions of your 
 const axios = require("axios")
 
 const startonAPI = axios.create({
-    baseURL: "https://api.starton.com",
-    headers: {
-        "x-api-key": "YOUR_API_KEY",
-    },
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
 })
 
-startonAPI.get("/v3/smart-contract/polygon-mumbai/0xF205506dA3aF8D0Cc0f90D7C0c0eA4EFA6423CFF/available-functions")
-    .then(res=>console.log(res.data))
-    .catch(e=>console.log(e))
+startonAPI
+	.get("/v3/smart-contract/polygon-mumbai/0xF205506dA3aF8D0Cc0f90D7C0c0eA4EFA6423CFF/available-functions")
+	.then((res) => console.log(res.data))
+	.catch((e) => console.log(e))
 ```
 
 Then, once you have the right function, you can call it. For example, here, we're trying to mint 1000 new tokens.
@@ -43,21 +44,20 @@ Then, once you have the right function, you can call it. For example, here, we'r
 const axios = require("axios")
 
 const startonAPI = axios.create({
-    baseURL: "https://api.starton.com",
-    headers: {
-        "x-api-key": "YOUR_API_KEY",
-    },
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
 })
 
-startonAPI.post("/v3/smart-contract/polygon-mumbai/0x608B2BC89f569Bf883A6d0A36aDBd8DC937fAf2e/call", {
-    signerWallet: "0x694F07CEEc0869aa0dB5E8157FA538268F28B23f",
-    functionName: "mint(address,uint256)",
-    params: [
-        "0x694F07CEEc0869aa0dB5E8157FA538268F28B23f",
-        "10000000000000"
-    ],
-}).then(res=>console.log(res.data))
-    .catch(e=>console.log(e))
+startonAPI
+	.post("/v3/smart-contract/polygon-mumbai/0x608B2BC89f569Bf883A6d0A36aDBd8DC937fAf2e/call", {
+		signerWallet: "0x694F07CEEc0869aa0dB5E8157FA538268F28B23f",
+		functionName: "mint(address,uint256)",
+		params: ["0x694F07CEEc0869aa0dB5E8157FA538268F28B23f", "10000000000000"],
+	})
+	.then((res) => console.log(res.data))
+	.catch((e) => console.log(e))
 ```
 
 As the number will be read in Gwei, you need to add 18 zeros after the amount of token you want to mint.
@@ -66,7 +66,7 @@ You can check your transaction using the transaction hash on your selected netwo
 
 Learn more about [how to interact with a Smart Contract from Code](/Tutorials/interact-from-code.mdx) in our Tutorial section.
 
-</TabItem> 
+</TabItem>
 <TabItem value="dashboard" label="From Webapp">
 
 1. In **Smart Contract**, select a **Smart Contract**.
@@ -92,5 +92,5 @@ When interacting with smart contracts on Dashboard, you can use the search featu
 **Related topics**
 
 -   More on [Transactions](/Transactions/creating-a-transaction.mdx)
--   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
--   More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.mdx)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.mdx)

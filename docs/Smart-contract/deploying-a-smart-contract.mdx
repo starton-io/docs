@@ -23,22 +23,23 @@ Let's find the template that suits your need.
 
 To do this, you can query Starton’s API. First you need to authenticate using an API key.
 
-Create an API key from the dashboard in the [Developer section](/Developer/API.md).
+Create an API key from the dashboard in the [Developer section](/Developer/API.mdx).
 Using this API key, we can make a call using the following JS code:
 
 ```jsx showLineNumbers
 const axios = require("axios")
 
 const startonAPI = axios.create({
-    baseURL: "https://api.starton.com",
-    headers: {
-        "x-api-key": "YOUR_API_KEY",
-    },
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
 })
 
-startonAPI.get('/v3/smart-contract-template')
-    .then(res=>console.log(res.data))
-    .catch(e=>console.log(e))
+startonAPI
+	.get("/v3/smart-contract-template")
+	.then((res) => console.log(res.data))
+	.catch((e) => console.log(e))
 ```
 
 Be sure to replace `x-api-key value` with your own API key!
@@ -79,7 +80,7 @@ We’ll choose to deploy our contract on the `ethereum-goerli` network. The list
 
 Note that is it crucial that we fuel our wallet with some Ether faucet. Otherwise the blockchain will reject our smart contract’s deployment as we will lack funds to cover the gas fees.
 
-In order to claim test faucets we need to go on the [Wallet](/Wallet/understanding-key-management-systems.md) section on Connect’s dashboard and find the address associated to the network we are interested in.
+In order to claim test faucets we need to go on the [Wallet](/Wallet/understanding-key-management-systems.mdx) section on Connect’s dashboard and find the address associated to the network we are interested in.
 
 Here, it is the ethereum-goerli network.
 
@@ -108,27 +109,23 @@ Here is the code to deploy the contract (Axios being configured as before):
 const axios = require("axios")
 
 const startonAPI = axios.create({
-    baseURL: "https://api.starton.com",
-    headers: {
-        "x-api-key": "YOUR_API_KEY",
-    },
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
 })
 
-startonAPI.post("/v3/smart-contract/from-template", {
-    network: "polygon-mumbai",
-    templateId: "ERC20_MINT_META_TRANSACTION",
-    name: "My token with starton",
-    signerWallet: "0x694F07CEEc0869aa0dB5E8157FA538268F28B23f",
-    description: "Description on my token",
-    params: [
-        "DemoToken",
-        "DEMO",
-        "1000000000000000000000000",
-        "0x694F07CEEc0869aa0dB5E8157FA538268F28B23f"
-    ],
-})
-    .then(res=>console.log(res.data))
-    .catch(e=>console.log(e))
+startonAPI
+	.post("/v3/smart-contract/from-template", {
+		network: "polygon-mumbai",
+		templateId: "ERC20_MINT_META_TRANSACTION",
+		name: "My token with starton",
+		signerWallet: "0x694F07CEEc0869aa0dB5E8157FA538268F28B23f",
+		description: "Description on my token",
+		params: ["DemoToken", "DEMO", "1000000000000000000000000", "0x694F07CEEc0869aa0dB5E8157FA538268F28B23f"],
+	})
+	.then((res) => console.log(res.data))
+	.catch((e) => console.log(e))
 ```
 
 The expected result:
@@ -188,7 +185,7 @@ We’ll choose to deploy our contract on the `ethereum-goerli` network. The list
 
 Note that is it crucial that we fuel our wallet with some Ether faucet. Otherwise the blockchain will reject our smart contract’s deployment as we will lack funds to cover the gas fees.
 
-In order to claim test faucets we need to go on the [Wallet](/Wallet/understanding-key-management-systems.md) section on Connect’s dashboard and find the address associated to the network we are interested in.
+In order to claim test faucets we need to go on the [Wallet](/Wallet/understanding-key-management-systems.mdx) section on Connect’s dashboard and find the address associated to the network we are interested in.
 
 Here, it is the ethereum-goerli network.
 
@@ -208,5 +205,5 @@ Enter your address, click **Send me test Ether** and wait for the transaction to
 **Related topics**
 
 -   More on [Transactions](/Transactions/creating-a-transaction.mdx)
--   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.md)
--   More on [Developer mode](/Developer/Discovering-coding-interface.md)
+-   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.mdx)
+-   More on [Developer mode](/Developer/Discovering-coding-interface.mdx)
