@@ -46,7 +46,6 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "openapi": "^1.0.1",
-    "path": "npm:path-browserify@^1.0.1",
     "path-browserify": "^1.0.1",
     "posthog-docusaurus": "^2.0.0",
     "prism-react-renderer": "^2.0.4",
