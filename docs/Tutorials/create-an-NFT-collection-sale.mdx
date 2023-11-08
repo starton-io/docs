@@ -2,70 +2,72 @@
 title: How to Sell an NFT collection in an Auction
 ---
 
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+
 # How to Sell an NFT collection in an Auction
 
 In this tutorial, you will learn how to sell an NFT collection in an Auction.
 
-:::info Prerequisites 
+:::info Prerequisites
 
-You will need a base smart contract 
-deployed. To deploy your ERC1155 NFT collection smart contract, go to [**How to create a one-to-many NFT collection**](/Tutorials/creating-NFT-collection.mdx). 
+You will need a base smart contract
+deployed. To deploy your ERC1155 NFT collection smart contract, go to [**How to create a one-to-many NFT collection**](/Tutorials/creating-NFT-collection.mdx).
 
 :::
 
+<div className="row-is-multiline">
 
-
-<div class="row-is-multiline">
-
-<div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
-		<h3>Deploy your Smart contracts on the Dashboard</h3>
-		<div class="button-card__inner">
-			<p color="white">Go to <b>Starton Dashboard</b>, deploy your smart contracts and check all the transactions of your smart contract at one glance.</p>
+<div className="col col--2" className="cards">
+	<Link className="button-card button-card--vertical" to="https://app.starton.com/projects">
+		<Heading as={"h3"}>Deploy your Smart contracts on the Dashboard</Heading>
+		<div className="button-card__inner">
+			<p color="white">
+				Go to <b>Starton Dashboard</b>, deploy your smart contracts and check all the transactions of your smart
+				contract at one glance.
+			</p>
 		</div>
-	</a>
+	</Link>
 </div>
 
 </div>
-
 
 ## Deploy an ERC1155 Auction Sale smart contract
 
 You can start by accessing the list of templates in the [Smart contract section](/Smart-contract/understanding-smart-contracts.md). Then, you can deploy the smart contract from code.
 
-   ```jsx showLineNumbers 
-   const axios = require("axios")
-   
-   const axiosInstance = axios.create({
-      baseURL: "https://api.starton.com",
-      headers: {
-      "x-api-key": "PUT HERE YOUR API KEY",
-      },
-   })
-   
-   axiosInstance.post(
-      "/v3/smart-contract/from-template",
-      {
-         network: "",
-         signerWallet: "",
-         templateId: "ERC1155_AUCTION_SALE",
-         name: "",
-         description: "",
-         params: [
-            "",//definitiveTokenAddress
-            "",//definitiveFeeReceiver
-            "",//initialStartingPrice
-            "",//initialMinPriceDifference
-            "",//initialStartTime
-            "",//initialEndTime
-            "",//initialTokenID
-            ""//initialTokenAmount
-         ]
-      }
-   ).then((response) => {
-   console.log(response.data)
-   })
-   ```
+```js showLineNumbers
+const axios = require("axios")
+
+const axiosInstance = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "PUT HERE YOUR API KEY",
+	},
+})
+
+axiosInstance
+	.post("/v3/smart-contract/from-template", {
+		network: "",
+		signerWallet: "",
+		templateId: "ERC1155_AUCTION_SALE",
+		name: "",
+		description: "",
+		params: [
+			"", //definitiveTokenAddress
+			"", //definitiveFeeReceiver
+			"", //initialStartingPrice
+			"", //initialMinPriceDifference
+			"", //initialStartTime
+			"", //initialEndTime
+			"", //initialTokenID
+			"", //initialTokenAmount
+		],
+	})
+	.then((response) => {
+		console.log(response.data)
+	})
+```
 
 1. Select the ERC1155 Auction template.
 1. Enter:
@@ -86,65 +88,63 @@ For the sale contract to be able to mint new tokens, you are going to need to gr
 
 You will need:
 
-- the address of the base ERC1155 contract
-- the address of the Sale contract
-- the data of the Minter Role (in bytes)
+-   the address of the base ERC1155 contract
+-   the address of the Sale contract
+-   the data of the Minter Role (in bytes)
 
 ### Retrieving the MINTER_ROLE
 
 First, let's get the minter role:
-```jsx showLineNumbers
-    const axios = require("axios")
-    
-    const axiosInstance = axios.create({
-        baseURL: "https://api.starton.com",
-        headers: {
-        "x-api-key": "PUT HERE YOUR API KEY",
-    },
-    })
-    
-    axiosInstance.post(
-    "/v3/smart-contract/{network}/{YOUR_BASE_CONTRACT}/read",
-        {
-        functionName: "MINTER_ROLE",
-        params: []
-        }
-    ).then((response) => {
-    console.log(response.data)
-    })
+
+```js showLineNumbers
+const axios = require("axios")
+
+const axiosInstance = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "PUT HERE YOUR API KEY",
+	},
+})
+
+axiosInstance
+	.post("/v3/smart-contract/{network}/{YOUR_BASE_CONTRACT}/read", {
+		functionName: "MINTER_ROLE",
+		params: [],
+	})
+	.then((response) => {
+		console.log(response.data)
+	})
 ```
+
 ### Granting the minter role to your Sale contract
 
 To grant the minter role to your contract, you can use the following request:
 
-```jsx
+```js
 const axios = require("axios")
 
 const axiosInstance = axios.create({
-    baseURL: "https://api.starton.com",
-    headers: { "x-api-key": "PUT HERE YOUR API KEY" },
+	baseURL: "https://api.starton.com",
+	headers: { "x-api-key": "PUT HERE YOUR API KEY" },
 })
 
-axiosInstance.post(
-	"/v3/smart-contract/${network}/${YOUR SMART CONTRAT ADDRESS}/call",
-	{
+axiosInstance
+	.post("/v3/smart-contract/${network}/${YOUR SMART CONTRAT ADDRESS}/call", {
 		functionName: "grantRole(bytes32,address)",
 		params: [
 			"0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6", // MINTER_ROLE
-			"" // account
+			"", // account
 		],
 		signerWallet: "",
-		speed: "average"
-	}
-).then((response) => {
-	console.log(response.data)
-})
+		speed: "average",
+	})
+	.then((response) => {
+		console.log(response.data)
+	})
 ```
 
-- account: The whitelist sale contract address
-
+-   account: The whitelist sale contract address
 
 ## Interact with your contract
 
 You can now bid, claim, or start a new auction. The mint of your NFT is made when the bider which has won the auction claims it.
-

@@ -3,8 +3,11 @@ title: Understanding Monitor
 description: Monitor inspects every block on all supported blockchains to continuously check for activity..
 keywords: [Starton, Watchers, Monitor, Transaction]
 ---
-import { CardTitle } from '@site/src/components/commons/CardTitle'
-import { Starton } from '@starton/react-ui-iconography'
+
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+import { CardTitle } from "@site/src/components/commons/CardTitle"
+import { Starton } from "@starton/react-ui-iconography"
 
 # Blockchain Network Monitor
 
@@ -20,54 +23,56 @@ Webhooks can't be received on localhost. During development, you can use ngrok o
 
 ## Getting Started
 
-<CardTitle icon={<Starton fill='primary' />} href="/docs/Tutorials/monitoring-blockchain-activity">
-Getting started: Monitoring blockchain activity
+<CardTitle icon={<Starton fill="primary" />} href="/docs/Tutorials/monitoring-blockchain-activity">
+	Getting started: Monitoring blockchain activity
 </CardTitle>
 
+<div className="row is-multiline">
+    <div className="col col--5">
+        <Heading as={'h2'}>Guides</Heading>
+        <div className="button-card__inner">
+            <Link to="https://docs.starton.com/docs/Transactions/understanding-the-relayer">
+                <Heading as={'h5'}>Transaction  management</Heading>
+            </Link>
+            <Link to="https://docs.starton.com/docs/Transactions/state-and-status">
+                <Heading as={'h5'}>
+                    Transaction states <br/>and status
+                </Heading>
+            </Link>
+            <Link to="https://docs.starton.com/docs/Transactions/understanding-gas">
+                <Heading as={'h5'}>Gas management</Heading>
+            </Link>
+        </div>
+    </div>
 
-
-<div class="row is-multiline">
-<div class="col col--5">
-<h2>Guides</h2>
-<div class="button-card__inner">
-
-<a href="https://docs.starton.com/docs/Transactions/understanding-the-relayer"><h5>Transaction management</h5></a>
-<a href="https://docs.starton.com/docs/Transactions/state-and-status"><h5>Transaction states <br/>and status</h5></a>
-<a href="https://docs.starton.com/docs/Transactions/understanding-gas"><h5>Gas management</h5></a>
-
+    <div className="col col--5">
+        <Heading as={'h2'}>Main API Endpoints</Heading>
+        <div className="button-card__inner">
+            <Link to="/api-reference#tag/monitor/[post]/v3/watcher">
+                <Heading as={'h5'}>Create a New Watcher</Heading>
+            </Link>
+            <Link to="/api-reference#tag/monitor/[get]/v3/watcher/{id}/event">
+                <Heading as={'h5'}>Fetches the list of events <br/>for a watcher</Heading>
+            </Link>
+            <Link to="/api-reference#tag/monitor/[get]/v3/watcher/{id}/event/{eventId}">
+                <Heading as={'h5'}>Get a watcher event</Heading>
+            </Link>
+        </div>
+    </div>
 
 </div>
 
-</div>
+## Tutorials
 
-<div class="col col--5">
-<h2>Main API Endpoints</h2>
-<div class="button-card__inner">
-
-<a href="/api-reference#tag/monitor/[post]/v3/watcher"><h5>Create a New Watcher</h5></a>
-<a href="/api-reference#tag/monitor/[get]/v3/watcher/{id}/event"><h5>Fetches the list of events <br/>for a watcher</h5></a>
-<a href="/api-reference#tag/monitor/[get]/v3/watcher/{id}/event/{eventId}"><h5>Get a watcher event</h5></a>
-
-
-</div></div>
-</div>
-
-
-
-
-
-## Tutorials 
-<CardTitle icon={<Starton fill='primary' />} href="/docs/Tutorials/how-to-ensure-notifys-webhooks-are-from-starton">
-How to ensure Monitor's webhooks are from Starton
+<CardTitle icon={<Starton fill="primary" />} href="/docs/Tutorials/how-to-ensure-notifys-webhooks-are-from-starton">
+	How to ensure Monitor's webhooks are from Starton
 </CardTitle>
-<br/>
-<CardTitle icon={<Starton fill='primary' />} href="/Tutorials/track-wallet-activity">
-Track a wallet activity on a Googlesheets using Zapier
+<br />
+<CardTitle icon={<Starton fill="primary" />} href="/Tutorials/track-wallet-activity">
+	Track a wallet activity on a Googlesheets using Zapier
 </CardTitle>
-<br/>
-<CardTitle icon={<Starton fill='primary' />} href="/Tutorials/monitor-nft-activity">
-Notifying users when they receive an NFT
+<br />
+<CardTitle icon={<Starton fill="primary" />} href="/Tutorials/monitor-nft-activity">
+	Notifying users when they receive an NFT
 </CardTitle>
-<br/>
-
-
+<br />

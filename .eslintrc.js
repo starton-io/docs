@@ -51,10 +51,26 @@ module.exports = {
 				project: ['./tsconfig.json'], // Specify it only for TypeScript files
 			},
 		},
+		{
+			files: ['*.mdx'],
+			extends: ['plugin:mdx/recommended'],
+			plugins: ['@typescript-eslint'],
+			parserOptions: {
+				project: ['./tsconfig.json'], // Specify it only for TypeScript files
+			},
+			settings: {
+				'mdx/code-blocks': true,
+			},
+			rules: {
+				'import/no-unresolved': 0,
+			},
+		},
 	],
 
 	rules: {
 		'@docusaurus/no-untranslated-text': ['warn', { ignoredStrings: ['·', '—', '×'] }],
+		'@docusaurus/no-html-links': 2,
+		'@docusaurus/prefer-docusaurus-heading': 2,
 		semi: ['error', 'never'],
 		'comma-dangle': ['error', 'always-multiline'],
 		'quote-props': ['error', 'as-needed'],

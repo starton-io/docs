@@ -2,20 +2,27 @@
 title: How to Sell an NFT in an Auction
 ---
 
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+
 # How to Sell an NFT in an Auction
 
 In this tutorial, you will learn how to sell an NFT in an Auction.
 
-<div class="row-is-multiline">
+<div className="row-is-multiline">
 
-<div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
-		<h3>Deploy your Smart contracts on the Dashboard</h3>
-		<div class="button-card__inner">
-			<p color="white">Go to <b>Starton Dashboard</b>, deploy your smart contracts and check all the transactions of your smart contract at one glance.</p>
-		</div>
-	</a>
-</div>
+    <div className="col col--2" className="cards">
+        <Link className="button-card button-card--vertical" to="https://app.starton.com/projects">
+            <Heading as={"h3"}>Deploy your Smart contracts on the Dashboard</Heading>
+            <div className="button-card__inner">
+                <p color="white">
+                    Go to <b>Starton Dashboard</b>, deploy your smart contracts and check all the transactions of your
+                    smart
+                    contract at one glance.
+                </p>
+            </div>
+        </Link>
+    </div>
 
 </div>
 
@@ -29,14 +36,14 @@ To enter a name on the marketplace’s dashboard and perceive fees when someone 
 
 Here are the values we will use:
 
-```jsx
+```json
 {
-  "name": “My Super NFT on Auction“,
-  "description": “You’ve never seen NFTs this beautiful.”,
-  "image": "",
-  "external_link": "",
-  "seller_fee_basis_points": 100,
-  "fee_recipient": “PUT YOUR ADDRESS HERE”
+	"name": "My Super NFT on Auction",
+	"description": "You’ve never seen NFTs this beautiful.",
+	"image": "",
+	"external_link": "",
+	"seller_fee_basis_points": 100,
+	"fee_recipient": "PUT YOUR ADDRESS HERE"
 }
 ```
 
@@ -47,11 +54,11 @@ To upload our files on IPFS we will now use the [Starton IPFS](/IPFS/understandi
 As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.com/ipfs).
 
 1. Go to **IPFS**.
-1. Click **Upload**.
-1. Select **JSON**.
-1. Enter JSON content.
-1. Enter a name for the file.
-1. Click **Upload**.
+2. Click **Upload**.
+3. Select **JSON**.
+4. Enter JSON content.
+5. Enter a name for the file.
+6. Click **Upload**.
 
 Once done, a column “CID” appears with a value for our file. We will use this data for the Contract Uri Suffix of our smart contract!
 
@@ -62,11 +69,11 @@ We do not store the content directly on blockchain as it is too heavy and would 
 The best solution is to store it somewhere else and only store a reference on-chain.
 
 1. Go to **IPFS**.
-1. Click **Upload**.
-1. Select File(s).
-1. Select content.
-1. Enter a name for the file.
-1. Click **Upload**.
+2. Click **Upload**.
+3. Select File(s).
+4. Select content.
+5. Enter a name for the file.
+6. Click **Upload**.
 
 Once our image uploaded, let's upload its metadata so that we can call it from our smart contract function.
 
@@ -79,11 +86,11 @@ Consult the [metadata standard format](https://docs.element.market/welcome-to-el
 :::
 
 1. Go to **IPFS**.
-1. Click **Upload**.
-1. Select JSON.
-1. Select content.
-1. Enter a name for the file.
-1. Click **Upload**.
+2. Click **Upload**.
+3. Select JSON.
+4. Select content.
+5. Enter a name for the file.
+6. Click **Upload**.
 
 Everything we need to sell your NFT is an auction is done.
 
@@ -94,12 +101,13 @@ We will deploy the contract only once, so we will do it directly from Starton’
 We can access the list of templates in the [Smart contract section](/Smart-contract/understanding-smart-contracts.md).
 
 1. Select the ERC721 NFT Smart Contract template.
-1. Enter:
-    - a name for your contract,
-    - a wallet to sign the transaction,
-    - a blockchain / network on which to deploy, here BNB testnet.
-    - the parameters of our contract.
-      For more information on parameters, check out the [Deploying a Smart Contract](/Smart contract/deploying-a-smart-contract).
+2. Enter:
+
+-   a name for your contract,
+-   a wallet to sign the transaction,
+-   a blockchain / network on which to deploy, here BNB testnet.
+-   the parameters of our contract.
+    For more information on parameters, check out the [Deploying a Smart Contract](/Smart contract/deploying-a-smart-contract).
 
 For example, we can call our contract “Best NFTs on BNB” and deploy it on the BNB Testnet network.
 
@@ -119,7 +127,7 @@ We will deploy the contract only once, so we will do it directly from Starton’
 We can access the list of templates in the [Smart contract section](/Smart-contract/understanding-smart-contracts.md).
 
 1. Select the ERC721 Auction template.
-1. Enter:
+2. Enter:
 
 -   **definitiveTokenAddress**: The token address of the ERC721 that you want to sell.
 -   **definitiveFeeReceiver**: The address that will receive all the price paid to mint the NFTs.

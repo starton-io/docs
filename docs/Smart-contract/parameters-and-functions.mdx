@@ -3,13 +3,16 @@ title: Smart contracts library
 description: Smart contracts are programs deployed on the blockchain. Their functions are executed with transactions. Learn more about smart contracts with Starton.
 keywords: [Deploy, Import, Interact, Starton, Smart contracts]
 ---
-import { CardTitle } from '@site/src/components/commons/CardTitle'
-import { Starton } from '@starton/react-ui-iconography'
+
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+import { CardTitle } from "@site/src/components/commons/CardTitle"
+import { Starton } from "@starton/react-ui-iconography"
 
 # Smart contracts library
 
-**Starton** allows you to access a **collection of audited smart contracts** covering most frequent use cases and needs.
-It currently includes flavours of the classic **ERC20** (cryptocurrency), **ERC721** and **ERC1155** (NFT) smart contracts.
+**Starton** allows you to access Link tocollection of audited smart contracts** covering most frequent use cases and needs.
+It currently includes flavours of the classNameic **ERC20** (cryptocurrency), **ERC721** and **ERC1155\*\* (NFT) smart contracts.
 
 :::info Smart contract Audit
 You can find the audit and all of the templates on our **[GitHub repository](https://github.com/starton-io/smart-contract-templates)**
@@ -17,97 +20,96 @@ You can find the audit and all of the templates on our **[GitHub repository](htt
 
 ## Getting Started
 
-<CardTitle icon={<Starton fill='primary' />} href="/docs/Tutorials/deploy-first-smart-contract">
-Deploy my first smart contract template 
+<CardTitle icon={<Starton fill="primary" />} href="/docs/Tutorials/deploy-first-smart-contract">
+	Deploy my first smart contract template
 </CardTitle>
-<br/>
+<br />
 
-## Smart contract templates 
+## Smart contract templates
 
-<div class="row is-multiline">
-<div class="col col--5">
-<a  href="/docs/Smart-contract/ERC20-fixed-Meta"><h2>Create a cryptocurrency with Fungible Tokens</h2></a>
-<div class="button-card__inner">
+<div className="row is-multiline">
+    <div className="col col--5">
+        <Link to="/docs/Smart-contract/ERC20-fixed-Meta">
+            <Heading as={'h2'}>Create Link to with Fungible Tokens</Heading>
+        </Link>
+        <div className="button-card__inner">
 
-<p>Create your own cryptocurrency using fungible tokens with the smart contract standard ERC20.</p>
+            <p>Create your own cryptocurrency using fungible tokens with the smart contract standard ERC20.</p>
 
-<a href="/docs/Smart-contract/ERC20-fixed-Meta"><h5>ERC20 Fixed-supply </h5></a>
-<a href="/docs/Smart-contract/ERC20-mintable-Meta"><h5>ERC20 Mintable </h5></a>
-<p>   </p>
-</div>
+            <Link to="/docs/Smart-contract/ERC20-fixed-Meta">
+                <Heading as={'h5'}>ERC20 Fixed-supply </Heading>
+            </Link>
+            <Link to="/docs/Smart-contract/ERC20-mintable-Meta">
+                <Heading as={'h5'}>ERC20 Mintable </Heading>
+            </Link>
+        </div>
 
-</div>
+    </div>
 
-<div class="col col--5">
-<a href="/docs/Tutorials/how-to-change-the-smart-contracts-ownership"><h2>Deploy Non Fungible Tokens (NFT)</h2></a>
-<div class="button-card__inner">
-<p>Deploy your NFTs and collections with the smart contract standards ERC721 and ERC1155.</p>
+    <div className="col col--5">
+        <Link to="/docs/Tutorials/how-to-change-the-smart-contracts-ownership">
+            <Heading as={'h2'}>Deploy Non Fungible Tokens (NFT)</Heading>
+        </Link>
+        <div className="button-card__inner">
+            <p>Deploy your NFTs and collections with the smart contract standards ERC721 and ERC1155.</p>
 
-<a href="/docs/Smart-contract/ERC721-Meta"><h5>ERC721 NFT standard</h5></a>
-<a href="/docs/Smart-contract/ERC721-Capped"><h5>ERC721 NFT Capped</h5></a>
-<a href="/docs/Smart-contract/ERC1155-Meta"><h5>ERC1155 NFT collection</h5></a>
-<a href="/docs/Smart-contract/ERC721_ROYALTIES_META_TRANSACTION"><h5>ERC721 NFT standard (with royalty)</h5></a>
-<a href="/docs/Smart-contract/ERC721_ROYALTIES_CAPPED_META_TRANSACTION"><h5>ERC721 NFT Capped (with royalty)</h5></a>
-<a href="/docs/Smart-contract/ERC1155_ROYALTIES_META_TRANSACTION"><h5>ERC1155 NFT collection (with royalty)</h5></a>
-<p> <br/> </p>
-</div></div>
+            <Link to="/docs/Smart-contract/ERC721-Meta">
+                <Heading as={'h5'}>ERC721 NFT standard</Heading>
+            </Link>
+            <Link to="/docs/Smart-contract/ERC721-Capped">
+                <Heading as={'h5'}>ERC721 NFT Capped</Heading>
+            </Link>
+            <Link to="/docs/Smart-contract/ERC1155-Meta">
+                <Heading as={'h5'}>ERC1155 NFT collection</Heading>
+            </Link>
+            <Link to="/docs/Smart-contract/ERC721_ROYALTIES_META_TRANSACTION">
+                <Heading as={'h5'}>ERC721 NFT standard (with royalty)</Heading>
+            </Link>
+            <Link to="/docs/Smart-contract/ERC721_ROYALTIES_CAPPED_META_TRANSACTION">
+                <Heading as={'h5'}>ERC721 NFT Capped (with royalty)</Heading>
+            </Link>
+            <Link to="/docs/Smart-contract/ERC1155_ROYALTIES_META_TRANSACTION">
+                <Heading as={'h5'}>ERC1155 NFT collection (with royalty)</Heading>
+            </Link>
+        </div>
+    </div>
 
-<div class="col col--5">
-<a href="/docs/Tutorials/deploy-a-contract-from-code"><h2>Sell NFTs and collections</h2></a>
-<div class="button-card__inner">
-<p>Sell your NFTs and collections deployed with the smart contract standards ERC721 and ERC1155.</p>
+    <div className="col col--5">
+        <Link to="/docs/Tutorials/deploy-a-contract-from-code">
+            <Heading as={'h2'}>Sell NFTs and collections</Heading>
+        </Link>
+        <div className="button-card__inner">
+            <p>Sell your NFTs and collections deployed with the smart contract standards ERC721 and ERC1155.</p>
+            <Link to="/docs/Smart-contract/ERC721-Sale">
+                <Heading as={'h5'}>ERC721 Sale Transaction</Heading>
+            </Link>
+            <Link to="/docs/Smart-contract/ERC721-Auction-Sale">
+                <Heading as={'h5'}>ERC721 Auction Sale</Heading>
+            </Link>
+            <Link to="/docs/Smart-contract/ERC721-Whitelist-Sale">
+                <Heading as={'h5'}>ERC721 Whitelist Sale</Heading>
+            </Link>
+            <Link to="/docs/Smart-contract/ERC1155-Sale">
+                <Heading as={'h5'}>ERC1155 Sale Transaction</Heading>
+            </Link>
+            <Link to="/docs/Smart-contract/ERC1155-Auction">
+                <Heading as={'h5'}>ERC1155 Auction Sale</Heading>
+            </Link>
+            <Link to="/docs/Smart-contract/ERC1155-Whitelist-Sale">
+                <Heading as={'h5'}>ERC1155 Whitelist Sale</Heading>
+            </Link>
+        </div>
+    </div>
+    <div className="col col--5">
+        <Link to="/docs/Smart-contract/payment-splitter">
+            <Heading as={'h2'}>Other templates</Heading>
+        </Link>
+        <div className="button-card__inner">
+            <p> Deploy templates in any other use case such as splitting payments.</p>
+            <Link to="/docs/Smart-contract/payment-splitter">
+                <Heading as={'h5'}>Payment Splitter</Heading>
+            </Link>
+        </div>
+    </div>
 
-<a href="/docs/Smart-contract/ERC721-Sale">
-	<h5>ERC721 Sale Transaction</h5>
-</a>
-<a href="/docs/Smart-contract/ERC721-Auction-Sale">
-	<h5>ERC721 Auction Sale</h5>
-</a>
-<a href="/docs/Smart-contract/ERC721-Whitelist-Sale">
-	<h5>ERC721 Whitelist Sale</h5>
-</a>
-<a href="/docs/Smart-contract/ERC1155-Sale">
-	<h5>ERC1155 Sale Transaction</h5>
-</a>
-<a href="/docs/Smart-contract/ERC1155-Auction">
-	<h5>ERC1155 Auction Sale</h5>
-</a>
-<a href="/docs/Smart-contract/ERC1155-Whitelist-Sale">
-	<h5>ERC1155 Whitelist Sale</h5>
-</a>
-
-<p><br/></p>
-</div>
-
-</div>
-<div class="col col--5">
-<a href="/docs/Smart-contract/payment-splitter"><h2>Other templates</h2></a>
-<div class="button-card__inner">
-<p> Deploy templates in any other use case such as splitting payments.</p>
-
-<a href="/docs/Smart-contract/payment-splitter"><h5>Payment Splitter</h5></a>
-<p></p>
-</div>
-
-</div>
-<div class="col col--4">
-<a href="/docs/Tutorials/interact-from-code"><h2></h2></a>
-<div class="button-card__inner">
-
-<p></p>
-</div>
-
-</div>
-<div class="col col--4">
-<a href="/docs/Tutorials/how-to-ensure-notifys-webhooks-are-from-starton"><h2></h2></a>
-<div class="button-card__inner">
-
-<p></p></div>
-
-</div><div class="col col--5">
-<a href="/docs/Tutorials/interact-from-code"><h2></h2></a>
-<div class="button-card__inner">
-
-<p></p></div>
-</div>
 </div>

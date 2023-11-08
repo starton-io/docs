@@ -3,6 +3,9 @@ title: Deploy your NFTs with Starton
 displayedSidebar: tutorialSidebar
 ---
 
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+
 # Deploy your NFTs on blockchain with Starton
 
 In this tutorial, we will see how we can deploy a smart contract and interact with it to mint NFTs dynamically from code.
@@ -43,11 +46,12 @@ We can access the list of templates in the [Smart contract section](/Smart-contr
 
 1. Select the ERC721 template.
 1. Enter:
-    - a name for your contract,
-    - a wallet to sign the transaction,
-    - a blockchain / network on which to deploy,
-    - the parameters of our contract.
-      For more information on parameters, check out the [Deploying a Smart Contract](/Smart-contract/deploying-a-smart-contract.mdx).
+
+-   a name for your contract,
+-   a wallet to sign the transaction,
+-   a blockchain / network on which to deploy,
+-   the parameters of our contract.
+    For more information on parameters, check out the [Deploying a Smart Contract](/Smart-contract/deploying-a-smart-contract.mdx).
 
 For example, we can call our contract “My Super NFTs” and deploy it on the Polygon Mumbai network.
 
@@ -71,14 +75,14 @@ We need to implement [OpenSea’s specification](https://docs.opensea.io/docs/co
 
 Here are the values we will use:
 
-```jsx
+```json
 {
-  "name": “My Super NFTs“,
-  "description": “You’ve never seen NFTs this beautiful.”,
-  "image": "",
-  "external_link": "",
-  "seller_fee_basis_points": 100,
-  "fee_recipient": “PUT YOUR ADDRESS HERE”
+	"name": "My Super NFTs",
+	"description": "You’ve never seen NFTs this beautiful.",
+	"image": "",
+	"external_link": "",
+	"seller_fee_basis_points": 100,
+	"fee_recipient": "PUT YOUR ADDRESS HERE"
 }
 ```
 
@@ -123,9 +127,10 @@ The process of minting a new NFT and sending it to an address goes in three step
 
 ### Prepare our connection to the Starton API
 
-```jsx
+```js
 const axios = require("axios")
 const FormData = require("form-data")
+
 const starton = axios.create({
 	baseURL: "https://api.starton.com/v3",
 	headers: {
@@ -142,7 +147,7 @@ You can find your API keys and generate new ones in [the API section](https://ap
 
 We can create a simple function like this one:
 
-```jsx
+```js
 // The image variable should be a buffer
 async function uploadImageOnIpfs(image, name) {
 	let data = new FormData()
@@ -164,7 +169,7 @@ By calling this function, providing our image as a buffer as a parameter, we sho
 Consult the [metadata standard format](https://docs.opensea.io/docs/metadata-standards) on OpenSea documentation.
 We can define a new function using our image’s CID to upload the metadata on IPFS:
 
-```jsx
+```js
 async function uploadMetadataOnIpfs(imgCid) {
 	const metadataJson = {
 		name: `A Wonderful NFT`,
@@ -186,10 +191,11 @@ Feel free to change the name and description that suit your needs.
 
 Finally, we can call our smart contract “mint” function with the receiver’s address and the CID of the metadata we just uploaded:
 
-```jsx
+```js
 const SMART_CONTRACT_NETWORK = "polygon-mumbai"
 const SMART_CONTRACT_ADDRESS = ""
 const WALLET_IMPORTED_ON_STARTON = ""
+
 async function mintNft(receiverAddress, metadataCid) {
 	const nft = await starton.post(`/smart-contract/${SMART_CONTRACT_NETWORK}/${SMART_CONTRACT_ADDRESS}/call`, {
 		functionName: "mint",
@@ -209,12 +215,15 @@ We can now make the complete flow in only a few lines of code.
 
 > Notice that you need to define the receiver of the NFT and set the imgBuffer variable.
 
-```jsx showLineNumbers
+```js showLineNumbers
 const RECEIVER_ADDRESS = ""
 const imgBuffer = ""
-const ipfsImg = await uploadImageOnIpfs(imgBuffer, "filename.png")
-const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImgData.cid)
-const nft = await mintNft(RECEIVER_ADDRESS, ipfsMetadata.cid)
+
+async function uploadMint() {
+	const ipfsImg = await uploadImageOnIpfs(imgBuffer, "filename.png")
+	const ipfsMetadata = await uploadMetadataOnIpfs(ipfsImgData.cid)
+	const nft = await mintNft(RECEIVER_ADDRESS, ipfsMetadata.cid)
+}
 ```
 
 Annnnnd it’s done! Congratulations!
@@ -226,16 +235,18 @@ You should be able to see the NFTs on [OpenSea](https://testnets.opensea.io/asse
 
 We have seen in this tutorial how to upload NFTs on a decentralised file system, how to deploy an ERC721 smart contract using Starton, how to make it compatible with OpenSea’s standards and how we can dynamicaly mint the NFTs from code to send them to people!
 
-<div class="row-is-multiline">
+<div className="row-is-multiline">
 
-<div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
-		<h3>Check your Smart contract on the Dashboard</h3>
-		<div class="button-card__inner">
-			<p color="white">Go to <b>Starton Dashboard</b> and check all the transactions of your smart contract at one glance.</p>
-		</div>
-	</a>
-</div>
+    <div className="col col--2" className="cards">
+        <Link className="button-card button-card--vertical" to="https://app.starton.com/projects">
+            <Heading as={"h3"}>Check your Smart contract on the Dashboard</Heading>
+            <div className="button-card__inner">
+                <p color="white">
+                    Go to <b>Starton Dashboard</b> and check all the transactions of your smart contract at one glance.
+                </p>
+            </div>
+        </Link>
+    </div>
 
 </div>
 
@@ -245,4 +256,12 @@ Do not hesitate to share what you’ve done!
 
 You can also deploy your smart contract from our web application.
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/x5h-COA8B3Q?si=WxgC1WtlvGcoMi3O" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<iframe
+	width="560"
+	height="315"
+	src="https://www.youtube.com/embed/x5h-COA8B3Q?si=WxgC1WtlvGcoMi3O"
+	title="YouTube video player"
+	frameBorder="0"
+	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+	allowFullScreen
+/>

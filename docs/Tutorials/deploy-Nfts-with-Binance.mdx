@@ -2,8 +2,10 @@
 title: Deploy your NFTs on BNB Smart Chain with Starton
 ---
 
-import Tabs from '@theme/Tabs';
-import TabItem from '@theme/TabItem';
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
 
 # Deploy your NFTs on BNB Smart Chain with Starton
 
@@ -27,14 +29,14 @@ To enter a name on the marketplace’s dashboard and perceive fees when someone 
 
 Here are the values we will use:
 
-```jsx showLineNumbers
+```json5 showLineNumbers
 {
-  "name": “My Super NFT on BNB“,
-  "description": “You’ve never seen NFTs this beautiful.”,
-  "image": "URI of your image",// This will be used as the image of your collection
-  "external_link": "",
-  "seller_fee_basis_points": 100,
-  "fee_recipient": “PUT YOUR ADDRESS HERE”
+	name: "My Super NFT on BNB",
+	description: "You’ve never seen NFTs this beautiful.",
+	image: "URI of your image", // This will be used as the image of your collection
+	external_link: "",
+	seller_fee_basis_points: 100,
+	fee_recipient: "PUT YOUR ADDRESS HERE",
 }
 ```
 
@@ -44,25 +46,27 @@ To upload our files on IPFS we will now use the [Starton IPFS](/IPFS/understandi
 
 As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.com/ipfs).
 
-<div class="row-is-multiline">
+<div className="row-is-multiline">
 
-<div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
-		<h3>Upload a file on the Dashboard</h3>
-		<div class="button-card__inner">
-			<p color="white">Go to <b>Starton Dashboard</b> and upload all your files in three clicks.</p>
+<div className="col col--2" className="cards">
+	<Link className="button-card button-card--vertical" to="https://app.starton.com/projects">
+		<Heading as={"h3"}>Upload a file on the Dashboard</Heading>
+		<div className="button-card__inner">
+			<p color="white">
+				Go to <b>Starton Dashboard</b> and upload all your files in three clicks.
+			</p>
 		</div>
-	</a>
+	</Link>
 </div>
 
 </div>
 
 1. Go to **IPFS**.
-1. Click **Upload**.
-1. Select **JSON**.
-1. Enter JSON content.
-1. Enter a name for the file.
-1. Click **Upload**.
+2. Click **Upload**.
+3. Select **JSON**.
+4. Enter JSON content.
+5. Enter a name for the file.
+6. Click **Upload**.
 
 Once done, a column “CID” appears with a value for our file. We will use this data for the Contract Uri Suffix of our smart contract!
 
@@ -82,7 +86,7 @@ We will deploy the contract only once, so we will do it directly from Starton’
 We can access the list of templates in the [Smart contract section](/Smart-contract/understanding-smart-contracts.md).
 
 1. Select the ERC721 template.
-1. Enter:
+2. Enter:
     - a name for your contract,
     - a wallet to sign the transaction,
     - a blockchain / network on which to deploy, here BNB testnet.

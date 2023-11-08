@@ -64,6 +64,7 @@
     "@starton/design-token-theme-builder": "1.2.0",
     "eslint": "^8.53.0",
     "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-mdx": "^2.2.0",
     "eslint-plugin-prettier": "^5.0.1",
     "prettier": "3.0.3",
     "react-app-rewired": "^2.2.1",

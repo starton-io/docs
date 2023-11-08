@@ -8,6 +8,7 @@ import React from 'react'
 import { Avatar, BoxProps, styled, Typography, useTheme } from '@mui/material'
 import Box from '@mui/material/Box'
 import { ArrowLargeTopRight } from '@starton/react-ui-iconography'
+import Link from '@docusaurus/Link'
 
 /*
 |--------------------------------------------------------------------------
@@ -74,7 +75,7 @@ export const CardTitle: React.FC<CardTitleProps> = (props) => {
 	// Render
 	//--------------------------------------------------------------------------
 	return (
-		<a {...anchorProps} style={{ width: 'fit-content' }}>
+		<Link {...anchorProps} to={anchorProps.href} style={{ width: 'fit-content' }}>
 			<CardTitleStyled width="fit-content" {...boxProps}>
 				<IconStyled variant="square">{icon}</IconStyled>
 				{typeof children === 'string' ? (
@@ -90,6 +91,6 @@ export const CardTitle: React.FC<CardTitleProps> = (props) => {
 					className="StartonCardTitle-arrowLarge"
 				/>
 			</CardTitleStyled>
-		</a>
+		</Link>
 	)
 }

@@ -2,9 +2,10 @@
 title: Onboarding on Starton
 ---
 
-import { RocketLaunchOutlined } from '@mui/icons-material'
-import { CardTitle } from '@site/src/components/commons/CardTitle'
-import { Starton } from '@starton/react-ui-iconography'
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+import { CardTitle } from "@site/src/components/commons/CardTitle"
+import { Starton } from "@starton/react-ui-iconography"
 
 # Onboarding on Starton
 
@@ -15,8 +16,8 @@ The first thing we will need is an account in Starton.
 
 ## Creating an account
 
-<CardTitle icon={<Starton fill='primary' />} href="https://auth.starton.com/register" target="_blank">
-    Create an account for free
+<CardTitle icon={<Starton fill="primary" />} href="https://auth.starton.com/register" target="_blank">
+	Create an account for free
 </CardTitle>
 
 ## Setting up your API key
@@ -52,7 +53,6 @@ We do not advise you to transfer mainnet funds on this wallet. Though possible, 
 
 :::
 
-
 You can also import your own KMS at any time and change ownership of your Smart contract. Read more in [Tutorials](/Tutorials/how-to-change-the-smart-contracts-ownership.md).
 
 ## What's next?
@@ -63,35 +63,35 @@ Now that you're all set, what would you like to do with Starton in your app?
 
 ## Choose your use case
 
-<div class="row-is-multiline">
-    <div class="col col--2" class="cards">
-        <a href="/docs/Tutorials/deploy-first-smart-contract">
-            <h3>Deploy</h3>
-            <div class="button-card__inner">
+<div className="row-is-multiline">
+    <div className="col col--2" className="cards">
+        <Link to="/docs/Tutorials/deploy-first-smart-contract">
+            <Heading as={'h3'}>Deploy</Heading>
+            <div className="button-card__inner">
                 <p color="white">Deploy your first smart contract. </p>
             </div>
-        </a>
+        </Link>
     </div>
 
-    <div class="col col--2" class="cards">
-        <a href="/docs/Tutorials/storing-files-on-IPFS">
-            <h3>Store</h3>
-            <div class="button-card__inner">
+    <div className="col col--2" className="cards">
+        <Link to="/docs/Tutorials/storing-files-on-IPFS">
+            <Heading as={'h3'}>Store</Heading>
+            <div className="button-card__inner">
                 <p>Upload files on IPFS with Starton.</p>
             </div>
-        </a>
+        </Link>
     </div>
 
-    <div class="col col--2" class="cards">
-        <a href="/docs/Tutorials/monitoring-blockchain-activity">
-            <h3>Monitor</h3>
-            <div class="button-card__inner">
+    <div className="col col--2" className="cards">
+        <Link to="/docs/Tutorials/monitoring-blockchain-activity">
+            <Heading as={'h3'}>Monitor</Heading>
+            <div className="button-card__inner">
                 <p>Monitor blockchain events with watchers.</p>
             </div>
-        </a>
+        </Link>
     </div>
-</div>
 
+</div>
 
 **Related topics**
 

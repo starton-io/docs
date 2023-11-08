@@ -3,6 +3,9 @@ title: How to ensure Monitor's webhooks are from Starton
 displayedSidebar: tutorialSidebar
 ---
 
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+
 # How to ensure Monitor's webhooks are from Starton
 
 Using Monitor might be very useful to receive webhooks whenever specific events happen on-chain.
@@ -33,15 +36,17 @@ This webhook signing key is available in the [Developer](/Developer/Discovering-
 
 It should look like: `whs_lDtcN3gDEaY_Yg3aony8077Lr-9wa5JyxAitUvfg886y9JDs4mVoY9uD`.
 
-<div class="row-is-multiline">
+<div className="row-is-multiline">
 
-<div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
-		<h3>Get your signing key from the Dashboard</h3>
-		<div class="button-card__inner">
-			<p color="white">Go to <b>Starton Dashboard</b> and get your signing key in the developer section.</p>
+<div className="col col--2" className="cards">
+	<Link className="button-card button-card--vertical" to="https://app.starton.com/projects">
+		<Heading as={"h3"}>Get your signing key from the Dashboard</Heading>
+		<div className="button-card__inner">
+			<p color="white">
+				Go to <b>Starton Dashboard</b> and get your signing key in the developer section.
+			</p>
 		</div>
-	</a>
+	</Link>
 </div>
 
 </div>

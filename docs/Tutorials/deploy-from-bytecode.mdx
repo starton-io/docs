@@ -3,6 +3,9 @@ title: Deploy your own contract from bytecode
 displayedSidebar: tutorialSidebar
 ---
 
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+
 # Deploy your own contract from bytecode
 
 Starton Library already offers anyone a library of ready-to-use audited smart contract templates. But what if you want to use your own custom template?
@@ -52,48 +55,51 @@ We will now use the from-bytecode endpoint to deploy our contract. We will need 
 
 The complete list of available networks can be found in Relayer.
 
-```jsx
+```js
 const axios = require("axios")
 
 const http = axios.create({
-    baseURL: "https://api.starton.com/v3",
-    headers: {
-        "x-api-key": 'YOUR_API_KEY',
-    },
+	baseURL: "https://api.starton.com/v3",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
 })
 
-http.post('/smart-contract/from-bytecode', {
-  "network": "ethereum-ropsten",
-  "name": "My contract's name",
-  "description": "This is the most beautiful ERC20 ever deployed.",
-  "params": [ // parameter values for the smart contract constructors, this will change depending of your contract
-    "My token",
-    "TOKEN",
-    "1000000000000000000000",
-    "0x0" // This is the owner and should not be set to 0x0 adress but we do this as this is a tutorial. You should use either the KMS adress or one that you control.
-  ],
-  "abi": ,// Paste here the abi you copied to clipboard
-  "bytecode": ,// Paste here the bytecode you copied to clipboard
-  "compilerVersion": "string",
-  "signerWallet": "string"
-}).then(response => {
-    console.log(response.data)
+http.post("/smart-contract/from-bytecode", {
+	network: "ethereum-ropsten",
+	name: "My contract's name",
+	description: "This is the most beautiful ERC20 ever deployed.",
+	params: [
+		// parameter values for the smart contract constructors, this will change depending of your contract
+		"My token",
+		"TOKEN",
+		"1000000000000000000000",
+		"0x0", // This is the owner and should not be set to 0x0 adress but we do this as this is a tutorial. You should use either the KMS adress or one that you control.
+	],
+	abi: "", // Paste here the abi you copied to clipboard
+	bytecode: "", // Paste here the bytecode you copied to clipboard
+	compilerVersion: "string",
+	signerWallet: "string",
+}).then((response) => {
+	console.log(response.data)
 })
 ```
 
 And it should be done! You should receive back an object with the smart contract details such as the hash and the address of it.
 You can then use the address or the transactionHash to check it on the blockchain explorer of your selected network!
 
-<div class="row-is-multiline">
+<div className="row-is-multiline">
 
-<div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
-		<h3>Check your Smart contract on the Dashboard</h3>
-		<div class="button-card__inner">
-			<p color="white">Go to <b>Starton Dashboard</b> and check all the transactions of your smart contract at one glance.</p>
-		</div>
-	</a>
-</div>
+    <div className="col col--2" className="cards">
+        <Link className="button-card button-card--vertical" to="https://app.starton.com/projects">
+            <Heading as={"h3"}>Check your Smart contract on the Dashboard</Heading>
+            <div className="button-card__inner">
+                <p color="white">
+                    Go to <b>Starton Dashboard</b> and check all the transactions of your smart contract at one glance.
+                </p>
+            </div>
+        </Link>
+    </div>
 
 </div>
 

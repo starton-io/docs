@@ -2,9 +2,10 @@
 title: How to create your own cryptocurrency (ERC20)
 ---
 
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
-import CodeBlock from "@theme/CodeBlock"
 
 # How to create your own cryptocurrency (ERC20)
 
@@ -29,38 +30,37 @@ Fungible tokens are token from which the value of each token is equal to another
 ## Deploying the Smart contract from our template
 
 <Tabs>
-<TabItem value="code" label="From Code">
+    <TabItem value="code" label="From Code">
+    ```js showLineNumbers
+    const axios = require("axios")
 
-```jsx showLineNumbers
-const axios = require("axios")
+    const axiosInstance = axios.create({
+        baseURL: "https://api.starton.com",
+        headers: {
+            "x-api-key": "PUT HERE YOUR API KEY",
+        },
+    })
 
-const axiosInstance = axios.create({
-	baseURL: "https://api.starton.com",
-	headers: {
-		"x-api-key": "PUT HERE YOUR API KEY",
-	},
-})
+    axiosInstance
+        .post("/v3/smart-contract/from-template", {
+            network: "", // The blockchain network on which you want to deploy your smart contract
+            signerWallet: "", // The address of the signer wallet
+            templateId: "ERC20_MINT_META_TRANSACTION",
+            name: "", // The name of the contract on Starton
+            description: "", // The description of the contract on Starton
+            params: [
+                "", // The name of your smart contract which will be reflected on-chain.
+                "", //  The symbol of your smart contract which will be reflected on-chain
+                "", // The total amount of tokens that will ever be minted.
+                "", // The address that will own the ERC20 contract.
+            ],
+        })
+        .then((response) => {
+            console.log(response.data)
+        })
+    ```
+    </TabItem>
 
-axiosInstance
-	.post("/v3/smart-contract/from-template", {
-		network: "", // The blockchain network on which you want to deploy your smart contract
-		signerWallet: "", // The address of the signer wallet
-		templateId: "ERC20_MINT_META_TRANSACTION",
-		name: "", // The name of the contract on Starton
-		description: "", // The description of the contract on Starton
-		params: [
-			"", // The name of your smart contract which will be reflected on-chain.
-			"", //  The symbol of your smart contract which will be reflected on-chain
-			"", // The total amount of tokens that will ever be minted.
-			"", // The address that will own the ERC20 contract.
-		],
-	})
-	.then((response) => {
-		console.log(response.data)
-	})
-```
-
-</TabItem>
 <TabItem value="dashboard" label="From Webapp">
 
 ### From Dashboard
@@ -109,17 +109,17 @@ axiosInstance
 
 Congrats on deploying your smart contract.
 
-<div class="row-is-multiline">
+<div className="row-is-multiline">
 
-<div class="col col--2" class="cards">
-	<a class="button-card button-card--vertical" href="https://app.starton.com/projects">
-		<h3>Check your Smart contract on the Dashboard</h3>
-		<div class="button-card__inner">
+<div className="col col--2" className="cards">
+	<Link className="button-card button-card--vertical" to="https://app.starton.com/projects">
+		<Heading as={"h3"}>Check your Smart contract on the Dashboard</Heading>
+		<div className="button-card__inner">
 			<p color="white">
 				Go to <b>Starton Dashboard</b> and check all the transactions of your smart contract at one glance.
 			</p>
 		</div>
-	</a>
+	</Link>
 </div>
 
 </div>
@@ -127,40 +127,41 @@ Congrats on deploying your smart contract.
 ## Process your first token transfer
 
 <Tabs>
-<TabItem value="code" label="From Code">
+    <TabItem value="code" label="From Code">
 
-You will need the following information:
+        You will need the following information:
 
--   **Wallet**: the signer wallet
--   **To**: the wallet receiving your transfer
--   **Amount**: amount to transfer
+        -   **Wallet**: the signer wallet
+        -   **To**: the wallet receiving your transfer
+        -   **Amount**: amount to transfer
 
-```jsx showLineNumbers
-const axios = require("axios")
+        ```js showLineNumbers
+        const axios = require("axios")
 
-const axiosInstance = axios.create({
-	baseURL: "https://api.starton.com",
-	headers: {
-		"x-api-key": "PUT HERE YOUR API KEY",
-	},
-})
+        const axiosInstance = axios.create({
+            baseURL: "https://api.starton.com",
+            headers: {
+                "x-api-key": "PUT HERE YOUR API KEY",
+            },
+        })
 
-axiosInstance
-	.post("/v3/smart-contract/YOUR_SMART_CONTRACT_NETWORK/YOUR_SMART_CONTRACT_ADDRESS/call", {
-		functionName: "transfer(address,uint256)",
-		params: [
-			"", // Enter the wallet receiving tokens.
-			"", //amount of token transferred
-		],
-		signerWallet: "", // Enter the wallet from which tokens will be transferred.
-		speed: "average",
-	})
-	.then((response) => {
-		console.log(response.data)
-	})
-```
+        axiosInstance
+            .post("/v3/smart-contract/YOUR_SMART_CONTRACT_NETWORK/YOUR_SMART_CONTRACT_ADDRESS/call", {
+                functionName: "transfer(address,uint256)",
+                params: [
+                    "", // Enter the wallet receiving tokens.
+                    "", //amount of token transferred
+                ],
+                signerWallet: "", // Enter the wallet from which tokens will be transferred.
+                speed: "average",
+            })
+            .then((response) => {
+                console.log(response.data)
+            })
+        ```
 
-</TabItem>
+    </TabItem>
+
 <TabItem value="dashboard" label="From Webapp">
 
 ### From Dashboard
