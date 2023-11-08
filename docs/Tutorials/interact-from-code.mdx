@@ -25,24 +25,24 @@ Here is the code to do so:
 ```jsx
 const axios = require("axios")
 
-const http = axios.create({
+const http = axios.create(\{
 	baseURL: "https://api.starton.com/v3",
-	headers: {
+	headers: \{
 		"x-api-key": "YOUR_API_KEY",
 	},
 })
-http.get("/smart-contract/{network}/{address}/available-functions", {}).then((response) => {
+http.get("/smart-contract/\{network}/\{address}/available-functions", \{}).then((response) => \{
 	console.log(response.data)
 })
 ```
 
-Be sure to replace the {network} and {address} the network on which your contract is deployed and its address.
+Be sure to replace the \{network} and \{address} the network on which your contract is deployed and its address.
 
 Do not forget as well to replace the x-api-key value by your own API key!
 The result we get for our ERC20 Mintable contract is the following:
 
 ```jsx
-{
+\{
   "functions": [
     "DEFAULT_ADMIN_ROLE()",
     "MINTER_ROLE()",
@@ -90,11 +90,11 @@ They will be sent to Vitalik Buterin's wallet: `0xab5801a7d398351b8be11c439e05c5
 Using Axios configured as before we can call our function:
 
 ```jsx
-http.post("/smart-contract/{network}/{address}/call", {
+http.post("/smart-contract/\{network}/\{address}/call", \{
 	functionName: "mint",
 	params: ["0xab5801a7d398351b8be11c439e05c5b3259aec9b", "1000000000000000000000"],
 	signerWallet: "WALLET USED TO DEPLOY",
-}).then((response) => {
+}).then((response) => \{
 	console.log(response.data)
 })
 ```
@@ -103,7 +103,7 @@ We had to put 18 zeros after "1000" as the smart contract will read the amount i
 The expected result should be something like this:
 
 ```jsx
-{
+\{
   "id": "tx_69dfd164c12d4a989a3dd0f3c452931c",
   "to": "SMART_CONTRACT_ADDRESS",
   "from": "OWNER_ADDRESS",
@@ -148,23 +148,23 @@ Some like balanceOf can require parameters and still be view functions.
 We previously minted new tokens right? So let's check the total supply of our ERC20 token! The original amount of token initially created was 1 million. We just created 1000 of them so we can expect the total supply to be 1001000.
 
 ```jsx
-http.post('/smart-contract/{network}/{address}/read', {
+http.post('/smart-contract/\{network}/\{address}/read', \{
     functionName: 'totalSupply',
     params: [],
-}).then(response => {
+}).then(response => \{
     console.log(response.data)
 })
 Should return:
-{
+\{
   "response": "1001000000000000000000000",
   "functionName": "totalSupply",
   "params": ""
 }
 Great! Now let's check Vitalik's supply of our token:
-http.post('/smart-contract/{network}/{address}/read', {
+http.post('/smart-contract/\{network}/\{address}/read', \{
     functionName: 'balanceOf',
     params: ["0xab5801a7d398351b8be11c439e05c5b3259aec9b"],
-}).then(response => {
+}).then(response => \{
     console.log(response.data)
 })
 ```
@@ -172,7 +172,7 @@ http.post('/smart-contract/{network}/{address}/read', {
 Outputs:
 
 ```jsx
-{
+\{
   "response": "1000000000000000000000",
   "functionName": "balanceOf",
   "params": "0xab5801a7d398351b8be11c439e05c5b3259aec9b"

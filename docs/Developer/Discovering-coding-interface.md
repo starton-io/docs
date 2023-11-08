@@ -6,7 +6,7 @@ keywords: [devmode, code, starton]
 
 # Discovering the code interface
 
-At the top-right hand of the page, click **<<** to display the Developer mode.
+At the top-right hand of the page, click **\<\<** to display the Developer mode.
 
 ## Code
 

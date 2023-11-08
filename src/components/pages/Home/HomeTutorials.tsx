@@ -1,5 +1,5 @@
 /*
-| Developed by Dirupt
+| Developed by Starton
 | Filename : HomeTutorials.tsx
 | Author : Philippe DESPLATS (philippe@di-rupt.com)
 */

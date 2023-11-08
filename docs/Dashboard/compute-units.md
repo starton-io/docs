@@ -51,19 +51,19 @@ When deploying a smart contract from the API, you can set the simulation paramet
 
 The price of an API call is the exact amount of compute units that will be counted toward your API usage billing. Rest assured that you will be accurately charged for only what you consume.
 
-| Route  | Operation | Cost in compute units |
-| --- | --- | --- |
-| /v3/ipfs/pin | PinCreate | 50 |
-| /v3/ipfs/file | IpfsFileCreate | 50 |
-| /v3/ipfs/folder | IpfsFolderCreate | 50 |
-| /v3/ipfs/json | IpfsJsonCreate | 50 |
-| /v3/data/{network}/erc20/{contractAddress}/balance | DataBalanceERC20 | 20 |
-| /v3/transaction | TransactionCreate | 750 |
-| /v3/smart-contract/from-bytecode | SmartContractCreateFromBytecode | 750 |
-| /v3/smart-contract/from-template | SmartContractCreateFromTemplate | 750 |
-| /v3/smart-contract/{network}/{address}/call | SmartContractCall | 750 |
-| /v3/smart-contract/{network}/{address}/read | SmartContractRead | 20 |
-| /v3/watcher | WatcherCreateOne | 1000 |
+| Route                                                | Operation | Cost in compute units |
+|------------------------------------------------------| --- | --- |
+| /v3/ipfs/pin                                         | PinCreate | 50 |
+| /v3/ipfs/file                                        | IpfsFileCreate | 50 |
+| /v3/ipfs/folder                                      | IpfsFolderCreate | 50 |
+| /v3/ipfs/json                                        | IpfsJsonCreate | 50 |
+| /v3/data/\{network}/erc20/\{contractAddress}/balance | DataBalanceERC20 | 20 |
+| /v3/transaction                                      | TransactionCreate | 750 |
+| /v3/smart-contract/from-bytecode                     | SmartContractCreateFromBytecode | 750 |
+| /v3/smart-contract/from-template                     | SmartContractCreateFromTemplate | 750 |
+| /v3/smart-contract/\{network}/\{address}/call        | SmartContractCall | 750 |
+| /v3/smart-contract/\{network}/\{address}/read        | SmartContractRead | 20 |
+| /v3/watcher                                          | WatcherCreateOne | 1000 |
 
 ### WEB3 Usage examples 
 

@@ -1,5 +1,5 @@
 /*
-| Developed by Dirupt
+| Developed by Starton
 | Filename : tutorials.mock.ts
 | Author : Philippe DESPLATS (philippe@di-rupt.com)
 */
@@ -21,17 +21,17 @@ export const TUTORIALS_LIST: Array<CardPostProps> = [
 		href: '/docs/Tutorials/starton-web3auth',
 	},
 	{
-      		title: 'Creating a JWT-based authentication with NestJS',
-      		date: StartonUtils.getDateFromYearAndMonth(2023, 6),
-      		labels: [{ label: 'NestJS' }, { label: 'AUTH' }, { label: 'CODE' }, { label: 'ADVANCED' }],
-      		href: '/docs/Tutorials/jwt-authentication-nest',
-      	},
-    {
-    		title: 'Notifying users when they receive an NFT',
-    		date: StartonUtils.getDateFromYearAndMonth(2023, 6),
-    		labels: [{ label: 'MONITOR' }, { label: 'NFT' }, { label: 'CODE' }, { label: 'ADVANCED' }],
-    		href: '/docs/Tutorials/monitor-nft-activity',
-    	},
+		title: 'Creating a JWT-based authentication with NestJS',
+		date: StartonUtils.getDateFromYearAndMonth(2023, 6),
+		labels: [{ label: 'NestJS' }, { label: 'AUTH' }, { label: 'CODE' }, { label: 'ADVANCED' }],
+		href: '/docs/Tutorials/jwt-authentication-nest',
+	},
+	{
+		title: 'Notifying users when they receive an NFT',
+		date: StartonUtils.getDateFromYearAndMonth(2023, 6),
+		labels: [{ label: 'MONITOR' }, { label: 'NFT' }, { label: 'CODE' }, { label: 'ADVANCED' }],
+		href: '/docs/Tutorials/monitor-nft-activity',
+	},
 	{
 		title: 'Interact with a contract from code',
 		date: StartonUtils.getDateFromYearAndMonth(2023, 2),

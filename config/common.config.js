@@ -1,5 +1,5 @@
 /*
-| Developed by Dirupt
+| Developed by Starton
 | Filename : common.config.js
 */
 
@@ -7,7 +7,7 @@
 // Note: type annotations allow type checking and IDEs autocompletion
 
 /** @type {import('@docusaurus/types').Config} */
-module.exports = {
+export default {
 	title: 'STARTON DOCUMENTATION',
 	tagline: 'Turn any app into a blockchain app.',
 	url: process.env.URL,

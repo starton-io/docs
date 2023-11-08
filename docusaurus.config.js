@@ -1,17 +1,16 @@
 /*
-| Developed by Dirupt
+| Developed by Starton
 | Filename : docusaurus.config.js
 */
 
-require('dotenv').config()
-const commonConfiguration = require('./config/common.config')
-const i18nConfiguration = require('./config/i18n.config')
-const pluginsConfiguration = require('./config/plugins.config')
-const presetsConfiguration = require('./config/presets.config')
-const themeConfiguration = require('./config/theme.config')
+import 'dotenv/config'
+import commonConfiguration from './config/common.config'
+import i18nConfiguration from './config/i18n.config'
+import pluginsConfiguration from './config/plugins.config'
+import presetsConfiguration from './config/presets.config'
+import themeConfiguration from './config/theme.config'
 
-/** @type {import('@docusaurus/types').Config} */
-module.exports = {
+export default {
 	// Common
 	// ----------------------------------------------------------------------------
 	...commonConfiguration,

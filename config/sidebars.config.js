@@ -1,5 +1,5 @@
 /*
-| Developed by Dirupt
+| Developed by Starton
 | Filename : sidebars.config.js
 */
 
@@ -20,11 +20,11 @@
 /** @type {import('@docusaurus/plugin-content-docs').SidebarsConfig} */
 module.exports = {
 	connectSidebar: [
-        {
-        type: 'html',
-        value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>GETTING STARTED</header>",
-        defaultStyle: true,
-        },
+		{
+			type: 'html',
+			value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>GETTING STARTED</header>",
+			defaultStyle: true,
+		},
 		'overview',
 		'getting-started/supported-networks',
 		'onboarding',
@@ -48,106 +48,106 @@ module.exports = {
 				id: 'Smart-contract/smart-contract-management',
 			},
 			collapsed: true,
-			items: ['Smart-contract/understanding-smart-contracts',
-			{
-                    			type: 'category',
-                    			label: 'Deploying Smart Contracts',
-                    			collapsed: true,
-                    			items: [
-				'Smart-contract/deploying-a-smart-contract',
-				'Smart-contract/deploying-from-bytecode',
-				'Smart-contract/importing-smart-contract',
-				],
-                },
-                'Smart-contract/interacting-with-a-smart-contract',
-
+			items: [
+				'Smart-contract/understanding-smart-contracts',
+				{
+					type: 'category',
+					label: 'Deploying Smart Contracts',
+					collapsed: true,
+					items: [
+						'Smart-contract/deploying-a-smart-contract',
+						'Smart-contract/deploying-from-bytecode',
+						'Smart-contract/importing-smart-contract',
+					],
+				},
+				'Smart-contract/interacting-with-a-smart-contract',
 			],
 		},
 		{
-        					type: 'category',
-        					label: 'Smart Contract Library',
-        					link: {
-        						type: 'doc',
-        						id: 'Smart-contract/parameters-and-functions',
-        					},
-        					collapsed: true,
-        					items: [
-        						{
-        							'Creating fungible tokens': [
-        								/*'Smart-contract/ERC20-fixed',
+			type: 'category',
+			label: 'Smart Contract Library',
+			link: {
+				type: 'doc',
+				id: 'Smart-contract/parameters-and-functions',
+			},
+			collapsed: true,
+			items: [
+				{
+					'Creating fungible tokens': [
+						/*'Smart-contract/ERC20-fixed',
                                         'Smart-contract/ERC20-mintable',*/
-        								'Smart-contract/ERC20-fixed-Meta',
-        								'Smart-contract/ERC20-mintable-Meta',
-        							],
-        						},
-        						{
-        							'Deploying NFTs': [
-        								'Smart-contract/ERC721-Meta',
-        								'Smart-contract/ERC721-Capped',
-        								'Smart-contract/ERC1155-Meta',
-        								'Smart-contract/ERC721_ROYALTIES_META_TRANSACTION',
-                                        'Smart-contract/ERC721_ROYALTIES_CAPPED_META_TRANSACTION',
-                                        'Smart-contract/ERC1155_ROYALTIES_META_TRANSACTION',
-        							],
-        						},
-        						{
-        							'Selling NFTs': [
-        								'Smart-contract/ERC721-Sale',
-        								'Smart-contract/ERC721-Auction-Sale',
-        								'Smart-contract/ERC721-Whitelist-Sale',
-        								'Smart-contract/ERC1155-Sale',
-        								'Smart-contract/ERC1155-Auction',
-        								'Smart-contract/ERC1155-Whitelist-Sale',
-        							],
-        						},
-        						{
-        							'Other templates': [
-        								'Smart-contract/payment-splitter',
-        								/*'Smart-contract/ChildERC20-fixed',
+						'Smart-contract/ERC20-fixed-Meta',
+						'Smart-contract/ERC20-mintable-Meta',
+					],
+				},
+				{
+					'Deploying NFTs': [
+						'Smart-contract/ERC721-Meta',
+						'Smart-contract/ERC721-Capped',
+						'Smart-contract/ERC1155-Meta',
+						'Smart-contract/ERC721_ROYALTIES_META_TRANSACTION',
+						'Smart-contract/ERC721_ROYALTIES_CAPPED_META_TRANSACTION',
+						'Smart-contract/ERC1155_ROYALTIES_META_TRANSACTION',
+					],
+				},
+				{
+					'Selling NFTs': [
+						'Smart-contract/ERC721-Sale',
+						'Smart-contract/ERC721-Auction-Sale',
+						'Smart-contract/ERC721-Whitelist-Sale',
+						'Smart-contract/ERC1155-Sale',
+						'Smart-contract/ERC1155-Auction',
+						'Smart-contract/ERC1155-Whitelist-Sale',
+					],
+				},
+				{
+					'Other templates': [
+						'Smart-contract/payment-splitter',
+						/*'Smart-contract/ChildERC20-fixed',
                      'Smart-contract/ChildERC20-mintable',
                      'Smart-contract/ChildERC721',
                      'Smart-contract/ChildERC1155',*/
-        							],
-        						},
-        					],
-
+					],
+				},
+			],
 		},
-        {
-            type: 'category',
-            label: 'Transaction Management',
-            link: {
-                type: 'doc',
-                id: 'Transactions/transaction-management',
-            },
-            collapsed: true,
-            items: ['Transactions/understanding-the-relayer',
-                'Transactions/creating-a-transaction',
-                {
-                    type: 'category',
-                    label: 'Understanding state and status',
-                    link: {
-                        type: 'doc',
-                        id: 'Transactions/state-and-status',
-                    },
-                    collapsed: true,
-                    items: ['Transactions/manual-action-required'],
-                },
+		{
+			type: 'category',
+			label: 'Transaction Management',
+			link: {
+				type: 'doc',
+				id: 'Transactions/transaction-management',
+			},
+			collapsed: true,
+			items: [
+				'Transactions/understanding-the-relayer',
+				'Transactions/creating-a-transaction',
+				{
+					type: 'category',
+					label: 'Understanding state and status',
+					link: {
+						type: 'doc',
+						id: 'Transactions/state-and-status',
+					},
+					collapsed: true,
+					items: ['Transactions/manual-action-required'],
+				},
 
-                'Transactions/understanding-gas',
-                ,
-                {
-                    type: 'category',
-                    label: 'Understanding nonce',
-                    link: {
-                        type: 'doc',
-                        id: 'Transactions/understanding-nonce',
-                    },
-                    collapsed: true,
-                    items: ['Transactions/desynchronized-nonce-management'],
-                },
-                'Transactions/stuck-transaction-replacement',
-            ],
-        },
+				'Transactions/understanding-gas',
+				,
+				{
+					type: 'category',
+					label: 'Understanding nonce',
+					link: {
+						type: 'doc',
+						id: 'Transactions/understanding-nonce',
+					},
+					collapsed: true,
+					items: ['Transactions/desynchronized-nonce-management'],
+				},
+				'Transactions/stuck-transaction-replacement',
+			],
+		},
 		{
 			type: 'category',
 			label: 'Network monitoring',
@@ -157,52 +157,57 @@ module.exports = {
 			},
 			collapsed: true,
 			items: [
-				'Watcher/creating-a-watcher','Watcher/watcher-state-and-status',{
-                type: 'category',
-                label: 'Events',
-                link: {
-                    type: 'doc',
-                    id: 'Watcher/available-event-types',
-                },
-                collapsed: true,
-                items: [{
-                      type: 'category',
-                      label: 'Monitoring blockchain addresses',
-                      collapsed: true,
-                      items: [
-                    'Watcher/address_activity',
-                    'Watcher/address_receive_native_currency',
-                    'Watcher/address_sent_native_currency',	],
-                                                                            },
-                       {
-                      type: 'category',
-                      label: 'Monitoring smart contracts',
-                      collapsed: true,
-                      items: [
-                    'Watcher/event_approval',
-                    'Watcher/event_mint',
-                    'Watcher/event_transfer',
-                    'Watcher/erc721_event_transfer',
-                    'Watcher/erc1155_event_single',
-                    'Watcher/erc1155_event_transfer_batch',
-                    'Watcher/custom-event'],
-                                                                            },
-                ],
-            },{
-                        type: 'category',
-                        label: 'Webhooks',
-                        link: {
-                            type: 'doc',
-                            id: 'Watcher/webhooks',
-                        },
-                        collapsed: true,
-                        items: ['Tutorials/testing-webhooks-locally-ngrok'],
-                    },
-                    'Watcher/confirmation-blocks',
-
-],
+				'Watcher/creating-a-watcher',
+				'Watcher/watcher-state-and-status',
+				{
+					type: 'category',
+					label: 'Events',
+					link: {
+						type: 'doc',
+						id: 'Watcher/available-event-types',
+					},
+					collapsed: true,
+					items: [
+						{
+							type: 'category',
+							label: 'Monitoring blockchain addresses',
+							collapsed: true,
+							items: [
+								'Watcher/address_activity',
+								'Watcher/address_receive_native_currency',
+								'Watcher/address_sent_native_currency',
+							],
+						},
+						{
+							type: 'category',
+							label: 'Monitoring smart contracts',
+							collapsed: true,
+							items: [
+								'Watcher/event_approval',
+								'Watcher/event_mint',
+								'Watcher/event_transfer',
+								'Watcher/erc721_event_transfer',
+								'Watcher/erc1155_event_single',
+								'Watcher/erc1155_event_transfer_batch',
+								'Watcher/custom-event',
+							],
+						},
+					],
+				},
+				{
+					type: 'category',
+					label: 'Webhooks',
+					link: {
+						type: 'doc',
+						id: 'Watcher/webhooks',
+					},
+					collapsed: true,
+					items: ['Tutorials/testing-webhooks-locally-ngrok'],
+				},
+				'Watcher/confirmation-blocks',
+			],
 		},
-{
+		{
 			type: 'category',
 			label: 'Wallets',
 			link: {
@@ -235,26 +240,27 @@ module.exports = {
 			],
 		},
 		{
-        			type: 'category',
-        			label: 'File Storage',
-        			link: {
-        				type: 'doc',
-        				id: 'IPFS/file-storage',
-        			},
-        			collapsed: true,
-        			items: ['IPFS/understanding-IPFS',
-                            'IPFS/uploading-on-ipfs',
-                            'IPFS/uploading-folder',
-                            'IPFS/uploading-json',
-                            'IPFS/pinning-file',
-                            'Tutorials/uploading-metadata-NFT',
-                            ],
-        		},
+			type: 'category',
+			label: 'File Storage',
+			link: {
+				type: 'doc',
+				id: 'IPFS/file-storage',
+			},
+			collapsed: true,
+			items: [
+				'IPFS/understanding-IPFS',
+				'IPFS/uploading-on-ipfs',
+				'IPFS/uploading-folder',
+				'IPFS/uploading-json',
+				'IPFS/pinning-file',
+				'Tutorials/uploading-metadata-NFT',
+			],
+		},
 		{
-        			type: 'html',
-        			value: "<br style='margin: 0 0 0 0;'/>",
-        			defaultStyle: true,
-        		},
+			type: 'html',
+			value: "<br style='margin: 0 0 0 0;'/>",
+			defaultStyle: true,
+		},
 
 		{
 			type: 'html',
@@ -265,10 +271,10 @@ module.exports = {
 		'tools/Using-zapier-integration',
 		'tools/role-bot-discord',
 		{
-        			type: 'html',
-        			value: "<br style='margin: 0 0 0 0;'/>",
-        			defaultStyle: true,
-        		},
+			type: 'html',
+			value: "<br style='margin: 0 0 0 0;'/>",
+			defaultStyle: true,
+		},
 		{
 			type: 'html',
 			value: "<header style='font-weight: 600; color:#A3B4C1; font-size: 14px'>SETTINGS</header>",
@@ -277,10 +283,10 @@ module.exports = {
 		'Settings/create-new-project',
 		'Settings/managing-plans',
 		{
-        			type: 'html',
-        			value: "<br style='margin: 0 0 0 0;'/>",
-        			defaultStyle: true,
-        		},
+			type: 'html',
+			value: "<br style='margin: 0 0 0 0;'/>",
+			defaultStyle: true,
+		},
 	],
 	tutorialSidebar: [
 		{
