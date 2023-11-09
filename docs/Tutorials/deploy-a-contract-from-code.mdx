@@ -40,20 +40,20 @@ When querying the API, it should return a list of template items:
 
 ```json
 {
-  "id": "ERC20_META_TRANSACTION",
+	"id": "ERC20_META_TRANSACTION",
 	"name": "ERC20 Fungible Token with fixed supply",
-  "description": "An ERC20 token contract keeps track of fungible tokens: any one token is exactly equal to any other token",
-  "tags": [...],
-  "blockchains": [...],
-  "bytecode": "string",
-  "constructorParams": [...],
-  "abi": [...],
-  "compilerVersion": "string",
-  "source": "string",
-  "isAudited": true,
-  "isActivated": true,
-  "createdAt": "string",
-  "updatedAt": "string"
+	"description": "An ERC20 token contract keeps track of fungible tokens: any one token is exactly equal to any other token",
+	"tags": ["..."],
+	"blockchains": ["..."],
+	"bytecode": "string",
+	"constructorParams": ["..."],
+	"abi": ["..."],
+	"compilerVersion": "string",
+	"source": "string",
+	"isAudited": true,
+	"isActivated": true,
+	"createdAt": "string",
+	"updatedAt": "string"
 }
 ```
 
@@ -73,7 +73,7 @@ We’ll choose to deploy our contract on the `ethereum-goerli` network.
 
 It is now important that we fuel our wallet with some Ether faucet otherwise the blockchain will reject our smart contract’s deployment as we will lack funds to cover the gas fees.
 
-In order to claim test faucets we need to go on the [Wallet](/Wallet/understanding-key-management-systems.mdx) section on Connect’s dashboard and find the address associated to the network we are interested in.
+In order to claim test faucets we need to go on the [Wallet](/wallet/understanding-key-management-systems.mdx) section on Connect’s dashboard and find the address associated to the network we are interested in.
 
 Here, it is the ethereum-goerli network.
 
@@ -114,17 +114,17 @@ The expected result:
 
 ```json
 {
-  "id": "sc_24dce9e26a7d46a7b707e257a6a6cfb2",
-  "name": "DemoToken",
-  "description": "Our own crypto token.",
-  "network": "ethereum-goerli",
-  "bytecode": " … ",
-  "abi": [...],
-  "projectId": "prj_f2108b28949d47898a39939cbc7277c3",
-  "address": "0xDA96a733ec2C3eC1142A5A1Ef31cfd7755CAE037",
-  "creationHash": "0xef4313209959d6441e14db5d43905f674a78adba2173b522b7fe37311e135c05",
-  "createdAt": "Tue Jun 29 2021 13:09:17 GMT+0000 (Coordinated Universal Time)",
-  "updatedAt": "Tue Jun 29 2021 13:09:17 GMT+0000 (Coordinated Universal Time)"
+	"id": "sc_24dce9e26a7d46a7b707e257a6a6cfb2",
+	"name": "DemoToken",
+	"description": "Our own crypto token.",
+	"network": "ethereum-goerli",
+	"bytecode": " … ",
+	"abi": ["..."],
+	"projectId": "prj_f2108b28949d47898a39939cbc7277c3",
+	"address": "0xDA96a733ec2C3eC1142A5A1Ef31cfd7755CAE037",
+	"creationHash": "0xef4313209959d6441e14db5d43905f674a78adba2173b522b7fe37311e135c05",
+	"createdAt": "Tue Jun 29 2021 13:09:17 GMT+0000 (Coordinated Universal Time)",
+	"updatedAt": "Tue Jun 29 2021 13:09:17 GMT+0000 (Coordinated Universal Time)"
 }
 ```
 

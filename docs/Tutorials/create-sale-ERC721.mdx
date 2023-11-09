@@ -16,20 +16,20 @@ To enter a name on the marketplace’s dashboard and perceive fees when someone 
 
 Here are the values we will use:
 
-```jsx
+```json5
 {
-  "name": “My Super NFT for Sale“,
-  "description": “You’ve never seen NFTs this beautiful.”,
+  "name": "My Super NFT for Sale",
+  "description": "You’ve never seen NFTs this beautiful.",
   "image": "",// the URI of your image, for example ipfs://CID_OF_YOUR_IMG
   "external_link": "",
   "seller_fee_basis_points": 100,
-  "fee_recipient": “PUT YOUR ADDRESS HERE”
+  "fee_recipient": "PUT YOUR ADDRESS HERE"
 }
 ```
 
 We now have the content of our metadata, we need to upload it on IPFS.
 
-To upload our files on IPFS we will now use the [Starton IPFS](/IPFS/understanding-IPFS.mdx) pinning service.
+To upload our files on IPFS we will now use the [Starton IPFS](/ipfs/understanding-ipfs.mdx) pinning service.
 
 As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.com/ipfs).
 
@@ -78,7 +78,7 @@ Everything we need to sell your NFT is an auction is done.
 
 We will deploy the contract only once, so we will do it directly from Starton’s dashboard.
 
-We can access the list of templates in the [Smart contract section](/Smart-contract/understanding-smart-contracts.mdx).
+We can access the list of templates in the [Smart contract section](/smart-contract/understanding-smart-contracts.mdx).
 
 1. Select the ERC721 NFT Smart Contract template.
 1. Enter:
@@ -86,7 +86,7 @@ We can access the list of templates in the [Smart contract section](/Smart-contr
     - a wallet to sign the transaction,
     - a blockchain / network on which to deploy, here BNB testnet.
     - the parameters of our contract.
-      For more information on parameters, check out the [Deploying a Smart Contract](/Smart contract/deploying-a-smart-contract).
+      For more information on parameters, check out the [Deploying a Smart Contract](/smart-contract/deploying-a-smart-contract.mdx).
 
 For example, we can call our contract “Best NFTs on BNB” and deploy it on the BNB Testnet network.
 
@@ -103,7 +103,7 @@ We can finally deploy our contract!
 
 We will deploy the contract only once, so we will do it directly from Starton’s dashboard.
 
-We can access the list of templates in the [Smart contract section](/Smart-contract/understanding-smart-contracts.mdx).
+We can access the list of templates in the [Smart contract section](/smart-contract/understanding-smart-contracts.mdx).
 
 1. Select the ERC721 Sale template.
 1. Enter:

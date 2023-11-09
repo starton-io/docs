@@ -4,6 +4,9 @@ description: Learn how to connect AWS Key Management Systems
 keywords: [Wallet, Starton, Smart contracts, AWS, Key Management System, Transaction]
 ---
 
+import Image from "@theme/IdealImage"
+import AddUser from "@site/static/img/docs/wallet/add-user.png"
+
 # Granting Full Access on your KMS to Starton
 
 > Granting full access to **Starton** enables you to dynamically create new wallets with the Starton API.
@@ -18,23 +21,22 @@ Before granting access to your KMS, you need to create a Policy to define permis
 1. Go to **JSON**.
 1. Copy the following .json and paste it in the tab.
 
-```jsx
-  {
-      "Version": "2012-10-17",
-      "Statement": [
-          {
-              "Effect": "Allow",
-              "Action": "iam:CreateServiceLinkedRole",
-              "Resource": "arn:aws:iam::*:role/aws-service-role/*"
-          },
-          {
-              "Effect": "Allow",
-              "Action": "kms:*",
-              "Resource": "*"
-          }
-      ]
-  }
-
+```json
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Effect": "Allow",
+			"Action": "iam:CreateServiceLinkedRole",
+			"Resource": "arn:aws:iam::*:role/aws-service-role/*"
+		},
+		{
+			"Effect": "Allow",
+			"Action": "kms:*",
+			"Resource": "*"
+		}
+	]
+}
 ```
 
 1. Click on **Next:Tags**.
@@ -54,7 +56,7 @@ Before granting access to your KMS, you need to create a Policy to define permis
 
 1. In **Select AWS access type**, check **Access key - Programmatic access**.
 
-![Configure key](assets/add-user.png)
+<Image img={AddUser} alt="Configure key" />
 
 1. Select **Attach existing policies directly**.
 1. Select the kms policy name.
@@ -98,6 +100,6 @@ You can now dynamically create new wallets from your code or from the interface.
 
 **Related topics**
 
--   More on [Transactions](/Transactions/creating-a-transaction.mdx)
--   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.mdx)
--   More on [Developer mode](/Developer/Discovering-coding-interface.mdx)
+-   More on [Transactions](/transactions/creating-a-transaction.mdx)
+-   More on [Smart Contracts](/smart-contract/understanding-smart-contracts.mdx)
+-   More on [Developer mode](/developer/discovering-coding-interface.mdx)

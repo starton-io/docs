@@ -1,0 +1,69 @@
+---
+title: Uploading Files
+description: Learn how to upload on Starton IPFS.
+keywords: [IPFS, smart contract, upload]
+---
+
+import Image from "@theme/IdealImage"
+import IPFS from "@site/static/img/docs/ipfs/IPFS.png"
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+
+# Using Storage
+
+You can upload content on IPFS. Starton IPFS is a storage and pinning service, where you can host files, folders, and metadata on our IPFS nodes so that they remain available at all times.
+
+## Uploading Files to IPFS
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+POST requests with a body should have the Content-Type header with value application/json.
+For sending files it should be multipart/form-data.
+
+```jsx showLineNumbers
+const axios = require("axios")
+const FormData = require("form-data")
+const fs = require("fs")
+
+// AUTHENTICATING TO THE API USING YOUR API KEY
+const startonApi = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+
+const buffer = fs.readFileSync("path/of/your/file.extension")
+let data = new FormData()
+data.append("file", buffer, "filename")
+// By setting "isSync" to "true, the request will wait for the pin before completing"
+data.append("isSync", "false")
+
+// Optional: you can add metadata on starton to your file
+const metadata = JSON.stringify({ your: "additional", meta: "data" })
+data.append("metadata", metadata)
+startonApi
+	.post("/v3/ipfs/file", data, {
+		headers: {
+			"Content-type": `multipart/form-data; boundary=${data.getBoundary()}`,
+		},
+	})
+	.then((res) => console.log(res.data))
+	.catch((e) => console.log(e))
+```
+
+</TabItem>
+<TabItem value="dashboard" label="From Webapp">
+
+<Image img={IPFS} alt={"IPFS"} />
+
+1. Go to **Storage**.
+1. Click **Upload**.
+1. Select File(s).
+1. Select content.
+1. Enter a name for the file.
+1. Click **Upload**.
+
+</TabItem>
+</Tabs>

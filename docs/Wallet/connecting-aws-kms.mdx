@@ -4,6 +4,11 @@ description: Learn how to connect AWS Key Management Systems
 keywords: [Wallet, Starton, Smart contracts, AWS, Key Management System, Transaction]
 ---
 
+import Image from "@theme/IdealImage"
+import CreatingWalletAWS from "@site/static/img/docs/wallet/creating-wallet-aws.png"
+import ConfigureKey from "@site/static/img/docs/wallet/configure-key.png"
+import AwsStep4 from "@site/static/img/docs/wallet/aws-step-4.png"
+
 # Granting access to a specific wallet to Starton Identity and Access Management
 
 In this tutorial, you will learn how to connect an **AWS Key Management System (KMS)** to **Starton**.
@@ -16,25 +21,24 @@ To connect **Starton** to your **AWS KMS**, you can grant access to **Starton** 
 
 ## Creating a wallet on AWS
 
-1. On your AWS dashboard, search **Key Management Service**.
-   ![Create wallet on AWS](assets/creating-wallet-aws.png)
-   You access a listing of your existing keys.
+1.  On your AWS dashboard, search **Key Management Service**.
 
-    > A key is an equivalent to a wallet in this use case.
+    <Image img={CreatingWalletAWS} alt="Create wallet on AWS" />
+    You access a listing of your existing keys.
 
-1. Click **Create a key**.
-1. Set up your key:
-   ![Configure key](assets/configure-key.png)
-    1. In **Key type**, select **Asymmetric**.
-    1. In **Key usage**, select **Sign and verify**.
-    1. In **Key spec**, select **ECC_SECG-P256K1**.
-    1. In **Advanced options**, select **Multi-region key**.
-1. Click **Next**.
-1. In **Alias**, enter a name for your key.
-1. Skip step 3 **Define key administrative permissions**.
-1. In step 4 **Define key usage permissions**, in **Other AWS account**, enter Starton information:
+        > A key is an equivalent to a wallet in this use case.
+
+1.  Click **Create a key**.
+1.  Set up your key:
+    <Image img={ConfigureKey} alt="Configure key" />
+    1. In **Key type**, select **Asymmetric**. 1. In **Key usage**, select **Sign and verify**. 1. In **Key spec**, select
+    **ECC_SECG-P256K1**. 1. In **Advanced options**, select **Multi-region key**.
+1.  Click **Next**.
+1.  In **Alias**, enter a name for your key.
+1.  Skip step 3 **Define key administrative permissions**.
+1.  In step 4 **Define key usage permissions**, in **Other AWS account**, enter Starton information:
     1. In arn:aws:iam::, enter `052805596453`.
-       ![Configure key](assets/aws-step-4.png)
+        <Image img={AwsStep4} alt="AWS step 4" />
 
 ## Connecting your wallet on Starton
 
@@ -47,6 +51,6 @@ To connect **Starton** to your **AWS KMS**, you can grant access to **Starton** 
 
 **Related topics**
 
--   More on [Transactions](/Transactions/creating-a-transaction.mdx)
--   More on [Smart Contracts](/Smart-contract/understanding-smart-contracts.mdx)
--   More on [Developer mode](/Developer/Discovering-coding-interface.mdx)
+-   More on [Transactions](/transactions/creating-a-transaction.mdx)
+-   More on [Smart Contracts](/smart-contract/understanding-smart-contracts.mdx)
+-   More on [Developer mode](/developer/discovering-coding-interface.mdx)

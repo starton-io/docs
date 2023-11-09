@@ -9,7 +9,7 @@ import { Starton } from "@starton/react-ui-iconography"
 
 # Monitoring blockchain activity
 
-With **Starton**, you can monitor blockchain activity using [watchers](/docs/Watcher/understanding-watchers). Whether it's to watch the activity of a wallet or a smart contract, you can create watchers, triggered by events.
+With **Starton**, you can monitor blockchain activity using [watchers](/docs/watcher/understanding-watchers). Whether it's to watch the activity of a wallet or a smart contract, you can create watchers, triggered by events.
 
 :::info not a developer?
 To follow this tutorial, you will need **coding experience**. If it's not your case, you can still create a watcher:
@@ -116,12 +116,12 @@ starton
 
 Let's go through the parameters provided to create a watcher:
 
--   name: This field specifies the name of your watcher. Useful for identification purposes, especially if you have multiple watchers set up for the same address or contract at different confirmation speeds [different confirmation speeds](/docs/Watcher/confirmation-blocks).
--   type: The type of blockchain event that you want the watcher to monitor. The ADDRESS_ACTIVITY type, in this context, means the watcher will monitor and notify of any activity related to the provided address but Starton provides you with a [list of events](/docs/Watcher/available-event-types) as well as the possibility to [watch events from your own custom contract](/docs/Watcher/custom-event) .
+-   name: This field specifies the name of your watcher. Useful for identification purposes, especially if you have multiple watchers set up for the same address or contract at different confirmation speeds [different confirmation speeds](/docs/watcher/confirmation-blocks).
+-   type: The type of blockchain event that you want the watcher to monitor. The ADDRESS_ACTIVITY type, in this context, means the watcher will monitor and notify of any activity related to the provided address but Starton provides you with a [list of events](/docs/watcher/available-event-types) as well as the possibility to [watch events from your own custom contract](/docs/watcher/custom-event) .
 -   address: This is the specific blockchain address you want to monitor. It can be a wallet address or a smart contract address, depending on the event type you chose.
 -   network: This specifies the blockchain network on which is the given address. In the provided example, polygon-mumbai refers to the Mumbai testnet of the Polygon (previously known as Matic) network. For more, see [Supported Networks](/docs/getting-started/overview#supported-networks-and-service-availability).
--   webhookUrl: This URL is where the notifications will be sent when the watched event occurs. Essentially, once the watcher detects the specified event on the blockchain, it will send an HTTP POST request to this URL with details of the event. You can use [https://webhook.site/](https://webhook.site/) or [test a webhook on your local environment using ngrok](/docs/Tutorials/testing-webhooks-locally-ngrok).
--   confirmationsBlocks: This is the number of confirmed blocks before an event triggers the watcher. It's a safety measure to ensure that the event (like a transaction) is well-confirmed on the blockchain and is not likely to be reversed. The higher the number, the more confirmations are required, and vice versa. Each network has its own default confirmation blocks number, for more information, see [Understanding confirmation blocks](/docs/Watcher/confirmation-blocks).
+-   webhookUrl: This URL is where the notifications will be sent when the watched event occurs. Essentially, once the watcher detects the specified event on the blockchain, it will send an HTTP POST request to this URL with details of the event. You can use [https://webhook.site/](https://webhook.site/) or [test a webhook on your local environment using ngrok](/docs/tutorials/testing-webhooks-locally-ngrok).
+-   confirmationsBlocks: This is the number of confirmed blocks before an event triggers the watcher. It's a safety measure to ensure that the event (like a transaction) is well-confirmed on the blockchain and is not likely to be reversed. The higher the number, the more confirmations are required, and vice versa. Each network has its own default confirmation blocks number, for more information, see [Understanding confirmation blocks](/docs/watcher/confirmation-blocks).
 
 1. Almost done! Now we can execute it to get our first watcher!
 
@@ -146,7 +146,7 @@ In this tutorial, you discovered how to monitor blockchain activity but this is 
 
 <div className="row-is-multilineGS">
 	<div className="col col-2 cardsGS">
-		<Link className="button-card button-card--vertical" to="/docs/Tutorials/track-wallet-activity">
+		<Link className="button-card button-card--vertical" to="/docs/tutorials/track-wallet-activity">
 			<Heading as={"h3"}>Track a wallet activity</Heading>
 			<div className="button-card__inner">
 				<p color="white">Using Googlesheets and Zapier </p>
@@ -154,7 +154,7 @@ In this tutorial, you discovered how to monitor blockchain activity but this is 
 		</Link>
 	</div>
 	<div className="col col-2 cardsGS">
-		<Link className="button-card button-card--vertical" to="/docs/Tutorials/monitor-nft-activity">
+		<Link className="button-card button-card--vertical" to="/docs/tutorials/monitor-nft-activity">
 			<Heading as={"h3"}>Notify users when they receive an NFT</Heading>
 			<div className="button-card__inner">
 				<p color="white"> Learn how to send an email to your users when they receive an NFT.</p>

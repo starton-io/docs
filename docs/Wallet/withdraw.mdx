@@ -1,30 +1,30 @@
 ---
 title: Managing funds
-description: Learn how to Manage funds on Starton 
+description: Learn how to Manage funds on Starton
 keywords: [Wallet, Starton, Smart contracts, Metamask, Transaction]
 ---
 
-import threePoints from "./assets/three-points.png"
-import settings from "./assets/settings.png"
-import details from "./assets/details.png"
-import summary from "./assets/summary.png"
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
-import CodeBlock from "@theme/CodeBlock"
+import Image from "@theme/IdealImage"
+import ThreePoints from "@site/static/img/docs/wallet/three-points.png"
+import Settings from "@site/static/img/docs/wallet/settings.png"
+import Details from "@site/static/img/docs/wallet/details.png"
+import Summary from "@site/static/img/docs/wallet/summary.png"
+import Withdraw from "@site/static/img/docs/wallet/withdraw.png"
 
-# Managing funds 
+# Managing funds
 
 ## Making a Deposit on a Wallet
 
 To send transactions, you need a sufficient balance on your wallet.
-
 
 <Tabs>
 <TabItem value="code" label="From Code">
 
 To transfer tokens to your wallet, you can make a transfer using transactions to your wallet.
 
-```jsx showLineNumbers
+```js showLineNumbers
 const axios = require("axios")
 // AUTHENTICATING TO THE API USING YOUR API KEY
 const startonApi = axios.create({
@@ -59,11 +59,11 @@ createTx(
 </TabItem>
 <TabItem value="dashboard" label="From Webapp">
 
-![Wallets](assets/withdraw.png)
+<Image img={Withdraw} alt="Withdraw" />
 
 To transfer tokens to your wallet, access the address of your wallet in deposit.
 
-1. Click <img src={threePoints} style={{width: 30}} className="icon"/>.
+1. Click <Image img={ThreePoints} style={{width: 30}} className="icon"/>.
 1. Click **Deposit**.
 1. Copy the address of your wallet.
    This is the address you need to fill as recipient when transferring currency for example from a third-party wallet.
@@ -76,7 +76,6 @@ To transfer tokens to your wallet, access the address of your wallet in deposit.
 
 You can withdraw funds from a wallet using transactions via our API or using our Dashboard
 
-
 <Tabs>
 <TabItem value="code" label="From Code">
 To withdraw tokens from a wallet you can create a transaction from a wallet.
@@ -84,50 +83,50 @@ You can find the full list of networks in our <a href="https://docs.starton.com/
 
 WARNING: your transaction speed has an impact on gas fees
 
-<CodeBlock language="jsx" showLineNumbers>{`
-    const axios = require("axios")
-    
-    const axiosInstance = axios.create({
-    baseURL: "https://api.starton.com",
-    headers: {
-        "x-api-key": "PUT HERE YOUR API KEY",
-            },
-    })
-    
-    axiosInstance.post(
-     "/v3/transaction",
-        {
-        signerWallet: "YOUR_SIGNER_WALLET",
-        to: "",
-        network: "",
-        value: "0",
-        speed: "average"
-        }
-    ).then((response) => {
-    console.log(response.data)
-    })
-`}</CodeBlock>
+```jsx
+const axios = require("axios")
+
+const axiosInstance = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "PUT HERE YOUR API KEY",
+	},
+})
+
+axiosInstance
+	.post("/v3/transaction", {
+		signerWallet: "YOUR_SIGNER_WALLET",
+		to: "",
+		network: "",
+		value: "0",
+		speed: "average",
+	})
+	.then((response) => {
+		console.log(response.data)
+	})
+```
+
 </TabItem>
 <TabItem value="dashboard" label="From Webapp">
 
-![Wallets](assets/withdraw.png)
+<Image img={Withdraw} alt={"Wallets"} />
 
-1. Click <img src={threePoints} style={{width: 30}} />.
+1. Click <Image img={ThreePoints} style={{width: 30}} className="icon"/>.
 
 1. Click **Withdraw**.
-    <img src={settings} style={{ width: 400 }} />
+    <Image img={Settings} style={{ width: 400 }} />
 1. In **To**, enter the address to receive the transfer.
 1. In **Amount**, select a **Blockchain / Network**.
 1. Enter the desired amount to withdraw.
 1. Click **Next**.
 1. Select the **Speed** of your transaction.
 1. Click **Next** to access the details of your operation.
-    <img src={details} style={{ width: 400 }} />
+    <Image img={Details} style={{ width: 400 }} />
 1. Click **Withdraw**.
 
 The details of your operation are displayed.
 
-<img src={summary} style={{ width: 400 }} />
+<Image img={Summary} style={{ width: 400 }} />
 
 </TabItem>
 </Tabs>

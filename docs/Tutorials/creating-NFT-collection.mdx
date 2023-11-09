@@ -2,10 +2,19 @@
 title: How to create a one-to-many NFT collection
 ---
 
+import Image from "@theme/IdealImage"
 import Heading from "@theme/Heading"
 import Link from "@docusaurus/Link"
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
+import Interact from "@site/static/img/docs/tutorials/interact.png"
+import MintFunction from "@site/static/img/docs/tutorials/mint_function.png"
+import Run from "@site/static/img/docs/tutorials/run.png"
+import SpeedGas from "@site/static/img/docs/tutorials/speed-gas.png"
+import ResultCollection from "@site/static/img/docs/tutorials/result-collection.png"
+import AllParameters from "@site/static/img/docs/tutorials/allparameters.png"
+import Plussc from "@site/static/img/docs/tutorials/plussc.png"
+import SmartContracts from "@site/static/img/docs/tutorials/smart-contracts.png"
 
 # How to create a one-to-many NFT collection
 
@@ -16,7 +25,7 @@ When **minting an NFT collection**, you make **multiple identical editions of th
 :::note You will need:
 
 -   a **wallet to fund the creation of your contract**
--   the **URI of the metadata of your collection** [Read more](uploading-metadata-NFT).
+-   the **URI of the metadata of your collection** [Read more](/tutorials/uploading-metadata-nft.mdx).
 -   the **URI of the content of the NFT**. You can upload your file on IPFS. [Read more](https://ipfs.eu.starton.com/ipfs/bafkreibhlkz5mw3yixp7337s7mfw2a5dsf6m6p5zswmj3cwlpfavcsyhxe).
 -   the **address of the initial owner**
 -   the **network on which you want to deploy**
@@ -42,7 +51,7 @@ When **minting an NFT collection**, you make **multiple identical editions of th
         - **Initial Contract URI**: the link to the metadata of your contract
         - **Initial Owner of Multi Sig Contract**: The address of the owner of the contract
 
-        ```jsx showLineNumbers
+        ```js showLineNumbers
         const axios = require("axios")
 
         const axiosInstance = axios.create({
@@ -86,11 +95,11 @@ When **minting an NFT collection**, you make **multiple identical editions of th
 
         1. Click on **Smart Contract**.
 
-        ![smart contract menu](img/smart-contracts.png)
+        <Image img={SmartContracts} alt={'smart contract menu'} />
 
         1. Click **+ Smart contract**.
 
-        ![create smart contracts](img/plussc.png)
+        <Image img={Plussc} alt={'create smart contracts'} />
 
         1. Click **Deploy with Template**.
         1. Select **Deploy NFTs collections**.
@@ -106,7 +115,7 @@ When **minting an NFT collection**, you make **multiple identical editions of th
         - **Initial Contract URI**: the link to the metadata of your contract
         - **Initial Owner of Multi Sig Contract**: The address of the owner of the contract
 
-        ![parameters](img/allparameters.png)
+        <Image img={AllParameters} alt="parameters" />
 
         1. Click **Next**.
 
@@ -117,7 +126,7 @@ When **minting an NFT collection**, you make **multiple identical editions of th
         1. Click **Deploy**.
         Here you will define your gas speed. For more, go to gas management.
 
-        ![speed-gas.png](img/speed-gas.png)
+        <Image img={SpeedGas} alt="speed gas" />
 
         1. Click **Validate** to deploy your contract.
 
@@ -152,7 +161,7 @@ When **minting an NFT collection**, you make **multiple identical editions of th
         - **Id**: the identifer of the NFT within the collection
         - **Amount**: amount to mint
 
-        ```jsx showLineNumbers
+        ```js showLineNumbers
             const axios = require("axios")
 
             const axiosInstance = axios.create({
@@ -193,11 +202,11 @@ When **minting an NFT collection**, you make **multiple identical editions of th
 
         1. Click **Interact**.
 
-        ![interact tab](img/interact.png)
+        <Image img={Interact} alt={'interact tab'} />
 
         2. In the function list, select **mint**.
 
-        ![mint function](img/mint_function.png)
+        <Image img={MintFunction} alt={'mint function'} />
 
         3. Select the signer wallet.
 
@@ -205,15 +214,15 @@ When **minting an NFT collection**, you make **multiple identical editions of th
         in your collection. And finally, enter an amount.
 
         5. Click **Run**.
-        ![Run](img/run.png)
+        <Image img={Run} alt={'run'} />
 
         6. Select your Speed and click **Validate**.
 
-        ![speed-gas.png](img/speed-gas.png)
+        <Image img={SpeedGas} alt={'speed gas'} />
 
         7. Congratulations! You've minted the first NFT of your collection.
 
-        ![result-collection.png](img/result-collection.png)
+        <Image img={ResultCollection} alt={'result collection'} />
 
     </TabItem>
 

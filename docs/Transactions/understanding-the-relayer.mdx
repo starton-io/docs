@@ -4,6 +4,9 @@ description: Learn about blockchain lifecycle transactions. On Starton, the Rela
 keywords: [Relayer, Starton, Smart contracts, Deploy, Interact, Transaction]
 ---
 
+import Image from "@theme/IdealImage"
+import SchemaLight from "@site/static/img/docs/transactions/schemaLight.jpg"
+
 # Understanding Transactions with the Relayer
 
 The **Relayer** is a blockchain transaction management solution to create transactions, deploy and interact with smart contracts on the behalf of a user.
@@ -30,7 +33,7 @@ Pre-chain, the Relayer:
 -   Sets a nonce to indicate the order of transactions:
 -   Sign with a KMS (AWS)
 
-![Relayer prechain](src/schemaLight.jpg)
+<Image img={SchemaLight} alt="Relayer prechain" />
 
 Then, the **Relayer** monitors the transaction:
 

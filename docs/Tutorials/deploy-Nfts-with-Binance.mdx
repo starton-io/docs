@@ -6,6 +6,8 @@ import Heading from "@theme/Heading"
 import Link from "@docusaurus/Link"
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
+import Image from "@theme/IdealImage"
+import MyFirstNFTOnBNB from "@site/static/img/docs/tutorials/my-first-NFT-on-BNB.png"
 
 # Deploy your NFTs on BNB Smart Chain with Starton
 
@@ -16,7 +18,7 @@ You will:
 
 -   Upload the contract-level metadata
 -   Use a template from Starton for our smart contract (ERC721).
--   Deploy it with Starton from the dashboard. To deploy contracts from code, see [Deploying a smart contract from code](/Tutorials/deploy-a-contract-from-code.mdx).
+-   Deploy it with Starton from the dashboard. To deploy contracts from code, see [Deploying a smart contract from code](/tutorials/deploy-a-contract-from-code.mdx).
 -   Upload the content of our NFTs and their metadata on IPFS.
 -   Interact with our smart contract using Starton API in order to mint the NFTs and give it to a specific address.
 
@@ -42,7 +44,7 @@ Here are the values we will use:
 
 We now have the content of our metadata, we need to upload it on IPFS.
 
-To upload our files on IPFS we will now use the [Starton IPFS](/IPFS/understanding-IPFS.mdx) pinning service.
+To upload our files on IPFS we will now use the [Starton IPFS](/ipfs/understanding-ipfs.mdx) pinning service.
 
 As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.com/ipfs).
 
@@ -83,7 +85,7 @@ Today, we will use the ERC721 smart contract template.
 
 We will deploy the contract only once, so we will do it directly from Starton’s dashboard.
 
-We can access the list of templates in the [Smart contract section](/Smart-contract/understanding-smart-contracts.mdx).
+We can access the list of templates in the [Smart contract section](/smart-contract/understanding-smart-contracts.mdx).
 
 1. Select the ERC721 template.
 2. Enter:
@@ -91,7 +93,7 @@ We can access the list of templates in the [Smart contract section](/Smart-contr
     - a wallet to sign the transaction,
     - a blockchain / network on which to deploy, here BNB testnet.
     - the parameters of our contract.
-      For more information on parameters, check out the [Deploying a Smart Contract](/Smart-contract/parameters-and-functions.mdx).
+      For more information on parameters, check out the [Deploying a Smart Contract](/smart-contract/parameters-and-functions.mdx).
 
 For example, we can call our contract “Best NFTs on BNB” and deploy it on the BNB Testnet network.
 
@@ -281,7 +283,7 @@ This is the last step of your journey. We're going to create the NFT for what yo
 
 ## Results
 
-![my first NFT](img/my-first-NFT-on-BNB.png)
+<Image img={MyFirstNFTOnBNB} alt="My first NFT on BNB" />
 
 Annnnnd it’s done! Congratulations!
 

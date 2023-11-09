@@ -94,7 +94,7 @@ const starton = axios.create({
 Files on IPFS are immutable and can be widely replicated. Once uploaded, anyone can access your file and removal is almost impossible challenging. Think twice before sharing!
 :::
 
-1. Grab any file from your computer. You can also generate an image using [generative AI](/docs/Tutorials/ai-nft-collection).
+1. Grab any file from your computer. You can also generate an image using [generative AI](/docs/tutorials/ai-nft-collection).
 
     ```jsx showLineNumbers
     const fs = require("fs")
@@ -127,7 +127,7 @@ Files on IPFS are immutable and can be widely replicated. Once uploaded, anyone 
     	.catch((error) => console.error(error.response.data))
     ```
 
-    You can also upload [folders](/docs/IPFS/uploading-folder), [JSON files](/docs/IPFS/uploading-json) or [pin existing files using their CID](/docs/IPFS/pinning-file).
+    You can also upload [folders](/docs/ipfs/uploading-folder), [JSON files](/docs/ipfs/uploading-json) or [pin existing files using their CID](/docs/ipfs/pinning-file).
 
 4. Almost done! Now we can execute it to get your first file stored on IPFS!
 
@@ -160,7 +160,7 @@ In this tutorial, you discovered how to upload your first file on IPFS but this 
 		</Link>
 	</div>
 	<div className="col col-2 cardsGS">
-		<Link className="button-card button-card--vertical" to="/docs/Tutorials/monitoring-blockchain-activity">
+		<Link className="button-card button-card--vertical" to="/docs/tutorials/monitoring-blockchain-activity">
 			<Heading as={"h3"}>Monitor blockchain activity</Heading>
 			<div className="button-card__inner">
 				<p color="white">Get notified of any address's activity on an EVM network. </p>

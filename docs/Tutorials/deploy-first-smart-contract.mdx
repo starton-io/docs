@@ -6,7 +6,8 @@ import Heading from "@theme/Heading"
 import Link from "@docusaurus/Link"
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
-import walletPage from "./img/wallets-page.png"
+import Image from "@theme/IdealImage"
+import WalletPage from "@site/static/img/docs/tutorials/wallets-page.png"
 import { CardTitle } from "@site/src/components/commons/CardTitle"
 import { Starton } from "@starton/react-ui-iconography"
 
@@ -68,7 +69,7 @@ To follow this tutorial, you will need **coding experience**. If it's not your c
 
 1. First, import `axios`.
 
-    ```jsx showLineNumbers
+    ```js showLineNumbers
     const axios = require("axios")
     ```
 
@@ -94,7 +95,7 @@ Before we can continue you will need a Starton Wallet to sign our transaction.
 
 :::info Starton Wallet
 Starton Wallet uses a KMS. Metamask is unavailable when using Starton from code. Since it is a browser extension, Starton API cannot access it from your project.
-For more information, see **[Understanding Key Management Systems](/docs/Wallet/understanding-key-management-systems)**.
+For more information, see **[Understanding Key Management Systems](/docs/wallet/understanding-key-management-systems)**.
 :::
 
 We recommend you to create your wallet on Starton web application, but you can also create it from code if you'd like to automate it.
@@ -106,10 +107,10 @@ We recommend you to create your wallet on Starton web application, but you can a
                <li>Click <b>+ Wallet</b>.</li>
             </ol>
    <br/><br/></div>
-        <img src={walletPage}  />
+        <Image img={WalletPage} />
     </TabItem>
     <TabItem value="code" label="From Code">
-    For this tutorial, you will create a wallet on Starton's KMS. But when you want to go on production, you should import your own KMS<Link href="https://docs.starton.com/docs/Wallet/connecting-aws-kms">Learn more</Link>.
+    For this tutorial, you will create a wallet on Starton's KMS. But when you want to go on production, you should import your own KMS<Link href="https://docs.starton.com/docs/wallet/connecting-aws-kms">Learn more</Link>.
    <br/><br/>
 
 ```js showLineNumbers
@@ -132,7 +133,7 @@ To interact with the blockchain you will need the native currency of this blockc
 ## Step 4 - Deploy your ERC20 token
 
 :::info Starton Library
-For this tutorial, you will deploy your own ERC20 token. **Starton** provides you with a library of smart contracts templates. **[Learn more](/docs/Smart-contract/understanding-smart-contracts)**.
+For this tutorial, you will deploy your own ERC20 token. **Starton** provides you with a library of smart contracts templates. **[Learn more](/docs/smart-contract/understanding-smart-contracts)**.
 :::
 
 Now, let's write your first API call!
@@ -165,12 +166,12 @@ starton
 
 Congratulations on your first request. Let's dive into what we just did:
 
--   The endpoint `/v3/smart-contract/from-template` allows you to deploy audited smart contracts. You can also [deploy smart contract your own code](/docs/Smart-contract/deploying-from-bytecode), or [import an existing contract](/docs/Smart-contract/importing-smart-contract)
+-   The endpoint `/v3/smart-contract/from-template` allows you to deploy audited smart contracts. You can also [deploy smart contract your own code](/docs/smart-contract/deploying-from-bytecode), or [import an existing contract](/docs/smart-contract/importing-smart-contract)
 -   We selected a blockchain network for your deployment: `binance-testnet`. You can choose any network from our list of [supported networks](/docs/overview#supported-networks-and-service-availability)
--   We used the [Starton KMS](/docs/Wallet/understanding-key-management-systems) to sign the transaction and pay gas fee. This allows you to [automate transactions](/blog/blockchain-transaction-lifecycle), but also to sponsor the end-user fees with [gasless transaction](/docs/Tutorials/metatransaction)
--   We used a ERC20 template. You can find more templates in [Starton Library](/docs/Smart-contract/understanding-smart-contracts)
+-   We used the [Starton KMS](/docs/wallet/understanding-key-management-systems) to sign the transaction and pay gas fee. This allows you to [automate transactions](/blog/blockchain-transaction-lifecycle), but also to sponsor the end-user fees with [gasless transaction](/docs/tutorials/metatransaction)
+-   We used a ERC20 template. You can find more templates in [Starton Library](/docs/smart-contract/understanding-smart-contracts)
 -   We had to put 18 zeros after "10000" as the smart contract will read the amount in wei (the equivalent of cents, except there are 18 decimals and not 2).
--   We selected an average speed for your transaction. But with Starton [everything is customizable](/docs/Transactions/understanding-gas#gas-speed). You can also [set up a gas strategy](/docs/Transactions/stuck-transaction-replacement) to automate the management of your transactions.
+-   We selected an average speed for your transaction. But with Starton [everything is customizable](/docs/transactions/understanding-gas#gas-speed). You can also [set up a gas strategy](/docs/transactions/stuck-transaction-replacement) to automate the management of your transactions.
 
 Almost done! Now we can execute it to get our first contract deployed!
 
@@ -209,7 +210,7 @@ In this tutorial, you discovered how to deploy your first smart contract but thi
 	<div className="col col-2 cardsGS">
 		<Link
 			className="button-card button-card--vertical"
-			href="/docs/Smart-contract/interacting-with-a-smart-contract"
+			href="/docs/smart-contract/interacting-with-a-smart-contract"
 		>
 			<Heading as={"h3"}>Interact with a smart contract</Heading>
 			<div className="button-card__inner">
@@ -218,7 +219,7 @@ In this tutorial, you discovered how to deploy your first smart contract but thi
 		</Link>
 	</div>
 	<div className="col col-2 cardsGS">
-		<Link className="button-card button-card--vertical" href="/docs/Tutorials/monitoring-blockchain-activity">
+		<Link className="button-card button-card--vertical" href="/docs/tutorials/monitoring-blockchain-activity">
 			<Heading as={"h3"}>Monitor a smart contract</Heading>
 			<div className="button-card__inner">
 				<p color="white">Get notified of the activity on your smart contract, or any address. </p>

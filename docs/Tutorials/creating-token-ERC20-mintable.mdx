@@ -6,6 +6,15 @@ import Heading from "@theme/Heading"
 import Link from "@docusaurus/Link"
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
+import Image from "@theme/IdealImage"
+import SCCreateERC20 from "@site/static/img/docs/tutorials/sc-create-erc20.png"
+import SCDeployERC20 from "@site/static/img/docs/tutorials/sc-deploy-erc20.png"
+import SCTemplateMinableERC20 from "@site/static/img/docs/tutorials/sc-template-mintable-erc20.png"
+import SCConstructorERC20 from "@site/static/img/docs/tutorials/sc-constructor-erc20.png"
+import SCNetworkERC20 from "@site/static/img/docs/tutorials/sc-network-erc20.png"
+import SpeedGas from "@site/static/img/docs/tutorials/speed-gas.png"
+import SCInteractERC20 from "@site/static/img/docs/tutorials/sc-interact-erc20.png"
+import SCTransferERC20 from "@site/static/img/docs/tutorials/sc-transfer-erc20.png"
 
 # How to create your own cryptocurrency (ERC20)
 
@@ -67,17 +76,17 @@ Fungible tokens are token from which the value of each token is equal to another
 
 1. Click on **Smart Contract**.
 
-    ![smart contract menu](img/sc-create-erc20.png)
+    <Image img={SCCreateERC20} alt="smart contract menu" />
 
 1. Click **+ Smart contract**.
 
 1. Click **Deploy with Template**.
 
-    ![create smart contracts](img/sc-deploy-erc20.png)
+    <Image img={SCDeployERC20} alt="deploy smart contract" />
 
 1. Click **Create a cryptocurrency with Fungible Tokens**, click **ERC20 Token with mintable supply**.
 
-    ![create smart contracts](img/sc-template-mintable-erc20.png)
+    <Image img={SCTemplateMinableERC20} alt="create smart contract" />
 
 1. In **General information**, enter **a name and a description** for your smart contract. These will appear only on Starton and can be edited after creation.
 1. In **Smart contract**, enter:
@@ -87,20 +96,19 @@ Fungible tokens are token from which the value of each token is equal to another
 -   **initialSupply:** The initial amount of tokens that will be minted. For example, "100000000000000000000000000000000000000".
 -   **initialOwnerOrMultisigContract:** The address that will own the ERC20 contract. For example, your default Starton wallet.
 
-    ![create smart contracts](img/sc-constructor-erc20.png)
+    <Image img={SCConstructorERC20} alt="create smart contract" />
 
 1. Click on **Next**.
 
 1. Now select the network on which you want to deploy your contract.
 
-    ![create smart contracts](img/sc-network-erc20.png)
+    <Image img={SCNetworkERC20} alt="create smart contract" />
 
 1. Choose the wallet you want to deploy your contract with.
 
-1. Click **Deploy**.
-   Here you will define your gas speed. For more, go to gas management.
+1. Click **Deploy**. Here you will define your gas speed. For more, go to gas management.
 
-    ![speed-gas.png](img/speed-gas.png)
+    <Image img={SpeedGas} alt="Speed gas" />
 
 1. Click **Validate** to deploy your contract.
 
@@ -174,11 +182,11 @@ You will need the following information:
 
 1. Click **Interact**.
 
-    ![interact tab](img/sc-interact-erc20.png)
+    <Image img={SCInteractERC20} alt="interact tab" />
 
 1. In the function list, select **transfer**.
 
-    ![mint function](img/sc-transfer-erc20.png)
+    <Image img={SCTransferERC20} alt="mint function" />
 
 1. Select the signer wallet.
 
@@ -186,7 +194,7 @@ You will need the following information:
 
 1. Click **Run**.
 
-    ![create smart contracts](img/sc-network-erc20.png)
+    <Image img={SCNetworkERC20} alt="create smart contract" />
 
 1. Select your Speed and click **Validate**.
 

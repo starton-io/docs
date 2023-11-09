@@ -76,7 +76,7 @@ If the build is successful, run :
 
 ## Documentation
 
-Find out more on how to use Starton in our [Documentation](https://docs.starton.com/)
+Find out more on how to use Starton in our [Documentation](/)
 
 ## Contributing
 
