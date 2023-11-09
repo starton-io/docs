@@ -12,7 +12,7 @@ export const commonConfig: Omit<Config, 'plugins' | 'i18n' | 'presets' | 'themeC
 	url: process.env.URL,
 	onBrokenLinks: 'warn',
 	onBrokenMarkdownLinks: 'warn',
-	favicon: '/tutorials/logo.svg',
+	favicon: '/img/logo.svg',
 	staticDirectories: ['static'],
 
 	// GitHub pages deployment config.

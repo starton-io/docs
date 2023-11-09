@@ -42,7 +42,7 @@ export function HomeIndexes() {
 					</Grid>
 					<Grid item xs={12}>
 						<CardIndex
-							href="/docs/Tutorials/deploy-first-smart-contract"
+							href="/docs/tutorials/deploy-first-smart-contract"
 							title="DEPLOYING YOUR FIRST SMART CONTRACT"
 							description="Start by deploying a smart contract from Code"
 						>
@@ -53,7 +53,7 @@ export function HomeIndexes() {
 					</Grid>
 					<Grid item xs={12}>
 						<CardIndex
-							href="/docs/Tutorials/storing-files-on-IPFS"
+							href="/docs/tutorials/storing-files-on-IPFS"
 							title="STORING YOUR FIRST FILE ON IPFS"
 							description="Upload content on a distributed storage network from Code"
 						>
@@ -64,11 +64,11 @@ export function HomeIndexes() {
 					</Grid>
 					<Grid item xs={12}>
 						<CardIndex
-							href="/docs/Tutorials/monitoring-blockchain-activity"
+							href="/docs/tutorials/monitoring-blockchain-activity"
 							title="MONITORING BLOCKCHAIN ACTIVITY"
 							description="Create your first watcher to monitor events from Code"
 						>
-							<TypographyLink href="https://docs.starton.com/intro#tag/Watcher/operation/WatcherCreateOne">
+							<TypographyLink href="https://docs.starton.com/intro#tag/watcher/operation/WatcherCreateOne">
 								API ref.
 							</TypographyLink>
 						</CardIndex>
@@ -82,7 +82,7 @@ export function HomeIndexes() {
 					</Grid>
 					<Grid item xs={12}>
 						<CardIndex
-							href="https://docs.starton.com/docs/Wallet/about-wallets"
+							href="https://docs.starton.com/docs/wallet/about-wallets"
 							title="WALLETS"
 							description="Create or connect a wallet to sign transactions from API and our web application"
 						>
@@ -91,7 +91,7 @@ export function HomeIndexes() {
 					</Grid>
 					<Grid item xs={12}>
 						<CardIndex
-							href="https://docs.starton.com/docs/Transactions/understanding-the-relayer"
+							href="https://docs.starton.com/docs/transactions/understanding-the-relayer"
 							title="TRANSACTIONS"
 							description="Create and manage transactions from API and our web application"
 						>
@@ -120,7 +120,7 @@ export function HomeIndexes() {
 					</Grid>
 					<Grid item xs={12}>
 						<CardIndex
-							href="https://docs.starton.com/docs/Watcher/understanding-watchers"
+							href="https://docs.starton.com/docs/watcher/understanding-watchers"
 							title="WATCHERS"
 							description="Create a watcher to monitor blockchain addresses and events"
 						>
@@ -129,7 +129,7 @@ export function HomeIndexes() {
 					</Grid>
 					<Grid item xs={12}>
 						<CardIndex
-							href="https://docs.starton.com/docs/Watcher/webhooks"
+							href="https://docs.starton.com/docs/watcher/webhooks"
 							title="WEBHOOKS"
 							description="Create Webhooks triggered by events for your watcher"
 						>
@@ -138,18 +138,18 @@ export function HomeIndexes() {
 					</Grid>
 					<Grid item xs={12}>
 						<CardIndex
-							href="https://docs.starton.com/docs/Watcher/confirmation-blocks"
+							href="https://docs.starton.com/docs/watcher/confirmation-blocks"
 							title="CONFIRMATION BLOCKS"
 							description="Learn confirmations blocks and default value per network"
 						/>
 					</Grid>
 					<Grid item xs={12}>
 						<CardIndex
-							href="https://docs.starton.com/docs/Watcher/watcher-state-and-status"
+							href="https://docs.starton.com/docs/watcher/watcher-state-and-status"
 							title="WATCHER STATES & STATUTS"
 							description="Understand what's happening to your watcher"
 						>
-							<TypographyLink href="https://docs.starton.com/intro#tag/Watcher/operation/WatcherGetOne">
+							<TypographyLink href="https://docs.starton.com/intro#tag/watcher/operation/WatcherGetOne">
 								API ref.
 							</TypographyLink>
 						</CardIndex>

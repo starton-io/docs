@@ -49,7 +49,7 @@ export const themeConfig: ThemeConfig = {
 	navbar: {
 		logo: {
 			alt: 'Starton Logo',
-			src: 'tutorials/starton.svg',
+			src: 'img/starton.svg',
 		},
 		items: [
 			{
