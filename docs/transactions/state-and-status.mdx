@@ -1,0 +1,96 @@
+---
+Title: Transaction state and status
+description: Learn about Transactions states and status.
+keywords: [Transaction, Starton, state, status, error, logs]
+---
+
+import Image from "@theme/IdealImage"
+import AATtable from "@site/static/img/docs/transactions/AATtable.png"
+
+# Transaction state and status
+
+From **Dashboard**, click **Transactions** to access your transactions activity list.
+
+In **State**, information is displayed to enable you to understand your transaction's workflow.
+
+<Image img={AATtable} alt="Transaction list table" />
+
+## State
+
+A transaction can return one of the four following states.
+
+| State   | Log                    | Description                                                              |
+| ------- | ---------------------- | ------------------------------------------------------------------------ |
+| Success | SUCCESS                | Transaction is successful. No action required.                           |
+| Pending | PENDING                | Transaction is in progress. No action required.                          |
+| Blocked | MANUAL_ACTION_REQUIRED | Transaction cannot be processed. Manual action is required on your part. |
+| Error   | ERROR                  | An error occurred on the transaction. See below for more information.    |
+
+## Status
+
+Within each state, a status provides you information on the reason for the state.
+
+### Success statuses
+
+| Status    | Message                                                                                                                                 | Description |
+| --------- | --------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| MINED     | Transaction mined with success.                                                                                                         |
+| CONFIRMED | Transaction confirmed with success. Your transaction appears on the blockchain and a number of transactions have been mined afterwards. |
+
+### Pending statuses
+
+| Status                        | Message                                                                                               |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------- |
+| UNKNOWN                       | An unknown error occured. Please contact us or retry later.                                           |
+| REPLACED                      | Transaction replaced with another transaction with the same nonce.                                    |
+| FAILED                        | Transaction reverted by the blockchain.                                                               |
+| GAS_PRICE_ESTIMATED           | Gas price estimated with success.                                                                     |
+| GAS_LIMIT_ESTIMATED           | Gas limit estimated with success.                                                                     |
+| NONCE_ASSIGNED                | Nonce assigned with success.                                                                          |
+| SIGNED                        | Transaction signed with success.                                                                      |
+| SENT_TO_MEMPOOL               | Transaction sent to mempool with success.                                                             |
+| ALREADY_KNOWN                 | This transaction is already present on the mempool.                                                   |
+| MONITORING_IN_PROGRESS        | Starton is currently monitoring your transaction.                                                     |
+| STUCK_BY_PREVIOUS_TRANSACTION | Too many transaction with a lower nonce are presently pending before we can process this transaction. |
+| NEW_TRANSACTION_HASH          | A new transaction hash is assigned to your transaction because we increased the gas price.            |
+| MONITORING_INTERRUPTED        | Starton is no longer monitoring your transaction.                                                     |
+| GAS_PRICE_INCREASED           | Gas price increased successfully.                                                                     |
+| RECEIVED_BY_STARTON           | Transaction was received by Starton API.                                                              |
+| CREATED_BY_STARTON            | Transaction was created by Starton API to replace a transaction stuck because of a too low gas price. |
+
+### Blocked statuses
+
+:::caution
+
+Transactions in a blocked status require a manual action on your part. Check [Blocked transactions troubleshooting](/transactions/manual-action-required.mdx) for more information.
+
+:::
+
+| Status                             | Message                                                                                                                                                                                      |
+| ---------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| COULD_NOT_INCREASE_GAS_PRICE       | Could not increase gas price. Your relayer gas price settings do not allow us to increase it more.                                                                                           |
+| COULD_NOT_INCREASE_NONCE           | Your transaction is stuck because another transaction with a lower nonce is missing. We tried to create it for you, but we could not.                                                        |
+| MAX_GAS_PRICE_REACH                | Could not increase the gas, maximum gas price set in project was reached (+-15%).                                                                                                            |
+| INSUFFICIENT_FUNDS_AFTER_BROADCAST | Your transaction was broadcasted successfully but is now stuck because your funds are insufficient. You need to add funds to your wallet to process this and all the following transactions. |
+
+### Error statuses
+
+| Status                            | Message                                                                                                                                                                              |
+| --------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| INSUFFICIENT_FUNDS                | Your funds are insufficient.                                                                                                                                                         |
+| COULD_NOT_ESTIMATE_GAS_PRICE      | Could not estimate gas price. If this issue persists, you can set a custom gas price.                                                                                                |
+| INVALID_GAS_PRICE                 | You must set a valid customGas. (For example, For example, on a prior-EIP1559 chain, you can't set maxFeePerGas and maxPriorityFeePerGas.)                                           |
+| REPLACEMENT_GAS_PRICE_UNDERPRICED | The gas price is insufficient to replace this transaction. You must increase its gas price by at least 10%.                                                                          |
+| COULD_NOT_ESTIMATE_GAS_LIMIT      | Could not estimate gas limit. If this issue persists, you can set a custom gas limit (not recommended).                                                                              |
+| EXECUTION_WILL_FAIL               | Your transaction failed when we estimated the gas limit. It means that in the current state of the blockchain, your transaction is invalid and will be reverted if you broadcast it. |
+| INVALID_ARGUMENT                  | Some arguments in the parameters object are invalid. Check the required parameters in your ABI.                                                                                      |
+| COULD_NOT_ASSIGN_NONCE            | Could not assign nonce. If this issue persists, you can set a specific nonce.                                                                                                        |
+| NONCE_EXPIRED                     | You try to send a transaction with a nonce already used.                                                                                                                             |
+| COULD_NOT_SIGN                    | Could not sign your transaction. If the issue persists and if you imported your KMS, check the permissions given to Starton.                                                         |
+| COULD_NOT_BROADCAST               | Could not broadcast your transaction because of an unknown error. Please contact us or retry later.                                                                                  |
+
+**Related topics**
+
+-   More on [Transactions](/transactions/creating-a-transaction.mdx)
+-   More on [Smart Contracts](/smart-contract/understanding-smart-contracts.mdx)
+-   More on [Developer mode](/developer/discovering-coding-interface.mdx)

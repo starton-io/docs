@@ -1,0 +1,42 @@
+---
+title: ERC1155 NFT Whitelist Sale
+description: The smart contract standard to manage unique tokens.
+keywords: [ERC-1155, ERC1155, Deploy, Starton, Smart contracts, parameters, functions]
+---
+
+# ERC1155 NFT Collection Whitelist
+
+The ERC1155 is a smart contract standard which is specialised in single-copy Non Fungible Tokens (NFT) and out-of-the-box compatible with Opensea. In an ERC1155, every NFT is unique which means you have to reference the content for each NFT.
+
+The smart contract template to sell NFTs only to selected users. In a video game, you can sell a piece of equipment only to players of an approved rank.
+
+This Whitelist version enables you to create a whitelist of users that can buy your tokens through a Merkle tree.
+
+This template enables you to mint a new token and sell it to your users. It helps you set up a sale, select when it starts and ends, and set a maximum number of tokens that can be sold in total or to the same user.
+
+Notice that the baseURI of the ERC1155 contract should be the URI that is linked to a directory on ipfs or your centralized server because when minting a new token, the URI will be added to the id. For example, `https://ipfs.io/QmbWqxBEKC3P8tqsKc98xmWNzrzDtRLMiMPL8wBuTGsMnR/0`
+
+## Parameters
+
+-   **definitiveTokenAddress:** The token address of the ERC1155 that you want to sell.
+-   **definitiveMerkleRoot:** The root of the merkle tree that contains the list of the users that can buy the NFTs.
+-   **definitiveStartTime:** The time when the sale will begin and users can mint tokens.
+-   **definitiveEndTime:** The time when the sale will end and users couldn't mint anymore tokens.
+-   **definitiveMaxTokensPerAddress:** The maximum amount of tokens that can be minted by a single address.
+-   **definitiveMaxSupply:** The maximum amount of tokens that can be minted during the sale.
+-   **definitiveFeeReceiver:** The address that will receive all the price paid to mint the NFTs.
+
+## Functions
+
+| Function            | Input Parameters             | Description                                                                                                                                                              |
+| ------------------- | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| token               | None                         | Returns the NFT contract where the new tokens will be minted at.                                                                                                         |
+| price               | None                         | Returns the price to mint one NFT in WEI.                                                                                                                                |
+| startTime           | None                         | Returns the start time of the sale.                                                                                                                                      |
+| endTime             | None                         | Returns the end time of the sale.                                                                                                                                        |
+| maxTokensPerAddress | None                         | Returns the max number of tokens that a address can mint.                                                                                                                |
+| leftSupply          | None                         | The left amount of token that can be minted during this sale.                                                                                                            |
+| tokensClaimed       | (address)                    | The amount of token claimed per address                                                                                                                                  |
+| mint                | (address to)                 | Mint a new token to a specific address from the token collection. Notice the minter must send the required amount defined by price.                                      |
+| mintBatch           | (address to, uint256 amount) | Mint nth new tokens to a specific address from the token collection. Notice the minter must send the required amount defined by price times the amount of tokens minted. |
+| withdraw            | None                         | Withdraw the price paid for the mints                                                                                                                                    |
