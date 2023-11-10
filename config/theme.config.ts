@@ -78,7 +78,7 @@ export const themeConfig: ThemeConfig = {
 			// 	position: 'left',
 			// },
 			{
-				to: 'blog/web3auth',
+				to: 'guides/web3auth',
 				label: 'Guides',
 				'aria-label': 'Guides',
 				position: 'right',

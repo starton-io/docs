@@ -7,6 +7,7 @@
 import React from 'react'
 import { styled, Box, BoxProps, Typography } from '@mui/material'
 import { ArrowLargeTopRight } from '@starton/react-ui-iconography'
+import { default as DocusaurusLink } from '@docusaurus/Link'
 
 /*
 |--------------------------------------------------------------------------
@@ -77,12 +78,12 @@ export const Link: React.FC<LinkProps> = (props) => {
 	// Render
 	//--------------------------------------------------------------------------
 	return (
-		<a {...anchorProps}>
+		<DocusaurusLink {...anchorProps} to={anchorProps.href}>
 			<LinkStyled variant={variant} {...boxProps}>
 				{typeof children === 'string' ? <Typography>{children}</Typography> : null}
 				<ArrowLargeTopRight sx={{ width: 16, height: 16 }} />
 			</LinkStyled>
-		</a>
+		</DocusaurusLink>
 	)
 }
 

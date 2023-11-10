@@ -18,6 +18,9 @@ export const presets: Array<PresetConfig> = [
 				filename: 'sitemap.xml',
 			},
 			blog: {
+				path: 'guides',
+				routeBasePath: 'guides',
+				blogTitle: 'Guides',
 				showReadingTime: true,
 			},
 			docs: {

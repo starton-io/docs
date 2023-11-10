@@ -25,7 +25,7 @@ export const plugins: Array<PluginConfig> = [
 		{
 			redirects: [
 				{
-					from: '/docs/Tutorials/Home',
+					from: '/docs/tutorials/Home',
 					to: '/tutorials',
 				},
 				{
@@ -35,6 +35,10 @@ export const plugins: Array<PluginConfig> = [
 				{
 					from: '/docs/smart-contract/ERC721-Meta.md',
 					to: '/tutorials',
+				},
+				{
+					from: '/blog',
+					to: '/guides',
 				},
 			],
 		},
