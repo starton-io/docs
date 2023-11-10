@@ -4,6 +4,12 @@ displayed-sidebar: connectSidebar
 ---
 # 2023
 
+## October 
+
+- **Starton Playground** 
+
+    Welcome to Starton’s playground! Dive into our application and discover a world of possibilities. We've designed a quick and intuitive flow to walk you through the unique features Starton offers, and we’ll show you just how easy it is to integrate them into your own application. Let’s start exploring together. [Try it!](https://app.starton.com/projects/default/playground)
+
 ## June 
 
 - **Discord Communities management simplified**
