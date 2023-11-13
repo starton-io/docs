@@ -43,9 +43,11 @@ export const plugins: Array<PluginConfig> = [
 				},
 			],
 			createRedirects(existingPath) {
-				if (existingPath.includes('/blog')) {
-					return existingPath.replace('/blog', '/guides')
+				if (existingPath.includes('/guides')) {
+					return existingPath.replace('/guides', '/blog')
 				}
+
+				return undefined
 			},
 		} as PluginOptions,
 	],
