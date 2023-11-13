@@ -4,6 +4,7 @@
 */
 
 import type { PluginConfig } from '@docusaurus/types'
+import {PluginOptions} from "@docusaurus/plugin-client-redirects/src/options";
 
 export const plugins: Array<PluginConfig> = [
 	'@docusaurus/theme-live-codeblock',
@@ -41,6 +42,13 @@ export const plugins: Array<PluginConfig> = [
 					to: '/guides',
 				},
 			],
-		},
+			createRedirects(existingPath) {
+				if (existingPath.includes('/guides')) {
+					return existingPath.replace('/guides', '/blog')
+				}
+
+				return undefined
+			},
+		} as PluginOptions,
 	],
 ]
