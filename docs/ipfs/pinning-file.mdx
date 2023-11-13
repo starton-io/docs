@@ -1,0 +1,49 @@
+---
+title: Pinning CID
+description: Learn how to upload on Starton IPFS.
+keywords: [IPFS, smart contract, upload]
+---
+
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+
+# Pinning CID on IPFS
+
+You can pin content already available on IPFS with Starton using the Content IDentifier (CID).
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+```js showLineNumbers
+const axios = require("axios")
+
+// AUTHENTICATING TO THE API USING YOUR API KEY
+const startonApi = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+
+startonApi
+	.post("/v3/ipfs/pin", {
+		name: "pin name", // name of the file you would like to pin
+		cid: "bafybeid7ybbefggfv6y7gkkbyt3tpi647p66mrmcjkujrlbfbtb6mmbklq", // cid of the file you would like to pin
+		metadata: { your: "additional", meta: "data" },
+	})
+	.then((res) => console.log(res.data))
+	.catch((e) => console.log(e))
+```
+
+</TabItem>
+<TabItem value="dashboard" label="From Webapp">
+
+1. Go to **Storage**.
+1. Click **Upload**.
+1. Select **CID**.
+1. Enter the **CID** of the content.
+1. Enter a **Name** for the file.
+1. Click **Upload**.
+
+</TabItem>
+</Tabs>

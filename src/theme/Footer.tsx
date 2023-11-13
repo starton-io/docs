@@ -1,5 +1,5 @@
 /*
-| Developed by Dirupt
+| Developed by Starton
 | Filename : Footer.js
 | Author : Philippe DESPLATS (philippe@di-rupt.com)
 */
@@ -14,6 +14,7 @@ import {
 import { StartonButton } from '@site/src/components/commons/Button'
 import { Box, styled, Typography, useTheme } from '@mui/material'
 import { Link } from '@site/src/components/commons/Link'
+import { default as DocusaurusLink } from '@docusaurus/Link'
 import { SocialDiscord, SocialLinkedin, SocialTwitter, Starton } from '@starton/react-ui-iconography'
 
 /*
@@ -39,7 +40,12 @@ function Footer() {
 	return (
 		<StartonFooter>
 			<StartonFooterHead>
-				<a href={'https://www.starton.com'} target={'_blank'} style={{ width: 'fit-content' }} rel="noreferrer">
+				<DocusaurusLink
+					to={'https://www.starton.com'}
+					target={'_blank'}
+					style={{ width: 'fit-content' }}
+					rel="noreferrer"
+				>
 					<StartonButton
 						size="large"
 						color="reverse"
@@ -48,9 +54,9 @@ function Footer() {
 					>
 						Website
 					</StartonButton>
-				</a>
-				<a
-					href={'https://twitter.com/starton_com'}
+				</DocusaurusLink>
+				<DocusaurusLink
+					to={'https://twitter.com/starton_com'}
 					target={'_blank'}
 					style={{ width: 'fit-content' }}
 					rel="noreferrer"
@@ -63,9 +69,9 @@ function Footer() {
 					>
 						Twitter
 					</StartonButton>
-				</a>
-				<a
-					href={'https://discord.starton.com/'}
+				</DocusaurusLink>
+				<DocusaurusLink
+					to={'https://discord.starton.com/'}
 					target={'_blank'}
 					style={{ width: 'fit-content' }}
 					rel="noreferrer"
@@ -78,9 +84,9 @@ function Footer() {
 					>
 						Discord
 					</StartonButton>
-				</a>
-				<a
-					href={'https://www.linkedin.com/company/starton-io/'}
+				</DocusaurusLink>
+				<DocusaurusLink
+					to={'https://www.linkedin.com/company/starton-io/'}
 					target={'_blank'}
 					style={{ width: 'fit-content' }}
 					rel="noreferrer"
@@ -93,9 +99,9 @@ function Footer() {
 					>
 						LinkedIn
 					</StartonButton>
-				</a>
-				<a
-					href={'https://auth.starton.com/login'}
+				</DocusaurusLink>
+				<DocusaurusLink
+					to={'https://auth.starton.com/login'}
 					target={'_blank'}
 					style={{ width: 'fit-content' }}
 					rel="noreferrer"
@@ -103,7 +109,7 @@ function Footer() {
 					<StartonButton size="large" color="reverse" variant="contained" startIcon={<Starton />}>
 						Login
 					</StartonButton>
-				</a>
+				</DocusaurusLink>
 			</StartonFooterHead>
 			<StartonFooterBody>
 				<StartonFooterLinkList>
@@ -113,13 +119,13 @@ function Footer() {
 					<Link href="/docs/overview" variant="reverse">
 						Documentation
 					</Link>
-					<Link href="/intro" variant="reverse">
+					<Link href="/api-reference" variant="reverse">
 						API
 					</Link>
 					<Link href="/tutorials" variant="reverse">
 						Tutorials
 					</Link>
-					<Link href="/blog" variant="reverse">
+					<Link href="/guides/web3auth" variant="reverse">
 						Guide
 					</Link>
 				</StartonFooterLinkList>

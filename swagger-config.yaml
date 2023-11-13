@@ -1,4 +1,0 @@
----
-url: "https://starton.s3.eu-west-3.amazonaws.com/api/swagger.json"
-dom_id: "#swagger-ui"
-validatorUrl: "https://validator.swagger.io/validator"

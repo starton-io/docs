@@ -1,0 +1,95 @@
+---
+title: Interacting Smart Contracts
+description: Learn how to interact with a smart contract with Starton.
+keywords: [Interact, Starton, Smart contracts]
+---
+
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+
+# Interacting Smart Contracts
+
+Once a smart contract has been deployed or imported, you can interact with it using our **Dashboard** or from Code using the Relayer.
+
+The possible interactions are:
+
+-   Calling a function of the smart contract (will require gas on the associated blockchain's network).
+-   Reading the information on the smart contract (usually free of gas), such as reading the balance on an ERC20 contract.
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+To interact with a smart contract, you can first list all the functions of your smart contracts using:
+
+```jsx showLineNumbers
+const axios = require("axios")
+
+const startonAPI = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+
+startonAPI
+	.get("/v3/smart-contract/polygon-mumbai/0xF205506dA3aF8D0Cc0f90D7C0c0eA4EFA6423CFF/available-functions")
+	.then((res) => console.log(res.data))
+	.catch((e) => console.log(e))
+```
+
+Then, once you have the right function, you can call it. For example, here, we're trying to mint 1000 new tokens.
+
+```jsx showLineNumbers
+const axios = require("axios")
+
+const startonAPI = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+
+startonAPI
+	.post("/v3/smart-contract/polygon-mumbai/0x608B2BC89f569Bf883A6d0A36aDBd8DC937fAf2e/call", {
+		signerWallet: "0x694F07CEEc0869aa0dB5E8157FA538268F28B23f",
+		functionName: "mint(address,uint256)",
+		params: ["0x694F07CEEc0869aa0dB5E8157FA538268F28B23f", "10000000000000"],
+	})
+	.then((res) => console.log(res.data))
+	.catch((e) => console.log(e))
+```
+
+As the number will be read in Gwei, you need to add 18 zeros after the amount of token you want to mint.
+
+You can check your transaction using the transaction hash on your selected network.
+
+Learn more about [how to interact with a Smart Contract from Code](/tutorials/interact-from-code.mdx) in our Tutorial section.
+
+</TabItem>
+<TabItem value="dashboard" label="From Webapp">
+
+1. In **Smart Contract**, select a **Smart Contract**.
+1. Select a **function**.
+1. Enter the **parameters**.
+1. Click **Run**.
+
+Learn more about [how to interact with a Smart Contract from Code](/tutorials/interact-from-code.mdx) in our Tutorial section.
+
+</TabItem>
+</Tabs>
+
+> Note that the developer mode is unavailable for third-party wallets
+
+## Smart contract functions
+
+Read [Smart Contracts references](/smart-contract/parameters-and-functions.mdx) for more information on how to call smart contract functions.
+
+:::info
+When interacting with smart contracts on Dashboard, you can use the search feature to browse your read, write and payable functions.
+:::
+
+**Related topics**
+
+-   More on [Transactions](/transactions/creating-a-transaction.mdx)
+-   More on [Smart Contracts](/smart-contract/understanding-smart-contracts.mdx)
+-   More on [Developer mode](/developer/discovering-coding-interface.mdx)

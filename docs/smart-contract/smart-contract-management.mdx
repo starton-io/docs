@@ -1,0 +1,77 @@
+---
+title: Smart contract management
+---
+
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+import { CardTitle } from "@site/src/components/commons/CardTitle"
+import { Starton } from "@starton/react-ui-iconography"
+
+# Smart contract management
+
+The Smart contract management is an abstraction on top of our [Transaction Manager](/docs/transactions/transaction-management) and it allows you to build and **automate** your smart contract transactions easily, without struggling with [ABI](/guides/ABI) and parameters encoding. With it you can:
+
+-   [**Deploy smart contract**](/docs/smart-contract/deploying-a-smart-contract): Deploy audited contract from our library or your own smart contract.
+-   [**Import existing contract**](/docs/smart-contract/importing-smart-contract): Import existing contract to view them on your dashboard and interact with them.
+-   [**Interact with a smart contract**](/docs/smart-contract/interacting-with-a-smart-contract): Read state and interact with the smart contract previously deployed or imported.
+
+## Getting Started
+
+<CardTitle icon={<Starton fill="primary" />} href="/docs/tutorials/deploy-first-smart-contract">
+	Deploy my first ERC20 contract
+</CardTitle>
+
+<div className="row is-multiline">
+    <div className="col col--5">
+        <Heading as={'h2'}>Guides</Heading>
+        <div className="button-card__inner">
+            <Link to="/guides/about-smart-contract">
+                <Heading as={'h5'}>What is a smart contract?</Heading>
+            </Link>
+            <Link to="/guides/ABI">
+                <Heading as={'h5'}>What is ABI?</Heading>
+            </Link>
+            <Link to="/guides/about-bytecode">
+                <Heading as={'h5'}>What is bytecode?</Heading>
+            </Link>
+            <Link to="/guides/fungible-vs-non-fungible-tokens">
+                <Heading as={'h5'}>Fungible and Non Fungible Tokens explained</Heading>
+            </Link>
+        </div>
+    </div>
+
+    <div className="col col--5">
+        <Heading as={'h2'}>Main API Endpoints</Heading>
+        <div className="button-card__inner">
+            <Link to="/api-reference#tag/smart-contract-management/[post]/v3/smart-contract/from-bytecode">
+                <Heading as={'h5'}>Deploy
+                from bytecode (your own contract)</Heading>
+            </Link>
+            <Link to="/api-reference#tag/smart-contract-management/[post]/v3/smart-contract/from-template">
+                <Heading as={'h5'}>Deploy
+                Smart Contract from Template</Heading>
+            </Link>
+            <Link to="/api-reference#tag/smart-contract-management/[post]/v3/smart-contract/import-existing">
+                <Heading as={'h5'}>Import
+                Existing Smart Contract</Heading>
+            </Link>
+            <Link to="/api-reference#tag/smart-contract-management/[post]/v3/smart-contract/{network}/{address}/call">
+                <Heading as={'h5'}>Execute Smart Contract Function</Heading>
+            </Link>
+        </div>
+    </div>
+
+</div>
+<br/>
+
+# Video tutorial
+
+<iframe
+	width="900"
+	height="450"
+	src="https://www.youtube.com/embed/x5h-COA8B3Q?si=WxgC1WtlvGcoMi3O"
+	title="YouTube video player"
+	frameBorder="0"
+	allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+	allowFullScreen
+/>
