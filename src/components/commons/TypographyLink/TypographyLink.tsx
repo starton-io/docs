@@ -6,6 +6,7 @@
 
 import React from 'react'
 import { styled, Typography, TypographyProps } from '@mui/material'
+import Link from '@docusaurus/Link'
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,7 @@ export interface TypographyLinkProps extends React.AnchorHTMLAttributes<HTMLAnch
 | Styles
 |--------------------------------------------------------------------------
 */
-const TypographyLinkStyled = styled(Typography)(({ theme }) => ({
+const TypographyLinkStyled = styled(Typography)<TypographyProps>(({ theme }) => ({
 	textDecoration: 'underline',
 	...theme.typography.underline.sm,
 }))
@@ -37,8 +38,8 @@ export const TypographyLink: React.FC<TypographyLinkProps> = (props) => {
 	// Render
 	//--------------------------------------------------------------------------
 	return (
-		<a {...anchorProps} style={{ width: 'fit-content' }}>
-			<TypographyLinkStyled {...typographyProps}>{children}</TypographyLinkStyled>
-		</a>
+		<Link {...anchorProps} to={anchorProps.href} style={{ width: 'fit-content' }}>
+			<TypographyLinkStyled {...typographyProps} component={'span'}>{children}</TypographyLinkStyled>
+		</Link>
 	)
 }

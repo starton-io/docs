@@ -1,0 +1,128 @@
+---
+title: Deploying from bytecode
+description: Learn how to deploy smart contract from bytecode with Starton.
+keywords: [Deploy, Starton, Smart contracts, bytecode, import]
+---
+
+import Image from "@theme/IdealImage"
+import GitHubLogo from "@site/static/img/docs/smart-contract/solidity-compiler.png"
+import RemixHome from "@site/static/img/docs/smart-contract/remix-home.png"
+import RemixUpload from "@site/static/img/docs/smart-contract/remix-upload.png"
+import CompilerObject from "@site/static/img/docs/smart-contract/compilation-object.png"
+import DeployBytecode from "@site/static/img/docs/smart-contract/deploy-bytecode.png"
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+
+# Deploying your own contract from bytecode
+
+**Starton** already provides a library of ready-to-use audited smart contract templates. But what if you want to use your **own custom template**?
+
+Well, you can import it on **Starton** from its bytecode as we will see in this tutorial.
+
+> Prerequisite: You should have your custom smart contract as a .sol file ready.
+
+## What is the bytecode and how to get it?
+
+The **bytecode** of a smart contract is the **compiled version** of your smart contract.
+
+In the same way that we use human language code (the .sol file), the machine needs a version in its own language to work properly.
+This is exactly what the bytecode consists in: the human readable contract transformed into a machine readable format.
+
+To get the bytecode of our smart contract, we’ll use [Remix](https://remix.ethereum.org/). Remix is a development environment (IDE) in a browser.
+
+The first time, you should see:
+
+<Image img={RemixHome} alt={"Remix home page"} />
+
+To test this feature, you need a smart contract. You can select [one of our template](https://github.com/starton-io/smart-contract-templates/tree/master/contracts/).
+
+On the left, in **File Explorers > contracts** a few .sol example files already exist under the contracts folder.
+
+1. Select the contracts folder.
+1. Click on **Upload**.
+    <Image img={RemixUpload} alt={"Remix uplaod"} />
+1. Select our `.sol` file to import it in Remix.
+1. Right-click on our newly imported contract.
+1. Click **Compile**.
+   A green mark appears on the compilation tab.
+1. Click the **Compilation** tab.
+
+We are now in the Solidity Compiler.
+
+<Image img={GitHubLogo} alt={"Remix home page"} style={{ width: 300 }} />
+
+1. Scroll all the way down, to access the Bytecode and ABI.
+1. Click on the ABI to copy on the clipboard.
+1. The bytecode is not under the right format.
+   Click on Compilation Details.
+   In the pop-up, expand the bytecode section.
+   Scroll down to find the object field value.
+   Copy the value.
+
+<Image img={CompilerObject} alt={"Compilation object"} />
+
+## Deploy the contract on the blockchain
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+With the bytecode and ABI, you can call Starton’s API to deploy the contract.
+
+First, you need an API key.
+Check the introduction of our [API reference](/api-reference).
+
+1. Use the `from-bytecode` endpoint to deploy our contract.
+   You will need the ABI and the bytecode of your contract.
+1. Select a network to deploy the contract.
+   The complete list of available networks in the Smart contract section of our <a href="https://docs.starton.com/api-reference">API reference</a>.
+   For example:
+
+```js showLineNumbers
+
+const axios = require("axios")
+
+const http = axios.create({
+    baseURL: "https://api.starton.com/v3",
+    headers: {
+        "x-api-key": 'YOUR_API_KEY',
+    },
+})
+
+http.post('v3/smart-contract/from-bytecode', {
+  "network": "binance-testnet",
+  "name": "My contract's name",
+  "description": "This is the most beautiful ERC20 ever deployed.",
+  "params": [ // parameter values for the smart contract constructors, this will change depending of your contract
+    "My token",
+    "TOKEN",
+    "1000000000000000000000",
+    "0x0" // This is the owner and should not be set to 0x0 adress but we do this as this is a tutorial. You should use either the KMS adress or one that you control.
+  ],
+  "abi": ,// Paste here the abi you copied to clipboard
+  "bytecode": ,// Paste here the bytecode you copied to clipboard
+  "compilerVersion": "string",
+  "signerWallet": "string"
+}).then(response => {
+    console.log(response.data)
+})
+```
+
+Be sure to replace `x-api-key value` with your own api key!
+The smart contract details are returned such as the hash and the address of it.
+
+</TabItem>
+<TabItem value="dashboard" label="From Webapp">
+
+1. From **Dashboard**, go to **Smart Contract**.
+1. Click **Deploy from bytecode**.
+    <Image img={DeployBytecode} alt={"create smart contracts"} />
+1. Enter a name and a description.
+1. Enter the ABI of your contract.
+1. Enter the bytecode of your contract.
+1. Enter the parameters needed.
+1. Click **Deploy**.
+
+</TabItem>
+</Tabs>
+
+Use the address or the transactionHash of your contract to check it on the blockchain explorer of your selected network.

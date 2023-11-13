@@ -1,36 +1,40 @@
-import React from "react"
-import clsx from "clsx"
-import styles from "./styles.module.css"
+import React from 'react'
+import clsx from 'clsx'
+import styles from './styles.module.css'
+// eslint-disable-next-line import/no-unresolved
+import Heading from '@theme/Heading'
 
 type FeatureItem = {
 	title: string
 	/* Svg: React.ComponentType<React.ComponentProps<'svg'>>;*/
-	description: JSX.Element
+	description: React.ReactNode
 }
 
 const FeatureList: FeatureItem[] = [
 	{
-		title: "Wallet",
-		/*Svg: require('@site/static/img/wallet.svg').default,*/
-		description: <>Automate transaction using a key management system.</>,
+		title: 'Wallet',
+		/*Svg: require('@site/static/tutorials/illustrations/wallet.svg').default,*/
+		description: <React.Fragment>Automate transaction using a key management system.</React.Fragment>,
 	},
 	{
-		title: "Smart Contracts",
-		/* Svg: require('@site/static/img/Smartcontract.svg').default,*/
-		description: <>Deploy your smart contracts and interact from the dashboard and API.</>,
+		title: 'Smart Contracts',
+		/* Svg: require('@site/static/tutorials/illustrations/smart-contract.svg').default,*/
+		description: (
+			<React.Fragment>Deploy your smart contracts and interact from the dashboard and API.</React.Fragment>
+		),
 	},
 	{
-		title: "Monitor",
-		/* Svg: require('@site/static/img/Watcher.svg').default,*/
-		description: <>Monitor and get notified for any blockchain event.</>,
+		title: 'Monitor',
+		/* Svg: require('@site/static/tutorials/illustrations/watcher.svg').default,*/
+		description: <React.Fragment>Monitor and get notified for any blockchain event.</React.Fragment>,
 	},
 ]
 
-function Feature({ title, Svg, description }: FeatureItem) {
+function Feature({ title, description }: FeatureItem) {
 	return (
-		<div className={clsx("col col--4")}>
+		<div className={clsx('col col--4')}>
 			<div className="text--center padding-horiz--md">
-				<h3>{title}</h3>
+				<Heading as={'h3'}>{title}</Heading>
 				<p>{description}</p>
 			</div>
 		</div>

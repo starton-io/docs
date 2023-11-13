@@ -631,6 +631,19 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 	/* background: none;*/
 }
 
+nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item:not(:last-child) {
+	margin-bottom: 28px;
+}
+
+nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > .menu__list-item-collapsible > a.menu__link {
+	font-weight: 800;
+	font-size: 14px;
+}
+
+nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > .menu__list-item-collapsible > a.menu__link:not(.menu__link--active) {
+	color: #A3B4C1;
+}
+
 .menu__list-item:not(:first-child) {
 	margin-top: 0;
 }
@@ -768,7 +781,7 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 }
 
 .navbar__github:before {
-	mask: url("/img/github.svg") no-repeat 100% 100%;
+	mask: url("/img/icons/github.svg") no-repeat 100% 100%;
 	mask-size: cover;
 }
 

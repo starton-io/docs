@@ -1,0 +1,56 @@
+---
+title: About Wallets
+---
+
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+import { CardTitle } from "@site/src/components/commons/CardTitle"
+import { Starton } from "@starton/react-ui-iconography"
+
+# Understanding Storage
+
+Welcome to Starton Storage, designed to provide access to IPFS, facilitating the storage and management of digital assets. The service enables users to upload files, folders, and manage NFT metadata through a set of APIs.
+
+Starton Storage provides comprehensive guides on IPFS, URI, and CID, and offers main API endpoints for various storage operations. Starton Storage ensures content availability by hosting it on dedicated nodes, reducing the need for continuous maintenance and represents a practical solution for users looking to leverage decentralized storage.
+
+## Getting Started
+
+<CardTitle icon={<Starton fill="primary" />} href="/docs/tutorials/storing-files-on-ipfs">
+	Uploading files and folders
+</CardTitle>
+<br />
+
+<div className="row is-multiline">
+    <div className="col col--5">
+        <Heading as={'h2'}>Guides</Heading>
+        <div className="button-card__inner">
+            <Link to="/docs/ipfs/understanding-ipfs">
+                <Heading as={'h5'}>About IPFS</Heading>
+            </Link>
+            <Link to="/docs/ipfs/understanding-ipfs#uri-and-cid">
+                <Heading as={'h5'}>URI and
+                CID</Heading>
+            </Link>
+            <Link to="/docs/tutorials/uploading-metadata-nft">
+                <Heading as={'h5'}>Uploading your NFT <br/>metadata
+                on IPFS</Heading>
+            </Link>
+        </div>
+    </div>
+
+    <div className="col col--5">
+        <Heading as={'h2'}>Main API Endpoints</Heading>
+        <div className="button-card__inner">
+            <Link to="/api-reference#tag/ipfs/%5bpost%5d/v3/ipfs/folder">
+                <Heading as={'h5'}>Upload a file</Heading>
+            </Link>
+            <Link to="/api-reference#tag/ipfs/%5bpost%5d/v3/ipfs/pin">
+                <Heading as={'h5'}>Pin Existing IPFS File</Heading>
+            </Link>
+            <Link to="/api-reference#tag/ipfs/%5bpost%5d/v3/ipfs/storage-used">
+                <Heading as={'h5'}>Retrieve Current Storage Usage</Heading>
+            </Link>
+        </div>
+    </div>
+
+</div>
