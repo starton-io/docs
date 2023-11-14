@@ -78,7 +78,7 @@ export const themeConfig: ThemeConfig = {
 			// 	position: 'left',
 			// },
 			{
-				to: 'guides/why-starton-relayer',
+				to: 'guides/blockchain-transaction-manager',
 				label: 'Guides',
 				'aria-label': 'Guides',
 				position: 'right',
