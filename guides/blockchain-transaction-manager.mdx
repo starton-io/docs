@@ -1,0 +1,80 @@
+---
+Title: Starton Relayer, a blockchain transaction manager for developers
+---
+
+# Starton Relayer, a blockchain transaction manager for developers
+
+Blockchain development has its fair share of challenges. At Starton, our journey began with the development of a tokenization platform. However, we quickly realized the complexities that came with managing blockchain transactions in a production environment. The combination of lost transactions due to nonce issues, protocol changes like EIP-1559, unpredictable gas prices, and other intricacies made it clear that developers needed a more robust system. Enter the Starton Relayer: a tool created out of our own challenges, designed to ease the pain points developers face when integrating with blockchains.
+
+## What is the Relayer?
+
+Designed as an API layer over blockchain protocols, it simplifies blockchain interaction from code into API requests. Traditional frameworks like web3.js and ethers.js, while efficient, often fall short when addressing several transactions at the same time. Recognizing this, Starton introduced the Relayer with key features including broad interactions and automation. Indeed, beyond the basics of sending funds and creating NFTs, it can call any smart contract function. Moreover, developers can use the Relayer to interact with various EVM-supported blockchain networks.
+
+Then, automation is the next frontier in blockchain development. Understanding this, the Relayer has been architected to interface with programming languages. Whether you're looking to mint an NFT or reward an in-game achievement, the Relayer integrates, standardises, and automates these blockchain interactions.
+
+<iframe width="650" height="400" src="https://www.youtube.com/embed/51zIBIPiTW8?si=W-mTc6fXs4gG8U26" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+### Where the Relayer could help you
+
+The Relayer is Starton's answer to the challenges of the fast-paced blockchain evolution:
+
+- **Nonce conflicts**
+    - On a blockchain network, nonce issues can cause chaos. However, the Relayer assigns nonces with precision and replaces stuck transactions ensuring that concurrent transactions don't stumble upon each other, preventing transaction losses.
+- **Gas Price variations**
+    - Gas prices are unpredictable. The Relayer doesn't just statically estimate gas, it dynamically adjusts to the last block of the network, optimizing transaction costs and ensuring confirmations.
+- **Protocol Compatibility**
+    - Blockchain isn't static. The Relayer stays updated with evolving protocols. Whether it's a structural change like EIP-1559 on Ethereum or a new consensus mechanism, the Relayer is always aligned, offering uninterrupted service.
+- **Provider reliability**
+    - Single points of failure are a no-go in the decentralized world. The Relayer's load balancer approach ensures that even if one provider crashes, your transaction doesn't suffer. It's about redundancy and reliability.
+- **High Transaction Volume**
+    - As blockchain applications gain popularity, transaction volume surges. The Relayer is built for scale, ensuring that even in high-transaction scenarios, each transaction is treated with the right priority.
+- **Comprehensive Transaction Management**
+    - The blockchain ecosystem has its intricacies—from mempool constraints to the nuances of forks. The Relayer oversees these complexities, ensuring that transactions flow smoothly from initiation to confirmation.
+- **Integration with real-time Notifications**
+    - In a fast-paced blockchain world, being informed is key. The Relayer is compatible with our Monitor service to ensure that users are never in the dark, providing real-time updates at every step of the transaction journey.
+
+### When the Relayer is not helpful for you
+
+There are use cases where the Relayer isn’t of use and we wouldn’t want you to spend time implementing a solution that isn’t tailored made for you. For example, you won’t need our Relayer if you:
+
+- Only sign transactions from a plugin extension wallet (such as Metamask).
+    - Since the Relayer is an API, you will need a wallet solution accessible from your back-end. You can deploy smart contracts with your Metamask using Starton on our web application.
+- If you only manually execute a minimal number of transactions on test networks one at a time.
+    - If you never encounter the issues that occur only on production, you might not need the help of the Relayer
+- If you’re looking for a no-code solution.
+    - If you want to interact with the blockchain without producing a line of code, you’d rather use no-code integration such as our Zapier integration.
+
+## How the Relayer Works
+
+The Relayer isn't just a tool, it's an ecosystem. It ensures that from the moment a user makes an API call, to the final blockchain transaction publication, everything runs smoothly.
+
+At its core, the heartbeat of Starton's blockchain transaction management system is your transactions’ guide and protector, ensuring that their journey is successful by:
+
+1. **Validating Your Transaction**
+
+   Begin by defining the specific blockchain action you wish to execute. Whether minting NFTs, executing smart contracts, or transferring tokens, the Relayer assists by cross-checking transaction details for consistency and compatibility.
+
+2. **Setting gas price**
+
+   As the blockchain network's demand fluctuates, so does the gas price. Decide on the appropriate gas fee strategy at the transaction or project level, ensuring a balance between speed and cost-effectiveness.
+
+3. **Setting transaction fees**
+
+   Here, users get a comprehensive overview of the estimated costs for their actions. The Relayer provides cost predictions, allowing users to confirm or adjust their gas price, optimizing transaction success chances.
+
+4. **Setting a nonce**
+
+   Each transaction is unique and requires a nonce (an incremental number linked to the wallet's transaction history). The Relayer automatically manages nonces, ensuring no missing gaps that might stall following transactions.
+
+5. **Broadcasting to the network**
+
+   Once pricing is locked in, the Relayer takes charge, sending the transaction to multiple nodes. It ensures that your transaction permeates the network and stands a higher chance of being picked up by miners.
+
+6. **Monitoring the transaction**
+
+   After broadcasting, the journey isn't over. The Relayer tracks the transaction status in real-time. If any issues arise, such as gas price volatility or network congestion, it handles transaction replacement and on-chain confirmation.
+
+
+Starton's experience in grappling with the challenges of blockchain transaction management led to the birth of the Relayer. Designed out of necessity and refined for efficiency, the Relayer is our answer to the complexities of blockchain development. We've taken our hard-earned lessons and packaged them into a tool that we believe will empower developers, enabling them to focus on building innovative web3 products without getting bogged down by the technical. As you dive into the world of blockchain, let the Starton Relayer be your trusted companion.
+
+We’re sorry for bringing you all of this trouble but better safe than sorry right? Plus, we’re not going to leave you alone, so can read the following articles to learn more about what comes with transaction management.

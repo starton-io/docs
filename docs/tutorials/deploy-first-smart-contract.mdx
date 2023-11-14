@@ -95,7 +95,7 @@ Before we can continue you will need a Starton Wallet to sign our transaction.
 
 :::info Starton Wallet
 Starton Wallet uses a KMS. Metamask is unavailable when using Starton from code. Since it is a browser extension, Starton API cannot access it from your project.
-For more information, see **[Understanding Key Management Systems](/docs/Wallet/understanding-key-management-systems)**.
+For more information, see **[Understanding Key Management Systems](/docs/wallet/understanding-key-management-systems)**.
 :::
 
 We recommend you to create your wallet on Starton web application, but you can also create it from code if you'd like to automate it.
@@ -164,10 +164,10 @@ starton.post("/v3/smart-contract/from-template", {
 Congratulations on your first request. Let's dive into what we just did:
 - The endpoint `/v3/smart-contract/from-template` allows you to deploy audited smart contracts. You can also [deploy smart contract your own code](/docs/Smart-contract/deploying-from-bytecode), or [import an existing contract](/docs/Smart-contract/importing-smart-contract)
 - We selected a blockchain network for your deployment: `binance-testnet`. You can choose any network from our list of [supported networks](/docs/overview#supported-networks-and-service-availability)
-- We used the [Starton KMS](/docs/Wallet/understanding-key-management-systems) to sign the transaction and pay gas fee. This allows you to [automate transactions](/blog/blockchain-transaction-lifecycle), but also to sponsor the end-user fees with [gasless transaction](/docs/Tutorials/metatransaction)
+- We used the [Starton KMS](/docs/wallet/understanding-key-management-systems) to sign the transaction and pay gas fee. This allows you to [automate transactions](/blog/blockchain-transaction-lifecycle), but also to sponsor the end-user fees with [gasless transaction](/docs/tutorials/metatransaction)
 - We used a ERC20 template. You can find more templates in [Starton Library](/docs/Smart-contract/understanding-smart-contracts)
 - We had to put 18 zeros after "10000" as the smart contract will read the amount in wei (the equivalent of cents, except there are 18 decimals and not 2).
-- We selected an average speed for your transaction. But with Starton [everything is customizable](/docs/Transactions/understanding-gas#gas-speed). You can also [set up a gas strategy](/docs/Transactions/stuck-transaction-replacement) to automate the management of your transactions.
+- We selected an average speed for your transaction. But with Starton [everything is customizable](/docs/transactions/understanding-gas#gas-speed). You can also [set up a gas strategy](/docs/transactions/stuck-transaction-replacement) to automate the management of your transactions.
 
 Almost done! Now we can execute it to get our first contract deployed!
    ```bash
