@@ -1,0 +1,37 @@
+---
+Title: A glimpse into the transaction management of Starton Relayer
+---
+
+# A glimpse into the transaction management of Starton Relayer
+
+In the world of blockchain, creating intuitive, user-centered platforms remains a primary concern. For developers, the journey from concept to production is filled with both breakthroughs and setbacks. Starton’s entry into the blockchain ecosystem and the development of our transaction manager is the perfect illustration of the challenges of blockchain development.
+
+## The Vision Behind Starton
+
+Starton emerged from a dream to create the tokenization platform. For a developer, the promise of blockchain is vast: according to a study by Deloitte in 2020, 83% of market participants see strong use cases for blockchain. Yet, the journey from ideation to execution has proven to be complex. The initial challenge was both simple yet profound: How do you effectively transform a fiat payment, say in euros, into blockchain transactions?
+
+The need was quite simple. When receiving payments in fiat, we needed our backend to execute a transaction on the blockchain. For example, if someone wanted to buy a fraction of a building, they would pay 1000 euros on Stripe. Once we receive payment in euros, we would execute the blockchain transaction. This worked wonders on test networks because their gas prices are stable, with no important gas price variations, and also because we would manually execute each transaction.
+
+## The Learning Curve
+
+The team has dived into several blockchain projects that led to recurring issues, the main one being: how hard it is for developers to integrate blockchain into their production applications. Our CTO had experience with blockchain development, as a training specialist in blockchain as well as being a Solidity developer for several years. Sure, he knows his stuff. Since everything was functional on testnets, no pain points could have been anticipated for release in production. Yet, production issues that you'd never expect from typical WEB 2.0 frameworks, kept cropping up.
+
+From nonces to the broadcast to mempools, and the unique nature of providers, integration presents challenges. Let’s talk about gas prices for example. You might think they're just a minor inconvenience, but in reality, they're unpredictable and can disrupt the user experience. Your transaction cost can swing widely due to network demands. And while facing the same issues as we did, you could be tempted to code your own blockchain transaction management system with web3.js or ethers.js. We did but were quick to realize that it is impossible to deal with. This is why we’ve created our Relayer, the ultimate transaction manager.
+
+## The Birth of the Relayer
+
+This isn't just a tool; it is a solution bridging traditional web development with the decentralized world of blockchain. Operating on two axes, the Relayer retrieves your transaction parameters for validation and initiates transactions while ensuring monitoring until broadcast confirmation. Furthermore, it offers flexibility by accepting many settings strategies to fit any project needs on EVM networks.
+
+Designed to simplify blockchain integrations, the Relayer is Starton's core feature. Using REST APIs, a staple in modern web development, Starton took the step to bridge this standard with blockchain development. The aim? To provide developers with a familiar interface while ensuring the precision, reliability, and efficiency of the decentralized landscape.
+
+By building the Relayer into the heart of Starton API, we've ensured that the power to control and manage blockchain transactions is both intuitive and comprehensive. This ensures that developers are equipped to leverage the transformative capabilities of blockchain without having to grapple with its most complex concepts.
+
+The journey of Starton and its Relayer encapsulates the challenges and opportunities in blockchain development. For every developer looking to make a mark in this domain, we hope to serve as both inspiration and a guide, helping you to overcome the challenges of blockchain today to enable you to discover the breakthroughs of tomorrow.
+
+<iframe width="650" height="400" src="https://www.youtube.com/embed/51zIBIPiTW8?si=W-mTc6fXs4gG8U26" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<br/>
+
+
+Sources:
+- [Deloitte 2020 Blockchain Survey](https://www2.deloitte.com/content/dam/Deloitte/tw/Documents/financial-services/2020-global-blockchain-survey.pdf)

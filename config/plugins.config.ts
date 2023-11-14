@@ -37,10 +37,6 @@ export const plugins: Array<PluginConfig> = [
 					from: '/docs/smart-contract/ERC721-Meta.md',
 					to: '/tutorials',
 				},
-				{
-					from: '/blog',
-					to: '/guides',
-				},
 			],
 			createRedirects(existingPath) {
 				if (existingPath.includes('/guides')) {

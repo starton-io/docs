@@ -78,7 +78,7 @@ export const themeConfig: ThemeConfig = {
 			// 	position: 'left',
 			// },
 			{
-				to: 'guides/web3auth',
+				to: 'guides/why-starton-relayer',
 				label: 'Guides',
 				'aria-label': 'Guides',
 				position: 'right',
