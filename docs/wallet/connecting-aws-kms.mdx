@@ -13,12 +13,17 @@ import AwsStep4 from "@site/static/img/docs/wallet/aws-step-4.png"
 
 In this tutorial, you will learn how to connect an **AWS Key Management System (KMS)** to **Starton**.
 
-> **Starton** provides test wallets hosted on our **Key Management System**, but when going in production, to maintain control over your wallets, you should use your own KMS.
+:::note
+ **Starton** provides test wallets hosted on our **Key Management System**, but when going in production, to maintain control over your wallets, you should use your own KMS.
+
+:::
 
 To connect **Starton** to your **AWS KMS**, you can grant access to **Starton** only to one wallet of your **KMS**. You can also [grant full access to **Starton** on your **KMS**](grantfull-access.mdx).
 
-> By granting access to **Starton** only to one wallet, you’ll have to create new wallets and import them every time on your own.
+:::info
+By granting access to **Starton** only to one wallet, you’ll have to create new wallets and import them every time on your own.
 
+:::
 ## Creating a wallet on AWS
 
 1.  On your AWS dashboard, search **Key Management Service**.
@@ -26,7 +31,10 @@ To connect **Starton** to your **AWS KMS**, you can grant access to **Starton** 
     <Image img={CreatingWalletAWS} alt="Create wallet on AWS" />
     You access a listing of your existing keys.
 
-        > A key is an equivalent to a wallet in this use case.
+    :::info
+    A key is an equivalent to a wallet in this use case.
+    
+    :::
 
 1.  Click **Create a key**.
 1.  Set up your key:
