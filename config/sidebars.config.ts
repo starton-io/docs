@@ -200,7 +200,6 @@ const sidebars: SidebarsConfig = {
 					},
 					collapsed: true,
 					items: [
-						'wallet/connecting-an-external-wallet',
 						{
 							type: 'category',
 							label: 'Using a wallet',
