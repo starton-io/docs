@@ -9,17 +9,14 @@ import { Starton } from "@starton/react-ui-iconography"
 
 # Wallets
 
-To interact with blockchains, you need to sign transactions with a wallet to prove ownership over the associated address.
-You can also use an external wallet to sign transactions manually. **Starton** supports **Metamask**.
+
+To **interact with blockchains**, you need **a wallet for signing transactions**. For **automated signing**, use **a wallet from a Key Management System (KMS)**. Starton provides a wallet on their KMS for testing. In production, you can **grant Starton access to a wallet in your KMS**. For more **advanced projects involving several wallets**, grant **Starton** full access to your KMS to **create new wallets from your backend**.
 
 :::caution
 
-Transactions signed with a third-party wallet will not be managed by our Relayer.
+You can also use an external wallet to sign transactions manually. **Starton** supports **Metamask**. Transactions will not be managed by our Transaction manager.
 
 :::
-
-You can also use a wallet stored in a **Key Management System** (KMS) to sign transactions automatically. To discover all the features, **Starton** provides you with a wallet stored on their Vault.
-For production projects, to maintain control over your wallets, you can either grant **Starton** access to a wallet on your KMS. For more advanced projects involving several wallets, grant **Starton** full access to your KMS.
 
 ## Video tour
 
@@ -29,9 +26,6 @@ For production projects, to maintain control over your wallets, you can either g
     <div className="col col--5">
         <Heading as={'h2'}>Guides</Heading>
         <div className="button-card__inner">
-            <Link to="/docs/wallet/connecting-an-external-wallet">
-                <Heading as={'h5'}>External wallets</Heading>
-            </Link>
             <Link to="/docs/wallet/understanding-key-management-systems">
                 <Heading as={'h5'}>Key Management Systems</Heading>
             </Link>
@@ -66,7 +60,6 @@ For production projects, to maintain control over your wallets, you can either g
     </div>
 
 </div>
-<br/>
 
 ## Tutorials
 
