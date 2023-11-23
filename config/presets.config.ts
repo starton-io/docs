@@ -18,11 +18,12 @@ export const presets: Array<PresetConfig> = [
 				filename: 'sitemap.xml',
 			},
 			blog: {
+				id: 'guides',
 				blogTitle: 'Guides',
 				blogSidebarCount: 'ALL',
 				showReadingTime: true,
 				path: 'guides',
-                routeBasePath: 'guides',
+				routeBasePath: 'guides',
 			},
 			docs: {
 				sidebarPath: require.resolve('./sidebars.config'),

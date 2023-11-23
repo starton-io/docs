@@ -4,7 +4,7 @@
 */
 
 import type { PluginConfig } from '@docusaurus/types'
-import {PluginOptions} from "@docusaurus/plugin-client-redirects/src/options";
+import { PluginOptions } from '@docusaurus/plugin-client-redirects/src/options'
 
 export const plugins: Array<PluginConfig> = [
 	'@docusaurus/theme-live-codeblock',
