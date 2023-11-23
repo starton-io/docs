@@ -1,0 +1,948 @@
+/**
+ * Any CSS included here will be global. The classic template
+ * bundles Infima by default. Infima is a CSS framework designed to
+ * work well for content-centric websites.
+ */
+
+/* You can override the default Infima variables here. */
+:root {
+	--ifm-color-primary: #f3f5f7;
+	--ifm-color-primary-dark: #29784c;
+	--ifm-color-primary-darker: #277148;
+	--ifm-color-primary-darkest: #205d3b;
+	--ifm-color-primary-light: #33925d;
+	--ifm-color-primary-lighter: #359962;
+	--ifm-color-primary-lightest: #3cad6e;
+	--ifm-code-font-size: 95%;
+	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+	--ifm-color-primary: #01e6cd;
+	--ifm-color-primary-dark: #21af90;
+	--ifm-color-primary-darker: #1fa588;
+	--ifm-color-primary-darkest: #1a8870;
+	--ifm-color-primary-light: #29d5b0;
+	--ifm-color-primary-lighter: #32d8b4;
+	--ifm-color-primary-lightest: #4fddbf;
+	--ifm-footer-background-color: #1f272e;
+	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}
+
+/* Fonts */
+
+/* Fire code */
+@font-face {
+	font-family: 'Fira Code';
+	src: url('/fonts/fira-code/FiraCode-Light.woff2') format('woff2');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Fira Code';
+	src: url('/fonts/fira-code/FiraCode-Regular.woff2') format('woff2');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Fira Code';
+	src: url('/fonts/fira-code/FiraCode-Medium.woff2') format('woff2');
+	font-weight: 500;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Fira Code';
+	src: url('/fonts/fira-code/FiraCode-SemiBold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Fira Code';
+	src: url('/fonts/fira-code/FiraCode-Bold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Fira Code VF';
+	src: url('/fonts/fira-code/FiraCode-VF.woff2') format('woff2-variations');
+	/* font-weight requires a range: https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Fonts/Variable_Fonts_Guide#Using_a_variable_font_font-face_changes */
+	font-weight: 300 700;
+	font-style: normal;
+}
+
+/* PP Neue Machina */
+@font-face {
+	font-family: 'PP Neue Machina';
+	src: url('/fonts/pp-neue-machina/PPNeueMachina-InktrapThin.woff2') format('woff2');
+	font-weight: 100;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'PP Neue Machina';
+	src: url('/fonts/pp-neue-machina/PPNeueMachina-InktrapUltralight.woff2') format('woff2');
+	font-weight: 200;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'PP Neue Machina';
+	src: url('/fonts/pp-neue-machina/PPNeueMachina-InktrapLight.woff2') format('woff2');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'PP Neue Machina';
+	src: url('/fonts/pp-neue-machina/PPNeueMachina-InktrapRegular.woff2') format('woff2');
+	font-weight: 375;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'PP Neue Machina';
+	src: url('/fonts/pp-neue-machina/PPNeueMachina-InktrapMedium.woff2') format('woff2');
+	font-weight: 450;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'PP Neue Machina';
+	src: url('/fonts/pp-neue-machina/PPNeueMachina-InktrapSemibold.woff2') format('woff2');
+	font-weight: 600;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'PP Neue Machina';
+	src: url('/fonts/pp-neue-machina/PPNeueMachina-InktrapBold.woff2') format('woff2');
+	font-weight: 700;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'PP Neue Machina';
+	src: url('/fonts/pp-neue-machina/PPNeueMachina-InktrapUltrabold.woff2') format('woff2');
+	font-weight: 800;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'PP Neue Machina';
+	src: url('/fonts/pp-neue-machina/PPNeueMachina-InktrapBlack.woff2') format('woff2');
+	font-weight: 900;
+	font-style: normal;
+}
+
+/* Inter */
+@font-face {
+	font-family: "Inter";
+	src: url("/fonts/Inter-Regular.ttf");
+}
+
+/* Prism modifications */
+.prism-code > div {
+	white-space: pre-wrap;
+}
+
+/* Custom code */
+.hero {
+	margin: auto;
+	background-color: #1A1F25;
+	color: white;
+	padding: 2rem;
+}
+
+.button__home {
+	/* Button */
+	box-sizing: border-box;
+	/* Auto layout */
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 16px 34px;
+	gap: 10px;
+	width: 235px;
+	height: 56px;
+	/* palette/divider */
+	background-color: #1A1F25;
+	border: 1px solid #3e4e5c;
+	border-radius: 8px;
+	text-transform: uppercase;
+	font-size: 16pt;
+	font-family: "Fira Code", "Inter", Arial, sans-serif;
+}
+
+.button__home:hover {
+	/* Button */
+	box-sizing: border-box;
+	/* Auto layout */
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	align-items: center;
+	padding: 16px 34px;
+	gap: 10px;
+	width: 235px;
+	height: 56px;
+	/* palette/divider */
+	border-radius: 8px;
+	text-transform: uppercase;
+	font-size: 16pt;
+	font-family: "Fira Code", "Inter", Arial, sans-serif;
+	background: rgba(255, 255, 255, 0.05);
+}
+
+header.hero {
+	display: initial;
+	color: white;
+	font-size: 24px;
+	margin-left: 150px;
+}
+
+.hero.h1 {
+	display: initial;
+	color: white;
+	font-size: 40px;
+	margin-left: 150px;
+}
+
+.heroBanner_qdFl {
+	background-color: #1A1F25;
+	color: #01e6cd;
+}
+
+.hero--primary {
+	background-color: #1A1F25;
+}
+.main-wrapper {
+	background-color: #1A1F25;
+}
+.main {
+	background-color: #1A1F25;
+}
+.contents {
+	background-color: #1A1F25;
+}
+.theme-doc-sidebar-container {
+	background-color: #0e1114;
+	font-family: "PP Neue Machina", "Inter", Arial, sans-serif;
+}
+.menu-content {
+	background-color: #1f272e;
+}
+/*.row.{background-color: #1F272E;}*/
+
+footer {
+	background-color: #1A1F25;
+	border-top: 0.5px solid #3e4e5c;
+}
+.footer--dark {
+	background-color: #1A1F25;
+}
+.docMainContainer_gTbr {
+	background-color: #1A1F25;
+}
+body {
+	background-color: #1A1F25;
+}
+
+p,
+ol,
+ul {
+	font-family: "Inter", Arial, sans-serif;
+	text-decoration: none;
+}
+
+.link {
+	font-size: 12pt;
+	word-wrap: break-word;
+}
+
+h1 {
+	color: white;
+}
+
+.navbar--fixed-top {
+	background-color: #0e1114;
+	text-transform: uppercase;
+	font-family: "PP Neue Machina", "Inter", Arial, sans-serif;
+	border-bottom: 0.5px solid #3e4e5c;
+}
+
+.sidebar {
+	background-color: #0e1114;
+}
+
+.theme-doc-markdown {
+	margin: 48px;
+}
+
+.card {
+	border-radius: 0;
+	background-color: #29343d;
+	text-decoration: none;
+	display: table-cell;
+}
+
+.button-card__inner {
+	color: #a3b4c1;
+	text-decoration: none;
+}
+
+
+.overview {
+	height: 300px;
+	width: 600px;
+}
+
+svg {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+
+/*div.class[*="codeBlockContainer"] {*/
+/*	color: #678298;*/
+/*}*/
+
+.barre1 {
+	position: absolute;
+	border: 2px solid #f6547b;
+	margin-top: 10px;
+	width: 130px;
+	margin-left: 20px;
+	height: 0;
+	font-size: 0;
+	background-color: #f6547b;
+}
+
+.barre2 {
+	position: absolute;
+	border: 2px solid #0a9df0;
+	margin-top: 10px;
+	width: 130px;
+	margin-left: 20px;
+	height: 0;
+	font-size: 0;
+	background-color: #0a9df0;
+}
+
+.barre3 {
+	position: absolute;
+	border: 2px solid #e67e22;
+	margin-top: 10px;
+	width: 130px;
+	margin-left: 20px;
+	height: 0;
+	font-size: 0;
+	background-color: #e67e22;
+}
+.grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+	grid-gap: 12px;
+}
+
+.card {
+	display: table-cell;
+	border-radius: 0;
+	outline: 0 solid #01e6cd;
+	padding: 40px 16px 16px 16px;
+	margin: 30px;
+	text-decoration: none;
+	background-color: #0e1114;
+	word-wrap: break-word;
+	flex: 1;
+}
+
+.cardHome {
+	display: table-cell;
+	border-radius: 0;
+	outline: 0 solid #01e6cd;
+	padding: 20px 16px 24px 16px;
+	margin: 0 30px 30px 30px;
+	text-decoration: none;
+	background-color: #0e1114;
+	word-wrap: break-word;
+	flex: 1;
+}
+
+.rowHome {
+	display: table-row;
+}
+
+.containerdocHome {
+	margin: auto;
+	/*margin-left: 152px;*/
+	display: table;
+	border-collapse: separate;
+	border-spacing: 16px;
+}
+
+.rowdocHome {
+	display: table-row;
+}
+
+.containerHome {
+	display: table;
+	border-collapse: separate;
+	border-spacing: 16px;
+}
+
+.cards {
+	display: table-cell;
+	border-radius: 0;
+	outline: 0.5px solid #01e6cd;
+	padding: 16px;
+	margin: 24px 0 24px 0;
+	text-decoration: none;
+}
+.cards:hover {
+	display: table-cell;
+	border-radius: 0;
+	outline: 0.5px solid #01e6cd;
+	padding: 16px;
+	margin: 24px 0 24px 0;
+	text-decoration: none;
+	background-color: #1e2224;
+}
+
+.row-is-multiline {
+	display: table;
+	margin-bottom: 24px;
+	border-collapse: separate;
+	border-spacing: 16px;
+}
+
+.button-card {
+	display: flex;
+	flex-direction: column;
+	outline: 0.5px solid #01e6cd;
+	padding: 1rem; /* using relative unit */
+	text-decoration: none;
+	height: 100%;
+	box-sizing: border-box;
+}
+
+.button-card:hover {
+	background-color: #1e2224;
+}
+
+.row-is-multilineGS {
+	display: flex;
+	flex-wrap: wrap; /* allows the columns to wrap if needed */
+	margin-left: -0.5rem; /* compensates for the column margins */
+	margin-right: -0.5rem; /* compensates for the column margins */
+}
+
+.col {
+	flex: 1; /* allows the columns to grow and take available space */
+	padding-left: 0.5rem; /* gives space between the cards */
+	padding-right: 0.5rem; /* gives space between the cards */
+	box-sizing: border-box;
+	min-width: calc(50% - 1rem); /* ensures a minimum width for the cards, subtracting the padding */
+}
+
+.col {
+	flex: 1; /* allows the columns to grow and take available space */
+	padding-left: 0.5rem; /* gives space between the cards */
+	padding-right: 0.5rem; /* gives space between the cards */
+	box-sizing: border-box;
+	min-width: calc(30% - 1rem); /* ensures a minimum width for the cards, subtracting the padding */
+}
+
+
+/* Mobile-first approach: Adjusts the layout for larger screens */
+@media (max-width: 600px) {
+	.col {
+		min-width: 100%; /* makes the cards take the full width on small screens */
+	}
+}
+
+
+
+h4 {
+	/*color: #01e6cd;*/
+	text-decoration: none;
+}
+
+h2 {
+	color: white;
+	text-decoration: none;
+	margin-top: 48px;
+}
+
+h2.anchor {
+	color: white;
+	text-decoration: none;
+	margin-top: 48px;
+}
+
+.img {
+	border: 1px solid #3e4e5c;
+	border-radius: 4px;
+}
+
+.icon {
+	border: 1px solid #3e4e5c;
+	border-radius: 4px;
+	margin: 0;
+	display: inline;
+}
+
+.button-card__inner {
+	text-decoration: none;
+}
+
+.menu__list {
+	display: block !important;
+	transition: height 0.35s cubic-bezier(0.36, 0.66, 0.04, 1) 25ms !important;
+	will-change: initial !important;
+
+	margin: 0;
+}
+
+html[data-theme="dark"] .theme-doc-sidebar-menu .menu__link,
+html[data-theme="dark"] .theme-doc-toc-desktop .table-of-contents .toc-highlight {
+	color: white;
+}
+
+html[data-theme="dark"] .theme-doc-sidebar-menu .menu__link--active,
+html[data-theme="dark"] .theme-doc-toc-desktop .table-of-contents .table-of-contents__link--active {
+	color: #01e6cd;
+	background-color: #29343d;
+}
+
+.theme-doc-sidebar-menu,
+.menu__link:hover,
+.theme-doc-toc-desktop,
+.table-of-contents,
+.table-of-contents__link:hover {
+	color: #242736;
+}
+
+.theme-doc-sidebar-menu,
+.menu__link--active,
+.theme-doc-toc-desktop,
+.table-of-contents,
+.table-of-contents__link--active {
+	color: white;
+}
+
+.hero {
+	position: relative;
+}
+
+@media only screen and (max-width: 768px) {
+	/* For mobile phones: */
+	body {
+		width: 100%;
+	}
+	header.hero {
+		margin: 10px;
+		word-break: break-word;
+	}
+
+	.barre1 {
+		display: none;
+		position: absolute;
+		border: 2px solid #f6547b;
+		margin-top: 10px;
+		width: 65px;
+		margin-left: 20px;
+		height: 0;
+		font-size: 0;
+		background-color: #f6547b;
+	}
+
+	.barre2 {
+		display: none;
+		position: absolute;
+		border: 2px solid #0a9df0;
+		margin-top: 10px;
+		width: 65px;
+		margin-left: 20px;
+		height: 0;
+		font-size: 0;
+		background-color: #0a9df0;
+	}
+
+	.barre3 {
+		display: none;
+		position: absolute;
+		border: 2px solid #e67e22;
+		margin-top: 10px;
+		width: 65px;
+		margin-left: 20px;
+		height: 0;
+		font-size: 0;
+		background-color: #e67e22;
+	}
+	.grid {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		grid-gap: 12px;
+	}
+
+	.card {
+		display: block;
+		border-radius: 0;
+		outline: 0 solid #01e6cd;
+		padding: 80px 16px 24px 16px;
+		margin: 30px;
+		text-decoration: none;
+		background-color: #1A1F25;
+		word-wrap: break-word;
+		flex: 1;
+	}
+
+	.cardHome {
+		display: block;
+		border-radius: 0;
+		outline: 0 solid #01e6cd;
+		padding: 20px 16px 24px 16px;
+		margin: 0 30px 30px 30px;
+		text-decoration: none;
+		background-color: #0e1114;
+		word-wrap: break-word;
+		flex: 1;
+	}
+
+	.rowHome {
+		display: block;
+	}
+
+	.containerdocHome {
+		margin: auto;
+		/*margin-left: 152px;*/
+		display: table;
+		border-collapse: separate;
+		border-spacing: 16px;
+	}
+
+	.rowdocHome {
+		display: block;
+	}
+
+	.containerHome {
+		display: block;
+		border-collapse: separate;
+		border-spacing: 16px;
+	}
+
+	.cards {
+		display: block;
+		border-radius: 0;
+		outline: 0.5px solid #01e6cd;
+		padding: 16px;
+		margin: 24px 0 24px 0;
+		text-decoration: none;
+	}
+
+	.row-is-multiline {
+		display: block;
+		margin-bottom: 24px;
+		border-collapse: separate;
+		border-spacing: 16px;
+	}
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+.menu__link--sublist {
+	color: red;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+
+.DocSearch-Button-Placeholder {
+	font-size: 14px !important;
+}
+
+html .DocSearch-Button {
+	border-radius: 500px !important;
+	font-weight: 400 !important;
+	background: #f9fafd;
+	border: 1px solid #c1c6dd;
+	/* Annoying, but needed */
+	/* https://stackoverflow.com/questions/26140050/why-is-font-family-not-inherited-in-button-tags-automatically/26140154 */
+	font-family: inherit;
+}
+
+html .DocSearch-Button .DocSearch-Search-Icon {
+	color: var(--docsearch-muted-color);
+}
+
+html[data-theme="dark"] .DocSearch-Button {
+	background: none;
+	border: 1px solid var(--docsearch-muted-color);
+}
+
+html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
+	color: var(--docsearch-muted-color);
+}
+
+.DocSearch-Button-Keys {
+	color: white !important;
+}
+
+.DocSearch-Button:hover {
+	box-shadow: none !important;
+}
+
+.theme-doc-toc-desktop,
+.table-of-contents {
+	font-size: 14px;
+	line-height: 20px;
+}
+
+.theme-doc-sidebar-menu,
+.menu__link,
+.theme-doc-toc-desktop,
+.table-of-contents,
+.toc-highlight {
+	height: auto;
+	font-size: 14px;
+	color: white;
+	/* background: none;*/
+}
+
+nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item:not(:last-child) {
+	margin-bottom: 28px;
+}
+
+nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > .menu__list-item-collapsible > a.menu__link {
+	font-weight: 800;
+	font-size: 14px;
+}
+
+nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > .menu__list-item-collapsible > a.menu__link:not(.menu__link--active) {
+	color: #A3B4C1;
+}
+
+.menu__list-item:not(:first-child) {
+	margin-top: 0;
+}
+
+.theme-doc-sidebar-menu .menu__link:hover {
+	background: inherit;
+}
+
+.theme-doc-sidebar-menu .menu__link {
+	font-weight: 400;
+}
+
+.theme-doc-sidebar-menu .menu__link--active {
+	font-weight: 700;
+}
+
+.theme-doc-sidebar-menu .menu__list-item-collapsible {
+	background: none;
+	font-weight: bolder;
+}
+
+.theme-doc-toc-desktop .table-of-contents .table-of-contents__link--active {
+	font-weight: 700;
+}
+
+.navbar__link--active,
+.theme-doc-sidebar-menu.menu__list .menu__link--active,
+.theme-doc-sidebar-menu.menu__list .menu__list-item-collapsible--active {
+	background-color: #29343d;
+	font-weight: bolder;
+}
+
+.menu__list {
+	display: block !important;
+	transition: height 0.35s cubic-bezier(0.36, 0.66, 0.04, 1) 25ms !important;
+	will-change: initial !important;
+
+	margin: 0;
+}
+
+.theme-doc-sidebar-menu,
+.menu__link:hover,
+.theme-doc-toc-desktop,
+.table-of-contents,
+.table-of-contents__link:hover {
+	color: #242736;
+}
+
+.theme-doc-sidebar-menu,
+.menu__link--active,
+.theme-doc-toc-desktop,
+.table-of-contents,
+.table-of-contents__link--active {
+	color: white;
+}
+
+.hero {
+	position: relative;
+}
+
+.menu__link,
+.menu__list-item > .navbar__item {
+	display: flex;
+}
+
+.theme-doc-sidebar-item-category {
+	font-weight: bold;
+}
+
+.navbar__logo {
+	width: 104px;
+	vertical-align: center;
+	/*align: center;*/
+	padding-bottom: 4px;
+}
+
+.menu__link,
+.menu__list-item > .navbar__item {
+	display: flex;
+}
+
+.theme-doc-sidebar-item-category {
+	font-weight: bold;
+}
+
+.navbar__items--right > :last-child {
+	padding-right: inherit;
+}
+
+.navbar__logo {
+	width: 104px;
+	vertical-align: center;
+	/*align: center;*/
+	padding-bottom: 4px;
+}
+
+.navbar__button {
+	font-family: 'Inter', Arial, sans-serif;
+	font-style: normal;
+	font-weight: 500;
+	font-size: 14px;
+	line-height: 100%;
+	letter-spacing: -0.16px;
+	color: #01FEE2;
+	flex: none;
+	order: 1;
+	flex-grow: 0;
+	box-sizing: border-box;
+	border: 1px solid #435160;
+	height: calc(100% - 8px);
+	padding: 8px 16px !important;
+	display: flex;
+	align-content: center;
+}
+
+.navbar__button:hover {
+	background: #01FEE2;
+	color: #1A1F25;
+}
+
+.navbar__button svg {
+	display: none;
+}
+
+.navbar__icon:before {
+	content: "";
+	display: flex;
+	height: 24px;
+	width: 24px;
+	background-color: var(--ifm-navbar-link-color);
+}
+
+.navbar__icon:hover:before {
+	background-color: var(--ifm-navbar-link-hover-color);
+}
+
+.navbar__github:before {
+	mask: url("/img/icons/github.svg") no-repeat 100% 100%;
+	mask-size: cover;
+}
+
+@media (max-width: 996px) {
+	.searchBox_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module {
+		position: initial !important;
+		margin-right: var(--ifm-navbar-padding-horizontal);
+	}
+}
+
+.api-container a {
+	color: inherit;
+}
+
+.api-container .references-layout {
+	height: calc(100vh - 60px) !important;
+}
+
+/* SCALAR */
+.light-mode,
+.dark-mode {
+	color-scheme: dark;
+	--theme-color-1: #fff;
+	--theme-color-2: rgb(135, 153, 171);
+	--theme-color-3: #6d8890;
+	--theme-color-accent: #01e6cd;
+	--theme-background-1: #1A1F26;
+	--theme-background-2: #0f1114;
+	--theme-background-3: #000;
+	--theme-background-accent: rgba(1, 254, 226, 0.1);
+
+	--theme-border-color: rgba(67, 81, 96, .7);
+	--theme-scrollbar-color: rgba(255, 255, 255, 0.24);
+	--theme-scrollbar-color-active: rgba(255, 255, 255, 0.48);
+	--theme-lifted-brightness: 1.45;
+	--theme-backdrop-brightness: 0.5;
+
+	--theme-shadow-1: 0 1px 3px 0 rgb(0, 0, 0, 0.1);
+	--theme-shadow-2: rgba(15, 15, 15, 0.2) 0px 3px 6px,
+	rgba(15, 15, 15, 0.4) 0px 9px 24px, 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+	--theme-button-1: #f6f6f6;
+	--theme-button-1-color: #000;
+	--theme-button-1-hover: #e7e7e7;
+
+	--theme-color-green: #00a400;
+	--theme-color-red: #fa383e;
+	--theme-color-yellow: #ffba00;
+	--theme-color-blue: #3578e5;
+	--theme-color-orange: rgb(229, 121, 26);
+	--theme-color-purple: #b191f9;
+}
+.darklight {
+	display: none !important;
+}
+/* Sidebar */
+.light-mode  .t-doc__sidebar,
+.dark-mode .sidebar {
+	--sidebar-background-1: var(--theme-background-1);
+	--sidebar-item-hover-color: var(--theme-color-accent);
+	--sidebar-item-hover-background: var(--theme-background-2);
+	--sidebar-item-active-background: var(--theme-background-accent);
+	--sidebar-border-color: var(--theme-border-color);
+	--sidebar-color-1: var(--theme-color-1);
+	--sidebar-color-2: var(--theme-color-2);
+	--sidebar-color-active: var(--theme-color-accent);
+	--sidebar-search-background: transparent;
+	--sidebar-search-border-color: var(--theme-border-color);
+	--sidebar-search--color: var(--theme-color-3);
+}
+.scalar-api-client, #headlessui-portal-root {
+	height: auto !important;
+}
+
+/* END - SCALAR */

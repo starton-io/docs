@@ -5,8 +5,9 @@
 */
 
 import React from 'react'
-import theme from '@site/src/components/MuiTheme'
 import { ThemeProvider } from '@mui/material'
+import theme from '@site/src/styles/mui-themes'
+import { MotionLazy } from '@site/src/components/animate'
 
 /*
 |--------------------------------------------------------------------------
@@ -25,7 +26,9 @@ export interface RootProps {
 export default function Root({ children }: RootProps): JSX.Element {
 	return (
 		<React.Fragment>
-			<ThemeProvider theme={theme}>{children}</ThemeProvider>
+			<ThemeProvider theme={theme}>
+				<MotionLazy>{children}</MotionLazy>
+			</ThemeProvider>
 		</React.Fragment>
 	)
 }

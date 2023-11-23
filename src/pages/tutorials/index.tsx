@@ -10,7 +10,7 @@ import { PageHeader } from '@site/src/components/commons/PageHeader'
 import { CardPost, CardPostProps } from '@site/src/components/commons/CardPost'
 import { Grid } from '@mui/material'
 import { SectionContainer } from '@site/src/components/commons/SectionContainer'
-import { TUTORIALS_LIST } from '@site/src/mock/tutorials.mock'
+import { TUTORIALS_LIST } from '@site/src/config/tutorials.config'
 
 /*
 |--------------------------------------------------------------------------

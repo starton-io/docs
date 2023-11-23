@@ -6,9 +6,8 @@
 
 import React from 'react'
 import Layout from '@theme/Layout'
-import { HomeIndexes } from '@site/src/components/pages/Home/HomeIndexes'
-import { HomeTutorials } from '@site/src/components/pages/Home/HomeTutorials'
 import { PageHeader } from '@site/src/components/commons/PageHeader'
+import { HomeMainResources, HomeServices, HomeTutorials } from '@site/src/components/pages/Home'
 
 /*
 |--------------------------------------------------------------------------
@@ -27,11 +26,8 @@ function Home() {
 					</React.Fragment>
 				}
 			/>
-
-			{/* SECTIONS */}
-			<HomeIndexes />
-
-			{/* TUTORIALS */}
+			<HomeServices />
+			<HomeMainResources />
 			<HomeTutorials />
 		</Layout>
 	)

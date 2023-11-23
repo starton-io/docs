@@ -28,7 +28,7 @@ export const presets: Array<PresetConfig> = [
 				sidebarPath: require.resolve('./sidebars.config'),
 			},
 			theme: {
-				customCss: require.resolve('../src/css/starton.css'),
+				customCss: require.resolve('../src/styles/starton.css'),
 			},
 			...(process.env.GTM_KEY && {
 				googleTagManager: {

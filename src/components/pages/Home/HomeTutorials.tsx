@@ -1,62 +1,59 @@
 /*
-| Developed by Starton
+| Developed by Dirupt
 | Filename : HomeTutorials.tsx
 | Author : Philippe DESPLATS (philippe@di-rupt.com)
 */
 
 import React from 'react'
-import { Container, styled, Typography } from '@mui/material'
-import Grid from '@mui/material/Grid'
-import { CardIndex } from '@site/src/components/commons/CardIndex'
-import { TypographyLink } from '@site/src/components/commons/TypographyLink'
-import { CardPost } from '@site/src/components/commons/CardPost'
-import { SectionContainer } from '@site/src/components/commons/SectionContainer'
-import { TUTORIALS_LIST } from '@site/src/mock/tutorials.mock'
+import { MotionViewport, variantFade } from '@site/src/components/animate'
+import { PageContainer } from '@site/src/components/commons/PageContainer'
+import { SectionTitle } from '@site/src/components/commons/SectionTitle'
+import { m } from 'framer-motion'
+import { StartonButton } from '@site/src/components/commons/Button'
+import Box from '@mui/material/Box'
+import { TUTORIAL_LIST } from '@site/src/config/tutorials.config'
+import { TutorialCard } from '@site/src/components/pages/tutorials/index/TutorialCard'
 
 /*
 |--------------------------------------------------------------------------
-| Styles
+| Contracts
 |--------------------------------------------------------------------------
 */
-const SectionTitle = styled(Typography)(({ theme }) => ({
-	color: theme.palette.text.secondary,
-	fontWeight: 400,
-	fontFamily: `"Inter", Arial, sans-serif`,
-	fontSize: '16px',
-	lineHeight: '18px',
-	letterSpacing: '1.328px',
-	textTransform: 'uppercase',
-}))
+export interface HomeTutorialsProps {}
 
 /*
 |--------------------------------------------------------------------------
 | Component
 |--------------------------------------------------------------------------
 */
-export function HomeTutorials() {
-	const lastTutorials = React.useMemo(() => {
-		return TUTORIALS_LIST.sort((a, b) => b.date.getTime() - a.date.getTime()).slice(0, 3)
-	}, [])
-
+export const HomeTutorials: React.FC<HomeTutorialsProps> = () => {
 	return (
-		<SectionContainer>
-			<Grid container spacing={3} direction={'column'}>
-				<Grid item xs={12}>
-					<SectionTitle>Last tutorials</SectionTitle>
-				</Grid>
-
-				<Grid container spacing={2} item xs={12}>
-					{lastTutorials.map((tutorial, index) => (
-						<Grid key={index} item xs={12} md={4}>
-							<CardPost {...tutorial} />
-						</Grid>
-					))}
-				</Grid>
-
-				<Grid item xs={12} textAlign={'center'}>
-					<TypographyLink href="/tutorials">+ See more</TypographyLink>
-				</Grid>
-			</Grid>
-		</SectionContainer>
+		<PageContainer component={MotionViewport}>
+			<m.div variants={variantFade().inLeft}>
+				<SectionTitle
+					title={'Last tutorials'}
+					titleRight={
+						<StartonButton size="large" variant="outlined">
+							See more tutorials
+						</StartonButton>
+					}
+				/>
+				<Box
+					gap={{ xs: 2, lg: 3 }}
+					display="grid"
+					alignItems="center"
+					gridTemplateColumns={{
+						xs: 'repeat(1, 1fr)',
+						md: 'repeat(3, 1fr)',
+					}}
+				>
+					{TUTORIAL_LIST.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+						.slice(0, 3)
+						.map((tutorial, index) => (
+							<TutorialCard key={index} {...tutorial} />
+						))}
+				</Box>
+			</m.div>
+		</PageContainer>
 	)
 }

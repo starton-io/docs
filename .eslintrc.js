@@ -66,7 +66,14 @@ module.exports = {
 			},
 		},
 	],
-
+	settings: {
+		'import/resolver': {
+			node: {
+				extensions: ['.js', '.jsx', '.ts', '.tsx'],
+			},
+			typescript: {},
+		},
+	},
 	rules: {
 		'@docusaurus/no-untranslated-text': ['warn', { ignoredStrings: ['·', '—', '×'] }],
 		'@docusaurus/no-html-links': 2,
@@ -75,6 +82,7 @@ module.exports = {
 		'comma-dangle': ['error', 'always-multiline'],
 		'quote-props': ['error', 'as-needed'],
 		'no-unused-vars': 'off',
+		'import/no-unresolved': [2, { ignore: ['^@theme', '^@docusaurus', '^@site'] }],
 		'prettier/prettier': [
 			'error',
 			{
