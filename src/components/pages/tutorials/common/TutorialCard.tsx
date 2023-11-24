@@ -11,7 +11,11 @@ import UpdateIcon from '@mui/icons-material/Update'
 import TimerOutlinedIcon from '@mui/icons-material/TimerOutlined'
 import Link from '@docusaurus/Link'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
-import { HomeTutorialDiffculty, TutorialMetadata } from '@site/plugins/starton-tutorial-plugin/types'
+import {
+	HomeTutorialDifficulty,
+	TUTORIAL_DIFFICULTY,
+	TutorialMetadata,
+} from '@site/plugins/starton-tutorial-plugin/types'
 import { StartonUtils } from '@site/src/utils/starton.utils'
 
 /*
@@ -20,18 +24,6 @@ import { StartonUtils } from '@site/src/utils/starton.utils'
 |--------------------------------------------------------------------------
 */
 export interface TutorialCardProps extends TutorialMetadata {}
-
-/*
-|--------------------------------------------------------------------------
-| Constants
-|--------------------------------------------------------------------------
-*/
-const DIFFICULTY_BADGE = {
-	'getting-started': 'Getting Started',
-	beginner: 'Beginner',
-	intermediate: 'Intermediate',
-	advanced: 'Advanced',
-}
 
 /*
 |--------------------------------------------------------------------------
@@ -72,7 +64,7 @@ const MetadataItemStyled = styled(Box)(({ theme }) => ({
 
 const DifficultyBadge = styled('span', {
 	shouldForwardProp: (propName) => propName !== 'difficulty',
-})<{ difficulty: HomeTutorialDiffculty }>(({ theme, difficulty }) => ({
+})<{ difficulty: HomeTutorialDifficulty }>(({ theme, difficulty }) => ({
 	width: 8,
 	height: 8,
 	backgroundColor:
@@ -103,7 +95,7 @@ const AvatarGroupStyled = styled(Box)(({ theme }) => ({
 	gap: theme.spacing(1.5),
 }))
 
-const AvatarStyled = styled(Avatar)(({ theme }) => ({
+const AvatarStyled = styled(Avatar)(() => ({
 	width: 24,
 	height: 24,
 }))
@@ -141,7 +133,7 @@ export const TutorialCard: React.FC<TutorialCardProps> = ({
 					</MetadataItemStyled>
 					<MetadataItemStyled>
 						<DifficultyBadge difficulty={difficulty} />
-						<Typography variant={'caption'}>{DIFFICULTY_BADGE[difficulty]}</Typography>
+						<Typography variant={'caption'}>{TUTORIAL_DIFFICULTY[difficulty]}</Typography>
 					</MetadataItemStyled>
 				</MetadataStyled>
 				<Box flex={1}>

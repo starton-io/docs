@@ -64,11 +64,11 @@ export const HomeServices: React.FC<HomeServicesProps> = () => {
 						md: 'repeat(3, 1fr)',
 					}}
 				>
-					{HOME_SERVICE_LIST.map((service, index) => (
-						<Link key={index} to={service.href} aria-description={service?.alt ?? service.content}>
+					{Object.entries(HOME_SERVICE_LIST).map(([key, value]) => (
+						<Link key={key} to={value.href} aria-description={value?.alt ?? value.content}>
 							<CardStyled>
 								<Typography variant={'h4'} component={'h3'} textAlign={'left'}>
-									{service.content}
+									{value.content}
 								</Typography>
 							</CardStyled>
 						</Link>

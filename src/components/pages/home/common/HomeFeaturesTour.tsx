@@ -5,6 +5,7 @@
 */
 
 import React from 'react'
+// @ts-ignore
 import Image, { Props } from '@theme/IdealImage'
 import { Card, CardProps, styled } from '@mui/material'
 import { MotionViewport, variantFade } from '@site/src/components/animate'

@@ -6,7 +6,7 @@
 
 import React from 'react'
 import { m, MotionProps } from 'framer-motion'
-import Box, { BoxProps } from '@mui/material/Box' //
+import Box, { BoxProps } from '@mui/material/Box'
 import { variantContainer } from './variants'
 
 /*

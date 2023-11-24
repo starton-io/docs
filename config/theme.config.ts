@@ -60,8 +60,8 @@ export const themeConfig: ThemeConfig = {
 				'aria-label': 'Docs',
 			},
 			{
+				to: '/tutorials',
 				label: 'Tutorials',
-				href: '/tutorials',
 				'aria-label': 'Tutorials',
 				position: 'left',
 			},

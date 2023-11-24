@@ -11,7 +11,7 @@ import { SectionTitle } from '@site/src/components/commons/SectionTitle'
 import { m } from 'framer-motion'
 import { StartonButton } from '@site/src/components/commons/Button'
 import Box from '@mui/material/Box'
-import { TutorialCard } from '@site/src/components/pages/tutorials/index/TutorialCard'
+import { TutorialCard } from '@site/src/components/pages/tutorials'
 import { HomeProps } from '@site/src/components/pages/home/Home'
 
 /*

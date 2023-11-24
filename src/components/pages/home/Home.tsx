@@ -26,10 +26,6 @@ export interface HomeProps {
 |--------------------------------------------------------------------------
 */
 function Home(props: HomeProps) {
-	React.useEffect(() => {
-		console.log(props)
-	}, [props])
-
 	return (
 		<Layout title="Starton Hub | Documentation, Guides, Tutorials">
 			{/* HERO BANNER */}
