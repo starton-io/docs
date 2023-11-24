@@ -11,22 +11,22 @@ import { SectionTitle } from '@site/src/components/commons/SectionTitle'
 import { m } from 'framer-motion'
 import { StartonButton } from '@site/src/components/commons/Button'
 import Box from '@mui/material/Box'
-import { TUTORIAL_LIST } from '@site/src/config/tutorials.config'
 import { TutorialCard } from '@site/src/components/pages/tutorials/index/TutorialCard'
+import { HomeProps } from '@site/src/components/pages/home/Home'
 
 /*
 |--------------------------------------------------------------------------
 | Contracts
 |--------------------------------------------------------------------------
 */
-export interface HomeTutorialsProps {}
+export interface HomeTutorialsProps extends Pick<HomeProps, 'recentTutorials'> {}
 
 /*
 |--------------------------------------------------------------------------
 | Component
 |--------------------------------------------------------------------------
 */
-export const HomeTutorials: React.FC<HomeTutorialsProps> = () => {
+export const HomeTutorials: React.FC<HomeTutorialsProps> = (props) => {
 	return (
 		<PageContainer component={MotionViewport}>
 			<m.div variants={variantFade().inLeft}>
@@ -41,16 +41,17 @@ export const HomeTutorials: React.FC<HomeTutorialsProps> = () => {
 				<Box
 					gap={{ xs: 2, lg: 3 }}
 					display="grid"
-					alignItems="center"
+					alignItems="stretch"
 					gridTemplateColumns={{
 						xs: 'repeat(1, 1fr)',
 						md: 'repeat(3, 1fr)',
 					}}
 				>
-					{TUTORIAL_LIST.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+					{props.recentTutorials
+						.sort((a, b) => new Date(b.metadata.date).getTime() - new Date(a.metadata.date).getTime())
 						.slice(0, 3)
 						.map((tutorial, index) => (
-							<TutorialCard key={index} {...tutorial} />
+							<TutorialCard key={index} {...tutorial.metadata} />
 						))}
 				</Box>
 			</m.div>

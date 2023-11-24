@@ -4,7 +4,7 @@
 | Author : Philippe DESPLATS (philippe@starton.com)
 */
 
-import { HomeServiceItem } from '@site/src/components/pages/Home/HomeServices'
+import { HomeServiceItem } from '@site/src/components/pages/home/HomeServices'
 
 export const HOME_SERVICE_LIST: Array<HomeServiceItem> = [
 	{

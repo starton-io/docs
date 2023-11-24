@@ -5,31 +5,21 @@
 */
 
 import React from 'react'
-import { Avatar, Card, CardProps, Divider, Palette, styled, Typography } from '@mui/material'
+import { Avatar, Card, CardProps, Divider, styled, Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import UpdateIcon from '@mui/icons-material/Update'
 import TimerOutlinedIcon from '@mui/icons-material/TimerOutlined'
 import Link from '@docusaurus/Link'
-import useGlobalData from '@docusaurus/useGlobalData'
 import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
+import { HomeTutorialDiffculty, TutorialMetadata } from '@site/plugins/starton-tutorial-plugin/types'
+import { StartonUtils } from '@site/src/utils/starton.utils'
 
 /*
 |--------------------------------------------------------------------------
 | Contracts
 |--------------------------------------------------------------------------
 */
-export type HomeTutorialDiffculty = 'get-started' | 'beginner' | 'intermediate' | 'advanced'
-export interface HomeTutorialItem {
-	date: Date
-	duration: string
-	difficulty: HomeTutorialDiffculty
-	title: string
-	description: string
-	href: string
-	authorId: Array<string>
-	alt?: string
-}
-export interface TutorialCardProps extends HomeTutorialItem {}
+export interface TutorialCardProps extends TutorialMetadata {}
 
 /*
 |--------------------------------------------------------------------------
@@ -37,7 +27,7 @@ export interface TutorialCardProps extends HomeTutorialItem {}
 |--------------------------------------------------------------------------
 */
 const DIFFICULTY_BADGE = {
-	'get-started': 'Get started',
+	'getting-started': 'Getting Started',
 	beginner: 'Beginner',
 	intermediate: 'Intermediate',
 	advanced: 'Advanced',
@@ -53,6 +43,7 @@ const CardStyled = styled(Card)<CardProps>(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'column',
 	alignItems: 'flex-start',
+	height: '100%',
 	gap: theme.spacing(3),
 	padding: theme.spacing(3),
 	borderRadius: 0,
@@ -85,7 +76,7 @@ const DifficultyBadge = styled('span', {
 	width: 8,
 	height: 8,
 	backgroundColor:
-		difficulty === 'get-started'
+		difficulty === 'getting-started'
 			? theme.palette.success.main
 			: difficulty === 'beginner'
 			? theme.palette.info.main
@@ -123,23 +114,16 @@ const AvatarStyled = styled(Avatar)(({ theme }) => ({
 |--------------------------------------------------------------------------
 */
 export const TutorialCard: React.FC<TutorialCardProps> = ({
-	alt,
-	href,
+	link,
 	title,
 	date,
-	authorId,
 	difficulty,
-	duration,
+	readingTime,
 	description,
+	authors,
 }) => {
-	const docusaurusContext = useDocusaurusContext()
-
-	React.useEffect(() => {
-		console.log(`[F:TutorialCard.tsx - L:124] docusaurusContext(): `, docusaurusContext)
-	}, [docusaurusContext])
-
 	return (
-		<Link to={href} aria-description={alt ?? title}>
+		<Link to={link} aria-description={title}>
 			<CardStyled>
 				<MetadataStyled>
 					<MetadataItemStyled>
@@ -148,38 +132,37 @@ export const TutorialCard: React.FC<TutorialCardProps> = ({
 							{Intl.DateTimeFormat('en-US', {
 								year: 'numeric',
 								month: 'long',
-							}).format(date)}
+							}).format(new Date(date))}
 						</Typography>
 					</MetadataItemStyled>
 					<MetadataItemStyled>
 						<TimerOutlinedIcon sx={{ fontSize: 12 }} />
-						<Typography variant={'caption'}>{duration}</Typography>
+						<Typography variant={'caption'}>{Math.ceil(Number(readingTime))} min</Typography>
 					</MetadataItemStyled>
 					<MetadataItemStyled>
 						<DifficultyBadge difficulty={difficulty} />
 						<Typography variant={'caption'}>{DIFFICULTY_BADGE[difficulty]}</Typography>
 					</MetadataItemStyled>
 				</MetadataStyled>
-				<Box>
+				<Box flex={1}>
 					<Typography variant={'h3'} textAlign={'left'} marginBottom={1}>
 						{title}
 					</Typography>
-					<DescriptionStyled>{description}</DescriptionStyled>
+					{/* Excerpt description with 144 characters maximum without break words */}
+					<DescriptionStyled>{StartonUtils.excerptFromString(description, 132)}</DescriptionStyled>
 				</Box>
 				<DividerStyled />
-				<AvatarGroupStyled>
-					<AvatarStyled
-						src={
-							'https://uploads-ssl.webflow.com/64748b36fe25af55e0fc6752/655f5d838512900bc1a43dc5_calixte-de-tourris.jpeg'
-						}
-					/>
-					<Box display={'flex'} flexDirection={'column'}>
-						<Typography variant={'caption'}>Calixte de Touris</Typography>
-						<Typography variant={'caption'} color={'text.secondary'}>
-							Frontend Developer
-						</Typography>
-					</Box>
-				</AvatarGroupStyled>
+				{authors.map((author, index) => (
+					<AvatarGroupStyled key={index}>
+						<AvatarStyled src={author.imageURL} />
+						<Box display={'flex'} flexDirection={'column'}>
+							<Typography variant={'caption'}>{author.name}</Typography>
+							<Typography variant={'caption'} color={'text.secondary'}>
+								{author.title}
+							</Typography>
+						</Box>
+					</AvatarGroupStyled>
+				))}
 			</CardStyled>
 		</Link>
 	)

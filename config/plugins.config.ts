@@ -5,6 +5,8 @@
 
 import type { PluginConfig } from '@docusaurus/types'
 import { PluginOptions } from '@docusaurus/plugin-client-redirects/src/options'
+import { Options as BlogPluginOptions } from '@docusaurus/plugin-content-blog'
+import * as path from 'path'
 
 export const plugins: Array<PluginConfig> = [
 	'@docusaurus/theme-live-codeblock',
@@ -26,7 +28,7 @@ export const plugins: Array<PluginConfig> = [
 		{
 			redirects: [
 				{
-					from: '/docs/tutorials/Home',
+					from: '/docs/tutorials/home',
 					to: '/tutorials',
 				},
 				{
@@ -46,5 +48,19 @@ export const plugins: Array<PluginConfig> = [
 				return undefined
 			},
 		} as PluginOptions,
+	],
+	// Tutorials
+	// ----------------------------------------------------------------------------
+	[
+		path.resolve(__dirname, '..', 'plugins', 'starton-tutorial-plugin'),
+		{
+			id: 'tutorials',
+			blogTitle: 'Tutorials',
+			blogSidebarCount: 'ALL',
+			showReadingTime: true,
+			path: './tutorials',
+			routeBasePath: 'tutorials',
+			authorsMapPath: './authors.yml',
+		} satisfies BlogPluginOptions,
 	],
 ]

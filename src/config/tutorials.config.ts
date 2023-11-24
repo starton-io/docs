@@ -6,40 +6,6 @@
 
 import { CardPostProps } from '@site/src/components/commons/CardPost'
 import { StartonUtils } from '@site/src/utils/starton.utils'
-import { HomeTutorialItem } from '@site/src/components/pages/tutorials/index/TutorialCard'
-
-export const TUTORIAL_LIST: Array<HomeTutorialItem> = [
-	{
-		date: StartonUtils.getDateFromYearAndMonth(2023, 4),
-		duration: '1h',
-		difficulty: 'advanced',
-		title: 'Creating a JWT-based authentication with NestJS',
-		description:
-			'This tutorial will guide you through the process of building an authentication system based on JSON Web Tokens (JWT) using NestJS...',
-		href: '#',
-		authorId: ['calixte-de-tourris'],
-	},
-	{
-		date: StartonUtils.getDateFromYearAndMonth(2023, 8),
-		duration: '1h',
-		difficulty: 'beginner',
-		title: 'Creating a JWT-based authentication with NestJS',
-		description:
-			'This tutorial will guide you through the process of building an authentication system based on JSON Web Tokens (JWT) using NestJS...',
-		href: '#',
-		authorId: ['calixte-de-tourris'],
-	},
-	{
-		date: StartonUtils.getDateFromYearAndMonth(2023, 5),
-		duration: '1h',
-		difficulty: 'get-started',
-		title: 'Creating a JWT-based authentication with NestJS',
-		description:
-			'This tutorial will guide you through the process of building an authentication system based on JSON Web Tokens (JWT) using NestJS...',
-		href: '#',
-		authorId: ['calixte-de-tourris'],
-	},
-]
 
 // TODO: Remove after adding all tutorials
 export const TUTORIALS_LIST: Array<CardPostProps> = [

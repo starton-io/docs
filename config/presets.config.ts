@@ -24,6 +24,7 @@ export const presets: Array<PresetConfig> = [
 				showReadingTime: true,
 				path: 'guides',
 				routeBasePath: 'guides',
+				authorsMapPath: './authors.yml',
 			},
 			docs: {
 				sidebarPath: require.resolve('./sidebars.config'),

@@ -1,6 +1,6 @@
 /*
 | Developed by Starton
-| Filename : index.ts
+| Filename : index.js
 | Author : Philippe DESPLATS (philippe@starton.com)
 */
 

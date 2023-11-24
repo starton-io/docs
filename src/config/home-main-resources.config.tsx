@@ -5,7 +5,7 @@
 */
 
 import React from 'react'
-import { HomeMainResourceItem } from '@site/src/components/pages/Home'
+import { HomeMainResourceItem } from 'src/components/pages/home'
 import MenuBookIcon from '@mui/icons-material/MenuBook'
 import ApiIcon from '@mui/icons-material/Api'
 import BookmarkBorderIcon from '@mui/icons-material/BookmarkBorder'

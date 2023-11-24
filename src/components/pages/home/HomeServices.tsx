@@ -25,6 +25,7 @@ export interface HomeServiceItem {
 	alt?: string
 }
 export interface HomeServicesProps {}
+
 /*
 |--------------------------------------------------------------------------
 | Styles

@@ -1,6 +1,6 @@
 /*
 | Developed by Starton
-| Filename : index.tsx
+| Filename : index2.tsx
 | Author : Philippe DESPLATS (philippe@di-rupt.com)
 */
 
