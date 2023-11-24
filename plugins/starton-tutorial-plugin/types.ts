@@ -52,7 +52,7 @@ export interface Authors {
 
 export interface TutorialMetadata {
 	date: Date
-	readingTime: string
+	readingTime: string | number
 	difficulty: HomeTutorialDifficulty
 	title: string
 	description: string

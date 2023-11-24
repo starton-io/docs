@@ -78,6 +78,7 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
 		'&.Mui-selected': {
 			borderColor: theme.palette.text.primary,
 			background: theme.palette.component.disabled,
+			color: theme.palette.text.primary,
 		},
 		'&.Mui-disabled': {
 			border: 0,

@@ -10,6 +10,7 @@ import { PageHeader } from '@site/src/components/commons/PageHeader'
 import Box from '@mui/material/Box'
 import { HomeTutorialsFilter } from '@site/src/components/pages/tutorials'
 import { HomeTutorialDifficulty, HomeTutorialServices, TutorialList } from '@site/plugins/starton-tutorial-plugin/types'
+import { HomeTutorialFilteredSection } from '@site/src/components/pages/tutorials/common/HomeTutorialFilteredSection'
 
 /*
 |--------------------------------------------------------------------------
@@ -85,6 +86,23 @@ const HomeTutorials: React.FC<HomeTutorialsProps> = (props) => {
 					setFilterServices={setFilterServices}
 					handleReset={handleReset}
 				/>
+				{difficulties
+					.filter((difficulty) => {
+						if (filterDifficulties.length > 0) {
+							return filterDifficulties.includes(difficulty)
+						}
+
+						return true
+					})
+					.map((difficulty) => (
+						<HomeTutorialFilteredSection
+							key={difficulty}
+							items={props.items}
+							difficulty={difficulty}
+							filterDifficulties={filterDifficulties}
+							filterServices={filterServices}
+						/>
+					))}
 			</Box>
 		</Layout>
 	)
