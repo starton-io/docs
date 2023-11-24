@@ -133,7 +133,7 @@ export const HomeTutorialsFilter: React.FC<HomeTutorialsFilterProps> = ({
 							<Typography variant={'body1'}>Services</Typography>
 							<StyledToggleButtonGroup
 								color={'secondary'}
-								value={[filterServices]}
+								value={filterServices}
 								onChange={(event, newValue) => setFilterServices(newValue)}
 							>
 								{services.map((service, index) => (

@@ -25,7 +25,6 @@ import { TutorialCard } from '@site/src/components/pages/tutorials'
 */
 export interface HomeTutorialFilteredSectionProps extends Pick<HomeTutorialsProps, 'items'> {
 	difficulty: HomeTutorialDifficulty
-	filterDifficulties: Array<HomeTutorialDifficulty>
 	filterServices: Array<HomeTutorialServices>
 }
 
@@ -35,6 +34,21 @@ export interface HomeTutorialFilteredSectionProps extends Pick<HomeTutorialsProp
 |--------------------------------------------------------------------------
 */
 export const HomeTutorialFilteredSection: React.FC<HomeTutorialFilteredSectionProps> = (props) => {
+	const filterServices = React.useMemo(() => {
+		return props.items
+			.filter((item) => item.content.metadata.frontMatter.difficulty === props.difficulty)
+			.filter((item) => {
+				if (props.filterServices.length === 0) return true
+				return (
+					item.content.metadata.frontMatter.services?.filter((service) =>
+						props.filterServices.includes(service),
+					).length > 0 ?? true
+				)
+			})
+	}, [props.difficulty, props.filterServices, props.items])
+
+	if (filterServices.length === 0) return null
+
 	return (
 		<PageContainer component={MotionViewport}>
 			<m.div variants={variantFade().inLeft}>
@@ -48,20 +62,18 @@ export const HomeTutorialFilteredSection: React.FC<HomeTutorialFilteredSectionPr
 						md: 'repeat(3, 1fr)',
 					}}
 				>
-					{props.items
-						.filter((item) => item.content.metadata.frontMatter.difficulty === props.difficulty)
-						.map((item, index) => (
-							<TutorialCard
-								key={index}
-								difficulty={item.content.metadata.frontMatter.difficulty}
-								title={item.content.metadata.title}
-								description={item.content.metadata.description}
-								authors={item.content.metadata.authors}
-								date={item.content.metadata.date}
-								link={item.content.metadata.permalink}
-								readingTime={item.content.metadata.readingTime}
-							/>
-						))}
+					{filterServices.map((item, index) => (
+						<TutorialCard
+							key={index}
+							difficulty={item.content.metadata.frontMatter.difficulty}
+							title={item.content.metadata.title}
+							description={item.content.metadata.description}
+							authors={item.content.metadata.authors}
+							date={item.content.metadata.date}
+							link={item.content.metadata.permalink}
+							readingTime={item.content.metadata.readingTime}
+						/>
+					))}
 				</Box>
 			</m.div>
 		</PageContainer>

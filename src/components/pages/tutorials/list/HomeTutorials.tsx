@@ -88,18 +88,15 @@ const HomeTutorials: React.FC<HomeTutorialsProps> = (props) => {
 				/>
 				{difficulties
 					.filter((difficulty) => {
-						if (filterDifficulties.length > 0) {
-							return filterDifficulties.includes(difficulty)
-						}
+						if (filterDifficulties.length === 0) return true
 
-						return true
+						return filterDifficulties.includes(difficulty)
 					})
 					.map((difficulty) => (
 						<HomeTutorialFilteredSection
 							key={difficulty}
 							items={props.items}
 							difficulty={difficulty}
-							filterDifficulties={filterDifficulties}
 							filterServices={filterServices}
 						/>
 					))}
