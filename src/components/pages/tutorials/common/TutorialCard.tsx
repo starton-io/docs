@@ -39,6 +39,7 @@ const CardStyled = styled(Card)<CardProps>(({ theme }) => ({
 	gap: theme.spacing(3),
 	padding: theme.spacing(3),
 	borderRadius: 0,
+	backgroundColor: 'transparent',
 
 	'&:hover': {
 		borderColor: theme.palette.reverse.light,

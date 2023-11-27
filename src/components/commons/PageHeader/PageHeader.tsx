@@ -22,6 +22,7 @@ export interface PageHeaderProps {
 	title: React.ReactNode | string
 	subTitle?: string
 	description?: string
+	hideSnippet?: boolean
 }
 
 /*
@@ -93,11 +94,13 @@ export const PageHeader: React.FC<PageHeaderProps> = (props) => {
 						) : null}
 					</m.div>
 				</Grid>
-				<Grid item marginTop={{ xs: 6 }} xs={12} md={'auto'} width={{ xs: '100%', md: 'fit-content' }}>
-					<m.div variants={variantFade().inRight}>
-						<Snippet />
-					</m.div>
-				</Grid>
+				{props.hideSnippet ? (
+					<Grid item marginTop={{ xs: 6 }} xs={12} md={'auto'} width={{ xs: '100%', md: 'fit-content' }}>
+						<m.div variants={variantFade().inRight}>
+							<Snippet />
+						</m.div>
+					</Grid>
+				) : null}
 			</Grid>
 		</HeroBanner>
 	)

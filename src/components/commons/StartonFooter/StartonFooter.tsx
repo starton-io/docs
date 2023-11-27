@@ -20,9 +20,10 @@ export interface StartonFooterProps extends BoxProps {}
 |--------------------------------------------------------------------------
 */
 const StartonFooterStyled = styled((props: BoxProps) => <Box {...props} component="footer" />)(({ theme }) => ({
-	backgroundColor: theme.palette.text.primary,
+	backgroundColor: theme.palette.background.paper2,
 	width: '100%',
-	borderRadius: theme.spacing(1.25, 1.25, 0, 0),
+	border: 'none',
+	padding: theme.spacing(1, 0),
 }))
 
 /*

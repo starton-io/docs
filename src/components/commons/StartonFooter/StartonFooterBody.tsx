@@ -23,13 +23,13 @@ export interface StartonFooterBodyProps {
 */
 
 const FooterBodyStyled = styled(Box)(({ theme }) => ({
-	padding: theme.spacing(2, 3, 2),
+	paddingBottom: theme.spacing(6),
 	display: 'flex',
 	flexDirection: 'column',
 	gap: theme.spacing(3),
+
 	[theme.breakpoints.up('md')]: {
 		flexDirection: 'row',
-		padding: theme.spacing(4, 9, 5),
 	},
 }))
 
