@@ -11,6 +11,7 @@ import { useBlogPost } from '@docusaurus/theme-common/internal'
 import TOCItems from '@theme/TOCItems'
 import Link from '@docusaurus/Link'
 import { GitHub } from '@mui/icons-material'
+import Grid from '@mui/material/Grid'
 
 /*
 |--------------------------------------------------------------------------
@@ -66,13 +67,14 @@ export const HomeTutorialInfos: React.FC<HomeTutorialInfosProps> = () => {
 	const author = React.useMemo(() => authors?.[0], [authors])
 
 	return (
-		<Box
+		<Grid
+			item
+			xs={12}
+			lg={3}
 			display={'flex'}
 			flexDirection={'column'}
 			gap={3}
-			width={'100%'}
-			minWidth={300}
-			marginTop={'calc(-40px - 2.5rem)'}
+			marginTop={{ xs: 0, lg: 'calc(-40px - 2.5rem)' }}
 		>
 			<CardStyled>
 				{author ? (
@@ -123,7 +125,7 @@ export const HomeTutorialInfos: React.FC<HomeTutorialInfosProps> = () => {
 			</CardStyled>
 
 			{!hideTableOfContents && toc.length > 0 ? (
-				<CardStyled>
+				<CardStyled sx={{ position: 'sticky', top: 80 }}>
 					<Typography variant={'caption'} color={'text.secondary'} textTransform={'uppercase'}>
 						Content
 					</Typography>
@@ -136,6 +138,6 @@ export const HomeTutorialInfos: React.FC<HomeTutorialInfosProps> = () => {
 					/>
 				</CardStyled>
 			) : null}
-		</Box>
+		</Grid>
 	)
 }

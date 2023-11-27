@@ -8,6 +8,7 @@ import React from 'react'
 import { useBaseUrlUtils } from '@docusaurus/useBaseUrl'
 import { useBlogPost } from '@docusaurus/theme-common/internal'
 import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
 
 /*
 |--------------------------------------------------------------------------
@@ -34,18 +35,19 @@ export const HomeTutorialContainer: React.FC<HomeTutorialContainerProps> = (prop
 	const keywords = frontMatter.keywords ?? []
 
 	return (
-		<Box
+		<Grid
+			container
+			itemScope
 			component={'article'}
 			itemProp={'blogPost'}
-			itemScope
 			itemType={'https://schema.org/BlogPosting'}
-			display={'flex'}
-			gap={2}
+			spacing={3}
+			flexDirection={{ xs: 'column-reverse', lg: 'row' }}
 		>
 			{description && <meta itemProp="description" content={description} />}
 			{image && <link itemProp="image" href={withBaseUrl(image, { absolute: true })} />}
 			{keywords.length > 0 && <meta itemProp="keywords" content={keywords.join(',')} />}
 			{props.children}
-		</Box>
+		</Grid>
 	)
 }

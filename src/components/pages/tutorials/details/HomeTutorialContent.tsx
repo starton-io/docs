@@ -8,6 +8,7 @@ import React from 'react'
 import MDXContent from '@theme/MDXContent'
 import { blogPostContainerID } from '@docusaurus/utils-common'
 import Box from '@mui/material/Box'
+import Grid from '@mui/material/Grid'
 
 /*
 |--------------------------------------------------------------------------
@@ -25,8 +26,8 @@ export interface HomeTutorialContentProps {
 */
 export const HomeTutorialContent: React.FC<HomeTutorialContentProps> = (props) => {
 	return (
-		<Box id={blogPostContainerID} className={'markdown'} itemProp={'articleBody'} flex={1}>
+		<Grid item xs={12} lg={9} id={blogPostContainerID} className={'markdown'} itemProp={'articleBody'}>
 			<MDXContent>{props.children}</MDXContent>
-		</Box>
+		</Grid>
 	)
 }

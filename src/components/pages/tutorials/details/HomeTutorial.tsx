@@ -48,18 +48,18 @@ const HomeTutorial: React.FC<HomeTutorialProps> = (props) => {
 						<HomeTutorialContainer>
 							<HomeTutorialContent>
 								<BlogPostContent />
+
+								{nextItem || prevItem ? (
+									<Box component={MotionViewport}>
+										<m.div variants={variantFade().inLeft}>
+											<BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
+										</m.div>
+									</Box>
+								) : null}
 							</HomeTutorialContent>
 
 							<HomeTutorialInfos />
 						</HomeTutorialContainer>
-
-						{nextItem || prevItem ? (
-							<Box component={MotionViewport}>
-								<m.div variants={variantFade().inLeft}>
-									<BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
-								</m.div>
-							</Box>
-						) : null}
 					</PageContainer>
 				</Box>
 			</Layout>
