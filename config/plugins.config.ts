@@ -62,6 +62,7 @@ export const plugins: Array<PluginConfig> = [
 			routeBasePath: 'tutorials',
 			authorsMapPath: './authors.yml',
 			blogListComponent: '@site/src/components/pages/tutorials/list/HomeTutorials.tsx',
+			blogPostComponent: '@site/src/components/pages/tutorials/details/HomeTutorial.tsx',
 		} satisfies BlogPluginOptions,
 	],
 ]

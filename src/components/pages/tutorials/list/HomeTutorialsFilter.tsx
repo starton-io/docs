@@ -19,7 +19,7 @@ import {
 	TUTORIAL_DIFFICULTY,
 	TUTORIAL_SERVICES,
 } from '@site/plugins/starton-tutorial-plugin/types'
-import { HomeTutorialFilterActions } from '@site/src/components/pages/tutorials/common/HomeTutorialFilterActions'
+import { HomeTutorialFilterActions } from '@site/src/components/pages/tutorials/list/HomeTutorialFilterActions'
 
 /*
 |--------------------------------------------------------------------------

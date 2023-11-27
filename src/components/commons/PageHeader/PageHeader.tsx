@@ -94,7 +94,7 @@ export const PageHeader: React.FC<PageHeaderProps> = (props) => {
 						) : null}
 					</m.div>
 				</Grid>
-				{props.hideSnippet ? (
+				{!props.hideSnippet ? (
 					<Grid item marginTop={{ xs: 6 }} xs={12} md={'auto'} width={{ xs: '100%', md: 'fit-content' }}>
 						<m.div variants={variantFade().inRight}>
 							<Snippet />

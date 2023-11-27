@@ -4,5 +4,5 @@
 | Author : Philippe DESPLATS (philippe@starton.com)
 */
 
-export * from './common/HomeTutorialsFilter'
+export * from './list/HomeTutorialsFilter'
 export * from './common/TutorialCard'

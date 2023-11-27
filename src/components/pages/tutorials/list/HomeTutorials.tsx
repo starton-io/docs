@@ -16,7 +16,7 @@ import {
 	TUTORIAL_SERVICES,
 	TutorialList,
 } from '@site/plugins/starton-tutorial-plugin/types'
-import { HomeTutorialFilteredSection } from '@site/src/components/pages/tutorials/common/HomeTutorialFilteredSection'
+import { HomeTutorialFilteredSection } from '@site/src/components/pages/tutorials/list/HomeTutorialFilteredSection'
 
 /*
 |--------------------------------------------------------------------------
@@ -33,10 +33,6 @@ export interface HomeTutorialsProps {
 |--------------------------------------------------------------------------
 */
 const HomeTutorials: React.FC<HomeTutorialsProps> = (props) => {
-	React.useEffect(() => {
-		console.log(`[F:HomeTutorials.tsx - L:23] props(): `, props)
-	}, [props])
-
 	const [filterDifficulties, setFilterDifficulties] = React.useState<Array<HomeTutorialDifficulty>>([])
 	const [filterServices, setFilterServices] = React.useState<Array<HomeTutorialServices>>([])
 
@@ -80,6 +76,7 @@ const HomeTutorials: React.FC<HomeTutorialsProps> = (props) => {
 	return (
 		<Layout title={'Tutorials'}>
 			<PageHeader
+				hideSnippet
 				title={
 					<React.Fragment>
 						Starton <span>Tutorials</span>
@@ -98,20 +95,22 @@ const HomeTutorials: React.FC<HomeTutorialsProps> = (props) => {
 					setFilterServices={setFilterServices}
 					handleReset={handleReset}
 				/>
-				{difficulties
-					.filter((difficulty) => {
-						if (filterDifficulties.length === 0) return true
+				<Box component={'main'} itemScope itemType={'https://schema.org/Blog'}>
+					{difficulties
+						.filter((difficulty) => {
+							if (filterDifficulties.length === 0) return true
 
-						return filterDifficulties.includes(difficulty)
-					})
-					.map((difficulty) => (
-						<HomeTutorialFilteredSection
-							key={difficulty}
-							items={props.items}
-							difficulty={difficulty}
-							filterServices={filterServices}
-						/>
-					))}
+							return filterDifficulties.includes(difficulty)
+						})
+						.map((difficulty) => (
+							<HomeTutorialFilteredSection
+								key={difficulty}
+								items={props.items}
+								difficulty={difficulty}
+								filterServices={filterServices}
+							/>
+						))}
+				</Box>
 			</Box>
 		</Layout>
 	)
