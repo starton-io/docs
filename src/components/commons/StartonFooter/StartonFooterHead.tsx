@@ -38,7 +38,7 @@ const FooterHeadStyled = styled(Box)(({ theme }) => ({
 const StartonLogoContainer = styled(Avatar)(({ theme }) => ({
 	backgroundColor: 'transparent',
 	'&, & svg': {
-		width: theme.spacing(11),
+		width: theme.spacing(22),
 		height: 'auto',
 	},
 	[theme.breakpoints.up('md')]: {

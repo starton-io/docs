@@ -80,7 +80,11 @@ export const Link: React.FC<LinkProps> = (props) => {
 	return (
 		<DocusaurusLink {...anchorProps} to={anchorProps.href}>
 			<LinkStyled variant={variant} {...boxProps}>
-				{typeof children === 'string' ? <Typography>{children}</Typography> : null}
+				{typeof children === 'string' ? (
+					<Typography variant={'button'} textTransform={'uppercase'}>
+						{children}
+					</Typography>
+				) : null}
 				<ArrowLargeTopRight sx={{ width: 16, height: 16 }} />
 			</LinkStyled>
 		</DocusaurusLink>
