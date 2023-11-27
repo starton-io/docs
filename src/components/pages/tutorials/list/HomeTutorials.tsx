@@ -9,7 +9,13 @@ import Layout from '@theme/Layout'
 import { PageHeader } from '@site/src/components/commons/PageHeader'
 import Box from '@mui/material/Box'
 import { HomeTutorialsFilter } from '@site/src/components/pages/tutorials'
-import { HomeTutorialDifficulty, HomeTutorialServices, TutorialList } from '@site/plugins/starton-tutorial-plugin/types'
+import {
+	HomeTutorialDifficulty,
+	HomeTutorialServices,
+	TUTORIAL_DIFFICULTY,
+	TUTORIAL_SERVICES,
+	TutorialList,
+} from '@site/plugins/starton-tutorial-plugin/types'
 import { HomeTutorialFilteredSection } from '@site/src/components/pages/tutorials/common/HomeTutorialFilteredSection'
 
 /*
@@ -41,7 +47,10 @@ const HomeTutorials: React.FC<HomeTutorialsProps> = (props) => {
 			new Set(
 				props.items
 					.map((item) => item.content.metadata.frontMatter.difficulty)
-					.filter((difficulty) => difficulty),
+					.filter((difficulty) => difficulty)
+					.sort((a, b) => {
+						return Object.keys(TUTORIAL_DIFFICULTY).indexOf(a) - Object.keys(TUTORIAL_DIFFICULTY).indexOf(b)
+					}),
 			),
 		)
 	}, [props.items])
@@ -51,7 +60,10 @@ const HomeTutorials: React.FC<HomeTutorialsProps> = (props) => {
 			new Set(
 				props.items
 					.flatMap((item) => item.content.metadata.frontMatter.services)
-					.filter((services) => services),
+					.filter((services) => services)
+					.sort((a, b) => {
+						return Object.keys(TUTORIAL_SERVICES).indexOf(a) - Object.keys(TUTORIAL_SERVICES).indexOf(b)
+					}),
 			),
 		)
 	}, [props.items])

@@ -19,6 +19,7 @@ import {
 	TUTORIAL_DIFFICULTY,
 	TUTORIAL_SERVICES,
 } from '@site/plugins/starton-tutorial-plugin/types'
+import { HomeTutorialFilterActions } from '@site/src/components/pages/tutorials/common/HomeTutorialFilterActions'
 
 /*
 |--------------------------------------------------------------------------
@@ -115,34 +116,20 @@ export const HomeTutorialsFilter: React.FC<HomeTutorialsFilterProps> = ({
 				<Typography variant={'overline'}>Filters</Typography>
 				<FilterContainer>
 					<FilterActionsContainer>
-						<FilterActions>
-							<Typography variant={'body1'}>Difficulties</Typography>
-							<StyledToggleButtonGroup
-								color={'secondary'}
-								value={filterDifficulties}
-								onChange={(event, newValue) => setFilterDifficulties(newValue)}
-							>
-								{difficulties.map((difficulty, index) => (
-									<ToggleButton value={difficulty} key={index}>
-										{TUTORIAL_DIFFICULTY[difficulty]}
-									</ToggleButton>
-								))}
-							</StyledToggleButtonGroup>
-						</FilterActions>
-						<FilterActions>
-							<Typography variant={'body1'}>Services</Typography>
-							<StyledToggleButtonGroup
-								color={'secondary'}
-								value={filterServices}
-								onChange={(event, newValue) => setFilterServices(newValue)}
-							>
-								{services.map((service, index) => (
-									<ToggleButton value={service} key={index}>
-										{TUTORIAL_SERVICES[service]}
-									</ToggleButton>
-								))}
-							</StyledToggleButtonGroup>
-						</FilterActions>
+						<HomeTutorialFilterActions
+							title={'Difficulties'}
+							filterValues={filterDifficulties}
+							value={difficulties}
+							onChange={(event, newValue) => setFilterDifficulties(newValue)}
+							render={(item) => TUTORIAL_DIFFICULTY[item]}
+						/>
+						<HomeTutorialFilterActions
+							title={'Services'}
+							filterValues={filterServices}
+							value={services}
+							onChange={(event, newValue) => setFilterServices(newValue)}
+							render={(item) => TUTORIAL_SERVICES[item]}
+						/>
 					</FilterActionsContainer>
 					<Box>
 						<StartonButton
