@@ -12,6 +12,8 @@ import TOCItems from '@theme/TOCItems'
 import Link from '@docusaurus/Link'
 import { GitHub } from '@mui/icons-material'
 import Grid from '@mui/material/Grid'
+import { m } from 'framer-motion'
+import { variantFade } from '@site/src/components/animate'
 
 /*
 |--------------------------------------------------------------------------
@@ -75,6 +77,8 @@ export const HomeTutorialInfos: React.FC<HomeTutorialInfosProps> = () => {
 			flexDirection={'column'}
 			gap={3}
 			marginTop={{ xs: 0, lg: 'calc(-40px - 2.5rem)' }}
+			component={m.div}
+			variants={variantFade().inRight}
 		>
 			<CardStyled>
 				{author ? (

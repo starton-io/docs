@@ -7,8 +7,9 @@
 import React from 'react'
 import { useBaseUrlUtils } from '@docusaurus/useBaseUrl'
 import { useBlogPost } from '@docusaurus/theme-common/internal'
-import Box from '@mui/material/Box'
+import { m } from 'framer-motion'
 import Grid from '@mui/material/Grid'
+import { variantFade } from '@site/src/components/animate'
 
 /*
 |--------------------------------------------------------------------------
@@ -38,7 +39,8 @@ export const HomeTutorialContainer: React.FC<HomeTutorialContainerProps> = (prop
 		<Grid
 			container
 			itemScope
-			component={'article'}
+			component={m.div}
+			variants={variantFade().inLeft}
 			itemProp={'blogPost'}
 			itemType={'https://schema.org/BlogPosting'}
 			spacing={3}

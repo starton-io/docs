@@ -7,7 +7,6 @@
 import React from 'react'
 import MDXContent from '@theme/MDXContent'
 import { blogPostContainerID } from '@docusaurus/utils-common'
-import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 
 /*

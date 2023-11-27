@@ -12,10 +12,11 @@ import Box from '@mui/material/Box'
 import Unlisted from '@theme/Unlisted'
 import { m } from 'framer-motion'
 import BlogPostPaginator from '@theme/BlogPostPaginator'
+import MDXContent from '@theme/MDXContent'
 import { HomeTutorialMetadata } from '@site/src/components/pages/tutorials/details/HomeTutorialMetadata'
 import { PageContainer } from '@site/src/components/commons/PageContainer'
 import { HomeTutorialContainer } from '@site/src/components/pages/tutorials/details/HomeTutorialContainer'
-import { MotionViewport, variantFade } from '@site/src/components/animate'
+import { MotionContainer, MotionViewport, variantFade } from '@site/src/components/animate'
 import { HomeTutorialHeader } from '@site/src/components/pages/tutorials/details/HomeTutorialHeader'
 import { HomeTutorialContent } from '@site/src/components/pages/tutorials/details/HomeTutorialContent'
 import { HomeTutorialInfos } from '@site/src/components/pages/tutorials/details/HomeTutorialInfos'
@@ -41,10 +42,9 @@ const HomeTutorial: React.FC<HomeTutorialProps> = (props) => {
 			<HomeTutorialMetadata />
 			<Layout>
 				<HomeTutorialHeader />
-				<Box paddingBottom={11}>
+				<Box paddingBottom={11} component={MotionContainer}>
 					<PageContainer component={'main'} itemScope itemType={'https://schema.org/Blog'}>
-						{unlisted && <Unlisted />}
-
+						{unlisted && <Unlisted />}w
 						<HomeTutorialContainer>
 							<HomeTutorialContent>
 								<BlogPostContent />
