@@ -35,7 +35,7 @@ export interface HomeTutorialProps extends Props {}
 */
 const HomeTutorial: React.FC<HomeTutorialProps> = (props) => {
 	const BlogPostContent = props.content
-	const { nextItem, prevItem, unlisted } = props.content.metadata
+	const { unlisted } = props.content.metadata
 
 	return (
 		<BlogPostProvider content={props.content} isBlogPostPage>
@@ -44,18 +44,18 @@ const HomeTutorial: React.FC<HomeTutorialProps> = (props) => {
 				<HomeTutorialHeader />
 				<Box paddingBottom={11} component={MotionContainer}>
 					<PageContainer component={'main'} itemScope itemType={'https://schema.org/Blog'}>
-						{unlisted && <Unlisted />}w
+						{unlisted && <Unlisted />}
 						<HomeTutorialContainer>
 							<HomeTutorialContent>
 								<BlogPostContent />
 
-								{nextItem || prevItem ? (
-									<Box component={MotionViewport}>
-										<m.div variants={variantFade().inLeft}>
-											<BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />
-										</m.div>
-									</Box>
-								) : null}
+								{/*{nextItem || prevItem ? (*/}
+								{/*	<Box component={MotionViewport}>*/}
+								{/*		<m.div variants={variantFade().inLeft}>*/}
+								{/*			<BlogPostPaginator nextItem={nextItem} prevItem={prevItem} />*/}
+								{/*		</m.div>*/}
+								{/*	</Box>*/}
+								{/*) : null}*/}
 							</HomeTutorialContent>
 
 							<HomeTutorialInfos />
