@@ -28,12 +28,12 @@ export const plugins: Array<PluginConfig> = [
 		{
 			redirects: [
 				{
-					from: '/docs/tutorials/home',
-					to: '/tutorials',
-				},
-				{
 					from: '/intro',
 					to: '/api-reference',
+				},
+				{
+					from: '/docs/tutorials/Home',
+					to: '/tutorials',
 				},
 				{
 					from: '/docs/smart-contract/ERC721-Meta.md',
@@ -43,6 +43,8 @@ export const plugins: Array<PluginConfig> = [
 			createRedirects(existingPath) {
 				if (existingPath.includes('/guides')) {
 					return existingPath.replace('/guides', '/blog')
+				} else if (existingPath.includes('/tutorials')) {
+					return existingPath.replace('/tutorials', '/docs/tutorials')
 				}
 
 				return undefined

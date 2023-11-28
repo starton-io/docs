@@ -13,6 +13,7 @@ import { StartonButton } from '@site/src/components/commons/Button'
 import Box from '@mui/material/Box'
 import { TutorialCard } from '@site/src/components/pages/tutorials'
 import { HomeProps } from '@site/src/components/pages/home/Home'
+import Link from '@docusaurus/Link'
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,11 @@ export const HomeTutorials: React.FC<HomeTutorialsProps> = (props) => {
 				<SectionTitle
 					title={'Last tutorials'}
 					titleRight={
-						<StartonButton size="large" variant="outlined">
-							See more tutorials
-						</StartonButton>
+						<Link to={'/tutorials'} aria-description={'See more tutorials'} target={'_blank'}>
+							<StartonButton size="large" variant="outlined">
+								See more tutorials
+							</StartonButton>
+						</Link>
 					}
 				/>
 				<Box

@@ -186,7 +186,13 @@ const sidebars: SidebarsConfig = {
 								id: 'watcher/webhooks',
 							},
 							collapsed: true,
-							items: ['tutorials/testing-webhooks-locally-ngrok'],
+							items: [
+								{
+									type: 'link',
+									href: '/tutorials/testing-webhooks-locally-ngrok',
+									label: 'Tutorials',
+								},
+							],
 						},
 						'watcher/confirmation-blocks',
 					],
@@ -236,7 +242,11 @@ const sidebars: SidebarsConfig = {
 						'ipfs/uploading-folder',
 						'ipfs/uploading-json',
 						'ipfs/pinning-file',
-						'tutorials/uploading-metadata-nft',
+						{
+							type: 'link',
+							href: '/tutorials/uploading-metadata-nft',
+							label: 'Tutorials',
+						},
 					],
 				},
 			],
@@ -256,49 +266,49 @@ const sidebars: SidebarsConfig = {
 			items: ['settings/create-new-project', 'settings/managing-plans'],
 		},
 	],
-	tutorialSidebar: [
-		{
-			type: 'category',
-			label: 'From Code',
-			link: {
-				type: 'doc',
-				id: 'tutorials/deploy-a-contract-from-code',
-			},
-			collapsed: false,
-			items: [
-				'tutorials/deploy-from-bytecode',
-				'tutorials/deploy-nfts-with-starton',
-				'tutorials/interact-from-code',
-				'tutorials/how-to-ensure-notifys-webhooks-are-from-starton',
-				'tutorials/creating-nft-collection',
-				'tutorials/creating-token-erc20-fixed',
-				'tutorials/creating-token-erc20-mintable',
-				'tutorials/whitelist-tutorial',
-				'tutorials/create-an-nft-collection-sale',
-				'tutorials/metatransaction',
-				'tutorials/starton-web3auth',
-				'tutorials/ai-nft-collection',
-				'tutorials/jwt-authentication-nest',
-				'tutorials/monitor-nft-activity',
-			],
-		},
-		{
-			type: 'category',
-			label: 'From the interface',
-			link: {
-				type: 'doc',
-				id: 'tutorials/deploy-a-contract-from-code',
-			},
-			collapsed: false,
-			items: [
-				'tutorials/deploy-nfts-with-binance',
-				'tutorials/how-to-change-the-smart-contracts-ownership',
-				/*"tutorials/create-sale-erc721",*/
-				'tutorials/create-an-nft-auction',
-				'tutorials/track-wallet-activity',
-			],
-		},
-	],
+	// tutorialSidebar: [
+	// 	{
+	// 		type: 'category',
+	// 		label: 'From Code',
+	// 		link: {
+	// 			type: 'doc',
+	// 			id: 'tutorials/deploy-a-contract-from-code',
+	// 		},
+	// 		collapsed: false,
+	// 		items: [
+	// 			'tutorials/deploy-from-bytecode',
+	// 			'tutorials/deploy-nfts-with-starton',
+	// 			'tutorials/interact-from-code',
+	// 			'tutorials/how-to-ensure-notifys-webhooks-are-from-starton',
+	// 			'tutorials/creating-nft-collection',
+	// 			'tutorials/creating-token-erc20-fixed',
+	// 			'tutorials/creating-token-erc20-mintable',
+	// 			'tutorials/whitelist-tutorial',
+	// 			'tutorials/create-an-nft-collection-sale',
+	// 			'tutorials/metatransaction',
+	// 			'tutorials/starton-web3auth',
+	// 			'tutorials/ai-nft-collection',
+	// 			'tutorials/jwt-authentication-nest',
+	// 			'tutorials/monitor-nft-activity',
+	// 		],
+	// 	},
+	// 	{
+	// 		type: 'category',
+	// 		label: 'From the interface',
+	// 		link: {
+	// 			type: 'doc',
+	// 			id: 'tutorials/deploy-a-contract-from-code',
+	// 		},
+	// 		collapsed: false,
+	// 		items: [
+	// 			'tutorials/deploy-nfts-with-binance',
+	// 			'tutorials/how-to-change-the-smart-contracts-ownership',
+	// 			/*"tutorials/create-sale-erc721",*/
+	// 			'tutorials/create-an-nft-auction',
+	// 			'tutorials/track-wallet-activity',
+	// 		],
+	// 	},
+	// ],
 	apiSidebar: [
 		{
 			type: 'category',
