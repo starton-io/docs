@@ -50,6 +50,7 @@ const FilterContainer = styled(Box)(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'row',
 	justifyContent: 'space-between',
+	alignItems: 'center',
 	marginTop: theme.spacing(3),
 }))
 
@@ -116,13 +117,13 @@ export const HomeTutorialsFilter: React.FC<HomeTutorialsFilterProps> = ({
 				<Typography variant={'overline'}>Filters</Typography>
 				<FilterContainer>
 					<FilterActionsContainer>
-						<HomeTutorialFilterActions
-							title={'Difficulties'}
-							filterValues={filterDifficulties}
-							value={difficulties}
-							onChange={(event, newValue) => setFilterDifficulties(newValue)}
-							render={(item) => TUTORIAL_DIFFICULTY[item]}
-						/>
+						{/*<HomeTutorialFilterActions*/}
+						{/*	title={'Difficulties'}*/}
+						{/*	filterValues={filterDifficulties}*/}
+						{/*	value={difficulties}*/}
+						{/*	onChange={(event, newValue) => setFilterDifficulties(newValue)}*/}
+						{/*	render={(item) => TUTORIAL_DIFFICULTY[item]}*/}
+						{/*/>*/}
 						<HomeTutorialFilterActions
 							title={'Services'}
 							filterValues={filterServices}

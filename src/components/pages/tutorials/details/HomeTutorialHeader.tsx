@@ -14,6 +14,7 @@ import { m } from 'framer-motion'
 import { useBlogPost } from '@docusaurus/theme-common/internal'
 import { HomeTutorialDifficulty, TUTORIAL_DIFFICULTY } from '@site/plugins/starton-tutorial-plugin/types'
 import Box from '@mui/material/Box'
+import Link from '@docusaurus/Link'
 
 /*
 |--------------------------------------------------------------------------
@@ -118,7 +119,9 @@ export const HomeTutorialHeader: React.FC<HomeTutorialHeaderProps> = (props) => 
 						gap={4}
 						marginBottom={2}
 					>
-						<HeroSubtitle variant={'overline'}>Tutorial</HeroSubtitle>
+						<Link to={'/tutorials'} aria-description={'See more tutorials'}>
+							<HeroSubtitle variant={'overline'}>Tutorial</HeroSubtitle>
+						</Link>
 						<MetadataItemStyled>
 							<DifficultyBadge difficulty={difficulty as HomeTutorialDifficulty} />
 							<Typography variant={'caption'}>

@@ -34,7 +34,7 @@ export const HomeTutorials: React.FC<HomeTutorialsProps> = (props) => {
 				<SectionTitle
 					title={'Last tutorials'}
 					titleRight={
-						<Link to={'/tutorials'} aria-description={'See more tutorials'} target={'_blank'}>
+						<Link to={'/tutorials'} aria-description={'See more tutorials'}>
 							<StartonButton size="large" variant="outlined">
 								See more tutorials
 							</StartonButton>
