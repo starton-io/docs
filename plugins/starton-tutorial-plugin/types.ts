@@ -34,7 +34,7 @@ export const TUTORIAL_SERVICES: Record<HomeTutorialServices, string> = {
 	'smart-contract-library': 'Smart Contract Library',
 	'transaction-management': 'Transaction Management',
 	'network-monitoring': 'Network Monitoring',
-	wallets: 'Wallets',
+	'wallets': 'Wallets',
 	'file-storage': 'File Storage',
 }
 
