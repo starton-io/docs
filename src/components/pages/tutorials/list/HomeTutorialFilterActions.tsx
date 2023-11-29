@@ -43,23 +43,30 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
 		color: theme.palette.secondary.light,
 		fontWeight: 500,
 
-		'&.Mui-selected': {
-			borderColor: theme.palette.text.primary,
-			background: theme.palette.component.disabled,
-			color: theme.palette.text.primary,
-		},
-		'&.Mui-disabled': {
-			border: 0,
-		},
 		'&:not(:first-of-type)': {
 			borderRadius: 0,
 			borderLeft: `1px solid ${theme.palette.divider}`,
+		},
+		'&.Mui-selected': {
+			borderColor: theme.palette.text.primary,
+			borderLeft: `1px solid ${theme.palette.text.primary}`,
+			background: theme.palette.component.disabled,
+			color: theme.palette.text.primary,
+		},
+		'&.Mui-selected + .MuiToggleButtonGroup-grouped.Mui-selected': {
+			borderLeft: `1px solid ${theme.palette.text.primary}`,
+		},
+		'&.Mui-disabled': {
+			border: 0,
 		},
 		'&:first-of-type': {
 			borderRadius: 0,
 		},
 		'&:hover': {
 			borderColor: theme.palette.primary.main,
+		},
+		'&.Mui-selected + .MuiToggleButtonGroup-grouped.Mui-selected:hover': {
+			borderLeft: `1px solid ${theme.palette.primary.main}`,
 		},
 	},
 }))
