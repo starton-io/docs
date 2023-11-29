@@ -19,11 +19,11 @@ We will use random images uploaded on IPFS (a distributed file storage system) a
 You will :
 
 -   Use a template from Starton for our smart contract (ERC721).
--   Deploy it with Starton from the dashboard. To deploy contracts from code, see [Deploying a smart contract from code](deploy-a-contract-from-code.mdx).
+-   Deploy it with Starton from the dashboard. To deploy contracts from code, see [Deploying a smart contract from code](/tutorials/deploy-a-contract-from-code).
 -   Upload the content of our NFTs and their metadata on IPFS.
 -   Interact with our smart contract using Starton API in order to mint the NFTs and give it to a specific address.
 
-If you feel stuck or have questions, feel free to get in touch in our [Discord](deploy-a-contract-from-code.mdx).
+If you feel stuck or have questions, feel free to get in touch in our [Discord](https://discord.starton.com/).
 We’ll be glad to help you!
 
 ## Choose a smart contract template
@@ -47,7 +47,7 @@ The best solution is to store it somewhere else and only store a reference on-ch
 
 We will deploy the contract only once, so we will do it directly from Starton’s dashboard.
 
-We can access the list of templates in the [Smart contract section](/smart-contract/understanding-smart-contracts.mdx).
+We can access the list of templates in the [Smart contract section](/docs/smart-contract/understanding-smart-contracts).
 
 1. Select the ERC721 template.
 1. Enter:
@@ -56,7 +56,7 @@ We can access the list of templates in the [Smart contract section](/smart-contr
 -   a wallet to sign the transaction,
 -   a blockchain / network on which to deploy,
 -   the parameters of our contract.
-    For more information on parameters, check out the [Deploying a Smart Contract](/smart-contract/deploying-a-smart-contract.mdx).
+    For more information on parameters, check out the [Deploying a Smart Contract](/docs/smart-contract/deploying-a-smart-contract).
 
 For example, we can call our contract “My Super NFTs” and deploy it on the Polygon Mumbai network.
 
@@ -111,9 +111,9 @@ The hash of the content is called a Content IDentifier (CID) on IPFS.
 
 And when we will upload our contract-level metadata on IPFS we will get a CID back, which is the value we need to put as the Contract Suffix Uri in our smart contract.
 
-To upload our files on IPFS we will now use the [Starton IPFS](/ipfs/understanding-ipfs.mdx) pinning service.
+To upload our files on IPFS we will now use the [Starton IPFS](/docs/ipfs/understanding-ipfs) pinning service.
 
-As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.com/ipfs)
+As the contract-level metadata only needs to be uploaded once, we can directly do it from [our dashboard](https://app.starton.com/projects/default/ipfs)
 Once done, a column “CID” appears with a value for our file that starts with “Qm”. This is the value we need for the Contract Uri Suffix of our smart contract!
 We can finally deploy our contract!
 
@@ -146,7 +146,7 @@ const starton = axios.create({
 
 > Do not forget to replace the x-api-key value by your own! It is needed to authenticate yourself with our API.
 
-You can find your API keys and generate new ones in [the API section](https://app.starton.com/api).
+You can find your API keys and generate new ones in [the API section](https://app.starton.com/projects/default/developer).
 
 ### Upload an image on IPFS with the Starton API
 

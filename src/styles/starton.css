@@ -889,6 +889,34 @@ nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > 
 	height: calc(100vh - 60px) !important;
 }
 
+/* TABLE */
+table {
+	margin-bottom: inherit;
+	overflow: inherit;
+}
+
+table thead {
+	background-color: inherit;
+}
+
+table thead tr {
+	border-bottom: inherit;
+}
+
+table tr {
+	background-color: inherit;
+	border-top: inherit;
+}
+
+table th, table td {
+	border: inherit;
+}
+
+table tr:nth-child(2n) {
+	background-color: inherit;
+}
+/* END - TABLE */
+
 /* SCALAR */
 .light-mode,
 .dark-mode {

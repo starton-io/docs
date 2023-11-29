@@ -30,12 +30,12 @@ export type HomeTutorialServices =
 	| 'wallets'
 	| 'file-storage'
 export const TUTORIAL_SERVICES: Record<HomeTutorialServices, string> = {
-	'smart-contract-management': 'Smart Contracts Management',
-	'smart-contract-library': 'Smart Contract Library',
-	'transaction-management': 'Transaction Management',
-	'network-monitoring': 'Network Monitoring',
-	'wallets': 'Wallets',
-	'file-storage': 'File Storage',
+	'smart-contract-management': 'Deploy',
+	'smart-contract-library': 'Interact',
+	'transaction-management': 'Monitor',
+	'network-monitoring': 'Webooks',
+	wallets: 'Wallets',
+	'file-storage': 'Storage',
 }
 
 /*

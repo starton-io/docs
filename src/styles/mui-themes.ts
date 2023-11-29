@@ -118,25 +118,25 @@ let theme: Theme = createTheme({
 		},
 		h2: {
 			fontFamily: 'PP Neue Machina',
-			fontWeight: 'Inktrap Semibold',
+			fontWeight: 700,
 			lineHeight: '140%',
-			fontSize: 40,
+			fontSize: 32,
 			letterSpacing: 1.328,
 			textDecoration: 'none',
 			textTransform: 'uppercase',
 		},
 		h3: {
 			fontFamily: 'PP Neue Machina',
-			fontWeight: 'Inktrap Semibold',
+			fontWeight: 600,
 			lineHeight: '120%',
-			fontSize: 20,
+			fontSize: 24,
 			letterSpacing: 1.328,
 			textDecoration: 'none',
 			textTransform: 'uppercase',
 		},
 		h4: {
 			fontFamily: 'PP Neue Machina',
-			fontWeight: 'Inktrap Semibold',
+			fontWeight: 600,
 			lineHeight: '150%',
 			fontSize: 16,
 			letterSpacing: 1.328,
@@ -285,7 +285,7 @@ let theme: Theme = createTheme({
 		display: {
 			sm: {
 				fontFamily: 'PP Neue Machina',
-				fontWeight: 'Inktrap Semibold',
+				fontWeight: 700,
 				lineHeight: '115%',
 				fontSize: 40,
 				letterSpacing: 1.328,
@@ -294,7 +294,7 @@ let theme: Theme = createTheme({
 			},
 			md: {
 				fontFamily: 'PP Neue Machina',
-				fontWeight: 'Inktrap Semibold',
+				fontWeight: 700,
 				lineHeight: '115%',
 				fontSize: 48,
 				letterSpacing: 1.328,
@@ -303,7 +303,7 @@ let theme: Theme = createTheme({
 			},
 			lg: {
 				fontFamily: 'PP Neue Machina',
-				fontWeight: 'Inktrap Semibold',
+				fontWeight: 700,
 				lineHeight: '115%',
 				fontSize: 56,
 				letterSpacing: 1.328,
@@ -312,7 +312,7 @@ let theme: Theme = createTheme({
 			},
 			xl: {
 				fontFamily: 'PP Neue Machina',
-				fontWeight: 'Inktrap Semibold',
+				fontWeight: 700,
 				lineHeight: '115%',
 				fontSize: 60,
 				letterSpacing: 1.328,
@@ -362,7 +362,7 @@ let theme: Theme = createTheme({
 			title: {
 				xs: {
 					fontFamily: 'PP Neue Machina',
-					fontWeight: 'Inktrap Semibold',
+					fontWeight: 700,
 					lineHeight: '100%',
 					fontSize: 12,
 					letterSpacing: -0.16,
@@ -371,7 +371,7 @@ let theme: Theme = createTheme({
 				},
 				sm: {
 					fontFamily: 'PP Neue Machina',
-					fontWeight: 'Inktrap Semibold',
+					fontWeight: 700,
 					lineHeight: '100%',
 					fontSize: 14,
 					letterSpacing: -0.16,
@@ -380,7 +380,7 @@ let theme: Theme = createTheme({
 				},
 				md: {
 					fontFamily: 'PP Neue Machina',
-					fontWeight: 'Inktrap Semibold',
+					fontWeight: 700,
 					lineHeight: '100%',
 					fontSize: 16,
 					letterSpacing: -0.16,
@@ -389,7 +389,7 @@ let theme: Theme = createTheme({
 				},
 				lg: {
 					fontFamily: 'PP Neue Machina',
-					fontWeight: 'Inktrap Semibold',
+					fontWeight: 700,
 					lineHeight: '100%',
 					fontSize: 20,
 					letterSpacing: -0.16,
