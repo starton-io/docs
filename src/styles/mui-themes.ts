@@ -198,8 +198,8 @@ let theme: Theme = createTheme({
 			textTransform: 'none',
 		},
 		button: {
-			fontFamily: 'Inter',
-			fontWeight: 'Medium',
+			fontFamily: 'Fira Code',
+			fontWeight: 500,
 			lineHeight: '100%',
 			fontSize: 14,
 			letterSpacing: -0.16,

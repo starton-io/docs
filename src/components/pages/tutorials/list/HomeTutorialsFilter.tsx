@@ -8,7 +8,7 @@ import React from 'react'
 import { MotionViewport, variantFade } from '@site/src/components/animate'
 import { PageContainer } from '@site/src/components/commons/PageContainer'
 import { m } from 'framer-motion'
-import { styled, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material'
+import { Divider, styled, Typography } from '@mui/material'
 import Box from '@mui/material/Box'
 import { StartonButton } from '@site/src/components/commons/Button'
 import RestartAltOutlinedIcon from '@mui/icons-material/RestartAltOutlined'
@@ -51,50 +51,16 @@ const FilterContainer = styled(Box)(({ theme }) => ({
 	flexDirection: 'row',
 	justifyContent: 'space-between',
 	alignItems: 'center',
-	marginTop: theme.spacing(3),
+	margin: theme.spacing(3, 0),
 }))
 
 const FilterActionsContainer = styled(Box)(({ theme }) => ({
 	display: 'flex',
 	flexDirection: 'row',
 	justifyContent: 'space-between',
+	flexWrap: 'wrap',
 	alignItems: 'center',
 	gap: theme.spacing(4),
-}))
-
-const FilterActions = styled(Box)(({ theme }) => ({
-	display: 'flex',
-	flexDirection: 'row',
-	justifyContent: 'space-between',
-	alignItems: 'center',
-	gap: theme.spacing(1),
-}))
-
-const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
-	'& .MuiToggleButtonGroup-grouped': {
-		border: `1px solid ${theme.palette.divider}`,
-		...theme.typography.button2,
-		color: theme.palette.secondary.light,
-		fontWeight: 500,
-
-		'&.Mui-selected': {
-			borderColor: theme.palette.text.primary,
-			background: theme.palette.component.disabled,
-			color: theme.palette.text.primary,
-		},
-		'&.Mui-disabled': {
-			border: 0,
-		},
-		'&:not(:first-of-type)': {
-			borderRadius: 0,
-		},
-		'&:first-of-type': {
-			borderRadius: 0,
-		},
-		'&:hover': {
-			borderColor: theme.palette.primary.main,
-		},
-	},
 }))
 
 /*
@@ -114,24 +80,8 @@ export const HomeTutorialsFilter: React.FC<HomeTutorialsFilterProps> = ({
 	return (
 		<PageContainer component={MotionViewport}>
 			<m.div variants={variantFade().inLeft}>
-				<Typography variant={'overline'}>Filters</Typography>
-				<FilterContainer>
-					<FilterActionsContainer>
-						{/*<HomeTutorialFilterActions*/}
-						{/*	title={'Difficulties'}*/}
-						{/*	filterValues={filterDifficulties}*/}
-						{/*	value={difficulties}*/}
-						{/*	onChange={(event, newValue) => setFilterDifficulties(newValue)}*/}
-						{/*	render={(item) => TUTORIAL_DIFFICULTY[item]}*/}
-						{/*/>*/}
-						<HomeTutorialFilterActions
-							title={'Services'}
-							filterValues={filterServices}
-							value={services}
-							onChange={(event, newValue) => setFilterServices(newValue)}
-							render={(item) => TUTORIAL_SERVICES[item]}
-						/>
-					</FilterActionsContainer>
+				<Box display={'flex'} flexDirection={'row'} alignItems={'center'} gap={3}>
+					<Typography variant={'overline'}>Filters</Typography>
 					<Box>
 						<StartonButton
 							size="small"
@@ -142,7 +92,24 @@ export const HomeTutorialsFilter: React.FC<HomeTutorialsFilterProps> = ({
 							Reset
 						</StartonButton>
 					</Box>
+				</Box>
+				<FilterContainer>
+					<FilterActionsContainer>
+						<HomeTutorialFilterActions
+							filterValues={filterDifficulties}
+							value={difficulties}
+							onChange={(event, newValue) => setFilterDifficulties(newValue)}
+							render={(item) => TUTORIAL_DIFFICULTY[item]}
+						/>
+						<HomeTutorialFilterActions
+							filterValues={filterServices}
+							value={services}
+							onChange={(event, newValue) => setFilterServices(newValue)}
+							render={(item) => TUTORIAL_SERVICES[item]}
+						/>
+					</FilterActionsContainer>
 				</FilterContainer>
+				<Divider />
 			</m.div>
 		</PageContainer>
 	)

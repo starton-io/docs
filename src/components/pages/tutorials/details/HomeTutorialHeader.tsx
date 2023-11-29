@@ -80,9 +80,7 @@ const DifficultyBadge = styled('span', {
 	width: 8,
 	height: 8,
 	backgroundColor:
-		difficulty === 'getting-started'
-			? theme.palette.success.main
-			: difficulty === 'beginner'
+		difficulty === 'beginner'
 			? theme.palette.info.main
 			: difficulty === 'intermediate'
 			? theme.palette.warning.main

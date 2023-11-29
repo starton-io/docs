@@ -9,9 +9,8 @@
 | Difficulty
 |--------------------------------------------------------------------------
 */
-export type HomeTutorialDifficulty = 'getting-started' | 'beginner' | 'intermediate' | 'advanced'
+export type HomeTutorialDifficulty = 'beginner' | 'intermediate' | 'advanced'
 export const TUTORIAL_DIFFICULTY: Record<HomeTutorialDifficulty, string> = {
-	'getting-started': 'Getting Started',
 	beginner: 'Beginner',
 	intermediate: 'Intermediate',
 	advanced: 'Advanced',
@@ -74,6 +73,7 @@ export interface TutorialList {
 			frontMatter: {
 				difficulty: HomeTutorialDifficulty
 				services: Array<HomeTutorialServices>
+				featured: boolean
 			}
 			permalink: string
 			readingTime: number

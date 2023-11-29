@@ -14,7 +14,7 @@ import Box from '@mui/material/Box'
 |--------------------------------------------------------------------------
 */
 export interface HomeTutorialFilterActionsProps<T> {
-	title: string
+	title?: string
 	filterValues: Array<T>
 	value: Array<T>
 	onChange: (event: React.MouseEvent<HTMLElement>, value: any) => void
@@ -35,9 +35,11 @@ const FilterActions = styled(Box)(({ theme }) => ({
 }))
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
+	gap: theme.spacing(1),
+
 	'& .MuiToggleButtonGroup-grouped': {
 		border: `1px solid ${theme.palette.divider}`,
-		...theme.typography.button2,
+		...theme.typography.button,
 		color: theme.palette.secondary.light,
 		fontWeight: 500,
 
@@ -51,6 +53,7 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
 		},
 		'&:not(:first-of-type)': {
 			borderRadius: 0,
+			borderLeft: `1px solid ${theme.palette.divider}`,
 		},
 		'&:first-of-type': {
 			borderRadius: 0,
@@ -69,7 +72,7 @@ const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
 export const HomeTutorialFilterActions = <T,>(props: HomeTutorialFilterActionsProps<T>) => {
 	return (
 		<FilterActions>
-			<Typography variant={'body1'}>{props.title}</Typography>
+			{props.title ? <Typography variant={'body1'}>{props.title}</Typography> : null}
 			<StyledToggleButtonGroup color={'secondary'} value={props.filterValues} onChange={props.onChange}>
 				{props.value.map((item, index) => (
 					<ToggleButton value={item} key={index}>

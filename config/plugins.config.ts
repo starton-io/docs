@@ -65,6 +65,7 @@ export const plugins: Array<PluginConfig> = [
 			authorsMapPath: './authors.yml',
 			blogListComponent: '@site/src/components/pages/tutorials/list/HomeTutorials.tsx',
 			blogPostComponent: '@site/src/components/pages/tutorials/details/HomeTutorial.tsx',
+			postsPerPage: 'ALL',
 		} satisfies BlogPluginOptions,
 	],
 ]

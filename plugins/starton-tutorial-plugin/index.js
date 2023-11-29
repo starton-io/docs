@@ -25,8 +25,6 @@ async function tutorialPluginExtended(...pluginOptions) {
 			const recentTutorials = [...content.blogPosts].splice(0, recentTutorialsLimit)
 
 			async function createRecentTutorialPostModule(blogPost, index) {
-				// console.log(`[F:list.js - L:28] blogPost.metadata: `, blogPost.metadata)
-
 				return {
 					// Inject the metadata you need for each recent blog post
 					metadata: await actions.createData(
@@ -38,8 +36,11 @@ async function tutorialPluginExtended(...pluginOptions) {
 							date: blogPost.metadata.date,
 							authors: blogPost.metadata.authors,
 							readingTime: blogPost.metadata.readingTime,
-							difficulty: blogPost.metadata.frontMatter?.difficulty ?? 'getting-started',
+							difficulty: blogPost.metadata.frontMatter?.difficulty ?? 'beginner',
 							services: blogPost.metadata.frontMatter?.services ?? [],
+							featured: blogPost.metadata.frontMatter?.featured
+								? Boolean(blogPost.metadata.frontMatter.featured)
+								: false,
 						}),
 					),
 

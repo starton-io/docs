@@ -108,6 +108,7 @@ const HomeTutorials: React.FC<HomeTutorialsProps> = (props) => {
 								items={props.items}
 								difficulty={difficulty}
 								filterServices={filterServices}
+								filterDifficulties={filterDifficulties}
 							/>
 						))}
 				</Box>

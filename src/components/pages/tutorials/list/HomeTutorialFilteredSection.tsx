@@ -26,6 +26,7 @@ import { TutorialCard } from '@site/src/components/pages/tutorials'
 export interface HomeTutorialFilteredSectionProps extends Pick<HomeTutorialsProps, 'items'> {
 	difficulty: HomeTutorialDifficulty
 	filterServices: Array<HomeTutorialServices>
+	filterDifficulties: Array<HomeTutorialDifficulty>
 }
 
 /*
@@ -34,25 +35,50 @@ export interface HomeTutorialFilteredSectionProps extends Pick<HomeTutorialsProp
 |--------------------------------------------------------------------------
 */
 export const HomeTutorialFilteredSection: React.FC<HomeTutorialFilteredSectionProps> = (props) => {
-	const filterServices = React.useMemo(() => {
-		return props.items
-			.filter((item) => item.content.metadata.frontMatter.difficulty === props.difficulty)
-			.filter((item) => {
-				if (props.filterServices.length === 0) return true
-				return (
-					item.content.metadata.frontMatter.services?.filter((service) =>
-						props.filterServices.includes(service),
-					).length > 0 ?? true
-				)
-			})
-	}, [props.difficulty, props.filterServices, props.items])
+	// Filter data
+	// ----------------------------------------------------------------------------
+	const isFiltered = React.useMemo(() => {
+		return props.filterDifficulties.length > 0 || props.filterServices.length > 0
+	}, [props.filterDifficulties, props.filterServices])
 
-	if (filterServices.length === 0) return null
+	const filteredTutorials = React.useMemo(() => {
+		const items = props.items.filter((item) => item.content.metadata.frontMatter.difficulty === props.difficulty)
+
+		if (!isFiltered) {
+			return items
+				.filter((item) => {
+					if (item.content.metadata.frontMatter.difficulty === 'beginner') {
+						return item.content.metadata.frontMatter.featured === true
+					}
+
+					return item
+				})
+				.slice(0, 3)
+		}
+
+		return items.filter((item) => {
+			if (props.filterServices.length === 0) return true
+			return (
+				item.content.metadata.frontMatter.services?.filter((service) => props.filterServices.includes(service))
+					.length > 0 ?? true
+			)
+		})
+	}, [isFiltered, props.difficulty, props.filterServices, props.items])
+
+	// Render
+	// ----------------------------------------------------------------------------
+	if (filteredTutorials.length === 0) return null
 
 	return (
-		<PageContainer component={MotionViewport}>
+		<PageContainer component={MotionViewport} sx={{ paddingTop: 0 }}>
 			<m.div variants={variantFade().inLeft}>
-				<SectionTitle title={TUTORIAL_DIFFICULTY[props.difficulty]} />
+				<SectionTitle
+					title={
+						!isFiltered && props.difficulty === 'beginner'
+							? 'Getting Started'
+							: TUTORIAL_DIFFICULTY[props.difficulty]
+					}
+				/>
 				<Box
 					gap={{ xs: 2, lg: 3 }}
 					display="grid"
@@ -62,7 +88,7 @@ export const HomeTutorialFilteredSection: React.FC<HomeTutorialFilteredSectionPr
 						md: 'repeat(3, 1fr)',
 					}}
 				>
-					{filterServices.map((item, index) => (
+					{filteredTutorials.map((item, index) => (
 						<TutorialCard
 							key={index}
 							difficulty={item.content.metadata.frontMatter.difficulty}
