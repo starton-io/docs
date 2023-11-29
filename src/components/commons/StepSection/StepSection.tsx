@@ -48,7 +48,7 @@ export const StepSection: React.FC<StepSectionProps> = (props) => {
 		<Section bottomDivider={props.bottomDivider} component={MotionViewport}>
 			<m.div variants={variantFade().inLeft}>
 				{props.stepTitle ? (
-					<Typography variant={'overline'} color={'warning.main'} paddingBottom={2}>
+					<Typography component={'p'} variant={'overline'} color={'warning.main'} paddingBottom={2}>
 						{Number(props.stepTitle) ? `Step ${props.stepTitle}` : props.stepTitle}
 					</Typography>
 				) : null}
