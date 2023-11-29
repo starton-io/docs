@@ -36,6 +36,7 @@ const FilterActions = styled(Box)(({ theme }) => ({
 
 const StyledToggleButtonGroup = styled(ToggleButtonGroup)(({ theme }) => ({
 	gap: theme.spacing(1),
+	flexWrap: 'wrap',
 
 	'& .MuiToggleButtonGroup-grouped': {
 		border: `1px solid ${theme.palette.divider}`,
