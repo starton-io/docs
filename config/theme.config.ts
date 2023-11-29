@@ -164,7 +164,75 @@ export const themeConfig: ThemeConfig = {
 	// Prism
 	// ----------------------------------------------------------------------------
 	prism: {
-		theme: Prism.themes.dracula,
+		theme: {
+			plain: {
+				color: '#F1F3F5',
+				backgroundColor: '#161B1F',
+			},
+			styles: [
+				{
+					types: ['prolog', 'constant', 'builtin'],
+					style: {
+						color: '#01FEE2',
+					},
+				},
+				{
+					types: ['function'],
+					style: {
+						color: '#E5791A',
+					},
+				},
+				{
+					types: ['inserted'],
+					style: {
+						color: 'rgb(80, 250, 123)',
+					},
+				},
+				{
+					types: ['deleted'],
+					style: {
+						color: 'rgb(255, 85, 85)',
+					},
+				},
+				{
+					types: ['changed'],
+					style: {
+						color: 'rgb(255, 184, 108)',
+					},
+				},
+				{
+					types: ['punctuation', 'symbol'],
+					style: {
+						color: '#F1F3F5',
+					},
+				},
+				{
+					types: ['string', 'char', 'tag', 'selector'],
+					style: {
+						color: '#30B0FA',
+					},
+				},
+				{
+					types: ['keyword', 'variable'],
+					style: {
+						color: '#01FEE2',
+						fontStyle: 'italic',
+					},
+				},
+				{
+					types: ['comment'],
+					style: {
+						color: '#8799AB',
+					},
+				},
+				{
+					types: ['attr-name'],
+					style: {
+						color: 'rgb(241, 250, 140)',
+					},
+				},
+			],
+		},
 		additionalLanguages: ['bash', 'diff', 'json', 'jsx', 'tsx', 'typescript', 'yaml'],
 	},
 }
