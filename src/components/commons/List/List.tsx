@@ -42,8 +42,12 @@ const ListItemButtonStyled = styled(ListItemButton)<ListItemButtonProps & LinkPr
 	color: theme.palette.primary.main,
 	transition: 'all 0.2s ease-in-out',
 
-	'&:hover': {
-		paddingLeft: theme.spacing(3),
+	'& svg': {
+		transition: 'all 0.2s ease-in-out',
+	},
+
+	'&:hover svg': {
+		transform: 'rotate(-90deg)',
 	},
 }))
 

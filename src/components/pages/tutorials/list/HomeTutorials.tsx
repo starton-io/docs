@@ -17,6 +17,7 @@ import {
 	TutorialList,
 } from '@site/plugins/starton-tutorial-plugin/types'
 import { HomeTutorialFilteredSection } from '@site/src/components/pages/tutorials/list/HomeTutorialFilteredSection'
+import { HomeTutorialsNoFiltered } from '@site/src/components/pages/tutorials/list/HomeTutorialsNoFiltered'
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,9 @@ export interface HomeTutorialsProps {
 const HomeTutorials: React.FC<HomeTutorialsProps> = (props) => {
 	const [filterDifficulties, setFilterDifficulties] = React.useState<Array<HomeTutorialDifficulty>>([])
 	const [filterServices, setFilterServices] = React.useState<Array<HomeTutorialServices>>([])
+	const isFiltered = React.useMemo(() => {
+		return filterDifficulties.length > 0 || filterServices.length > 0
+	}, [filterDifficulties, filterServices])
 
 	// Prepare data
 	// ----------------------------------------------------------------------------
@@ -96,21 +100,23 @@ const HomeTutorials: React.FC<HomeTutorialsProps> = (props) => {
 					handleReset={handleReset}
 				/>
 				<Box component={'main'} itemScope itemType={'https://schema.org/Blog'}>
-					{difficulties
-						.filter((difficulty) => {
-							if (filterDifficulties.length === 0) return true
+					{isFiltered ? (
+						<HomeTutorialFilteredSection
+							filterServices={filterServices}
+							filterDifficulties={filterDifficulties}
+							items={props.items}
+						/>
+					) : (
+						difficulties
+							.filter((difficulty) => {
+								if (filterDifficulties.length === 0) return true
 
-							return filterDifficulties.includes(difficulty)
-						})
-						.map((difficulty) => (
-							<HomeTutorialFilteredSection
-								key={difficulty}
-								items={props.items}
-								difficulty={difficulty}
-								filterServices={filterServices}
-								filterDifficulties={filterDifficulties}
-							/>
-						))}
+								return filterDifficulties.includes(difficulty)
+							})
+							.map((difficulty) => (
+								<HomeTutorialsNoFiltered key={difficulty} items={props.items} difficulty={difficulty} />
+							))
+					)}
 				</Box>
 			</Box>
 		</Layout>

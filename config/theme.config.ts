@@ -67,7 +67,7 @@ export const themeConfig: ThemeConfig = {
 			},
 			{
 				label: 'API Reference',
-				href: '/api-reference',
+				to: '/api-reference',
 				'aria-label': 'API Reference',
 				position: 'left',
 			},
