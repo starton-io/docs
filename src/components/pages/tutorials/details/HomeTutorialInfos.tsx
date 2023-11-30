@@ -8,7 +8,7 @@ import React from 'react'
 import Box from '@mui/material/Box'
 import { Avatar, Card, CardProps, Divider, styled, Typography } from '@mui/material'
 import { useBlogPost } from '@docusaurus/theme-common/internal'
-import TOCItems from '@theme/TOCItems'
+import TOC from '@theme/TOC'
 import Link from '@docusaurus/Link'
 import { GitHub } from '@mui/icons-material'
 import Grid from '@mui/material/Grid'
@@ -133,13 +133,7 @@ export const HomeTutorialInfos: React.FC<HomeTutorialInfosProps> = () => {
 					<Typography variant={'caption'} color={'text.secondary'} textTransform={'uppercase'}>
 						Content
 					</Typography>
-					<TOCItems
-						toc={toc}
-						linkClassName={'table-of-contents__link toc-highlight'}
-						linkActiveClassName={'table-of-contents__link--active'}
-						minHeadingLevel={tocMinHeadingLevel}
-						maxHeadingLevel={tocMaxHeadingLevel}
-					/>
+					<TOC toc={toc} minHeadingLevel={tocMinHeadingLevel} maxHeadingLevel={tocMaxHeadingLevel} />
 				</CardStyled>
 			) : null}
 		</Grid>

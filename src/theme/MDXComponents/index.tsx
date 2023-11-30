@@ -17,30 +17,30 @@ import { TableCellStyled, TableHeadStyled, TableRowStyled } from '@site/src/them
 const MDXComponents: MDXComponentsObject = {
 	...DefaultMDXComponents,
 	// Typographies (TODO: Check later props for Typography)
-	h1: (props: ComponentProps<'h1'>) => (
-		// @ts-ignore
-		<Typography variant={'h1'} {...props} sx={{ marginBottom: 3, ...props.sx }} />
-	),
-	h2: (props: ComponentProps<'h2'>) => (
-		// @ts-ignore
-		<Typography variant={'h2'} {...props} sx={{ marginBottom: 3, ...props.sx }} />
-	),
-	h3: (props: ComponentProps<'h3'>) => (
-		// @ts-ignore
-		<Typography variant={'h3'} {...props} sx={{ marginBottom: 3, marginTop: 3, ...props.sx }} />
-	),
-	h4: (props: ComponentProps<'h4'>) => (
-		// @ts-ignore
-		<Typography variant={'h4'} {...props} sx={{ marginBottom: 3, marginTop: 3, ...props.sx }} />
-	),
-	h5: (props: ComponentProps<'h5'>) => (
-		// @ts-ignore
-		<Typography variant={'h5'} {...props} sx={{ marginBottom: 3, marginTop: 3, ...props.sx }} />
-	),
-	h6: (props: ComponentProps<'h6'>) => (
-		// @ts-ignore
-		<Typography variant={'h6'} {...props} sx={{ marginBottom: 3, marginTop: 3, ...props.sx }} />
-	),
+	// h1: (props: ComponentProps<'h1'>) => (
+	// 	// @ts-ignore
+	// 	<Typography variant={'h1'} {...props} sx={{ marginBottom: 3, ...props.sx }} />
+	// ),
+	// h2: (props: ComponentProps<'h2'>) => (
+	// 	// @ts-ignore
+	// 	<Typography variant={'h2'} {...props} sx={{ marginBottom: 3, ...props.sx }} />
+	// ),
+	// h3: (props: ComponentProps<'h3'>) => (
+	// 	// @ts-ignore
+	// 	<Typography variant={'h3'} {...props} sx={{ marginBottom: 3, marginTop: 3, ...props.sx }} />
+	// ),
+	// h4: (props: ComponentProps<'h4'>) => (
+	// 	// @ts-ignore
+	// 	<Typography variant={'h4'} {...props} sx={{ marginBottom: 3, marginTop: 3, ...props.sx }} />
+	// ),
+	// h5: (props: ComponentProps<'h5'>) => (
+	// 	// @ts-ignore
+	// 	<Typography variant={'h5'} {...props} sx={{ marginBottom: 3, marginTop: 3, ...props.sx }} />
+	// ),
+	// h6: (props: ComponentProps<'h6'>) => (
+	// 	// @ts-ignore
+	// 	<Typography variant={'h6'} {...props} sx={{ marginBottom: 3, marginTop: 3, ...props.sx }} />
+	// ),
 	// @ts-ignore
 	p: (props: ComponentProps<'p'>) => <Typography {...props} marginBottom={3} />,
 	table: (props: ComponentProps<'table'>) => (
