@@ -12,7 +12,7 @@ import CardRequirements from '@site/src/components/commons/CardRequirements/Card
 import { List } from '@site/src/components/commons/List'
 import { StepSection } from '@site/src/components/commons/StepSection'
 import { CardLink } from '@site/src/components/commons/CardLink'
-import Paper from '@mui/material/Paper'
+import { TableCellStyled, TableHeadStyled, TableRowStyled } from '@site/src/theme/MDXComponents/table'
 
 const MDXComponents: MDXComponentsObject = {
 	...DefaultMDXComponents,
@@ -50,13 +50,13 @@ const MDXComponents: MDXComponentsObject = {
 		</TableContainer>
 	),
 	// @ts-ignore
-	thead: (props: ComponentProps<'thead'>) => <TableHead {...props} />,
+	thead: (props: ComponentProps<'thead'>) => <TableHeadStyled {...props} />,
 	// @ts-ignore
-	tr: (props: ComponentProps<'tr'>) => <TableRow {...props} />,
+	tr: (props: ComponentProps<'tr'>) => <TableRowStyled {...props} />,
 	// @ts-ignore
-	th: (props: ComponentProps<'th'>) => <TableCell {...props} />,
+	th: (props: ComponentProps<'th'>) => <TableCellStyled {...props} />,
 	// @ts-ignore
-	td: (props: ComponentProps<'td'>) => <TableCell {...props} />,
+	td: (props: ComponentProps<'td'>) => <TableCellStyled {...props} />,
 	Typography,
 	List,
 	StepSection,
