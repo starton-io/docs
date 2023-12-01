@@ -142,7 +142,7 @@ const sidebars: SidebarsConfig = {
 					collapsed: true,
 					items: [
 						'watcher/creating-a-watcher',
-						'watcher/watcher-state-and-status',
+
 						{
 							type: 'category',
 							label: 'Events',
@@ -178,17 +178,9 @@ const sidebars: SidebarsConfig = {
 								},
 							],
 						},
-						{
-							type: 'category',
-							label: 'Webhooks',
-							link: {
-								type: 'doc',
-								id: 'watcher/webhooks',
-							},
-							collapsed: true,
-							items: ['tutorials/testing-webhooks-locally-ngrok'],
-						},
+						'watcher/webhooks',
 						'watcher/confirmation-blocks',
+						'watcher/watcher-state-and-status',
 					],
 				},
 				{
@@ -199,28 +191,8 @@ const sidebars: SidebarsConfig = {
 						id: 'wallet/about-wallets',
 					},
 					collapsed: true,
-					items: [
-						{
-							type: 'category',
-							label: 'Using a wallet',
-							link: {
-								type: 'doc',
-								id: 'wallet/creating-a-wallet',
-							},
-							collapsed: true,
-							items: ['wallet/editing-a-wallet', 'wallet/withdraw', 'wallet/message-signing'],
-						},
-						{
-							type: 'category',
-							label: 'Understanding key management systems',
-							link: {
-								type: 'doc',
-								id: 'wallet/understanding-key-management-systems',
-							},
-							collapsed: true,
-							items: ['wallet/connecting-aws-kms', 'wallet/grantfull-access'],
-						},
-					],
+					items: [ 'wallet/understanding-key-management-systems',
+					'wallet/creating-a-wallet','wallet/withdraw', 'wallet/message-signing'],
 				},
 				{
 					type: 'category',
@@ -236,7 +208,11 @@ const sidebars: SidebarsConfig = {
 						'ipfs/uploading-folder',
 						'ipfs/uploading-json',
 						'ipfs/pinning-file',
-						'tutorials/uploading-metadata-nft',
+						{
+							type: 'link',
+							href: '/tutorials/uploading-metadata-nft',
+							label: 'Tutorials',
+						},
 					],
 				},
 			],
@@ -256,49 +232,49 @@ const sidebars: SidebarsConfig = {
 			items: ['settings/create-new-project', 'settings/managing-plans'],
 		},
 	],
-	tutorialSidebar: [
-		{
-			type: 'category',
-			label: 'From Code',
-			link: {
-				type: 'doc',
-				id: 'tutorials/deploy-a-contract-from-code',
-			},
-			collapsed: false,
-			items: [
-				'tutorials/deploy-from-bytecode',
-				'tutorials/deploy-nfts-with-starton',
-				'tutorials/interact-from-code',
-				'tutorials/how-to-ensure-notifys-webhooks-are-from-starton',
-				'tutorials/creating-nft-collection',
-				'tutorials/creating-token-erc20-fixed',
-				'tutorials/creating-token-erc20-mintable',
-				'tutorials/whitelist-tutorial',
-				'tutorials/create-an-nft-collection-sale',
-				'tutorials/metatransaction',
-				'tutorials/starton-web3auth',
-				'tutorials/ai-nft-collection',
-				'tutorials/jwt-authentication-nest',
-				'tutorials/monitor-nft-activity',
-			],
-		},
-		{
-			type: 'category',
-			label: 'From the interface',
-			link: {
-				type: 'doc',
-				id: 'tutorials/deploy-a-contract-from-code',
-			},
-			collapsed: false,
-			items: [
-				'tutorials/deploy-nfts-with-binance',
-				'tutorials/how-to-change-the-smart-contracts-ownership',
-				/*"tutorials/create-sale-erc721",*/
-				'tutorials/create-an-nft-auction',
-				'tutorials/track-wallet-activity',
-			],
-		},
-	],
+	// tutorialSidebar: [
+	// 	{
+	// 		type: 'category',
+	// 		label: 'From Code',
+	// 		link: {
+	// 			type: 'doc',
+	// 			id: 'tutorials/deploy-a-contract-from-code',
+	// 		},
+	// 		collapsed: false,
+	// 		items: [
+	// 			'tutorials/deploy-from-bytecode',
+	// 			'tutorials/deploy-nfts-with-starton',
+	// 			'tutorials/interact-from-code',
+	// 			'tutorials/how-to-ensure-notifys-webhooks-are-from-starton',
+	// 			'tutorials/creating-nft-collection',
+	// 			'tutorials/creating-token-erc20-fixed',
+	// 			'tutorials/creating-token-erc20-mintable',
+	// 			'tutorials/whitelist-tutorial',
+	// 			'tutorials/create-an-nft-collection-sale',
+	// 			'tutorials/metatransaction',
+	// 			'tutorials/starton-web3auth',
+	// 			'tutorials/ai-nft-collection',
+	// 			'tutorials/jwt-authentication-nest',
+	// 			'tutorials/monitor-nft-activity',
+	// 		],
+	// 	},
+	// 	{
+	// 		type: 'category',
+	// 		label: 'From the interface',
+	// 		link: {
+	// 			type: 'doc',
+	// 			id: 'tutorials/deploy-a-contract-from-code',
+	// 		},
+	// 		collapsed: false,
+	// 		items: [
+	// 			'tutorials/deploy-nfts-with-binance',
+	// 			'tutorials/how-to-change-the-smart-contracts-ownership',
+	// 			/*"tutorials/create-sale-erc721",*/
+	// 			'tutorials/create-an-nft-auction',
+	// 			'tutorials/track-wallet-activity',
+	// 		],
+	// 	},
+	// ],
 	apiSidebar: [
 		{
 			type: 'category',

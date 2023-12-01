@@ -1,0 +1,86 @@
+---
+title: How to test webhooks locally with ngrok
+description: Learn how to test webhooks locally with ngrok for your Starton Monitor notifications. This guide covers installing ngrok, launching your ngrok URL, and creating a Starton watcher with your local webhook URL.
+authors: loubna-benzaama
+tags: ['NOTIFY','MONITOR']
+services: ['network-monitoring']
+difficulty: beginner
+---
+
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+import CodeBlock from "@theme/CodeBlock"
+
+# How to test webhooks locally with ngrok
+
+When Starton sends a notification, Monitor sends an HTTP request to a web server.
+If your server is actually localhost, the request will fail. Starton cannot actually reach localhost.
+We need a tool to make that possible. The tool we're using is called ngrok.
+
+## Installing ngrok
+
+1. Go to [Ngrok](https://ngrok.com/).
+1. Install ngrok on your system. 
+
+# Launching your ngrok URL
+
+1. Launch your web application.
+1. Go to your localhost port. For example, [http://localhost:3001](http://localhost:3001).
+1. Launch `ngrok` with the command `ngrok http 3001`.
+1. Go to your Ngrok Web Interface [http://127.0.0.1:4040](http://127.0.0.1:4040).
+1. Click the `Status` tab.
+1. Copy the URL of the tunnel which should look like this [https://xxxxxxxx.ngrok.io](https://xxxxxxxx.ngrok.io).
+
+# Creating your watcher in Starton
+
+You can use this Webhook URL in Starton to create your watcher.
+
+<Tabs>
+<TabItem value="code" label="From Code">
+To create a watcher from the code of you application, use the following snippet.
+You can find the full list of networks and event types in our <a href="https://docs.starton.com//intro#tag/Watcher/operation/WatcherCreateOne">API reference</a>.
+
+<CodeBlock language="jsx" showLineNumbers>
+{`const axios = require("axios");
+// First, authenticate to the API
+const startonApi = axios.create({
+  baseURL: "https://api.starton.com",
+  headers: {
+    "x-api-key": "YOUR_API_KEY",
+  },
+});
+// Use the watcher creation endpoint
+startonApi.post(
+    "/v3/watcher",
+    {
+        name: "Name of your watcher", // Enter a name for your watcher
+        description: "Describe your watcher", // Enter a description for your watcher
+        address: "0x000000000000", // Enter the address to watch (either a wallet or a smart contract)
+        network: "polygon-mumbai",// Enter the network of your address.
+        type: "ADDRESS_ACTIVITY",// Select an event type
+        webhookUrl: "https://xxxxxxx/", // Here, enter the webhook url you got from ngrok.
+        confirmationsBlocks: 50 // Depending on your needs, select the number of confirmed blocks before an event triggers your watcher
+    }
+).then((response) => {
+    console.log(response.data)
+})`}
+</CodeBlock>
+</TabItem>
+<TabItem value="dashboard" label="From Webapp">
+
+1. From **Dashboard**, go to **Watcher**.
+1. Click **+ Watcher**.
+1. Enter a **Name** and **Description**.
+1. Click **Next**.
+1. Select a type of notification.
+1. Fill in the **Settings**.
+1. In **Construction**:
+    1. Select a **Blockchain**.
+    1. Select a **Network**.
+    1. Enter an address
+    1. Enter a webhook URL. Here, enter the webhook url you got from ngrok.
+1. In **Confirmation blocks**, enter a number.
+1. Click **Create**.
+
+</TabItem>
+</Tabs>

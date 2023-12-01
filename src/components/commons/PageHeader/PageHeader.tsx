@@ -5,11 +5,13 @@
 */
 
 import React from 'react'
-import { styled } from '@mui/material'
+import { ContainerProps, styled } from '@mui/material'
 import Container from '@mui/material/Container'
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
 import { Snippet } from '@site/src/components/commons/Snippet'
+import { MotionViewport, variantFade } from '@site/src/components/animate'
+import { m } from 'framer-motion'
 
 /*
 |--------------------------------------------------------------------------
@@ -20,6 +22,7 @@ export interface PageHeaderProps {
 	title: React.ReactNode | string
 	subTitle?: string
 	description?: string
+	hideSnippet?: boolean
 }
 
 /*
@@ -27,21 +30,24 @@ export interface PageHeaderProps {
 | Styles
 |--------------------------------------------------------------------------
 */
-const HeroBanner = styled(Container)(({ theme }) => ({
-	backgroundColor: theme.palette.background.paper2,
+const HeroBanner = styled(Container)<ContainerProps>(({ theme }) => ({
+	background: 'linear-gradient(125deg, #121C26 28.72%, #0E1114 70.73%)',
 	padding: theme.spacing(8, 3, 6),
+	display: 'flex',
+	flexDirection: 'column',
+	justifyContent: 'center',
+	alignItems: 'center',
+	gap: 40,
 	[theme.breakpoints.up('md')]: {
-		padding: theme.spacing(8, 6, 6),
+		minHeight: 260,
+		padding: theme.spacing(0, 10),
 		flexDirection: 'row',
 	},
 }))
 
 const HeroSubtitle = styled(Typography)(({ theme }) => ({
 	color: theme.palette.text.primary,
-	fontWeight: 400,
-	fontFamily: `"PP Neue Machina", "Inter", Arial, sans-serif`,
 	textTransform: 'uppercase',
-	fontSize: theme.typography.body1.fontSize,
 	[theme.breakpoints.up('md')]: {
 		fontSize: theme.typography.subtitle2.fontSize,
 	},
@@ -50,6 +56,8 @@ const HeroSubtitle = styled(Typography)(({ theme }) => ({
 const HeroTitle = styled(Typography)(({ theme }) => ({
 	color: theme.palette.text.primary,
 	fontSize: theme.typography.h3.fontSize,
+	fontWeight: 600,
+	letterSpacing: '1.328px',
 	'& span': {
 		color: theme.palette.warning.main,
 	},
@@ -69,23 +77,30 @@ const HeroDescription = styled(Typography)(({ theme }) => ({
 */
 export const PageHeader: React.FC<PageHeaderProps> = (props) => {
 	return (
-		<HeroBanner maxWidth={false}>
+		<HeroBanner maxWidth={false} component={MotionViewport}>
 			<Grid
 				container
 				justifyContent={'space-between'}
 				alignItems={{ xs: 'flex-start', md: 'flex-end' }}
 				flexDirection={{ xs: 'column', md: 'row' }}
+				maxWidth={1280}
 			>
 				<Grid item xs={12} md width={{ xs: '100%', md: 'fit-content' }}>
-					{props.subTitle ? <HeroSubtitle variant={'subtitle2'}>{props.subTitle}</HeroSubtitle> : null}
-					<HeroTitle variant={'h1'}>{props.title}</HeroTitle>
-					{props.description ? (
-						<HeroDescription variant={'body1'}>{props.description}</HeroDescription>
-					) : null}
+					<m.div variants={variantFade().inLeft}>
+						{props.subTitle ? <HeroSubtitle variant={'subtitle2'}>{props.subTitle}</HeroSubtitle> : null}
+						<HeroTitle variant={'h1'}>{props.title}</HeroTitle>
+						{props.description ? (
+							<HeroDescription variant={'body1'}>{props.description}</HeroDescription>
+						) : null}
+					</m.div>
 				</Grid>
-				<Grid item marginTop={{ xs: 6 }} xs={12} md={'auto'} width={{ xs: '100%', md: 'fit-content' }}>
-					<Snippet />
-				</Grid>
+				{!props.hideSnippet ? (
+					<Grid item marginTop={{ xs: 6 }} xs={12} md={'auto'} width={{ xs: '100%', md: 'fit-content' }}>
+						<m.div variants={variantFade().inRight}>
+							<Snippet />
+						</m.div>
+					</Grid>
+				) : null}
 			</Grid>
 		</HeroBanner>
 	)

@@ -1,0 +1,176 @@
+---
+title: Storing your first file on IPFS
+description: Discover how to store your first file on IPFS using Starton's API, including setting up your project, initializing Axios for requests, and handling file uploads for secure and immutable file storage.
+authors: loubna-benzaama
+tags: [ 'FILE', 'STORAGE']
+services: ['file-storage']
+difficulty: beginner
+featured: true
+---
+
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+import { CardTitle } from "@site/src/components/commons/CardTitle"
+import { Starton } from "@starton/react-ui-iconography"
+
+# Storing your first file on IPFS
+
+You can use Starton to integrate blockchain into your application in a few steps. Let's upload a file from Code with Starton's API.
+
+:::info not a developer?
+To follow this tutorial, you will need **coding experience**. If it's not your case, you can still upload your files:
+
+<div className="row-is-multilineGS">
+	<div className="col col-2 cardsGS">
+		<Link className="button-card button-card--vertical" to="https://app.starton.com/projects/default/ipfs">
+			<Heading as={"h4"}>From Starton app</Heading>
+			<div className="button-card__inner">
+				<p color="white">An easy-to-use interface to upload files to IPFS.</p>
+			</div>
+		</Link>
+	</div>
+	<div className="col col-2 cardsGS">
+		<Link className="button-card button-card--vertical" to="https://www.youtube.com/watch?v=i38ndAVGNb0">
+			<Heading as={"h4"}>From Zapier</Heading>
+			<div className="button-card__inner">
+				<p color="white">To pair our no-code integration with external apps and services. </p>
+			</div>
+		</Link>
+	</div>
+</div>
+
+:::
+
+## Step 1 - Initialize the project
+
+1. Start by creating a directory for your project.
+
+    ```bash
+    mkdir upload-ipfs
+    ```
+
+2. Then, get into your project directory.
+
+    ```bash
+    cd upload-ipfs
+    ```
+
+3. With your project directory set up, install the dependencies.
+
+    ```bash
+    npm add axios form-data
+    ```
+
+    - [Axios](https://axios-http.com/docs/intro) allows you to make request to the Starton API.
+    - [form-data](https://www.npmjs.com/package/form-data) facilitates the creation and submission of form data using HTTP requests.
+
+4. Then, use`touch` to create a `index.js` file and open it with your favorite editor.
+
+    ```bash
+    touch list.js
+    ```
+
+## Step 2 - Add starton to your project
+
+1. First, import `axios`.
+
+    ```jsx showLineNumbers
+    const axios = require("axios")
+    ```
+
+2. Then, initialize `axios` using Starton URL and authenticate with your API KEY.
+
+<CardTitle icon={<Starton fill="primary" />} href="https://app.starton.com/projects/default/developer" target="_blank">
+	Create an API key
+</CardTitle>
+<br />
+
+```jsx showLineNumbers
+const starton = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR API KEY",
+	},
+})
+```
+
+## Step 3 - Upload a file to IPFS
+
+:::caution Watch your uploads
+Files on IPFS are immutable and can be widely replicated. Once uploaded, anyone can access your file and removal is almost impossible challenging. Think twice before sharing!
+:::
+
+1. Grab any file from your computer. You can also generate an image using [generative AI](/docs/tutorials/ai-nft-collection).
+
+    ```jsx showLineNumbers
+    const fs = require("fs")
+    const FormData = require("form-data")
+    const buffer = fs.readFileSync("./path/of/your/file.png")
+    ```
+
+2. Prepare the file for the request.
+
+    ```jsx showLineNumbers
+    let data = new FormData()
+    data.append("file", buffer, "name of your file")
+    ```
+
+3. Send the file to IPFS.
+
+    ```jsx showLineNumbers
+    starton
+    	.post("/v3/ipfs/file", data, {
+    		headers: {
+    			"Content-type": `multipart/form-data; boundary=${data.getBoundary()}`,
+    		},
+    	})
+    	.then((response) => {
+    		console.log({
+    			cid: response.data.cid,
+    			gatewayUrl: `https://eu.starton-ipfs.com/ipfs/${response.data.cid}`,
+    		})
+    	})
+    	.catch((error) => console.error(error.response.data))
+    ```
+
+    You can also upload [folders](/docs/ipfs/uploading-folder), [JSON files](/docs/ipfs/uploading-json) or [pin existing files using their CID](/docs/ipfs/pinning-file).
+
+4. Almost done! Now we can execute it to get your first file stored on IPFS!
+
+    ```bash
+    node list.js
+    ```
+
+    And just like that, your first file is now stored on IPFS!
+
+<br />
+
+<CardTitle icon={<Starton fill="primary" />} href="https://app.starton.com/projects/default/ipfs" target="_blank">
+	Check all your files on Starton Web Application
+</CardTitle>
+<br />
+<br />
+
+Congratulations on uploading your first file on IPFS!
+In this tutorial, you discovered how to upload your first file on IPFS but this is only the first step.
+
+### Learn how to
+
+<div className="row-is-multilineGS">
+	<div className="col col-2 cardsGS">
+		<Link className="button-card button-card--vertical" to="https://www.youtube.com/watch?v=x5h-COA8B3Q">
+			<Heading as={"h3"}>Deploy a smart contract</Heading>
+			<div className="button-card__inner">
+				<p color="white">Create your first NFT. </p>
+			</div>
+		</Link>
+	</div>
+	<div className="col col-2 cardsGS">
+		<Link className="button-card button-card--vertical" to="/docs/tutorials/monitoring-blockchain-activity">
+			<Heading as={"h3"}>Monitor blockchain activity</Heading>
+			<div className="button-card__inner">
+				<p color="white">Get notified of any address's activity on an EVM network. </p>
+			</div>
+		</Link>
+	</div>
+</div>

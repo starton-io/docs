@@ -1,0 +1,113 @@
+---
+title: How to change the smart contracts' ownership
+displayedSidebar: tutorialSidebar
+description: Discover how to transfer smart contract ownership from Starton's KMS to a user's own KMS, focusing on role management and access control in ERC721 contracts.
+authors: loubna-benzaama
+tags: [ADDRESS', 'OWNERSHIP', 'WALLET']
+services: ['smart-contract-library', 'smart-contract-management','wallets']
+difficulty: intermediate
+---
+
+# How to change the smart contracts' ownership
+
+We use a KMS to manage the wallets that will sign the transactions.
+
+We encourage our users to use their own KMS but we still propose to use our own KMS for an easier onboarding.
+
+An issue arise: what if you started with our KMS and want to migrate to your own later?
+
+If the smart contracts are deployed using wallets hosted on our KMS, then - They likely are the owners of the smart contracts.
+
+So how can you transfer the ownership of these smart contracts to a wallet on your KMS?
+
+## How to transfer the ownership
+
+For an easier explanation, let’s call S the wallet hosted on the Starton KMS and U the new wallet which is hosted on the User’s KMS.
+
+We want to transfer ownership on our smart contracts from S to U.
+
+We can only do this for one smart contract at a time so we’ll take the case of a single ERC721 contract below.
+
+Most of the time, you’ll want to change the ownership of the contract while keeping some rights on the wallet S, such as minting rights.
+
+> Please note that all the possible rights must be defined in the code of the smart contract.
+
+In the ERC20, ERC721 and ERC1155 templates we propose, the following roles are available:
+
+-   DEFAULT_ADMIN_ROLE
+-   PAUSER_ROLE
+-   MINTER_ROLE
+-   LOCKER_ROLE
+
+> A role can be assigned to multiple wallets and a wallet can have multiple roles.
+
+In this example we will:
+
+-   Use the S wallet to give itself the MINTER_ROLE
+-   Use the S wallet to give the U wallet the DEFAULT_ADMIN_ROLE
+-   Use the S wallet to revoke itself the DEFAULT_ADMIN_ROLE
+
+This way, the S wallet will still be able to mint tokens and won’t have the admin role.
+The admin role will only be assigned to the U wallet.
+
+## How do roles work in smart contracts?
+
+It is important to understand how roles work in smart contracts as the OpenZeppelin standard is not very intuitive.
+
+The most natural way would be to have strings representing the roles and to assign users to them using mappings.
+
+And it looks like it works like this at first sight.
+
+If you actually try to call the `MINTER_ROLE` view function of the smart contract, you'd end up with this output: `0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6`
+
+What you would expect is that this value represents the address that has the MINTER_ROLE.
+
+Surprisingly enough, it does not work that way.
+
+You have to remember that multiple addresses could have this role, and multiple roles can be assigned to a wallet so it does not make any sens to have a single value as an answer.
+
+The value `0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6` is in fact the `keccak256` hash of the string "MINTER_ROLE".
+
+Why would we use such a complicated and confusing way of defining roles you'd say? Why using the hashes of the strings instead of using the strings themselves?
+
+Here is what the [OpenZeppelin Community](https://forum.openzeppelin.com/t/redesigning-access-control-for-the-openzeppelin-contracts/2177) has to say about it:
+
+-   They don't have the [issues associated with stings](https://github.com/OpenZeppelin/openzeppelin-contracts/issues/1090), unless computed off-chain (web3.utils.soliditySha3("ROLE_NAME"))
+-   They don't have the issues associated with integers, namely, choosing how to associate a role name to an integer
+-   Unlike bytes32 = "string", all 256 bits of the identifier are random-ish, increasing the [Hamming distance](https://en.wikipedia.org/wiki/Hamming_distance) between them
+-   With a consistent convention, clashes are not possible (e.g. by always doing bytes32 constant X_ROLE = keccak256("X"))
+-   They don't take up storage by being constant
+-   They are reasonably cheap: calling a pure function on a contract that returns such a hash costs ~250 gas (this figure includes the overhead of decoding calldata, jumping based on the function selector, etc.)
+-   They can be expanded to be immutable once ​[it is released](https://github.com/ethereum/solidity/issues/3835)
+    Anyway, we'll need the value of the role hash to grant or revoke roles.
+    Let's see how we can get the hash value for the MINTER_ROLE from our dashboard.
+
+## Granting the roles
+
+Now that we have retrieved the hash value of the MINTER_ROLE we can call the grantRole function of our smart contract to give the S wallet the rights to mint.
+The grantRole function takes two parameters:
+
+-   role: The hash of the role that will be given to the address
+-   address: The address that will be granted the role
+    We'll fill the role value with `0x9f2df0fed2c77648de5860a4cc508cd0818c85b8b8a1ab4ceeef8d981c8956a6`(the `MINTER_ROLE` hash) and for the address we'll use the Starton KMS wallet which is currently the admin of the smart contract (the S wallet as described earlier).
+    The KMS wallet address can be found in the Wallet tab.
+    Picture of the grantRole function call
+    Now that we gave the S wallet the MINTER_ROLE, we still have to:
+-   Use the S wallet to grant the U wallet (your KMS wallet) the DEFAULT_ADMIN_ROLE
+-   Use the S wallet to revoke itself the DEFAULT_ADMIN_ROLE
+-   For the first part, we need to call the DEFAULT_ADMIN_ROLE view function to get the value of the admin role hash the same way we previously did for the MINTER_ROLE.
+    The hash value of the DEFAULT_ADMIN_ROLE is actually: `0x0000000000000000000000000000000000000000000000000000000000000000`
+    Using the exact same idea that for MINTER_ROLE, we can now call the grantRole function using the DEFAULT_ADMIN_ROLE hash and your KMS wallet address that should be granted the admin rights on the smart contract.
+
+## Revoke the admin rights of the Starton KMS wallet (S)
+
+Similar to how we granted the admin role to the U wallet, we can call the renounceRole with the S wallet to revoke itself the admin rights on the contract.
+
+## Conclusion
+
+Congratz! We have now transfered the ownership of the smart contract from S to U as:
+
+-   The U wallet has the DEFAULT_ADMIN_ROLE on the smart contract
+-   The S wallet has the MINTER_ROLE
+-   The S wallet hasn't the DEFAULT_ADMIN_ROLE anymore
+    ​

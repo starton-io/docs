@@ -1,0 +1,219 @@
+---
+title: Interact with a contract from code
+displayedSidebar: tutorialSidebar
+description: Learn to interact with an ERC20 smart contract to mint tokens and read contract states, using Starton's Relayer for executing and querying smart contract functions.
+authors: loubna-benzaama
+tags: ['INTERACT', 'FUNCTIONS']
+services: ['smart-contract-library', 'smart-contract-management']
+difficulty: beginner
+---
+
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+
+# Interact with a contract from code
+
+In this second tutorial, we'll use the Starton Relayer to interact with an ERC20 smart contract in order to mint new tokens.
+
+The smart contract has been created following our first tutorial on [How to Deploy a smart contract from code using Staton Connect](/tutorials/deploy-a-contract-from-code).
+
+If you have not seen this tutorial yet, we invite you to check it up to be sure you already have an API key and some faucets on your wallet.
+
+Alright, we are good to go now!
+
+## Get all functions of our smart contract
+
+The smart contract we created is an ERC20 which is Mintable. This means the total supply of tokens can be increased by minting new tokens.
+
+In order to mint new tokens, the first thing we'll need to do is to query the list of all the available functions of our smart contract.
+
+This way, we will know which functions can be used to help us.
+Here is the code to do so:
+
+```js
+const axios = require("axios")
+
+const http = axios.create({
+	baseURL: "https://api.starton.com/v3",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+http.get("/smart-contract/{network}/{address}/available-functions", {}).then((response) => {
+	console.log(response.data)
+})
+```
+
+Be sure to replace the \{network} and \{address} the network on which your contract is deployed and its address.
+
+Do not forget as well to replace the x-api-key value by your own API key!
+The result we get for our ERC20 Mintable contract is the following:
+
+```json
+{
+	"functions": [
+		"DEFAULT_ADMIN_ROLE()",
+		"MINTER_ROLE()",
+		"PAUSER_ROLE()",
+		"allowance(address,address)",
+		"approve(address,uint256)",
+		"balanceOf(address)",
+		"burn(uint256)",
+		"burnFrom(address,uint256)",
+		"decimals()",
+		"decreaseAllowance(address,uint256)",
+		"getRoleAdmin(bytes32)",
+		"grantRole(bytes32,address)",
+		"hasRole(bytes32,address)",
+		"increaseAllowance(address,uint256)",
+		"mint(address,uint256)",
+		"name()",
+		"pause()",
+		"paused()",
+		"renounceRole(bytes32,address)",
+		"revokeRole(bytes32,address)",
+		"supportsInterface(bytes4)",
+		"symbol()",
+		"totalSupply()",
+		"transfer(address,uint256)",
+		"transferFrom(address,address,uint256)",
+		"unpause()"
+	]
+}
+```
+
+We can see the function mint(address,uint256) right in the middle.
+Great! It seems like the perfect one for our need.
+
+Sometimes function names can be misleading so be sure to know the effects of the functions you use.
+
+If you do not have access to your smart contract's documentation, you should at least try using the smart contract on a testnet before deploying on the mainnet.
+
+## Calling the function
+
+We will now try to call the mint function in order to create 1000 new tokens.
+
+They will be sent to Vitalik Buterin's wallet: `0xab5801a7d398351b8be11c439e05c5b3259aec9b`
+
+Using Axios configured as before we can call our function:
+
+```js
+http.post("/smart-contract/{network}/{address}/call", {
+	functionName: "mint",
+	params: ["0xab5801a7d398351b8be11c439e05c5b3259aec9b", "1000000000000000000000"],
+	signerWallet: "WALLET USED TO DEPLOY",
+}).then((response) => {
+	console.log(response.data)
+})
+```
+
+We had to put 18 zeros after "1000" as the smart contract will read the amount in wei (the equivalent of cents, except there are 18 decimals and not 2).
+The expected result should be something like this:
+
+```json
+{
+	"id": "tx_69dfd164c12d4a989a3dd0f3c452931c",
+	"to": "SMART_CONTRACT_ADDRESS",
+	"from": "OWNER_ADDRESS",
+	"nonce": 4,
+	"value": "0",
+	"gasLimit": "39606",
+	"gasPrice": "2099999994",
+	"data": "0x40c10f19000000000000000000000000ab5801a7d398351b8be11c4…0000000000000000000000000000000000000003635c9adc5dea00000",
+	"chainId": 3,
+	"signedTransaction": "0x...",
+	"transactionHash": "0xe677b29f448cc8b37b62f8a05a9ee8e5a90460bb99f2713f186283f3b073ff12",
+	"ownerAddress": "OWNER_ADDRESS",
+	"network": "ethereum-ropsten",
+	"signedDate": "2021-07-19T13:42:12.860Z",
+	"publishedDate": "2021-07-19T13:42:13.957Z",
+	"status": "PUBLISHED",
+	"createdAt": "Mon Jul 19 2021 13:42:12 GMT+0000 (Coordinated Universal Time)",
+	"updatedAt": "Mon Jul 19 2021 13:42:13 GMT+0000 (Coordinated Universal Time)"
+}
+```
+
+We can go on the explorer to check our transaction using the [transactionHash](https://ropsten.etherscan.io/tx/0xe677b29f448cc8b37b62f8a05a9ee8e5a90460bb99f2713f186283f3b073ff12).
+
+## Read a smart contract's state value
+
+All functions of a smart contract do not require to pay for transaction fees.
+Indeed, only the functions that modify the state of our contract will require to be included in transactions and spread in the network.
+
+When we only want to call pure functions (deterministic and without any side effect) we can get a response without overloading the network.
+
+Pure functions is a generic term that exists across most programming languages, but in case of smart contracts we also use the term view.
+
+We will now call a view function of our smart contract using a different endpoint.
+
+Even if we won't be paying transaction fees to the network, the computation will require API credits.
+
+Examples of view functions in the previous list are: name(), symbol(), totalSupply().
+
+Please do not make a shortcut and consider all view functions to be without parameters.
+
+Some like balanceOf can require parameters and still be view functions.
+We previously minted new tokens right? So let's check the total supply of our ERC20 token! The original amount of token initially created was 1 million. We just created 1000 of them so we can expect the total supply to be 1001000.
+
+```jsx
+http.post("/smart-contract/{network}/{address}/read", {
+	functionName: "totalSupply",
+	params: [],
+}).then((response) => {
+	console.log(response.data)
+})
+```
+
+Should return:
+
+```json
+{
+	"response": "1001000000000000000000000",
+	"functionName": "totalSupply",
+	"params": ""
+}
+```
+
+Great! Now let's check Vitalik's supply of our token:
+
+```jsx
+http.post("/smart-contract/{network}/{address}/read", {
+	functionName: "balanceOf",
+	params: ["0xab5801a7d398351b8be11c439e05c5b3259aec9b"],
+}).then((response) => {
+	console.log(response.data)
+})
+```
+
+Outputs:
+
+```json
+{
+	"response": "1000000000000000000000",
+	"functionName": "balanceOf",
+	"params": "0xab5801a7d398351b8be11c439e05c5b3259aec9b"
+}
+```
+
+After removing the 18 trailing zeros to convert the wei to full units, it's now confirmed that Vitalik holds 1000 tokens!
+
+## Conclusion
+
+Congratulations, you have now completed this tutorial!
+
+<div className="row-is-multiline">
+	<div className="col col--2" className="cards">
+		<Link className="button-card button-card--vertical" to="https://app.starton.com/projects">
+			<Heading as={"h3"}>Check your Smart contract on the Dashboard</Heading>
+			<div className="button-card__inner">
+				<p color="white">
+					Go to <b>Starton Dashboard</b> and check all the transactions of your smart contract at one glance.
+				</p>
+			</div>
+		</Link>
+	</div>
+</div>
+
+We've just learnt how to list our smart contract's functions, how to call one on the blockchain (altering the contract's state), what are view functions and how to use them!
+In the next episode of the series, we will be using Monitor in order to watch blockchain events and get notified on our backend when such events are triggered.
+See you there!

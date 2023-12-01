@@ -10,7 +10,7 @@ In the field of cryptocurrency, one of the most important concepts to understand
 
 Gas is essentially the fee that you pay for every operation on the blockchain. It's essentially a measure of how much work an action requires. The more work involved, the more gas you will need to spend in order for the transaction to be executed correctly.
 
-## Defining gas prices 
+## Defining gas prices
 ### Gas fees
 
 A gas fee is a blockchain transaction fee, paid to network validators to the blockchain. It is most commonly used on blockchain. A transaction costs a certain amount on the network. This amount is used to pay for the computation on the Blockchain. The price of this computation is set by the amount of Gas specified in the transaction.
@@ -28,7 +28,7 @@ By choosing between low, average, fast and fastest, you determine if you're will
 When using Starton's API, you have the flexibility to configure custom gas settings for your transactions. This is particularly useful for executing transactions when network conditions, such as GWEI (the unit of gas price in Ethereum), are favorable.
 
 ### Setting Custom Gas Parameters
-You can use custom parameters everytime you are called to specify the speed of a transaction. 
+You can use custom parameters everytime you are called to specify the speed of a transaction.
 
 For example:
 ```json
@@ -45,7 +45,7 @@ For example:
 
 - **`maxPriorityFeePerGas`**: The maximum tip per unit of gas to incentivize miners to include your transaction in a block. It's paid over and above the base fee in EIP-1559 transactions.
 
-- **`gasPrice`**: The fee per unit of gas for transactions, used for networks which haven't adopted EIP-1559. 
+- **`gasPrice`**: The fee per unit of gas for transactions, used for networks which haven't adopted EIP-1559.
 
 You can use these settings when creating new transactions through the Starton API, either manually or via smart contract management functions.
 
@@ -53,4 +53,4 @@ You can use these settings when creating new transactions through the Starton AP
 
 You can further customize your transaction strategies at project-level for each network by updating the Relayer settings. Our Relayer will follow your rules and increase the gas speed to avoid stuck transactions.
 
-For more detailed instructions, go to [Setting a transaction management strategy](/transactions/stuck-transaction-replacement.mdx).
+For more detailed instructions, go to [Setting a transaction management strategy](/docs/transactions/stuck-transaction-replacement).

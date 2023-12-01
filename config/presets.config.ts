@@ -18,17 +18,19 @@ export const presets: Array<PresetConfig> = [
 				filename: 'sitemap.xml',
 			},
 			blog: {
+				id: 'guides',
 				blogTitle: 'Guides',
 				blogSidebarCount: 'ALL',
 				showReadingTime: true,
 				path: 'guides',
-                routeBasePath: 'guides',
+				routeBasePath: 'guides',
+				authorsMapPath: './authors.yml',
 			},
 			docs: {
 				sidebarPath: require.resolve('./sidebars.config'),
 			},
 			theme: {
-				customCss: require.resolve('../src/css/starton.css'),
+				customCss: require.resolve('../src/styles/starton.css'),
 			},
 			...(process.env.GTM_KEY && {
 				googleTagManager: {

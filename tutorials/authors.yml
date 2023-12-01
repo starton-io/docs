@@ -1,0 +1,65 @@
+calixte-de-tourris:
+  name: Calixte De Tourris
+  title: Frontend Developer
+  image_url: https://uploads-ssl.webflow.com/64748b36fe25af55e0fc6752/655f5d838512900bc1a43dc5_calixte-de-tourris.jpeg
+  email: calixte@starton.com
+
+cedric-cervantes:
+  name: Cedric Cervantes
+  title: CEO/CTO
+  image_url: https://uploads-ssl.webflow.com/64748b36fe25af55e0fc6752/655f5d836b3fd99994774dcc_credic-cervantes.jpeg
+  email: cedric@starton.com
+
+frederic-oglaza:
+  name: Frederic Oglaza
+  title: Lead Designer
+  image_url: https://uploads-ssl.webflow.com/64748b36fe25af55e0fc6752/655f5d836adeed642c4e9ea1_frederic-oglaza.jpeg
+  email: fred@starton.com
+
+ghislain-cheng:
+  name: Ghislain Cheng
+  title: Lead DevOps
+  image_url: https://uploads-ssl.webflow.com/64748b36fe25af55e0fc6752/655f5d859ba1d346ecc69ff2_ghislain-cheng.jpeg
+  email: ghislain@starton.com
+
+hassan-allybocus:
+  name: Hassan Allybocus
+  title: Lead Backend Developer
+  image_url: https://uploads-ssl.webflow.com/64748b36fe25af55e0fc6752/655f5d852d9300d38e101140_hassan-allybocus.jpeg
+  email: hassan@starton.com
+
+jerome-laviez:
+  name: Jérôme Laviez
+  title: Head of Growth
+  image_url: https://uploads-ssl.webflow.com/64748b36fe25af55e0fc6752/655f5d8339494fb6223e7e2e_jerome-laviez.jpeg
+  email: jerome@starton.com
+
+loubna-benzaama:
+  name: Loubna Benzaama
+  title: Lead technical writer
+  image_url: https://uploads-ssl.webflow.com/64748b36fe25af55e0fc6752/655f5d85aaf5ed35b2431593_loubna-benzaama.jpeg
+  email: loubna@starton.com
+
+minh-anh-nguyen:
+  name: Minh Anh Nguyen
+  title: Administrative Accountant
+  image_url: https://uploads-ssl.webflow.com/64748b36fe25af55e0fc6752/655f5d8380b320c45cf8edc1_minh-anh-nguyen.jpeg
+  email: minhanh@starton.com
+
+nicolas-boisde:
+  name: Nicolas Boisdé
+  title: Backend Developer
+  image_url: https://uploads-ssl.webflow.com/64748b36fe25af55e0fc6752/655f5d833b6ca97ff55e1c2b_nicolas-boisde.jpeg
+  email: nicolas@starton.com
+
+philippe-desplats:
+  name: Philippe Desplats
+  title: Head of Technical Ops & Sales
+  image_url: https://uploads-ssl.webflow.com/64748b36fe25af55e0fc6752/655f5d833048f306fb166273_philippe-desplats.jpeg
+  email: philippe@starton.com
+
+simon-levacher:
+  name: Simon Levacher
+  title: Lead Product Manager
+  image_url: https://uploads-ssl.webflow.com/64748b36fe25af55e0fc6752/655f5d836b3fd99994774dcf_simon-levacher.jpeg
+  email: simon@starton.com

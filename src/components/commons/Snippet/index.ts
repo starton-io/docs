@@ -1,6 +1,6 @@
 /*
 | Developed by Starton
-| Filename : index.ts
+| Filename : mui-themes.ts
 | Author : Calixte DE TOURRIS (calixte@starton.io)
 */
 

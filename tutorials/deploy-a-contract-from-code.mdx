@@ -1,0 +1,153 @@
+---
+title: Deploy a template contract from code
+displayedSidebar: tutorialSidebar
+description: Learn how to deploy a template contract from code using Starton Connect in this tutorial. Discover the steps for creating your own crypto token, including choosing a network, fueling a wallet, and deploying the contract with JavaScript code and Starton's API.
+authors: loubna-benzaama
+tags: ['CRYPTO', 'CODE ', TEMPLATES']
+services: ['smart-contract-library', 'smart-contract-management']
+difficulty: beginner
+---
+
+# Deploy a template contract from code
+
+In this tutorial, we’ll use Starton Connect to create our own crypto token!
+
+We will deploy a smart contract directly from code using the Relayer.
+
+The contract will be an instance of an audited premade template available in Starton.
+
+The language used will be Javascript but any language would work in a similar manner.
+
+## Get the list of available templates
+
+Before deploying our contract let's get the list of templates in order to find one that suits our need.
+
+To do this, we’ll need to query Connect’s API and to authenticate ourselves using an API key.
+
+We can create an API key from the dashboard in the Developer section. Using this API key we can call the API with the following JS code:
+
+```js
+const axios = require("axios")
+
+const http = axios.create({
+	baseURL: "https://api.starton.com/v3",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+http.get("/smart-contract-template").then((response) => {
+	console.log(response.data)
+})
+```
+
+Be sure to replace `x-api-key value` with your own api key!
+When querying the API, it should return a list of template items:
+
+```json
+{
+	"id": "ERC20_META_TRANSACTION",
+	"name": "ERC20 Fungible Token with fixed supply",
+	"description": "An ERC20 token contract keeps track of fungible tokens: any one token is exactly equal to any other token",
+	"tags": ["..."],
+	"blockchains": ["..."],
+	"bytecode": "string",
+	"constructorParams": ["..."],
+	"abi": ["..."],
+	"compilerVersion": "string",
+	"source": "string",
+	"isAudited": true,
+	"isActivated": true,
+	"createdAt": "string",
+	"updatedAt": "string"
+}
+```
+
+This is the object associated with the template we’ll use for our crypto token.
+
+We’ll be using an ERC20 template as it is the standard for token creation on EVM based blockchains.
+
+## Choose a Network and fuel wallet
+
+Now that we know which template to use, we also need to choose a network on which to deploy.
+
+The compatible blockchains for this template can be seen inside the blockchain objects in the previously returned template object.
+
+For example for the Ethereum blockchain there are multiple available networks such as `ethereum-mainnet` or `ethereum-goerli` (testnet).
+
+We’ll choose to deploy our contract on the `ethereum-goerli` network.
+
+It is now important that we fuel our wallet with some Ether faucet otherwise the blockchain will reject our smart contract’s deployment as we will lack funds to cover the gas fees.
+
+In order to claim test faucets we need to go on the [Wallet](/docs/wallet/understanding-key-management-systems) section on Connect’s dashboard and find the address associated to the network we are interested in.
+
+Here, it is the ethereum-goerli network.
+
+We can now claim free faucet on the official [Ethereum faucet website](https://faucet.dimensions.network/).
+Enter your address, click **Send me test Ether** and wait for the transaction to complete.
+
+## Deploying the contract
+
+Everything is now in place so we can create an instance of the smart contract template we picked.
+
+We’ll use the ID of the template we got in order to tell Deploy which template to use for the contract creation.
+
+We also need to provide values for the parameters of our smart contract’s constructor.
+
+For our ERC20, we’ll need to provide:
+
+-   a name for our token
+-   a ticker
+-   the initial supply
+
+Let’s call our token the DemoToken, with DEMO as its ticker and an initial supply of 1.000.000 tokens.
+
+Here is the code to deploy the contract (Axios being configured as before):
+
+```jsx
+http.post("/smart-contract/from-template", {
+	network: "ethereum-goerli",
+	templateId: "ERC20_META_TRANSACTION",
+	name: "DemoToken",
+	description: "Our own crypto token.",
+	params: ["1000000", "DemoToken", "DEMO"],
+}).then((response) => {
+	console.log(response.data)
+})
+```
+
+The expected result:
+
+```json
+{
+	"id": "sc_24dce9e26a7d46a7b707e257a6a6cfb2",
+	"name": "DemoToken",
+	"description": "Our own crypto token.",
+	"network": "ethereum-goerli",
+	"bytecode": " … ",
+	"abi": ["..."],
+	"projectId": "prj_f2108b28949d47898a39939cbc7277c3",
+	"address": "0xDA96a733ec2C3eC1142A5A1Ef31cfd7755CAE037",
+	"creationHash": "0xef4313209959d6441e14db5d43905f674a78adba2173b522b7fe37311e135c05",
+	"createdAt": "Tue Jun 29 2021 13:09:17 GMT+0000 (Coordinated Universal Time)",
+	"updatedAt": "Tue Jun 29 2021 13:09:17 GMT+0000 (Coordinated Universal Time)"
+}
+```
+
+If it worked, congrats! You just created your own crypto token in a few minutes and with a minimal amount of code.
+
+## Checking the contract creation
+
+Most blockchains propose a blockchain explorer so we can inspect the state and history of the blockchain.
+
+We can thus use the previously returned address and creation hash to check for our contract’s status on the blockchain.
+
+[The summary of the transaction](https://ropsten.etherscan.io/tx/0xef4313209959d6441e14db5d43905f674a78adba2173b522b7fe37311e135c05) created for the deployment of our contract (using the creationHash in the url) is available.
+We can also track here our new [DEMO](https://ropsten.etherscan.io/token/0xda96a733ec2c3ec1142a5a1ef31cfd7755cae037) token.
+
+## Result
+
+Or more generally, we can use the address of the contract to find out how it [interacted with the world](https://ropsten.etherscan.io/address/0xDA96a733ec2C3eC1142A5A1Ef31cfd7755CAE037).
+
+Congratulations for completing this tutorial!
+
+You can also deploy your smart contract from our web application.

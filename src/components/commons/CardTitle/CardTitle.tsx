@@ -27,6 +27,7 @@ export interface CardTitleProps extends React.AnchorHTMLAttributes<HTMLAnchorEle
 */
 const CardTitleStyled = styled(Box)(({ theme }) => ({
 	display: 'flex',
+	flexDirection: 'row',
 	alignItems: 'center',
 	borderWidth: 1,
 	borderStyle: 'solid',
@@ -34,6 +35,7 @@ const CardTitleStyled = styled(Box)(({ theme }) => ({
 	backgroundColor: theme.palette.background.paper,
 	position: 'relative',
 	width: '100%',
+	marginBottom: theme.spacing(2),
 
 	'& .MuiSvgIcon-root': {
 		transition: theme.transitions.create(['transform']),

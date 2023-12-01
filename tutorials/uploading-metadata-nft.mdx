@@ -1,0 +1,82 @@
+---
+title: Uploading your NFT metadata on IPFS
+description: Learn how to upload your NFT metadata on IPFS for smart contract deployment. This guide covers creating a JSON file following marketplace standards and uploading it using Starton, either from Dashboard or Code.
+authors: loubna-benzaama
+tags: ['NFT', 'METADATA', 'STORAGE']
+services: ['file-storage']
+difficulty: beginner
+---
+
+import Tabs from "@theme/Tabs"
+import TabItem from "@theme/TabItem"
+import CodeBlock from "@theme/CodeBlock"
+
+# Uploading your NFT metadata on IPFS
+
+To create your NFT by deploying a smart contract you can upload your contract-level metadata on IPFS.
+
+## Creating your Json file
+
+To upload your metadata, it must be in the Json format. You need to follow the standard of the marketplace where you want to showcase your NFT.
+
+For example, if you wish to showcase your NFT on OpenSea, you can use this template:
+
+```jsx
+{
+"name":"My Super NFTs",
+"description":"You’ve never seen NFTs this beautiful.",
+"image":"",
+"external_link":"",
+"seller_fee_basis_points":100,
+"fee_recipient":""
+}
+```
+
+## Uploading your file on IPFS
+
+You can upload your file on IPFS using Starton from Dashboard or from Code.
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+```jsx showLineNumbers
+    const axios = require("axios");
+    const FormData = require("form-data");
+    const fs = require("fs");
+    // AUTHENTICATING TO THE API USING YOUR API KEY
+    const startonApi = axios.create({
+      baseURL: "https://api.starton.com",
+      headers: {
+        "x-api-key": "YOUR_API_KEY",
+      },
+    });
+    // UPLOAD JSON TO IPFS.
+    const uploadJsonToIpfs = async (json, name) => {
+    const ipfsJson = await startonApi.post("/v3/ipfs/json", {
+      name: name of your json,
+      content: json,
+      metadata: { your: "additionnal", meta: "data" },
+    });
+    return ipfsJson;
+    };
+    // ENTERING YOUR JSON'S INFORMATION
+    uploadJsonToIpfs({ "metadata": "data" }, "Json name")
+      .then((res) => console.log(res))
+      .catch((e) => console.log(e));
+
+```
+
+</TabItem>
+<TabItem value="dashboard" label="From Webapp">
+
+1. Go to **Storage**.
+1. Click **Upload**.
+1. Select JSON.
+1. Select content.
+1. Enter a name for the file.
+1. Click **Upload**.
+
+</TabItem>
+</Tabs>
+
+After uploading your file, you will get a URI (the address of your file on IPFS), and a CID (content Identifier), that you can use you deploy your ERC721 or ERC1155 smart contracts.

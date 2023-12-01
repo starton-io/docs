@@ -23,14 +23,14 @@ export interface StartonFooterHeadProps {
 |--------------------------------------------------------------------------
 */
 const FooterHeadStyled = styled(Box)(({ theme }) => ({
-	padding: theme.spacing(3),
+	paddingBottom: theme.spacing(7),
 	display: 'flex',
 	justifyContent: 'space-between',
 	alignItems: 'center',
 	flexDirection: 'column',
 	gap: theme.spacing(3),
+
 	[theme.breakpoints.up('md')]: {
-		padding: theme.spacing(7, 9, 5),
 		flexDirection: 'row',
 	},
 }))
@@ -38,13 +38,12 @@ const FooterHeadStyled = styled(Box)(({ theme }) => ({
 const StartonLogoContainer = styled(Avatar)(({ theme }) => ({
 	backgroundColor: 'transparent',
 	'&, & svg': {
-		width: theme.spacing(11.625),
-		height: theme.spacing(2.5),
+		width: theme.spacing(22),
+		height: 'auto',
 	},
 	[theme.breakpoints.up('md')]: {
 		'&, & svg': {
-			width: theme.spacing(38.5),
-			height: theme.spacing(8.25),
+			width: theme.spacing(20),
 		},
 	},
 }))
@@ -62,7 +61,7 @@ export const StartonFooterHead: React.FC<StartonFooterHeadProps> = (props) => {
 	return (
 		<FooterHeadStyled>
 			<StartonLogoContainer variant="square">
-				<StartonType fill="black" />
+				<StartonType fill="white" />
 			</StartonLogoContainer>
 			<Box display="flex" gap={1} flexWrap={'wrap'} justifyContent={{ xs: 'center', md: 'flex-end' }}>
 				{children}

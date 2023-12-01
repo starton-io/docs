@@ -1,0 +1,878 @@
+---
+title: Notifying users when they receive an NFT
+description: Discover how to notify users via email when they receive an NFT, using Starton API for on-chain transfer monitoring and nodemailer for email notifications.
+authors: loubna-benzaama
+tags: ['NFT','MONITOR']
+services: ['smart-contract-library', 'smart-contract-management','network-monitoring']
+difficulty: advanced
+---
+
+import { CardTitle } from '@site/src/components/commons/CardTitle'
+import { Starton } from '@starton/react-ui-iconography'
+
+# Notifying users when they receive an NFT
+
+<aside>
+In this tutorial you will learn how to send an email to your users when they receive an NFT. We will use the Starton API to watch for transfers on-chain and nodemailer to send the notification.
+
+</aside>
+
+
+
+
+
+
+:::caution
+
+ This tutorial is the continuation of the [How to create a JWT-based authentication with NestJS](/tutorials/jwt-authentication-nest) tutorial. We recommend you to do it first before starting this one.
+
+:::
+
+<CardLink title={'Find the full project in our Github repository.'} href={'https://github.com/starton-io/tutorials-how-to-notify-an-nft-transfer-by-email-with-nextjs'} target={'_blank'} />
+
+:::info Prerequisites
+
+Before we begin, make sure that you have the following installed on your machine:
+
+- Node.js (version 18 or higher)
+- NestJS CLI
+- Dependencies explained right below
+- a Watcher. To create a watcher, go to [**Monitoring blockchain activity**](/tutorials/monitoring-blockchain-activity).
+- an ERC1155 smart contract.  To deploy your ERC1155 NFT collection smart contract, go to [**How to create a one-to-many NFT collection**](/tutorials/creating-nft-collection).
+
+
+
+We will use MongoDB for our database. You can create a free instance on [Mongo Atlas](https://www.mongodb.com/fr-fr/atlas/database). Make sure to retrieve the connection URL from your dashboard.
+:::
+
+## Setting up your environment
+
+### Installing Nestjs CLI
+
+To install Nestjs CLI, run:
+
+```bash
+yarn global add @nestjs/cli
+```
+### Installing Dependencies
+
+- `axios`: A promise based HTTP client for Node.js
+- `nodemailer`: A package that allow easy email sending
+
+```bash
+yarn add axios nodemailer
+```
+
+### Dev dependencies
+
+- `@types/.*`: provide the necessary typings for you to use libraries or modules in your TypeScript code with type checking and IntelliSense support
+
+
+## Update the `schema.prisma` file
+
+In the last tutorial we have generated a `schema.prisma` file inside the `prisma` directory. Update it to add different collections:
+
+```tsx
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id                String     @id @default(auto()) @map("_id") @db.ObjectId
+  email             String     @unique
+  password          String
+  publicAddress     String     @unique
+  items             Item[]     @relation()
+  sentTransfers     Transfer[] @relation("sentTransfers")
+  receivedTransfers Transfer[] @relation("receivedTransfers")
+  createdAt         DateTime   @default(now())
+}
+
+model Collection {
+  id              String @id @default(auto()) @map("_id") @db.ObjectId
+  contractAddress String @unique
+  name            String @unique
+  description     String
+  items           Item[]
+  nextTokenId     Int
+}
+
+model Item {
+  id           String     @id @default(auto()) @map("_id") @db.ObjectId
+  collection   Collection @relation(fields: [collectionId], references: [id])
+  collectionId String     @db.ObjectId
+  tokenId      String     @unique
+  ownerAddress String     @unique
+  owner        User?      @relation(fields: [ownerId], references: [id])
+  ownerId      String?    @db.ObjectId
+  transfers    Transfer[]
+  createdAt    DateTime   @default(now())
+  updatedAt    DateTime   @updatedAt
+}
+
+model Transfer {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  item       Item     @relation(fields: [itemId], references: [id])
+  itemId     String   @db.ObjectId
+  from       String
+  fromUser   User     @relation("sentTransfers", fields: [fromUserId], references: [id])
+  fromUserId String   @db.ObjectId
+  to         String
+  toUser     User     @relation("receivedTransfers", fields: [toUserId], references: [id])
+  toUserId   String   @db.ObjectId
+  txHash     String   @unique
+  createdAt  DateTime @default(now())
+}
+
+model RevokedToken {
+  id  String @id @default(auto()) @map("_id") @db.ObjectId
+  jti String @unique
+}
+```
+
+## User
+
+The `*User*` collection is defined to store user information. It has the following fields:
+
+- `id`: The unique identifier for the user, generated automatically.
+- `email`: The user's email address, which must be unique.
+- `password`: The user's password.
+- `publicAddress`: The user's public address on the blockchain.
+- `items`: An array of `Item` objects that the user owns.
+- `sentTransfers`: An array of `Transfer` objects representing transfers that the user has sent.
+- `receivedTransfers`: An array of `Transfer` objects representing transfers that the user has received.
+- `createdAt`: The date and time the user was created, generated automatically.
+
+## Collection
+
+The `*Collection*` collection is defined to store information about NFT collections. It has the following fields:
+
+- `id`: The unique identifier for the collection, generated automatically.
+- `contractAddress`: The public address of the contract that manages the collection on the blockchain.
+- `name`: The name of the collection, which must be unique.
+- `description`: A description of the collection.
+- `items`: An array of `Item` objects representing the NFTs in the collection.
+- `nextTokenId`: The ID of the next NFT to be created in the collection.
+
+## Item
+
+The `*Item*` collection is defined to store information about NFTs. It has the following fields:
+
+- `id`: The unique identifier for the NFT, generated automatically.
+- `collection`: The collection that the NFT belongs to.
+- `collectionId`: The ID of the `Collection` that the NFT belongs to.
+- `tokenId`: The ID of the NFT on the blockchain.
+- `ownerAddress`: The public address of the current owner of the NFT on the blockchain.
+- `owner`: An array of `User` objects representing the users that own the NFT.
+- `ownerId`: An array of `id`s of the `User`s that own the NFT.
+- `transfers`: An array of `Transfer` objects representing the transfers that the NFT has been involved in.
+- `createdAt`: The date and time the NFT was created, generated automatically.
+- `updatedAt`: The date and time the NFT was last updated.
+
+## Transfer
+
+The `*Transfer*` collection is defined to store information about transfers of NFTs. It has the following fields:
+
+- `id`: The unique identifier for the transfer, generated automatically.
+- `item`: The `Item` object representing the NFT that was transferred.
+- `itemId`: The `id` of the `Item` that was transferred.
+- `from`: The public address of the user who sent the NFT.
+- `fromUser`: The `User` object representing the user who sent the NFT.
+- `fromUserId`: The `id` of the `User` who sent the NFT.
+- `to`: The public address of the user who received the NFT.
+- `toUser`: The `User` object representing the user who received the NFT.
+- `toUserId`: The `id` of the `User` who received the NFT.
+- `txHash`: The transaction hash of the transfer on the blockchain.
+- `createdAt`: The date and time the transfer was created, generated automatically.
+
+## RevokedToken
+
+The `*RevokedToken*` collection is defined to store information about revoked JWT tokens. It has the following fields:
+
+- `id`: The unique identifier for the revoked token, generated automatically.
+- `jti`: The "JWT ID" of the revoked token, which must be unique.
+
+## Updating the Sign-up route
+
+In the last tutorial our users registered themselves to our app with an email and a password. Since we want to monitor when they receive an NFT, we need to ask them for their public key at registration.
+
+Create a new `SignUp.dto.ts` in the `src/user` directory:
+
+```tsx
+import { IsEmail, IsEthereumAddress, IsStrongPassword } from 'class-validator';
+
+export default class SignUpDto {
+  @IsEmail()
+  email: string;
+
+  @IsStrongPassword()
+  password: string;
+
+  @IsEthereumAddress()
+  publicAddress: string;
+}
+```
+
+This DTO includes a public address field, which allows users to provide their public EVM address. We will use this address to identify when a user receives a new NFT.
+
+Update the DTO type in the controller:
+
+```tsx
+@Post('auth/sign-up')
+  async signUp(
+    @Body() newUser: SignUpDto,
+    @Res() res: Response,
+  ): Promise<void> {
+    try {
+      const { user, token }: { user: Partial<User>; token: string } =
+        await this.userService.signUp(newUser);
+
+      delete user.password;
+
+      res.cookie('jwt', token, { httpOnly: true });
+
+      res.status(201).send({ user: user });
+    } catch (err: unknown) {
+      throw new InternalServerErrorException(err);
+    }
+  }
+```
+
+---
+
+## Creating a `Starton` module
+
+To simplify development, we will create a `StartonModule`. This module will wrap API calls into utility methods.
+
+```tsx
+nest g module starton
+```
+
+```tsx
+import { Injectable } from '@nestjs/common';
+import axios from 'axios';
+import {
+  cryptoquartzCollectionAddress,
+  network,
+  signerWallet,
+} from 'src/utils/constants';
+
+@Injectable()
+export class StartonService {
+  private readonly instance = axios.create({
+    baseURL:
+      'https://api.starton.com/v3/smart-contract/' +
+      network +
+      '/' +
+      cryptoquartzCollectionAddress +
+      '/',
+    headers: {
+      'x-api-key': process.env.STARTON_API_KEY,
+    },
+  });
+
+  async initTransfer(from: string, to: string, tokenId: string) {
+    await this.instance.post('call', {
+      signerWallet,
+      functionName: 'safeTransferFrom',
+      params: [from, to, tokenId, 1, '0x00'],
+    });
+  }
+
+  async initMint(to: string, tokenId: string) {
+    await this.instance.post('call', {
+      signerWallet,
+      functionName: 'mint',
+      params: [to, tokenId, 1, '0x00'],
+    });
+  }
+
+  async initBurn(address: string, tokenId: string) {
+    await this.instance.post('call', {
+      signerWallet,
+      functionName: 'burn',
+      params: [address, tokenId, '0x00'],
+    });
+  }
+}
+```
+
+<aside>
+💡 `src/utils/constants` contains non-sensitive constant variables such as the network, the signer wallet public address, the smart contract address…
+
+</aside>
+
+First, we define an [axios](https://axios-http.com/fr/docs/instance) instance as a member of the `StartonService` class. This is convenient because we can configure the instance with a `baseURL` and headers, which prevents us from repeating ourselves in subsequent code.
+
+Next, we define three wrappers for common API calls: transfers, mints, and burns:
+
+<aside>
+💡 Every method requires the signerWallet, which is the wallet that signs the transaction. This wallet can either be yours or one stored safely in a KMS.
+
+</aside>
+
+### `initTransfer`
+
+Initiate an NFT **transfer** by making a `safeTransferFrom` function call to the smart-contract
+
+<aside>
+⚠️ The spender must either be the owner of the token or have approval to transfer it
+
+</aside>
+
+### `initMint`
+
+Initiate an NFT *mint* by making a `mint` function call to the smart-contract
+
+<aside>
+⚠️ The signerWallet must have the `MINTER_ROLE` to be able to mint tokens.
+
+</aside>
+
+### `initBurn`
+
+Initiate an NFT *burn* by making a `burn` function call to the smart-contract
+
+<aside>
+⚠️ The signerWallet must either be the owner of the token or have approval to transfer it
+
+</aside>
+
+Now that your have your `StartonService`, export it in a module:
+
+```tsx
+nest g module starton
+```
+
+```tsx
+import { Module } from '@nestjs/common';
+import { StartonService } from './starton.service';
+
+@Module({
+  imports: [],
+  controllers: [],
+  providers: [StartonService],
+  exports: [StartonService],
+})
+export class StartonModule {}
+```
+
+## Creating an `EmailModule`
+
+We will encapsulate the functions responsible for sending emails in a service that will be exported from the `EmailModule`.
+
+```tsx
+nest g service email
+nest g module email
+```
+
+```tsx
+import { Injectable } from '@nestjs/common';
+import { createTransport } from 'nodemailer';
+
+/*
+|--------------------------------------------------------------------------
+| MAILING SERVICE
+|--------------------------------------------------------------------------
+*/
+@Injectable()
+export class EmailService {
+  // Utility object to send emails
+  //--------------------------------------------------------------------------
+  private readonly _transporter = createTransport(
+    {
+      host: process.env.EMAIL_HOST, // smtp.elasticemail.com
+      port: process.env.EMAIL_PORT, // default to 2525 with elasticemail
+      auth: {
+        user: process.env.EMAIL_USER, // The email address that sends the message
+        pass: process.env.EMAIL_PASS, // The password of the email address
+      },
+    },
+    {
+      from: `Cryptomancy <${process.env.EMAIL_USER}>`, // "from" field of the message
+    },
+  );
+
+  // Verify SMTP configuration at construction
+  //--------------------------------------------------------------------------
+  constructor() {
+    this._transporter.verify().then(() => {
+      console.log('Ready to send emails');
+    });
+  }
+
+  // Send an email
+  //--------------------------------------------------------------------------
+  async sendEmail(to: string, subject: string, text: string) {
+    await this._transporter.sendMail({ to, subject, text });
+  }
+}
+```
+
+To send emails, we use [nodemailer](https://nodemailer.com/smtp/), a package that abstracts SMTP to make it easier to send emails. The first step is to define a `transporter`, which is responsible for transmitting emails. This can be done by calling the `createTransport` function and passing a configuration object as an argument to it. For this example we use [smtp.elasticemail.com](http://smtp.elasticemail.com) as host. You can  create an account and generate SMTP credentials for free on [their website](https://app.elasticemail.com/api/settings/manage-smtp).
+
+In the constructor, we call the `verify` method to check if we are authenticated correctly and that the server is ready to accept messages.
+
+We also define a single method, `sendEmail`, which takes a recipient email address, subject, and message body as parameters and send the email.
+
+## Create an `Item` resource
+
+### ItemService
+
+Now that we have all the necessary utility services, we need services for adding and updating items in the database.
+
+Run the following command to generate the `ItemService` under `src/item/item.service.ts`:
+
+```bash
+nest g service item
+```
+
+Update it to look like this:
+
+```tsx
+/*
+| Developed by Starton
+| Filename : item.service.ts
+| Author : Alexandre Schaffner (alexandre.s@starton.com)
+*/
+
+import { Injectable } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
+import { PrismaService } from 'src/prisma/prisma.service';
+import { nullAddress } from 'src/utils/constants';
+
+/*
+|--------------------------------------------------------------------------
+| ITEM SERVICE
+|--------------------------------------------------------------------------
+*/
+
+@Injectable()
+export class ItemService {
+  constructor(private readonly prisma: PrismaService) {}
+
+  async create(data: Prisma.ItemCreateInput) {
+    await this.prisma.item.create({ data });
+  }
+
+  async updateByTokenId(tokenId: string, data: Prisma.ItemUpdateInput) {
+    await this.prisma.item.update({ where: { tokenId }, data });
+  }
+
+  async deleteByTokenId(tokenId: string) {
+    await this.prisma.item.delete({ where: { tokenId } });
+  }
+
+  async safeTransferFrom(
+    collection: string,
+    tokenId: string,
+    from: string,
+    to: string,
+  ) {
+    // Add item to database in case of a mint (from === nullAddress)
+    //--------------------------------------------------------------------------
+    if (from === nullAddress) {
+      await this.prisma.item.create({
+        data: {
+          collection: {
+            connect: {
+              contractAddress: collection,
+            },
+          },
+          tokenId,
+          ownerAddress: to,
+        },
+      });
+
+      // Increment nextTokenId in the database
+      //--------------------------------------------------------------------------
+      await this.prisma.collection.update({
+        where: {
+          contractAddress: collection,
+        },
+        data: {
+          nextTokenId: {
+            increment: 1,
+          },
+        },
+      });
+
+      // Update item's owner in case of a transfer
+      //--------------------------------------------------------------------------
+    } else {
+      await this.prisma.item.updateMany({
+        where: {
+          AND: [
+            { tokenId },
+            { collection: { contractAddress: collection } },
+            { ownerAddress: from },
+          ],
+        },
+        data: {
+          ownerAddress: to,
+        },
+      });
+    }
+  }
+}
+```
+
+The `ItemService` is responsible for managing items in the database. It provides several methods:
+
+- `create(data: Prisma.ItemCreateInput)`: adds a new item to the database.
+- `updateByTokenId(tokenId: string, data: Prisma.ItemUpdateInput)`: updates an existing item in the database based on its token ID.
+- `deleteByTokenId(tokenId: string)`: removes an item from the database based on its token ID.
+- `safeTransferFrom(collection: string, tokenId: string, from: string, to: string)`: adds or updates an item in the database depending on whether it was transferred or minted. If the `from` address is `nullAddress`, it creates a new item in the database (mint). Otherwise, it updates the item's owner in the database.
+
+<aside>
+💡 A mint occurs when the sender (`from`) is the `nullAddress = 0x0000000000000000000000000000000000000000` (defined and exported from `src/utils/constant.ts`)
+
+</aside>
+
+### ItemModule
+
+Now that we have an Item service we need to export it in a module to be able to use it elsewhere.
+
+```
+/*
+| Developed by Starton
+| Filename : item.module.ts
+| Author : Alexandre Schaffner (alexandre.s@starton.com)
+*/
+
+import { Module } from '@nestjs/common';
+import { PrismaModule } from 'src/prisma/prisma.module';
+
+import { ItemService } from './item.service';
+
+/*
+|--------------------------------------------------------------------------
+| ITEM MODULE
+|--------------------------------------------------------------------------
+*/
+@Module({
+  imports: [PrismaModule],
+  providers: [ItemService],
+  exports: [ItemService],
+})
+export class ItemModule {}
+```
+
+---
+
+## Create a `Transfer` resource
+
+### TransferService
+
+```tsx
+/*
+| Developed by Starton
+| Filename : transfer.service.ts
+| Author : Alexandre Schaffner (alexandre.s@starton.com)
+*/
+
+import { Injectable } from '@nestjs/common';
+import { Prisma } from '@prisma/client';
+import { PrismaService } from 'src/prisma/prisma.service';
+
+/*
+|--------------------------------------------------------------------------
+| TRANSFER SERVICE
+|--------------------------------------------------------------------------
+*/
+@Injectable()
+export class TransferService {
+  constructor(private readonly prisma: PrismaService) {}
+
+  // Create a transfer record in the database
+  //--------------------------------------------------------------------------
+  async create(transfer: Prisma.TransferCreateInput) {
+    await this.prisma.transfer.create({ data: transfer });
+  }
+}
+```
+
+The `create` method adds a new record to the `Transfer` collection of the database. We will call this method every time a transfer happens.
+
+### TransferController
+
+First things first, let’s generate the TransferController:
+
+```tsx
+nest g controller transfer
+```
+
+#### Watcher & Webhook
+
+For our app to be notified of a Transfer event, we need to set up a *Watcher* on Starton. A Watcher is a condition that is checked upon inspection of each block. When the watcher is triggered, it sends a POST request to a *webhook* containing data about the event. You can find how to create a Watcher [here](/docs/watcher/creating-a-watcher).
+
+<aside>
+💡 You can configure a *webhook* URL using ngrok. We already wrote a tutorial about it [here](/docs/tutorials/testing-webhooks-locally-ngrok).
+
+</aside>
+
+```tsx
+/*
+| Developed by Starton
+| Filename : transfer.controller.ts
+| Author : Alexandre Schaffner (alexandre.s@starton.com)
+*/
+
+import {
+  Body,
+  Controller,
+  InternalServerErrorException,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
+import { Prisma } from '@prisma/client';
+import { MintDto } from 'src/contracts/dto/Mint.dto';
+import { SafeTransferDto } from 'src/contracts/dto/SafeTransfer.dto';
+import { AuthGuard } from 'src/guards/auth/auth.guard';
+import { ItemService } from 'src/item/item.service';
+import { StartonService } from 'src/starton/starton.service';
+import { UserService } from 'src/user/user.service';
+import { cryptoquartzCollectionAddress } from 'src/utils/constants';
+
+import { EmailService } from '../email/email.service';
+import { TransferService } from './transfer.service';
+import { StartonGuard } from 'src/guards/starton/starton.guard';
+
+/*
+|--------------------------------------------------------------------------
+| TRANSFER CONTROLLER
+|--------------------------------------------------------------------------
+*/
+
+@Controller('transfer')
+export class TransferController {
+  constructor(
+    private readonly transferService: TransferService,
+    private readonly starton: StartonService,
+    private readonly userService: UserService,
+    private readonly itemService: ItemService,
+    private readonly emailService: EmailService,
+  ) {}
+
+  /*
+  |--------------------------------------------------------------------------
+  | WEBHOOK ENDPOINT TRIGGERED BY STARTON
+  |--------------------------------------------------------------------------
+  */
+
+	@UseGuards(StartonGuard)
+  @Post('webhook')
+  async webhook(@Body() body: any) {
+    try {
+      const { from, to, id } = body.data.transferSingle;
+      const transfer: Prisma.TransferCreateInput = {
+        item: { connect: { tokenId: id.hex.toLowerCase() } },
+        from: from.toLowerCase(),
+        to: to.toLowerCase(),
+        toUser: { connect: { publicAddress: to.toLowerCase() } },
+        fromUser: { connect: { publicAddress: from.toLowerCase() } },
+        txHash: body.data.transaction.hash.toLowerCase(),
+      };
+
+      // Check if user exists, if not, don't connect records
+      //--------------------------------------------------------------------------
+      const toUser = await this.userService.findByPublicAddress(
+        to.toLowerCase(),
+      );
+      if (!toUser) delete transfer.toUser;
+      const fromUser = await this.userService.findByPublicAddress(
+        from.toLowerCase(),
+      );
+      if (!fromUser) delete transfer.fromUser;
+
+      // Change the owner of the item in the database
+      //--------------------------------------------------------------------------
+      await this.itemService.safeTransferFrom(
+        cryptoquartzCollectionAddress,
+        id.hex.toLowerCase(),
+        from.toLowerCase(),
+        to.toLowerCase(),
+      );
+
+      // Create the transfer record
+      //--------------------------------------------------------------------------
+      await this.transferService.create(transfer);
+
+      // If the recipient is a user, send an email
+      //--------------------------------------------------------------------------
+      if (!toUser) return;
+
+      // Use a template here
+      //--------------------------------------------------------------------------
+      await this.emailService.sendEmail(
+        toUser.email,
+        'NFT Transfer',
+        'The address ' +
+          from +
+          ' sent the NFT #' +
+          id.hex +
+          ' to your address ' +
+          to +
+          '.',
+      );
+
+      return;
+    } catch (err: unknown) {
+      console.error(err);
+      throw new InternalServerErrorException();
+    }
+  }
+}
+```
+
+So, we need a route to handle requests sent by Starton.
+
+We create a `/transfer/webhook` endpoint. In it, we create a Transfer record from the data we received in the body and check if addresses in the Transfer record are related to a user.
+
+Then, we call itemService's safeTransferFrom method to update the Item’s owner in the database and we create a new Transfer record in the DB via `transferService`'s `create` method.
+
+Finally, we use the `emailService` we coded previously to send an email to the receiver of the NFT if he is a registered user.
+
+Note that the endpoint is protected by the `StartonGuard`, which we will focus later on.
+
+### StartonGuard
+
+We can now be notified of transfers via the `/transfer/webhook` endpoint. This is good, but we need to secure the endpoint so that only Starton can trigger it.
+
+To do so we create a `StartonGuard`:
+
+```tsx
+nest g guard guards/starton
+```
+
+```tsx
+/*
+| Developed by Starton
+| Filename : starton.guard.ts
+| Author : Alexandre Schaffner (alexandre.s@starton.com)
+*/
+
+import { CanActivate, ExecutionContext, Injectable } from '@nestjs/common';
+import { createHmac } from 'crypto';
+import { Request } from 'express';
+
+/*
+|--------------------------------------------------------------------------
+| STARTON'S SIGNATURE VERIFICATION GUARD
+|--------------------------------------------------------------------------
+*/
+
+@Injectable()
+export class StartonGuard implements CanActivate {
+  canActivate(context: ExecutionContext): boolean {
+    const request: Request = context.switchToHttp().getRequest();
+    const payload = JSON.stringify(request.body);
+
+    const reqSignature = request.get('starton-signature');
+    if (!reqSignature) return false;
+
+    // Re-compute the signature and compare it with the one received
+    //--------------------------------------------------------------------------
+    const localSignature = createHmac(
+      'sha256',
+      process.env.STARTON_SECRET as string,
+    )
+      .update(Buffer.from(payload))
+      .digest('hex');
+
+    return reqSignature === localSignature;
+  }
+}
+```
+
+In it, we retrieve the Request object, the payload of the body and the signature. Then, we compute the signature again using the payload and the signing key (you can find yours in your Starton’s dashboard under: ************Your project > Developer > Webhook************). Finally we compare the signature we computed with the one provided in the header of the request we retrieved previously. If they match, we allow access to the endpoint, and if not it responds with an error.
+
+#### Utility endpoints
+
+Next, we add endpoints to allow minting, burning and transfers of items.
+
+```tsx
+/*
+|--------------------------------------------------------------------------
+| TRANSFER / MINT / BURN ENDPOINTS
+|--------------------------------------------------------------------------
+*/
+
+// safeTransferFrom
+//--------------------------------------------------------------------------
+@UseGuards(AuthGuard)
+@Post()
+async safeTransferFrom(@Body() safeTransferDto: SafeTransferDto) {
+  await this.starton.initTransfer(
+    safeTransferDto.from,
+    safeTransferDto.to,
+    safeTransferDto.tokenId,
+  );
+}
+
+// Mint a token
+//--------------------------------------------------------------------------
+@UseGuards(AuthGuard)
+@Post('mint')
+async mint(@Body() mintDto: MintDto) {
+  await this.starton.initMint(mintDto.to, mintDto.tokenId);
+}
+
+// Burn a token
+//--------------------------------------------------------------------------
+@UseGuards(AuthGuard)
+@Post('burn')
+async burn(@Body() burnDto: MintDto) {
+  await this.starton.initBurn(burnDto.to, burnDto.tokenId);
+  await this.itemService.deleteByTokenId(burnDto.tokenId);
+}
+```
+
+All the 3 endpoints calls methods of the Starton wrapper service. Thus, Starton can make the smart contract function calls to apply changes on-chain. Every call to this endpoint ends up in a Transfer event on-chain, which triggers our webhook and applies changes to the database.
+
+### TransferModule
+
+Finally, we group TransferService and TransferController in a TransferModule:
+
+```tsx
+nest g module transfer
+```
+
+```tsx
+import { Module } from '@nestjs/common';
+import { EmailModule } from 'src/email/email.module';
+import { ItemModule } from 'src/item/item.module';
+import { PrismaModule } from 'src/prisma/prisma.module';
+import { StartonModule } from 'src/starton/starton.module';
+import { UserModule } from 'src/user/user.module';
+
+import { TransferService } from './transfer.service';
+
+@Module({
+  imports: [PrismaModule, StartonModule, UserModule, ItemModule, EmailModule],
+  providers: [TransferService],
+})
+export class TransferModule {}
+```
+
+Now that everything looks fine you can test your code by running
+
+```tsx
+yarn start
+```
+
+## Congratulations!
+
+You successfully created an email notification system that is triggered every time a transfer occurs on your ERC1155 NFTs collection !
+
+You have learned how to create an email module to automatically send emails with Nodemailer, how you can use a Watcher with a webhook to track for specific event on the blockchain.
+
+Now that you have successfully created an email notification system that sends emails whenever a transfer occurs on your ERC1155 NFTs collection, you can customize the email template to make it more appealing to your users. You can also explore other notification methods such as SMS or push notifications to provide your users with more options. Additionally, you may want to consider implementing more security features like roles to ensure that your endpoints are properly secured against unauthorized access.

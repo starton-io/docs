@@ -4,7 +4,9 @@
 */
 
 import type { PluginConfig } from '@docusaurus/types'
-import {PluginOptions} from "@docusaurus/plugin-client-redirects/src/options";
+import { PluginOptions } from '@docusaurus/plugin-client-redirects/src/options'
+import { Options as BlogPluginOptions } from '@docusaurus/plugin-content-blog'
+import * as path from 'path'
 
 export const plugins: Array<PluginConfig> = [
 	'@docusaurus/theme-live-codeblock',
@@ -26,12 +28,12 @@ export const plugins: Array<PluginConfig> = [
 		{
 			redirects: [
 				{
-					from: '/docs/tutorials/Home',
-					to: '/tutorials',
-				},
-				{
 					from: '/intro',
 					to: '/api-reference',
+				},
+				{
+					from: '/docs/tutorials/Home',
+					to: '/tutorials',
 				},
 				{
 					from: '/docs/smart-contract/ERC721-Meta.md',
@@ -41,10 +43,29 @@ export const plugins: Array<PluginConfig> = [
 			createRedirects(existingPath) {
 				if (existingPath.includes('/guides')) {
 					return existingPath.replace('/guides', '/blog')
+				} else if (existingPath.includes('/tutorials')) {
+					return existingPath.replace('/tutorials', '/docs/tutorials')
 				}
 
 				return undefined
 			},
 		} as PluginOptions,
+	],
+	// Tutorials
+	// ----------------------------------------------------------------------------
+	[
+		path.resolve(__dirname, '..', 'plugins', 'starton-tutorial-plugin'),
+		{
+			id: 'tutorials',
+			blogTitle: 'Tutorials',
+			blogSidebarCount: 'ALL',
+			showReadingTime: true,
+			path: './tutorials',
+			routeBasePath: 'tutorials',
+			authorsMapPath: './authors.yml',
+			blogListComponent: '@site/src/components/pages/tutorials/list/HomeTutorials.tsx',
+			blogPostComponent: '@site/src/components/pages/tutorials/details/HomeTutorial.tsx',
+			postsPerPage: 'ALL',
+		} satisfies BlogPluginOptions,
 	],
 ]

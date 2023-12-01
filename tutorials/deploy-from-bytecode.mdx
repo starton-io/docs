@@ -1,0 +1,119 @@
+---
+title: Deploy your own contract from bytecode
+displayedSidebar: tutorialSidebar
+description: Learn how to deploy your own contract from bytecode using Starton Connect in this tutorial. Discover how to compile a custom contract, obtain its bytecode and ABI, and deploy it on the blockchain using Starton's API.
+authors: loubna-benzaama
+tags: ['BYTECODE', 'DEPLOY', CONTRACT']
+services: ['smart-contract-library', 'smart-contract-management']
+difficulty: beginner
+---
+
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+
+# Deploy your own contract from bytecode
+
+Starton Library already offers anyone a library of ready-to-use audited smart contract templates. But what if you want to use your own custom template?
+
+Well, you can import it on Starton Connect from its bytecode as we will see in this tutorial.
+
+> Prerequisite: You should have your custom smart contract as a .sol file ready.
+
+## What is the bytecode and how to get it?
+
+The bytecode of a smart contract is the compiled version of your smart contract.
+
+As we use human language code (the .sol file) to understand each other and have a good time developing, the machine needs a version in its own language to work properly.
+
+And this is exactly what the bytecode is. It is the human readable contract transformed into a machine readable format.
+Now that we know what it is, let’s get the bytecode of our smart contract !
+To do this, we’ll use [Remix](https://remix.ethereum.org/) which is a development environment (IDE) that lives in a browser.
+
+You should see something like this the first time you come:
+
+We can see in the File Explorers on the left that a few .sol example files already exist under the contracts folder.
+We won’t use them so you can delete them if you want or keep them here.
+We can now:
+
+-   Select the contracts folder
+-   Click on the upload like button just above, which will open a popup
+-   Select our .sol file to import it in Remix
+
+For the sake of this tutorial, we will use the StartonERC20BurnPause.sol that can be found here (all our templates are open source !).
+Then we will right click on our newly imported contract, and select Compile in order to generate the bytecode we will use.
+
+You should see a green mark on the second icon of the left panel.
+This is the compilation tab. Let’s click on it.
+We are now in the Solidity Compiler tab and if we scroll all the way down we should see on the bottom right Bytecode and ABI (we will also use that later).
+
+We can copy to clipboard the ABI by clicking on it, but the bytecode is not under the right format ... So we need to click on Compilation Details just above.
+It will open a popup with a lot of sections. To get the bytecode we have to expand the Bytecode section and scroll all the way down to find the object field value.
+This is the value we are interested in !
+
+## Deploy the contract with the Starton Relayer
+
+Now that we have the bytecode and ABI, we will call Starton Connect’s API to deploy our contract.
+
+First, be sure to have an API key already created and available. You can look here if it is not yet the case.
+
+We will now use the from-bytecode endpoint to deploy our contract. We will need the abi and the bytecode we found in step 1) and deploy our contract on the Ropsten network of Ethereum.
+
+The complete list of available networks can be found in Relayer.
+
+```js
+const axios = require("axios")
+
+const http = axios.create({
+	baseURL: "https://api.starton.com/v3",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+
+http.post("/smart-contract/from-bytecode", {
+	network: "ethereum-ropsten",
+	name: "My contract's name",
+	description: "This is the most beautiful ERC20 ever deployed.",
+	params: [
+		// parameter values for the smart contract constructors, this will change depending of your contract
+		"My token",
+		"TOKEN",
+		"1000000000000000000000",
+		"0x0", // This is the owner and should not be set to 0x0 adress but we do this as this is a tutorial. You should use either the KMS adress or one that you control.
+	],
+	abi: "", // Paste here the abi you copied to clipboard
+	bytecode: "", // Paste here the bytecode you copied to clipboard
+	compilerVersion: "string",
+	signerWallet: "string",
+}).then((response) => {
+	console.log(response.data)
+})
+```
+
+And it should be done! You should receive back an object with the smart contract details such as the hash and the address of it.
+You can then use the address or the transactionHash to check it on the blockchain explorer of your selected network!
+
+<div className="row-is-multiline">
+
+    <div className="col col--2" className="cards">
+        <Link className="button-card button-card--vertical" to="https://app.starton.com/projects">
+            <Heading as={"h3"}>Check your Smart contract on the Dashboard</Heading>
+            <div className="button-card__inner">
+                <p color="white">
+                    Go to <b>Starton Dashboard</b> and check all the transactions of your smart contract at one glance.
+                </p>
+            </div>
+        </Link>
+    </div>
+
+</div>
+
+## Conclusion
+
+We have seen in this tutorial how we can:
+
+-   Compile our custom contract
+-   Get its bytecode and abi
+-   Use Starton Connect to deploy our smart contract
+    If you want to see how you can now interact with your smart contract, you can check our tutorial on How to Interact with a contract from code!
+    We hope you like this tutorial, and if by any mean you struggle on any step you can find some help on our Discord!
