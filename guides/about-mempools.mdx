@@ -1,0 +1,59 @@
+---
+slug: about-mempools
+title: What’s the deal with mempools?
+tags: [Relayer]
+---
+
+# What’s the deal with mempools?
+
+Today we're tackling an issue that every blockchain developer has faced at least once: the dreaded mempool congestion. Imagine it's rush hour, and every transaction is a car trying to get to its destination. But, there's a twist – some cars have a VIP pass, while others seem to be invisible to the traffic lights. This is what happens when the mempool gets congested; some transactions get through quickly, while others are left hanging indefinitely.
+
+At Starton, we understand the importance of every transaction reaching its destination efficiently. That's why we've developed a robust Relayer that acts like the ultimate traffic controller, ensuring a smooth flow in the busiest of times. Here's how we solve the mempool conundrum.
+
+## The Mempool Dilemma
+
+A blockchain mempool is like a waiting room for transactions before they're added to the block. It's essential, yet it can get so crowded that some transactions are forgotten – like paperwork on a busy desk.
+
+When the mempool gets congested, nonces (those unique identifiers for transactions) can be overlooked, leading to unprocessed transactions.
+
+Starton's relayer consistently monitors the mempool, ensuring that no transaction is neglected, effectively managing the queue, and addressing the risk of forgotten transactions.
+
+### Each Network, Its Own Mempool
+
+Decentralization isn't just a buzzword; it's the backbone of blockchain technology. Each network node has its mempool, each as unique as a fingerprint.
+
+Why focus on the first 64 transactions? Well, for many wallets across different networks, this is a boundary that signifies the mempool limit.
+
+If a network only looks at the first 64 transactions, any beyond that could be in limbo.
+
+Our goal is to ensure no transaction, regardless of its number, gets left behind.
+
+## Transaction Presence Issues
+
+In blockchain ecosystems, transactions can occasionally become "invisible" if the network prematurely considers them known.
+
+Invisible transactions can mean lost opportunities and time. In blockchain terms, this leads to transactions being neither processed nor acknowledged, causing potential disruptions in the sequence and overall network performance.
+
+To tackle this, Starton's relayer is designed to detect these phantom transactions. It cross-references the mempool against its internal log, flagging and re-submitting any transaction that has not been confirmed. This ensures that every transaction is accounted for and given the attention it requires to be validated and executed.
+
+## The Art of Rebroadcasting
+
+When transactions are broadcast again, it's not always smooth sailing. There are various errors that could pop up, complicating the process.
+
+Common errors such as "not enough funds" or "replacement transaction underpriced" are not just simple roadblocks; they indicate deeper issues within transaction queuing or fee estimation processes that could hinder the flow of operations within the network.
+
+Starton's relayer is equipped to navigate these complexities. It performs an in-depth analysis of each error message, tweaking transaction parameters such as gas fees or nonce values, and ensures that each transaction is successfully re-submitted. This meticulous approach ensures a higher success rate for transaction completions, maintaining the network's reliability and efficiency.
+
+## The Nonce Challenge
+
+Managing nonces is crucial but tricky. There's no easy way to get all transactions sorted by nonce from the network. Without an easy way to order transactions by nonce, the blockchain can get confused. That’s why, we’ve built a system that keeps track of nonces in a dedicated database, ensuring each transaction is processed in the correct order.
+
+Forgotten transactions can lead to nonce nightmares, but not on our watch. A lost transaction could mean a nonce mismatch, leading to further issues down the line. We've engineered our system to anticipate and resolve these issues, keeping our users' experiences error-free.
+
+To learn more on Nonces, go to **[Understanding nonces](/docs/transactions/understanding-nonce)**
+
+Simplifying the mempool is not just a technical necessity; it's a commitment to user experience. We at Starton are dedicated to providing developers with the tools and solutions they need to navigate the complex blockchain landscape.
+
+Our relayer isn't just about managing transactions; it's about empowering developers to create  blockchain experiences. As we continue to evolve our technology, we invite you to join us. With Starton's solutions, you can ensure that your blockchain transactions are as smooth and reliable as possible.
+
+Eager to see how Starton can transform your blockchain experience? Explore our tools, join our community, and let’s innovate together. Because when it comes to blockchain transactions, we believe there's always a way through the maze.

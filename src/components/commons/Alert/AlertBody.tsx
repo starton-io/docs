@@ -31,7 +31,7 @@ export const StartonAlertBody = React.forwardRef<HTMLDivElement, StartonAlertBod
 			display="flex"
 			flexDirection={'column'}
 			gap={2}
-			alignItems="center"
+			alignItems="left"
 			{...boxProps}
 		>
 			{children}
