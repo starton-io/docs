@@ -1,0 +1,206 @@
+---
+title: Creating a watcher with ngrok-integrated webhooks
+description: Learn how to receive ngrok-integrated webhooks to monitor blockchain activity locally.
+authors: loubna-benzaama
+tags: ['MONIOR', 'CODE', 'NGROK']
+services: ['network-monitoring']
+difficulty: intermediate
+---
+
+# Creating a watcher with ngrok-integrated webhooks 
+
+<Typography variant={'subtitle2'}>Learn how to receive ngrok-integrated webhooks to monitor blockchain activity locally.</Typography>
+
+
+
+<CardRequirements
+items={[
+'A Starton API KEY',
+'Ngrok Authentication Token',
+'Basic comprehension of Node.js and Webhooks',
+]}
+/>
+
+<StepSection stepTitle={1}>
+## Creating Your Node.js Project
+
+Set up your Node.js project environment:
+
+1. **Create a Project Directory**:
+
+    ```bash
+    mkdir my-starton-project
+    cd my-starton-project
+    ```
+
+2. **Initialize Your Node.js Project**:
+
+    ```bash
+    npm init -y
+    ```
+
+3. **Install Essential Packages**:
+
+    ```bash
+    npm install express dotenv axios body-parser ngrok node-notifier
+    ```
+
+    - **`express`**: A minimal and flexible Node.js web application framework for building APIs and web servers.
+    - **`dotenv`**: Loads environment variables from a **`.env`** file into **`process.env`**, managing configuration settings separately from the code.
+    - **`axios`**: A promise-based HTTP client for making asynchronous HTTP requests to external resources, like REST APIs.
+    - **`body-parser`**: Middleware for Express that parses incoming request bodies, making them available under the **`req.body`** property.
+    - **`ngrok`**: Exposes local development servers to the Internet, useful for testing applications that interact with external services like webhooks.
+    - **`node-notifier`**: A module for sending native desktop notifications, providing visual feedback from scripts or applications.
+
+
+
+### **Understanding Webhooks**
+
+Webhooks dispatch automated HTTP POST requests activated by specific events in a source system. They relay data to a recipient system. With Starton, watchers utilize webhooks to send event notifications.
+
+
+</StepSection>
+
+<StepSection stepTitle={2}>
+### Setting Up Environment Variables
+
+1. **Configuring Variables**:
+   Create or update the `.env` file in your project's root directory:
+
+```
+STARTON_API_KEY=YOUR_STARTON_API_KEY
+NGROK_TOKEN=YOUR_NGROK_AUTH_TOKEN
+```
+
+2. **Retrieving Your Ngrok Authentication Token**
+
+1. **Sign Up or Log In**: Visit [Ngrok's website](https://ngrok.com/) and sign up or log in.
+2. **Find the Token**: In the dashboard, go to Your Authtoken and click Copy.
+
+
+</StepSection>
+
+<StepSection stepTitle={3}>
+## Configuring the Watcher Integration
+
+In your project's root directory, create a file named `index.js` and insert the following code:
+Tailor the watcher parameters and the rest of the code to suit your project's needs.
+
+```jsx
+const express = require("express");
+const bodyParser = require('body-parser');
+const notifier = require('node-notifier');
+const ngrok = require('ngrok');
+const axios = require("axios");
+require('dotenv').config();
+
+const app = express();
+app.use(bodyParser.json());
+
+const axiosInstance = axios.create({
+    baseURL: "<https://api.starton.com>",
+    headers: {
+        "x-api-key": process.env.STARTON_API_KEY,
+    },
+});
+let watcherId = null;
+
+app.post('/', (req, res) => {
+        if (req.body.data) {
+            notifier.notify({
+                title: 'New transaction',
+                message: `Hash: ${req.body.data.transaction.hash}`
+            })
+        }
+        res.send('ok')
+    })
+const port = 30001
+app.listen(port, () => {
+    console.log(`Server listening on port ${port}`)
+    createNgrokTunnelAndWatcher()
+})
+
+const createNgrokTunnelAndWatcher = async () => {
+    const url = await ngrok.connect({
+        authtoken: process.env.NGROK_TOKEN,
+        addr: port
+    })
+	  console.log(`NGROK listening on ${url}`)
+    axiosInstance.post("/v3/watcher", {
+        name: "Watcher test",
+        address: "0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619",
+        network: "polygon-mainnet",
+        type: "EVENT_TRANSFER",
+        webhookUrl: url,
+        confirmationsBlocks: 0
+    }).then((response) => {
+        console.log("Watcher created", response.data)
+        watcherId = response.data.id
+    }).catch(e => console.log(e.response.data))
+}
+
+```
+
+Tailor the watcher parameters to your needs like so :
+
+| name: "Watcher test", | name of your watcher in Starton (learn more) |
+| --- | --- |
+| address:"0x7ceB23fD6bC0adD59E62ac25578270cFf1b9f619", | address watched on the blockchain (learn more) |
+| network: "polygon-mainnet", | network on which we are creating the watcher (learn more) |
+| type: "EVENT_TRANSFER", | Type of event returned by the watcher (learn more) |
+| webhookUrl: url, | Url of your webhook (learn more) |
+| confirmationsBlocks: 0 | Number of confirmation blocks (learn more) |
+</StepSection>
+
+<StepSection stepTitle={4}>
+## Automating the deletion of our test watcher
+
+After testing, ensure to delete the watcher to prevent unintended operations.
+
+```jsx
+const deleteWatcher = async () => {
+    await axiosInstance.delete(`/v3/watcher/${watcherId}`).then(response => {
+        console.log("Watcher deleted")
+    })
+    process.exit();
+}
+   
+process.on('SIGINT', deleteWatcher)
+process.on('SIGTERM', deleteWatcher)
+```
+</StepSection>
+
+<StepSection stepTitle={5}>
+##Running the Project**
+
+1. **Server**:
+   Start your server using the command:
+
+    ```bash
+    node index.js
+    
+    ```
+
+2. **Client**:
+   Access your application by visiting `http://localhost:3000` in a browser.
+
+</StepSection>
+
+<StepSection stepTitle={6}>
+ Setting Up Webhooks with Ngrok**
+
+1. **Launching Ngrok**:
+
+    ```bash
+    ngrok http 3000
+    
+    ```
+
+   Document the provided URL for webhook testing.
+
+2. **Webhook Examination**:
+   Use the Ngrok URL as the webhook endpoint when creating the watcher.
+
+</StepSection>
+
+Congratulations! You've successfully integrated Starton's Monitor with webhook notifications using Ngrok. This setup allows you to monitor blockchain activities locally and in real-time. As you transition to a production environment, remember to use permanent and secure webhook endpoints.

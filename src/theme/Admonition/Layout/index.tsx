@@ -45,7 +45,7 @@ export const AdmonitionLayout: React.FC<AdmonitionLayoutProps> = (props) => {
 	return (
 		<StartonAlert severity={SEVERITY[props.type]} variant={'contained'} marginBottom={5}>
 			<StartonAlertTitle icon={<InfoOutlined />}>{props.title}</StartonAlertTitle>
-			<StartonAlertBody>{props.children}</StartonAlertBody>
+			<StartonAlertBody marginleft={0}>{props.children}</StartonAlertBody>
 		</StartonAlert>
 	)
 }

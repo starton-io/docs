@@ -142,7 +142,7 @@ const sidebars: SidebarsConfig = {
 					collapsed: true,
 					items: [
 						'watcher/creating-a-watcher',
-						'watcher/watcher-state-and-status',
+
 						{
 							type: 'category',
 							label: 'Events',
@@ -178,23 +178,9 @@ const sidebars: SidebarsConfig = {
 								},
 							],
 						},
-						{
-							type: 'category',
-							label: 'Webhooks',
-							link: {
-								type: 'doc',
-								id: 'watcher/webhooks',
-							},
-							collapsed: true,
-							items: [
-								{
-									type: 'link',
-									href: '/tutorials/testing-webhooks-locally-ngrok',
-									label: 'Tutorials',
-								},
-							],
-						},
+						'watcher/webhooks',
 						'watcher/confirmation-blocks',
+						'watcher/watcher-state-and-status',
 					],
 				},
 				{
@@ -205,28 +191,8 @@ const sidebars: SidebarsConfig = {
 						id: 'wallet/about-wallets',
 					},
 					collapsed: true,
-					items: [
-						{
-							type: 'category',
-							label: 'Using a wallet',
-							link: {
-								type: 'doc',
-								id: 'wallet/creating-a-wallet',
-							},
-							collapsed: true,
-							items: ['wallet/editing-a-wallet', 'wallet/withdraw', 'wallet/message-signing'],
-						},
-						{
-							type: 'category',
-							label: 'Understanding key management systems',
-							link: {
-								type: 'doc',
-								id: 'wallet/understanding-key-management-systems',
-							},
-							collapsed: true,
-							items: ['wallet/connecting-aws-kms', 'wallet/grantfull-access'],
-						},
-					],
+					items: [ 'wallet/understanding-key-management-systems',
+					'wallet/creating-a-wallet','wallet/withdraw', 'wallet/message-signing'],
 				},
 				{
 					type: 'category',
