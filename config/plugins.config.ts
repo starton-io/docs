@@ -32,7 +32,7 @@ export const plugins: Array<PluginConfig> = [
 					to: '/api-reference',
 				},
 				{
-					from: '/docs/tutorials/Home',
+					from: '/tutorials/Home',
 					to: '/tutorials',
 				},
 				{
