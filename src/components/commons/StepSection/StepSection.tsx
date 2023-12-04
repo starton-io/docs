@@ -35,6 +35,10 @@ const Section = styled(Box)<Omit<BoxProps, 'bottomDivider'> & Pick<StepSectionPr
 			paddingBottom: theme.spacing(10),
 			borderBottom: `1px solid ${theme.palette.divider}`,
 		}),
+
+		'& + h2': {
+			marginTop: 0,
+		},
 	}),
 )
 
