@@ -78,7 +78,7 @@ export const themeConfig: ThemeConfig = {
 			// 	position: 'left',
 			// },
 			{
-				to: 'guides/blockchain-transaction-manager',
+				to: 'guides',
 				label: 'Guides',
 				'aria-label': 'Guides',
 				position: 'right',
