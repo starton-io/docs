@@ -960,9 +960,12 @@ nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > 
 	gap: 8px !important;
 }
 
+nav.navbar .menu__link--active {
+	font-family: 'PP Neue Machina', 'Inter', Arial, sans-serif;
+}
+
 .menu__link--active {
 	padding: 8px 16px;
-	font-family: 'PP Neue Machina', 'Inter', Arial, sans-serif;
 }
 
 .menu__link--active:not(.menu__link--sublist) {
