@@ -1,6 +1,6 @@
 /*
 | Developed by Starton
-| Filename : HomeTutorialContainer.tsx
+| Filename : HomeGuideContainer.tsx
 | Author : Philippe DESPLATS (philippe@starton.com)
 */
 
@@ -16,7 +16,7 @@ import { variantFade } from '@site/src/components/animate'
 | Contracts
 |--------------------------------------------------------------------------
 */
-export interface HomeTutorialContainerProps {
+export interface HomeGuideContainerProps {
 	children: React.ReactNode
 }
 
@@ -25,7 +25,7 @@ export interface HomeTutorialContainerProps {
 | Component
 |--------------------------------------------------------------------------
 */
-export const HomeTutorialContainer: React.FC<HomeTutorialContainerProps> = (props) => {
+export const HomeGuideContainer: React.FC<HomeGuideContainerProps> = (props) => {
 	const {
 		frontMatter,
 		assets,

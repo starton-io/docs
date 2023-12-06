@@ -1,15 +1,17 @@
 ---
-slug: starton-answer-to-gas-price-volatility
 title: Starton's answer to gas price volatility
+authors: loubna-benzaama
+slug: starton-answer-to-gas-price-volatility
 tags: [Relayer]
+hide_table_of_contents: true
 ---
-
 
 # Starton's answer to gas price volatility
 
 In the dynamic world of blockchain, managing transactions efficiently is crucial. A key aspect of this is dealing with the volatile nature of gas prices, which can significantly impact the success and cost of transactions on the blockchain network.
 
-### What’s the deal with gas price ?
+<StepSection>
+## What’s the deal with gas price ?
 
 In blockchain transactions, gas refers to the computational effort required to execute operations. This cost, paid in the network's native currency, is akin to fuel for a vehicle – necessary for the transaction's journey through the blockchain.
 
@@ -18,8 +20,10 @@ The total cost of a blockchain transaction is analogous to a car trip, where the
 Gas prices are notoriously unstable, changing rapidly based on network demand and activity. This volatility can leave transactions pending for extended periods, especially if the gas price set by the user is too low during times of high demand.
 
 The fluctuating gas prices lead to user frustration due to unexpected delays or increased transaction costs, impacting the overall user experience.
+</StepSection>
 
-### **Challenges Associated with Gas Prices**
+<StepSection>
+## **Challenges Associated with Gas Prices**
 
 **Risks of Low Gas Price:**
 
@@ -28,8 +32,10 @@ Transactions with insufficient gas prices face longer processing times or maybe 
 **Complexity in Adjusting Gas Prices:**
 
 Blockchain networks typically require a minimum increase (often 10%) for transaction replacement. This rule poses a challenge in quickly adapting to rapidly changing network conditions. Users frequently encounter errors like "replacement underpriced," which occur when attempting to accelerate a pending transaction by replacing it with one that offers a higher gas price but fails to meet the network's minimum increment threshold.
+</StepSection>
 
-### **Starton’s Intelligent Gas Estimation**
+<StepSection>
+## **Starton’s Intelligent Gas Estimation**
 
 Starton’s Relayer utilizes advanced algorithms to offer an accurate gas price estimation, thereby ensuring that transactions are neither delayed due to low gas prices nor become exorbitantly costly. This approach, akin to planning a car trip with optimal fuel efficiency and cost-effectiveness in mind, ensures that transactions are processed in a timely and cost-effective manner. The Relayer strategically increases the gas price by 15% at regular intervals until a fixed limit is reached to ensure transactions are processed efficiently, especially during times of network congestion, without breaking the bank. This proactive measure, slightly exceeding the typical minimum increment required by blockchains, is designed to avoid transaction delays and ensure a smoother transaction experience.
 
@@ -44,3 +50,4 @@ Starton's Relayer provides users with the flexibility to customize transaction p
 In the fluctuating realm of blockchain, managing gas prices effectively is vital for seamless transaction processing. Starton’s Relayer addresses this challenge head-on, providing a robust and user-friendly solution.
 
 Starton’s commitment to a frictionless blockchain experience is evident in the Relayer's design and capabilities. By simplifying complex aspects of transaction management, Starton empowers users to navigate the blockchain with confidence and ease.
+</StepSection>

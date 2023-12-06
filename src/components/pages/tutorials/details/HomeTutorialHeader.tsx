@@ -93,7 +93,7 @@ const DifficultyBadge = styled('span', {
 | Component
 |--------------------------------------------------------------------------
 */
-export const HomeTutorialHeader: React.FC<HomeTutorialHeaderProps> = (props) => {
+export const HomeTutorialHeader: React.FC<HomeTutorialHeaderProps> = () => {
 	const { metadata } = useBlogPost()
 	const { title, frontMatter } = metadata
 	const { difficulty } = frontMatter

@@ -25,15 +25,7 @@ export const StartonAlertBody = React.forwardRef<HTMLDivElement, StartonAlertBod
 	// Render
 	//--------------------------------------------------------------------------
 	return (
-		<Box
-			className="StartonAlertBody-root"
-			ref={ref}
-			display="flex"
-			flexDirection={'column'}
-			gap={2}
-			alignItems="left"
-			{...boxProps}
-		>
+		<Box className="StartonAlertBody-root" ref={ref} display="flex" flexDirection={'column'} gap={2} {...boxProps}>
 			{children}
 		</Box>
 	)

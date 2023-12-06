@@ -23,7 +23,11 @@ const StartonFooterStyled = styled((props: BoxProps) => <Box {...props} componen
 	backgroundColor: theme.palette.background.paper2,
 	width: '100%',
 	border: 'none',
-	padding: theme.spacing(1, 0),
+	padding: theme.spacing(1, 3),
+
+	[theme.breakpoints.up('md')]: {
+		padding: theme.spacing(1, 0),
+	},
 }))
 
 /*

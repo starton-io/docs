@@ -1,11 +1,14 @@
 ---
 title: A guide to understanding smart contracts
+authors: loubna-benzaama
+hide_table_of_contents: true
 ---
 
 # A guide to understanding smart contracts
 
 In the world of blockchain and decentralized applications, smart contracts stand out as a pivotal innovation. Defined as self-executing contracts with the terms of the agreement directly written into lines of code, they automate and enforce the execution of contract clauses, making transactions more secure and efficient. Originally proposed by Nick Szabo in the 1990s, smart contracts have found their natural habitat in blockchain ecosystems, becoming a cornerstone of various applications ranging from finance to supply chain management.
 
+<StepSection motionContainer>
 ## The Architecture of Smart Contracts
 
 Developers write smart contracts using specialized programming languages. Solidity, a statically-typed programming language designed for developing smart contracts that run on the Ethereum Virtual Machine (EVM), is the most widely used. Other blockchain networks have their own languages, like Michelson for Tezos and Clarity for Stacks, each with unique syntax and capabilities.
@@ -13,12 +16,16 @@ Developers write smart contracts using specialized programming languages. Solidi
 Smart contracts interact with the blockchain to read and write data, change states, and trigger transactions. They operate in a decentralized environment, meaning every node in the network must agree on the outcome of the contract's execution. This requires careful consideration of gas fees (transaction costs) and optimization of code to ensure efficient execution, especially on networks like Ethereum where network congestion can lead to high fees.
 
 A variety of tools assist developers in creating, testing, and deploying smart contracts. Truffle is a popular development framework for Ethereum, providing a suite of tools for smart contract development. Remix is an open-source web and desktop application that simplifies the process of smart contract development with Solidity. Hardhat is another development environment for Ethereum, offering advanced features like network simulation and console.log debugging.
+</StepSection>
 
+<StepSection motionContainer>
 ## Advantages from a Developer's Lens
 
 Smart contracts eliminate the need for intermediaries, automating the execution of contract terms when predefined conditions are met. This results in faster transaction times and reduced chances of human error.
 Once deployed, a smart contract’s code and data are stored on the blockchain, making them immutable and tamper-proof. This ensures that the contract will execute exactly as written. The code of smart contracts is visible on the blockchain, allowing anyone to verify the contract’s functionality and security. This transparency builds trust among parties involved in the contract. By automating processes and removing intermediaries, smart contracts can significantly reduce transaction costs.
+</StepSection>
 
+<StepSection motionContainer>
 ## Technical Challenges and Solutions
 
 -   **Debugging and Maintenance**
@@ -32,7 +39,9 @@ The decentralized nature of blockchain networks means that every node in the net
 -   **Security Concerns**
 
 The immutable nature of smart contracts also means that any vulnerabilities in the code can be exploited, and once funds are stolen, they cannot be recovered. Developers must follow secure coding practices, conduct thorough testing, and potentially employ third-party auditing services to ensure the security of their smart contracts.
+</StepSection>
 
+<StepSection motionContainer>
 ## Real-World Applications and Code Sample
 
 **DeFi**: Decentralized Finance (DeFi) is perhaps the most notable use case of smart contracts, enabling automated lending, borrowing, and trading of crypto assets. Below is a simplified example of a smart contract written in Solidity that represents a basic decentralized bank:
@@ -328,9 +337,23 @@ This smart contract allows users to mint their own NFTs, assigning a unique ID a
 **Governance**: DAOs use smart contracts to give token holders a say in decision-making processes. A governance smart contract may allow token holders to create and vote on proposals.
 
 Smart contracts represent a paradigm shift in how we approach agreements and transactions, providing automation, security, and efficiency. However, they also pose unique challenges, particularly in terms of security and scalability. By following best practices, utilizing the right tools, and staying informed on the latest trends and developments, developers can harness the full potential of smart contracts and contribute to the ongoing evolution of decentralized applications.
+</StepSection>
 
+<StepSection motionContainer>
 ## Read more
 
--   [Starton Smart Contract Library](/docs/smart-contract/parameters-and-functions)
--   [Consensys’ Smart Contract Best Practices](https://consensys.github.io/smart-contract-best-practices/)
--   [Solidity by Example](https://solidity-by-example.org/)
+<CardLink
+    title={'Starton Smart Contract Library'}
+    href={'/docs/smart-contract/parameters-and-functions'}
+/>
+<CardLink
+    title={'Consensys’ Smart Contract Best Practices'}
+    href={'https://consensys.github.io/smart-contract-best-practices/'}
+    target={'_blank'}
+/>
+<CardLink
+    title={'Solidity by Example'}
+    href={'https://solidity-by-example.org/'}
+    target={'_blank'}
+/>
+</StepSection>

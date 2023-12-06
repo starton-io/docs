@@ -1,6 +1,6 @@
 /*
 | Developed by Starton
-| Filename : HomeTutorialInfos.tsx
+| Filename : HomeGuideInfos.tsx
 | Author : Philippe DESPLATS (philippe@starton.com)
 */
 
@@ -20,7 +20,7 @@ import { variantFade } from '@site/src/components/animate'
 | Contracts
 |--------------------------------------------------------------------------
 */
-export interface HomeTutorialInfosProps {}
+export interface HomeGuideInfosProps {}
 
 /*
 |--------------------------------------------------------------------------
@@ -56,13 +56,23 @@ const GitHubStyled = styled(GitHub)(({ theme }) => ({
 | Component
 |--------------------------------------------------------------------------
 */
-export const HomeTutorialInfos: React.FC<HomeTutorialInfosProps> = () => {
+export const HomeGuideInfos: React.FC<HomeGuideInfosProps> = () => {
 	const {
 		toc,
 		metadata: { authors, date, readingTime, frontMatter },
 	} = useBlogPost()
-	const { toc_min_heading_level: tocMinHeadingLevel, toc_max_heading_level: tocMaxHeadingLevel } = frontMatter
+	const {
+		toc_min_heading_level: tocMinHeadingLevel,
+		toc_max_heading_level: tocMaxHeadingLevel,
+		hide_table_of_contents: hideTableOfContents,
+	} = frontMatter
 	const author = React.useMemo(() => authors?.[0], [authors])
+
+	const hideTOC = React.useMemo(() => {
+		if (hideTableOfContents === undefined) return true
+
+		return hideTableOfContents === true
+	}, [hideTableOfContents])
 
 	return (
 		<Grid
@@ -70,12 +80,8 @@ export const HomeTutorialInfos: React.FC<HomeTutorialInfosProps> = () => {
 			xs={12}
 			lg={3}
 			display={'flex'}
-			flexDirection={{
-				xs: 'column-reverse',
-				md: 'column',
-			}}
+			flexDirection={'column'}
 			gap={3}
-			marginTop={{ xs: 0, lg: 'calc(-40px - 2.5rem)' }}
 			component={m.div}
 			variants={variantFade().inRight}
 		>
@@ -127,7 +133,7 @@ export const HomeTutorialInfos: React.FC<HomeTutorialInfosProps> = () => {
 				<Divider />
 			</CardStyled>
 
-			{toc.length > 0 ? (
+			{!hideTOC && toc.length > 0 ? (
 				<CardStyled sx={{ position: 'sticky', top: 80 }}>
 					<Typography variant={'caption'} color={'text.secondary'} textTransform={'uppercase'}>
 						Content

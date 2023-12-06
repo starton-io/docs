@@ -78,7 +78,7 @@ export const themeConfig: ThemeConfig = {
 			// 	position: 'left',
 			// },
 			{
-				to: 'guides/blockchain-transaction-manager',
+				to: 'guides',
 				label: 'Guides',
 				'aria-label': 'Guides',
 				position: 'right',
@@ -233,6 +233,6 @@ export const themeConfig: ThemeConfig = {
 				},
 			],
 		},
-		additionalLanguages: ['bash', 'diff', 'json', 'jsx', 'tsx', 'typescript', 'yaml'],
+		additionalLanguages: ['bash', 'diff', 'json', 'jsx', 'tsx', 'typescript', 'yaml', 'solidity'],
 	},
 }
