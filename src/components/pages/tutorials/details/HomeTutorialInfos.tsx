@@ -70,7 +70,10 @@ export const HomeTutorialInfos: React.FC<HomeTutorialInfosProps> = () => {
 			xs={12}
 			lg={3}
 			display={'flex'}
-			flexDirection={'column'}
+			flexDirection={{
+				xs: 'column-reverse',
+				md: 'column',
+			}}
 			gap={3}
 			marginTop={{ xs: 0, lg: 'calc(-40px - 2.5rem)' }}
 			component={m.div}

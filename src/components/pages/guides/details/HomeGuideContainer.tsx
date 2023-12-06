@@ -44,7 +44,7 @@ export const HomeGuideContainer: React.FC<HomeGuideContainerProps> = (props) => 
 			itemProp={'blogPost'}
 			itemType={'https://schema.org/BlogPosting'}
 			spacing={3}
-			flexDirection={{ xs: 'column-reverse', lg: 'row' }}
+			flexDirection={{ xs: 'column', md: 'row' }}
 		>
 			{description && <meta itemProp="description" content={description} />}
 			{image && <link itemProp="image" href={withBaseUrl(image, { absolute: true })} />}

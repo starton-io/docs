@@ -97,8 +97,6 @@ const ImageStyled = styled(Box, {
 |--------------------------------------------------------------------------
 */
 const HomeGuides: React.FC<HomeGuidesProps> = (props) => {
-	console.log(`[F:HomeGuides.tsx - L:26] props(): `, props)
-
 	return (
 		<Layout title={'Guides'}>
 			<PageHeader

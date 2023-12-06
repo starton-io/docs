@@ -25,6 +25,7 @@ import { PageContainer } from '@site/src/components/commons/PageContainer'
 */
 const FooterCopyright = styled(Box)(({ theme }) => ({
 	padding: theme.spacing(0, 0, 2),
+
 	[theme.breakpoints.up('md')]: {
 		padding: theme.spacing(0, 0, 2),
 	},
