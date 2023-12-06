@@ -8,16 +8,21 @@ hide_table_of_contents: true
 
 In the intricate world of blockchain development, understanding the nuts and bolts that make smart contracts function is crucial. Bytecode stands out as a fundamental element in this realm, serving as the low-level, compiled version of your high-level programming code. This article delves into the intricacies of bytecode, its role in smart contracts, and how developers engage with it.
 
+<StepSection>
 ## What is Bytecode?
 
 Bytecode is a set of instructions that the Ethereum Virtual Machine (EVM) can interpret and execute. When developers write smart contracts in high-level languages like Solidity, the code is eventually compiled down to bytecode, making it understandable for the blockchain.
 
 Bytecode consists of a series of bytes, each representing an operation or a piece of data. It's a compact form of code that is optimized for execution by the EVM.
+</StepSection>
 
+<StepSection>
 ## The Role of Bytecode in Smart Contracts
 
 When you deploy a smart contract to the Ethereum blockchain, what you are actually deploying is the bytecode. The Ethereum network nodes then use this bytecode to execute the contract's functions. External applications and other smart contracts interact with the deployed bytecode on the blockchain. They send transactions, which the EVM processes by executing the corresponding bytecode instructions.
+</StepSection>
 
+<StepSection>
 ## Understanding compilers
 
 Developers use compilers like `solc` for Solidity, to translate their high-level code into bytecode. These tools often provide additional outputs like the ABI, which is crucial for interacting with the deployed smart contract.
@@ -26,10 +31,28 @@ To enhance transparency and trust, developers can verify their smart contracts o
 While bytecode is not meant to be human-readable, developers can sometimes diagnose issues or optimize their code by examining the compiled bytecode. Debugging at the bytecode level is complex and generally not recommended for routine issues. High-level language debuggers and testing frameworks are more suitable for catching and fixing bugs before compilation.
 
 Bytecode serves as the hidden engine driving smart contracts on the Ethereum blockchain. By compiling high-level code down to this compact, executable format, developers can deploy and interact with contracts on the blockchain. While bytecode operates largely behind the scenes, a foundational understanding of what it is and how it works is invaluable for any blockchain developer.
+</StepSection>
 
+<StepSection>
 ## Read more
 
--   [Deploy your own contract from bytecode](/tutorials/deploy-from-bytecode)
--   [Ethereum Virtual Machine (EVM) Documentation](https://ethereum.org/en/developers/docs/evm/)
--   [Solidity Documentation](https://docs.soliditylang.org/)
--   [Remix IDE for Smart Contract Development](https://remix.ethereum.org/)
+<CardLink
+    title={'Deploy your own contract from bytecode'}
+    href={'/tutorials/deploy-from-bytecode'}
+/>
+<CardLink
+    title={'Ethereum Virtual Machine (EVM) Documentation'}
+    href={'https://ethereum.org/en/developers/docs/evm/'}
+    target={'_blank'}
+/>
+<CardLink
+    title={'Solidity Documentation'}
+    href={'https://docs.soliditylang.org/'}
+    target={'_blank'}
+/>
+<CardLink
+    title={'Remix IDE for Smart Contract Development'}
+    href={'https://remix.ethereum.org/'}
+    target={'_blank'}
+/>
+</StepSection>

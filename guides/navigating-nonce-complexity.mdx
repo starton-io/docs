@@ -5,10 +5,12 @@ slug: navigating-nonce-complexity
 tags: [Relayer]
 hide_table_of_contents: true
 ---
+
 # Navigating Nonce complexity
 
 Nonces are a critical aspect of maintaining the integrity of blockchain transactions. Efficient nonce management preserves the sequence and order of operations. In this article, we want to share what we’ve discovered on the complexities of nonces and explain how Starton Relayer solves nonce-related issues.
 
+<StepSection>
 ## **Understanding Nonces**
 
 A nonce is a unique number assigned sequentially to each transaction to ensure it is processed once and in the correct order. It is fundamental in preventing double-spending and discrepancies in the transaction sequence.
@@ -28,7 +30,9 @@ Scaling challenges include ensuring concurrent transactions receive unique nonce
 Improperly managed nonces can block the transaction queue, waiting for the correct nonce to be processed. This is particularly problematic for sequential transactions where each depends on the previous one's success.
 
 A server crash can lose track of nonces, leading to sequencing errors once back online. Recovery from a crash, therefore, demands special attention to nonce management.
+</StepSection>
 
+<StepSection>
 ## The role of Starton Nonce Manager
 
 The relayer is a key component in the blockchain infrastructure, tasked with the critical role of managing nonces:
@@ -54,3 +58,4 @@ Redis is pivotal for Starton's relayer in managing nonces, offering a reliable d
 To manage a stuck nonce, Starton's relayer adopts several tactics. It can passively wait for an outside transaction to naturally clear the blockage, effectively unjamming the nonce sequence without intervention. Alternatively, for a more proactive approach, the relayer can inject a dummy transaction specifically crafted to unstick the nonce. This dummy transaction acts as a catalyst, restoring the smooth flow of subsequent transactions and ensuring the integrity of the transaction queue.
 
 Effective nonce management is vital for the smooth operation of the blockchain. Starton's relayer plays a key role by ensuring each nonce is allocated and utilized properly, thus avoiding additional costs and delays. With Starton, users can focus on their core business while leaving the complexity of nonce management in the hands of experts. Explore Starton's tools and take control of your blockchain transactions with confidence.
+</StepSection>

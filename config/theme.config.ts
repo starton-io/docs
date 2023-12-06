@@ -233,6 +233,6 @@ export const themeConfig: ThemeConfig = {
 				},
 			],
 		},
-		additionalLanguages: ['bash', 'diff', 'json', 'jsx', 'tsx', 'typescript', 'yaml'],
+		additionalLanguages: ['bash', 'diff', 'json', 'jsx', 'tsx', 'typescript', 'yaml', 'solidity'],
 	},
 }

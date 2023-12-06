@@ -18,6 +18,7 @@ import { HomeGuideContainer } from '@site/src/components/pages/guides/details/Ho
 import { HomeGuideContent } from '@site/src/components/pages/guides/details/HomeGuideContent'
 import { HomeGuideInfos } from '@site/src/components/pages/guides/details/HomeGuideInfos'
 import { Typography } from '@mui/material'
+import Link from '@docusaurus/Link'
 
 /*
 |--------------------------------------------------------------------------
@@ -45,9 +46,11 @@ const HomeGuide: React.FC<HomeGuideProps> = (props) => {
 						<HomeGuideHeader />
 						<HomeGuideContainer>
 							<HomeGuideContent>
-								<Typography variant={'overline'} color={'warning.main'}>
-									Guide
-								</Typography>
+								<Link to={'/guides'} aria-description={'See more guides'}>
+									<Typography variant={'overline'} color={'warning.main'}>
+										Guide
+									</Typography>
+								</Link>
 								<Typography variant={'h1'} marginBottom={4}>
 									{props.content.metadata.title}
 								</Typography>

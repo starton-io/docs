@@ -34,7 +34,7 @@ const PostContainer = styled(Box)<BoxProps & LinkProps>(({ theme }) => ({
 	flexDirection: 'column',
 	alignItems: 'flex-start',
 	gap: theme.spacing(3),
-	padding: theme.spacing(3),
+	padding: theme.spacing(3, 0),
 	borderRadius: 0,
 	backgroundColor: 'transparent',
 	cursor: 'pointer',
@@ -45,6 +45,10 @@ const PostContainer = styled(Box)<BoxProps & LinkProps>(({ theme }) => ({
 
 	'&:hover': {
 		backgroundColor: theme.palette.background.paper,
+	},
+
+	[theme.breakpoints.up('md')]: {
+		padding: theme.spacing(3),
 	},
 }))
 
@@ -72,12 +76,19 @@ const MetadataItemStyled = styled(Box)(({ theme }) => ({
 
 const ImageStyled = styled(Box, {
 	shouldForwardProp: (prop) => prop !== 'imageUrl',
-})<BoxProps & { imageUrl: string }>(({ imageUrl }) => ({
-	flex: 1,
-	maxWidth: 200,
+})<BoxProps & { imageUrl: string }>(({ theme, imageUrl }) => ({
+	width: '100%',
+	height: 200,
 	backgroundImage: `url(${imageUrl ?? '/img/guides/default-image.png'})`,
 	backgroundSize: 'cover',
 	backgroundPosition: 'center center',
+
+	[theme.breakpoints.up('md')]: {
+		flex: 1,
+		maxWidth: 200,
+		width: 'auto',
+		height: 'auto',
+	},
 }))
 
 /*
@@ -116,7 +127,10 @@ const HomeGuides: React.FC<HomeGuidesProps> = (props) => {
 											component={m.div}
 											variants={variantFade().inLeft}
 											display={'flex'}
-											flexDirection={'row'}
+											flexDirection={{
+												xs: 'column-reverse',
+												md: 'row',
+											}}
 											justifyContent={'space-between'}
 											gap={3}
 											width={'100%'}
