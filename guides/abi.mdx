@@ -1,17 +1,22 @@
 ---
-Title: Decoding Smart Contract ABIs
+title: Decoding Smart Contract ABIs
+authors: loubna-benzaama
+hide_table_of_contents: true
 ---
 
 # Decoding Smart Contract ABIs
 
 In the blockchain world, the Application Binary Interface (ABI) is a critical component for enabling smart contracts to interact with external applications and services. It acts as a bridge between two binary program modules, often one being the smart contract and the other being a user interface or another contract. Understanding ABIs is essential for developers looking to build robust and interactive decentralized applications.
 
-### What is an ABI?
+<StepSection motionContainer>
+## What is an ABI?
 
 An Application Binary Interface (ABI) is a set of rules that dictate how functions in a binary program should interact. In the context of smart contracts, it is a JSON representation that tells the system how to encode and decode information that is sent to or received from a smart contract.
 
 ABIs are crucial for ensuring that function calls to the smart contract are correctly formatted and that the returned data can be correctly interpreted. Without a proper ABI, interacting with a smart contract from an external application would be practically impossible.
+</StepSection>
 
+<StepSection motionContainer>
 ## ABI in Smart Contracts
 
 ### How to Generate ABI?
@@ -218,7 +223,9 @@ It’s a JSON array containing objects, each representing a function or a constr
 	}
 ]
 ```
+</StepSection>
 
+<StepSection motionContainer>
 ## Working with ABIs
 
 Developers use ABIs in their client-side applications to interact with smart contracts. Web3 libraries like Starton require the ABI to instantiate a contract object in the application, allowing it to make function calls and listen to events from the smart contract.
@@ -258,7 +265,9 @@ axiosInstance
 ```
 
 In this example, the `abi` parameter would be the actual ABI for the smart contract, and the call will return the contract’s address on the blockchain. Once executed, you can interact with `My token` to call functions and listen to events.
+</StepSection>
 
+<StepSection motionContainer>
 ## Best Practices and Common Pitfalls
 
 1. **Ensure ABI Accuracy**:
@@ -271,9 +280,23 @@ In this example, the `abi` parameter would be the actual ABI for the smart contr
    Be mindful of the security implications of exposing ABIs, and ensure that your application properly validates any data received from a smart contract.
 
 The Application Binary Interface is a crucial component for anyone looking to interact with smart contracts from external applications. By ensuring accurate and up-to-date ABIs, and understanding how to properly use them in your applications, you can unlock the full potential of smart contracts and create seamless, integrated decentralized applications.
+</StepSection>
 
+<StepSection motionContainer>
 ## Read more
 
--   [Starton Deploy documentation](/docs/smart-contract/deploying-from-bytecode)
--   [Solidity by Example: ABI](https://solidity-by-example.org/abi/)
--   [Ethereum Stack Exchange: Questions tagged with ABI](https://ethereum.stackexchange.com/questions/tagged/abi)
+<CardLink
+    title={'Starton Deploy documentation'}
+    href={'/docs/smart-contract/deploying-from-bytecode'}
+/>
+<CardLink
+    title={'Solidity by Example: ABI'}
+    href={'https://solidity-by-example.org/abi/'}
+    target={'_blank'}
+/>
+<CardLink
+    title={'Ethereum Stack Exchange: Questions tagged with ABI'}
+    href={'https://ethereum.stackexchange.com/questions/tagged/abi'}
+    target={'_blank'}
+/>
+</StepSection>

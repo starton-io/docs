@@ -6,8 +6,9 @@
 
 import React from 'react'
 import { Box, BoxProps, styled, Typography } from '@mui/material'
-import { MotionViewport, variantFade } from '@site/src/components/animate'
+import { MotionContainer, MotionViewport, variantFade } from '@site/src/components/animate'
 import { m } from 'framer-motion'
+import MDXContent from '@theme/MDXContent'
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +19,7 @@ export interface StepSectionProps {
 	bottomDivider?: boolean
 	stepTitle?: number | string
 	children: React.ReactNode
+	motionContainer?: boolean
 }
 
 /*
@@ -35,6 +37,14 @@ const Section = styled(Box)<Omit<BoxProps, 'bottomDivider'> & Pick<StepSectionPr
 			paddingBottom: theme.spacing(10),
 			borderBottom: `1px solid ${theme.palette.divider}`,
 		}),
+
+		'& .MuiTypography-root + h2': {
+			marginTop: 0,
+		},
+
+		'& h2:not(.MuiTypography-root)': {
+			marginTop: 0,
+		},
 	}),
 )
 
@@ -45,7 +55,10 @@ const Section = styled(Box)<Omit<BoxProps, 'bottomDivider'> & Pick<StepSectionPr
 */
 export const StepSection: React.FC<StepSectionProps> = (props) => {
 	return (
-		<Section bottomDivider={props.bottomDivider} component={MotionViewport}>
+		<Section
+			bottomDivider={props.bottomDivider}
+			component={props.motionContainer ? MotionContainer : MotionViewport}
+		>
 			<m.div variants={variantFade().inLeft}>
 				{props.stepTitle ? (
 					<Typography component={'p'} variant={'overline'} color={'warning.main'} paddingBottom={2}>

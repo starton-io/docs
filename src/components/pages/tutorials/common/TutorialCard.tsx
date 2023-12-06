@@ -10,7 +10,6 @@ import Box from '@mui/material/Box'
 import UpdateIcon from '@mui/icons-material/Update'
 import TimerOutlinedIcon from '@mui/icons-material/TimerOutlined'
 import Link from '@docusaurus/Link'
-import useDocusaurusContext from '@docusaurus/useDocusaurusContext'
 import {
 	HomeTutorialDifficulty,
 	TUTORIAL_DIFFICULTY,

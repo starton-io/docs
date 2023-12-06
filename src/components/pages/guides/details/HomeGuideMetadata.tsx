@@ -1,6 +1,6 @@
 /*
 | Developed by Starton
-| Filename : HomeTutorialMetadata.tsx
+| Filename : HomeGuideMetadata.tsx
 | Author : Philippe DESPLATS (philippe@starton.com)
 */
 
@@ -13,14 +13,14 @@ import { useBlogPost } from '@docusaurus/theme-common/internal'
 | Contracts
 |--------------------------------------------------------------------------
 */
-export interface HomeTutorialMetadataProps {}
+export interface HomeGuideMetadataProps {}
 
 /*
 |--------------------------------------------------------------------------
 | Component
 |--------------------------------------------------------------------------
 */
-export const HomeTutorialMetadata: React.FC<HomeTutorialMetadataProps> = () => {
+export const HomeGuideMetadata: React.FC<HomeGuideMetadataProps> = () => {
 	const { assets, metadata } = useBlogPost()
 	const { title, description, date, tags, authors, frontMatter } = metadata
 	const { keywords } = frontMatter

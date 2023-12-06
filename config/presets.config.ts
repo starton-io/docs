@@ -25,6 +25,9 @@ export const presets: Array<PresetConfig> = [
 				path: 'guides',
 				routeBasePath: 'guides',
 				authorsMapPath: './authors.yml',
+				blogListComponent: '@site/src/components/pages/guides/list/HomeGuides.tsx',
+				blogPostComponent: '@site/src/components/pages/guides/details/HomeGuide.tsx',
+				postsPerPage: 'ALL',
 			},
 			docs: {
 				sidebarPath: require.resolve('./sidebars.config'),

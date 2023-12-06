@@ -1,13 +1,11 @@
 ---
 title: How did we build a Meta-Transaction Site with Web3Auth and Starton
+authors: loubna-benzaama
+image: /img/guides/2.png
 ---
-
-import Image from "@theme/IdealImage"
-import Blog2 from "@site/static/img/guides/2.png"
 
 # How did we build a Meta-Transaction Site with Web3Auth and Starton
 
-<Image img={Blog2} alt={"Starton Web3auth"} />
 
 Use Case: We wanted to build a DApp that allows users to transfer Starton tokens to other users. He wants to make the transfer process as easy and cost-effective as possible by using meta transactions.
 
@@ -18,6 +16,7 @@ To achieve this, we decided to use Web3Auth, a library that allows users to sign
 
 To build the solution, we followed three steps:
 
+<StepSection>
 ## Instanciating Web3Auth using the integration builder
 
 We started by installing the Web3Auth library and instantiating it in his front-end code. We then created a button that will trigger the Web3Auth authentication modal when clicked. The modal will prompt the user to connect with their social login.
@@ -27,7 +26,9 @@ We started by installing the Web3Auth library and instantiating it in his front-
 Once the user is connected, we use the Web3Auth wallet to sign the transaction wrapped in the meta-transaction later, to ensure the transaction is valid and authorized by the user's wallet.
 
 To retrieve the Starton token balance of the user, we also created a function that calls the Starton smart contract and returns the user's token balance.
+</StepSection>
 
+<StepSection>
 ## Building a server-side to protect your API key
 
 On the server side, we created two routes to handle the request for funds and the execution of meta transactions.
@@ -35,7 +36,9 @@ On the server side, we created two routes to handle the request for funds and th
 The `requestFunds` function will accept the user's address and the number of funds they wish to receive. We used a route that calls this function and returns the requested funds to the user.
 
 The `executeMetaTransaction` function will accept the signed meta transaction from the user's Web3 wallet and execute it on the network. We then used a route that calls this function and executes the meta transaction on the network.
+</StepSection>
 
+<StepSection>
 ## Creating a Front-End Integration
 
 To integrate the functionality into the front end of his DApp, we created buttons and models that connect to the functions on the server side.
@@ -47,3 +50,4 @@ When the user clicks the "Send MetaTransaction" button, a modal window will open
 By following these steps, we were able to build a Meta-Transaction site using Web3Auth and Starton. His users can now transfer Starton tokens to other users using meta transactions, making the process more efficient and cost-effective.
 
 Want to use our project? Go to our tutorial section, [CREATING METATRANSACTIONS WITH WEB3AUTH AND STARTON](/tutorials/starton-web3auth)
+</StepSection>
