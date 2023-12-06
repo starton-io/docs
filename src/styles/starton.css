@@ -4,7 +4,12 @@
  * work well for content-centric websites.
  */
 
-/* You can override the default Infima variables here. */
+/*
+|--------------------------------------------------------------------------
+| VARIABLES
+|--------------------------------------------------------------------------
+*/
+
 :root {
 	--ifm-color-primary: #f3f5f7;
 	--ifm-color-primary-dark: #29784c;
@@ -31,9 +36,20 @@
 	--docsearch-hit-active-color: #01FEE2;
 }
 
-/* Fonts */
+/*
+|--------------------------------------------------------------------------
+| END VARIABLES
+|--------------------------------------------------------------------------
+*/
 
-/* Fire code */
+/*
+|--------------------------------------------------------------------------
+| FONTS
+|--------------------------------------------------------------------------
+*/
+
+/* Fire code
+/* -------------------------------------------------------------------- */
 @font-face {
 	font-family: 'Fira Code';
 	src: url('/fonts/fira-code/FiraCode-Light.woff2') format('woff2');
@@ -72,7 +88,8 @@
 	font-style: normal;
 }
 
-/* PP Neue Machina */
+/* PP Neue Machina
+/* -------------------------------------------------------------------- */
 @font-face {
 	font-family: 'PP Neue Machina';
 	src: url('/fonts/pp-neue-machina/PPNeueMachina-InktrapThin.woff2') format('woff2');
@@ -128,24 +145,124 @@
 	font-style: normal;
 }
 
-/* Inter */
+/* Inter
+/* -------------------------------------------------------------------- */
 @font-face {
 	font-family: "Inter";
 	src: url("/fonts/Inter-Regular.ttf");
 }
 
-/* Prism modifications */
-.prism-code > div {
-	white-space: pre-wrap;
+/*
+|--------------------------------------------------------------------------
+| COMMON
+|--------------------------------------------------------------------------
+*/
+
+body {
+	background-color: #1A1F25;
 }
 
-/* Custom code */
+p,
+ol,
+ul {
+	font-family: "Inter", Arial, sans-serif;
+	text-decoration: none;
+}
+
+h1 {
+	color: white;
+}
+
+h2 {
+	color: white;
+	text-decoration: none;
+	margin-top: 48px;
+}
+
+h2.anchor {
+	color: white;
+	text-decoration: none;
+	margin-top: 48px;
+}
+
+h4 {
+	/*color: #01e6cd;*/
+	text-decoration: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:link {
+	text-decoration: none;
+}
+
+a:visited {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+a:active {
+	text-decoration: none;
+}
+
+svg {
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+footer {
+	background-color: #1A1F25;
+	border-top: 0.5px solid #3e4e5c;
+}
+.footer--dark {
+	background-color: #1A1F25;
+}
+
+/*
+|--------------------------------------------------------------------------
+| END COMMON
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| CUSTOM CODE
+|--------------------------------------------------------------------------
+*/
+
 .hero {
 	margin: auto;
 	background-color: #1A1F25;
 	color: white;
 	padding: 2rem;
 }
+
+/*
+|--------------------------------------------------------------------------
+| END CUSTOM CODE
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| PRISM
+|--------------------------------------------------------------------------
+*/
+
+.prism-code > div {
+	white-space: pre-wrap;
+}
+
+/*
+|--------------------------------------------------------------------------
+| END PRISM
+|--------------------------------------------------------------------------
+*/
 
 .button__home {
 	/* Button */
@@ -228,34 +345,13 @@ header.hero {
 }
 /*.row.{background-color: #1F272E;}*/
 
-footer {
-	background-color: #1A1F25;
-	border-top: 0.5px solid #3e4e5c;
-}
-.footer--dark {
-	background-color: #1A1F25;
-}
 .docMainContainer_gTbr {
 	background-color: #1A1F25;
-}
-body {
-	background-color: #1A1F25;
-}
-
-p,
-ol,
-ul {
-	font-family: "Inter", Arial, sans-serif;
-	text-decoration: none;
 }
 
 .link {
 	font-size: 12pt;
 	word-wrap: break-word;
-}
-
-h1 {
-	color: white;
 }
 
 .navbar--fixed-top {
@@ -289,11 +385,6 @@ h1 {
 .overview {
 	height: 300px;
 	width: 600px;
-}
-
-svg {
-	margin-top: 0;
-	margin-bottom: 0;
 }
 
 
@@ -453,25 +544,6 @@ svg {
 	.col {
 		min-width: 100%; /* makes the cards take the full width on small screens */
 	}
-}
-
-
-
-h4 {
-	/*color: #01e6cd;*/
-	text-decoration: none;
-}
-
-h2 {
-	color: white;
-	text-decoration: none;
-	margin-top: 48px;
-}
-
-h2.anchor {
-	color: white;
-	text-decoration: none;
-	margin-top: 48px;
 }
 
 .img {
@@ -641,26 +713,6 @@ html[data-theme="dark"] .theme-doc-toc-desktop .table-of-contents .table-of-cont
 		border-collapse: separate;
 		border-spacing: 16px;
 	}
-}
-
-a {
-	text-decoration: none;
-}
-
-a:link {
-	text-decoration: none;
-}
-
-a:visited {
-	text-decoration: none;
-}
-
-a:hover {
-	text-decoration: none;
-}
-
-a:active {
-	text-decoration: none;
 }
 
 .menu__link--sublist {
