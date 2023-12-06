@@ -28,6 +28,7 @@
 	--ifm-color-primary-lightest: #4fddbf;
 	--ifm-footer-background-color: #1f272e;
 	--docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+	--docsearch-hit-active-color: #01FEE2;
 }
 
 /* Fonts */
@@ -668,24 +669,6 @@ a:active {
 	font-weight: bold;
 }
 
-.DocSearch-Button-Placeholder {
-	font-size: 14px !important;
-}
-
-html .DocSearch-Button {
-	border-radius: 500px !important;
-	font-weight: 400 !important;
-	background: #f9fafd;
-	border: 1px solid #c1c6dd;
-	/* Annoying, but needed */
-	/* https://stackoverflow.com/questions/26140050/why-is-font-family-not-inherited-in-button-tags-automatically/26140154 */
-	font-family: inherit;
-}
-
-html .DocSearch-Button .DocSearch-Search-Icon {
-	color: var(--docsearch-muted-color);
-}
-
 html[data-theme="dark"] .DocSearch-Button {
 	background: none;
 	border: 1px solid var(--docsearch-muted-color);
@@ -720,19 +703,6 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 	/* background: none;*/
 }
 
-nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item:not(:last-child) {
-	margin-bottom: 28px;
-}
-
-nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > .menu__list-item-collapsible > a.menu__link {
-	font-weight: 800;
-	font-size: 14px;
-}
-
-nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > .menu__list-item-collapsible > a.menu__link:not(.menu__link--active) {
-	color: #A3B4C1;
-}
-
 .menu__list-item:not(:first-child) {
 	margin-top: 0;
 }
@@ -758,7 +728,6 @@ nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > 
 	font-weight: 700;
 }
 
-.navbar__link--active,
 .theme-doc-sidebar-menu.menu__list .menu__link--active,
 .theme-doc-sidebar-menu.menu__list .menu__list-item-collapsible--active {
 	background-color: #29343d;
@@ -818,6 +787,40 @@ nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > 
 	font-weight: bold;
 }
 
+/*
+|--------------------------------------------------------------------------
+| NAVBAR
+|--------------------------------------------------------------------------
+*/
+
+nav.navbar .navbar__link:not(.navbar__button) {
+	color: #F1F3F5;
+	text-align: center;
+	font-family: 'PP Neue Machina', 'Inter', Arial, sans-serif;
+	font-size: 14px;
+	font-style: normal;
+	font-weight: 600;
+	line-height: 100%;
+	letter-spacing: -0.16px;
+	text-transform: uppercase;
+}
+
+nav.navbar .navbar__link--active {
+	position: relative;
+	background-color: transparent;
+}
+
+nav.navbar .navbar__link--active::before {
+	content: "";
+	position: absolute;
+	width: 100%;
+	height: 4px;
+	bottom: -17px;
+	left: 0;
+	right: 0;
+	background-color: #01FEE2;
+}
+
 .navbar__items--right > :last-child {
 	padding-right: inherit;
 }
@@ -849,8 +852,15 @@ nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > 
 }
 
 .navbar__button:hover {
-	background: #01FEE2;
-	color: #1A1F25;
+	background: #1A1F25;
+	color: #01FEE2;
+	border-color: #01FEE2;
+}
+
+@media (max-width: 996px) {
+	.navbar__items .navbar__button {
+		display: none;
+	}
 }
 
 .navbar__button svg {
@@ -874,6 +884,72 @@ nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > 
 	mask-size: cover;
 }
 
+nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item:not(:last-child) {
+	margin-bottom: 28px;
+}
+
+nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > .menu__list-item-collapsible > a.menu__link {
+	font-weight: 800;
+	font-size: 14px;
+}
+
+nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > .menu__list-item-collapsible > a.menu__link:not(.menu__link--active) {
+	color: #A3B4C1;
+}
+
+.navbar-sidebar {
+	background-color: #1A1F25 !important;
+	box-shadow: none !important;
+}
+
+.navbar-sidebar .navbar-sidebar__items .navbar-sidebar__item .menu__list {
+	display: flex !important;
+	flex-direction: column !important;
+	gap: 8px !important;
+}
+
+.menu__link--active {
+	padding: 8px 16px;
+	font-family: 'PP Neue Machina', 'Inter', Arial, sans-serif;
+}
+
+.menu__link--active:not(.menu__link--sublist) {
+	background-color: #0E1114;
+	border-right: 3px solid #01FEE2;
+	border-radius: 0;
+}
+
+.menu__link:hover {
+	color: #01FEE2;
+}
+
+/*
+|--------------------------------------------------------------------------
+| END NAVBAR
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| SEARCH BOX IN NAVBAR
+|--------------------------------------------------------------------------
+*/
+
+.DocSearch-Button-Placeholder {
+	font-size: 14px !important;
+}
+
+html[data-theme="dark"] .DocSearch-Button {
+	border: 1px solid #435160;
+	background: #1E242A;
+}
+
+.DocSearch-Button {
+	border-radius: 24px;
+	font-family: inherit;
+}
+
+
 @media (max-width: 996px) {
 	.searchBox_node_modules-\@docusaurus-theme-classic-lib-theme-Navbar-Search-styles-module {
 		position: initial !important;
@@ -881,15 +957,92 @@ nav.menu .menu__list .theme-doc-sidebar-item-category-level-1.menu__list-item > 
 	}
 }
 
-.api-container a {
-	color: inherit;
+/*
+|--------------------------------------------------------------------------
+| END SEARCH BOX IN NAVBAR
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| DOC SEARCH MODAL
+|--------------------------------------------------------------------------
+*/
+
+.DocSearch-Modal {
+	background: #1A1F25 !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	font-family: "Fira Code", "Inter", Arial, sans-serif;
 }
 
-.api-container .references-layout {
-	height: calc(100vh - 60px) !important;
+.DocSearch-Modal .DocSearch-Form {
+	background: #0E1114 !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
 }
 
-/* TABLE */
+.DocSearch-Hit-source {
+	background: #1A1F25 !important;
+	color: #F1F3F5 !important;
+}
+
+.DocSearch-Hit a {
+	border-radius: 0 !important;
+	border: 1px solid #0E1114;
+}
+
+.DocSearch-Hit[aria-selected=true] a {
+	background-color: #0E1114 !important;
+	border: 1px solid #435160;
+}
+
+.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-action,
+.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-icon,
+.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-path,
+.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-text,
+.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-title,
+.DocSearch-Hit[aria-selected=true] .DocSearch-Hit-Tree,
+.DocSearch-Hit[aria-selected=true] mark {
+	color: #01FEE2 !important;
+}
+
+.DocSearch-Modal .DocSearch-Footer {
+	background: #0E1114 !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+}
+
+.DocSearch-Modal .DocSearch-Commands-Key {
+	background: #35414C !important;
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	color: white;
+}
+
+.DocSearch-Modal .DocSearch-Footer .DocSearch-Logo svg,
+.DocSearch-Modal .DocSearch-Footer .DocSearch-Logo svg path,
+.DocSearch-Modal .DocSearch-Footer .DocSearch-Logo svg rect {
+	fill: white;
+}
+
+.DocSearch-Modal .DocSearch-Help,
+.DocSearch-Modal .DocSearch-Label {
+	font-family: "Fira Code", "Inter", Arial, sans-serif;
+}
+
+/*
+|--------------------------------------------------------------------------
+| END DOC SEARCH MODAL
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| TABLE
+|--------------------------------------------------------------------------
+*/
+
 table {
 	margin-bottom: inherit;
 	overflow: inherit;
@@ -915,9 +1068,27 @@ table th, table td {
 table tr:nth-child(2n) {
 	background-color: inherit;
 }
-/* END - TABLE */
 
-/* SCALAR */
+/*
+|--------------------------------------------------------------------------
+| END TABLE
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
+| SCALAR
+|--------------------------------------------------------------------------
+*/
+
+.api-container a {
+	color: inherit;
+}
+
+.api-container .references-layout {
+	height: calc(100vh - 60px) !important;
+}
+
 .light-mode,
 .dark-mode {
 	color-scheme: dark;
@@ -951,9 +1122,11 @@ table tr:nth-child(2n) {
 	--theme-color-orange: rgb(229, 121, 26);
 	--theme-color-purple: #b191f9;
 }
+
 .darklight {
 	display: none !important;
 }
+
 /* Sidebar */
 .light-mode  .t-doc__sidebar,
 .dark-mode .sidebar {
@@ -969,8 +1142,13 @@ table tr:nth-child(2n) {
 	--sidebar-search-border-color: var(--theme-border-color);
 	--sidebar-search--color: var(--theme-color-3);
 }
+
 .scalar-api-client, #headlessui-portal-root {
 	height: auto !important;
 }
 
-/* END - SCALAR */
+/*
+|--------------------------------------------------------------------------
+| END SCALAR
+|--------------------------------------------------------------------------
+*/
