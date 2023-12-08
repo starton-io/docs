@@ -14,12 +14,24 @@ import ConstructorWatcherCustom from "@site/static/img/docs/watcher/constructorw
 
 # Creating a watcher
 
-## Creating a watcher from an available event type
+Watchers represent conditions that are checked upon inspection of the block. When the conditions of a watcher are met, the watcher triggers and create a webhook and send to the server url provided during the watcher's creation.
+With Starton, you can create watchers from both smart contracts and blockchain addresses, enabling you to monitor a wide range of blockchain events.
 
-You can create a watcher to monitor blockchain event.
 
 <Tabs>
-<TabItem value="code" label="From Code">
+<TabItem value="code" label="Monitoring Smart contracts">
+
+:::info
+**Starton** enables the creation of watchers for any smart contracts. From the **ABI** we enable you to track any event emitted from the contract.
+**No ABI? No problem**. **Starton** offers **templates** for events emitted by ERC20, ERC721, and ERC1155 contracts. You can monitor a variety of events such as:
+
+- **EVENT TRANSFER**, **EVENT MINT**, and **EVENT APPROVAL** for ERC20 contracts
+- specific transfer events for **ERC721** and **ERC1155** contracts.
+
+:::
+
+<Tabs>
+<TabItem value="code" label="From your smart contract address">
 To create a watcher from the code of you application, use the following snippet.
 You can find the full list of networks and event types in our <Link to="/api-reference">API reference</Link>.
 
@@ -39,7 +51,7 @@ startonApi
 		description: "Describe your watcher", // Enter a description for your watcher
 		address: "0x000000000000", // Enter the address to watch (either a wallet or a smart contract)
 		network: "polygon-mumbai", // Enter a network, you can find the list of networks available in our API reference.
-		type: "ADDRESS_ACTIVITY", // Select an event type
+		type: "EVENT_MINT", // Select an event type
 		webhookUrl: "https://xxxxxxx/", // Enter the address of the webhook
 		confirmationsBlocks: 50, // Depending on your needs, select the number of confirmed blocks before an event triggers your watcher
 	})
@@ -48,34 +60,31 @@ startonApi
 	})
 ```
 
+Let's go through the parameters provided to create a watcher:
+
+-   name: This field specifies the name of your watcher. Useful for identification purposes, especially if you have multiple watchers set up for the same address or contract at different confirmation speeds [different confirmation speeds](/docs/watcher/confirmation-blocks).
+-   type: The type of blockchain event that you want the watcher to monitor. Starton provides you with a [list of events](/docs/watcher/available-event-types) as well as the possibility to [watch events from your own custom contract](/docs/watcher/custom-event) .
+    | Event type                      | Description                                                                                                                |
+    | ------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+    | `EVENT TRANSFER`                | Triggers when an ERC20 contract emits a transfer event, to track when tokens are moved.                                    |
+    | `EVENT MINT`                    | Triggers when an ERC20 contract emits a transfer event where sending address is 0x0, to track when new tokens are created. |
+    | `EVENT APPROVAL`                | Triggers when an ERC20 contract emits an approval event, to track when a new allowance has been granted or revoked.        |
+    | `ERC721 EVENT TRANSFER`         | Triggers when an ERC721 contract emits a transfer event, to track when an NFT is moved.                                    |
+    | `ERC1155 EVENT TRANSFER SINGLE` | Triggers when an ERC1155 contract emits a transfer event, to track when one NFT is moved.                                  |
+    | `ERC1155 EVENT TRANSFER BATCH`  | Triggers when an ERC1155 contract emits a batch transfer event, to track when several NFTs are moved.                      |
+    | `Custom Event(s)`               | Triggers when a smart contract emits one or multiple events you select from your ABI.                                      |
+-   address: This is the specific blockchain address you want to monitor. It can be a wallet address or a smart contract address, depending on the event type you chose.
+-   network: This specifies the blockchain network on which is the given address. In the provided example, polygon-mumbai refers to the Mumbai testnet of the Polygon (previously known as Matic) network. For more, see [Supported Networks](/docs/getting-started/overview#supported-networks-and-service-availability).
+-   webhookUrl: This URL is where the notifications will be sent when the watched event occurs. Essentially, once the watcher detects the specified event on the blockchain, it will send an HTTP POST request to this URL with details of the event. You can use [https://webhook.site/](https://webhook.site/) or [test a webhook on your local environment using ngrok](/tutorials/testing-webhooks-locally-ngrok).
+-   confirmationsBlocks: This is the number of confirmed blocks before an event triggers the watcher. It's a safety measure to ensure that the event (like a transaction) is well-confirmed on the blockchain and is not likely to be reversed. The higher the number, the more confirmations are required, and vice versa. Each network has its own default confirmation blocks number, for more information, see [Understanding confirmation blocks](/docs/watcher/confirmation-blocks).
+
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/K4bTtpM1tVc?si=J-R1KLveFhpxR2PF&amp;start=124" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+
 </TabItem>
-<TabItem value="dashboard" label="From Webapp">
+<TabItem value="dashboard" label="From your smart contract ABI">
 
-1. From **Dashboard**, go to **Watcher**.
-1. Click **+ Watcher**.
-1. Enter a **Name** and **Description**.
-1. Click **Next**.
-1. Select a type of notification.
-1. Fill in the **Settings**.
-    <Image img={ConstructorWatcher} alt={"Watcher constructor"} />
-1. In **Construction**:
-    1. Select a **Blockchain**.
-    1. Select a **Network**.
-    1. Enter an address
-    1. Enter a webhook URL.
-1. In **Confirmation blocks**, enter a number.
-    <Image img={ConfirmationBlock} style={{ width: 500 }} />
-1. Click **Create**.
-
-</TabItem>
-</Tabs>
-
-## Creating a watcher from a custom event type
-
-You can create a watcher to monitor blockchain event.
-
-<Tabs>
-<TabItem value="code" label="From Code">
 To create a watcher from the code of you application, use the following snippet.
 You can find the full list of networks and event types in our <Link to="/api-reference">API reference</Link>.
 
@@ -95,7 +104,7 @@ startonApi
 		description: "Describe your watcher", // Enter a description for your watcher
 		address: "0x000000000000", // Enter the address to watch (either a wallet or a smart contract)
 		network: "polygon-mumbai", // Enter a network, you can find the list of networks available in our API reference.
-		type: "EVENT_CUSTOM", // Select an event type
+		type: "EVENT_CUSTOM", // Select the custom event type
 		customEventAbi: {}, // Here you will specify the event you want to monitor from the ABI of your contract.
 		webhookUrl: "https://xxxxxxx/", // Enter the address of the webhook
 		confirmationsBlocks: 50, // Depending on your needs, select the number of confirmed blocks before an event triggers your watcher
@@ -105,47 +114,211 @@ startonApi
 	})
 ```
 
-</TabItem>
-<TabItem value="dashboard" label="From Webapp">
+To emit events, your smart contract must contain an event and an emit.
 
-1. From **Dashboard**, go to **Watcher**.
-1. Click **+ Watcher**.
-1. Enter a **Name** and **Description**.
-1. Click **Next**.
-1. Select CUSTOM EVENT.
-1. Fill in the **Settings**.
-    <Image img={ConstructorWatcherCustom} alt={"Watcher constructor"} />
-1. In **Construction**:
-    1. Select a **Blockchain**.
-    1. Select a **Network**.
-    1. Enter an address
-    1. Enter a webhook URL.
-1. In **Confirmation blocks**, enter a number.
-    <Image img={ConfirmationBlock} style={{ width: 500 }} />
-1. Click **Create**.
+For example, in the following contract, the setData event is emitted.
+
+```solidity
+pragma solidity ^0.8.0;
+contract SimpleStorage {
+    string data;
+
+   event dataSet(string _data);
+   constructor (string memory _data) {
+       data = _data;
+   }
+
+   function getData() public view returns(string memory) {
+       return data;
+   }
+
+   function setData(string memory _data) public returns(string memory) {
+       data = _data;
+       emit dataSet(_data);
+       return data;
+   }
+}
+```
+
+Consequently the event in the ABI will include an object with the type "event", which is what you will enter as customEventABI:
+
+```json
+[
+	{
+		"anonymous": false,
+		"inputs": [
+			{
+				"indexed": false,
+				"internalType": "string",
+				"name": "_data",
+				"type": "string"
+			}
+		],
+		"name": "dataSet",
+		"type": "event"
+	}
+]
+```
 
 </TabItem>
 </Tabs>
 
-## Watcher states and status
+</TabItem>
+<TabItem value="dashboard" label="Monitoring transfers">
+:::info 
+Starton allows you to set up watchers  for tracking activities on specific blockchain addresses, such as transfers of native tokens. You can configure events, such as:
+- **ADDRESS ACTIVITY** to trigger notifications for any transfer involving the address 
+- **ADDRESS RECEIVED NATIVE CURRENCY** for incoming transfers
+- **ADDRESS SENT NATIVE CURRENCY** for monitoring outgoing transfers
+:::
 
-From **Dashboard**, click **Monitor** to access your list of watchers.
+## Creating a watcher from an address
 
-In the **State** column, information is displayed to help you understand what's happening to your watcher.
+You can create a watcher to monitor blockchain event.
 
-### States
+<Tabs>
+<TabItem value="aa" label="ADDRESS ACTIVITY">
+To create a watcher from the code of you application, use the following snippet.
+You can find the full list of networks and event types in our <Link to="/api-reference">API reference</Link>.
 
-A watcher can either be **Running** or **Paused**.
+```js
+const axios = require("axios")
+// First, authenticate to the API
+const startonApi = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+// Use the watcher creation endpoint
+startonApi
+	.post("/v3/watcher", {
+		name: "Name of your watcher", // Enter a name for your watcher
+		description: "Describe your watcher", // Enter a description for your watcher
+		address: "0x000000000000", // Enter the address to watch (either a wallet or a smart contract)
+		network: "polygon-mumbai", // Enter a network, you can find the list of networks available in our API reference.
+		type: "ADDRESS_ACTIVITY", 
+		webhookUrl: "https://xxxxxxx/", // Enter the address of the webhook
+		confirmationsBlocks: 50, // Depending on your needs, select the number of confirmed blocks before an event triggers your watcher
+	})
+	.then((response) => {
+		console.log(response.data)
+	})
+```
 
-When **Paused**, a status enables you to understand how to solve the issue.
+Let's go through the parameters provided to create a watcher:
 
-### Paused Status
+-   name: This field specifies the name of your watcher. Useful for identification purposes, especially if you have multiple watchers set up for the same address or contract at different confirmation speeds [different confirmation speeds](/docs/watcher/confirmation-blocks).
+-   type: The type of blockchain event that you want the watcher to monitor. The ADDRESS_ACTIVITY type, in this context, means the watcher will monitor and notify of any activity related to the provided address but Starton provides you with a [list of events](/docs/watcher/available-event-types) as well as the possibility to [watch events from your own custom contract](/docs/watcher/custom-event) .
+    | Event type                         | Description                                                                                                      |
+    | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+    | `ADDRESS ACTIVITY`                 | Triggers when a transfer from or to an address is created, to track when native tokens transactions are created. |
+    | `ADDRESS RECEIVED NATIVE CURRENCY` | Triggers when a transfer to an address is created, to track when native tokens are received.                     |
+    | `ADDRESS SENT NATIVE CURRENCY`     | Triggers when a transfer event is created from an address, to track when native tokens are sent.                 |
+-   address: This is the specific blockchain address you want to monitor. It can be a wallet address or a smart contract address, depending on the event type you chose.
+-   network: This specifies the blockchain network on which is the given address. In the provided example, polygon-mumbai refers to the Mumbai testnet of the Polygon (previously known as Matic) network. For more, see [Supported Networks](/docs/getting-started/overview#supported-networks-and-service-availability).
+-   webhookUrl: This URL is where the notifications will be sent when the watched event occurs. Essentially, once the watcher detects the specified event on the blockchain, it will send an HTTP POST request to this URL with details of the event. You can use [https://webhook.site/](https://webhook.site/) or [test a webhook on your local environment using ngrok](/tutorials/testing-webhooks-locally-ngrok).
+-   confirmationsBlocks: This is the number of confirmed blocks before an event triggers the watcher. It's a safety measure to ensure that the event (like a transaction) is well-confirmed on the blockchain and is not likely to be reversed. The higher the number, the more confirmations are required, and vice versa. Each network has its own default confirmation blocks number, for more information, see [Understanding confirmation blocks](/docs/watcher/confirmation-blocks).
 
-| State                  | Description                                                                                    |
-| ---------------------- | ---------------------------------------------------------------------------------------------- |
-| Lack of ressources     | The limit of your plan has been reached. Please contact us to upgrade and restart the watcher. |
-| Webhook not responding | The webhook set up for this watcher is not responding.                                         |
-| Paused by user         | The watcher has been paused by a user. You can resume the watcher.                             |
+
+</TabItem>
+
+<TabItem value="rec" label="ADDRESS RECEIVED NATIVE CURRENCY">
+To create a watcher from the code of you application, use the following snippet.
+You can find the full list of networks and event types in our <Link to="/api-reference">API reference</Link>.
+
+```js
+const axios = require("axios")
+// First, authenticate to the API
+const startonApi = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+// Use the watcher creation endpoint
+startonApi
+	.post("/v3/watcher", {
+		name: "Name of your watcher", // Enter a name for your watcher
+		description: "Describe your watcher", // Enter a description for your watcher
+		address: "0x000000000000", // Enter the address to watch (either a wallet or a smart contract)
+		network: "polygon-mumbai", // Enter a network, you can find the list of networks available in our API reference.
+		type: "ADDRESS_RECEIVED_NATIVE_CURRENCY", 
+		webhookUrl: "https://xxxxxxx/", // Enter the address of the webhook
+		confirmationsBlocks: 50, // Depending on your needs, select the number of confirmed blocks before an event triggers your watcher
+	})
+	.then((response) => {
+		console.log(response.data)
+	})
+```
+
+Let's go through the parameters provided to create a watcher:
+
+-   name: This field specifies the name of your watcher. Useful for identification purposes, especially if you have multiple watchers set up for the same address or contract at different confirmation speeds [different confirmation speeds](/docs/watcher/confirmation-blocks).
+-   type: The type of blockchain event that you want the watcher to monitor. The ADDRESS_ACTIVITY type, in this context, means the watcher will monitor and notify of any activity related to the provided address but Starton provides you with a [list of events](/docs/watcher/available-event-types) as well as the possibility to [watch events from your own custom contract](/docs/watcher/custom-event) .
+    | Event type                         | Description                                                                                                      |
+    | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+    | `ADDRESS ACTIVITY`                 | Triggers when a transfer from or to an address is created, to track when native tokens transactions are created. |
+    | `ADDRESS RECEIVED NATIVE CURRENCY` | Triggers when a transfer to an address is created, to track when native tokens are received.                     |
+    | `ADDRESS SENT NATIVE CURRENCY`     | Triggers when a transfer event is created from an address, to track when native tokens are sent.                 |
+-   address: This is the specific blockchain address you want to monitor. It can be a wallet address or a smart contract address, depending on the event type you chose.
+-   network: This specifies the blockchain network on which is the given address. In the provided example, polygon-mumbai refers to the Mumbai testnet of the Polygon (previously known as Matic) network. For more, see [Supported Networks](/docs/getting-started/overview#supported-networks-and-service-availability).
+-   webhookUrl: This URL is where the notifications will be sent when the watched event occurs. Essentially, once the watcher detects the specified event on the blockchain, it will send an HTTP POST request to this URL with details of the event. You can use [https://webhook.site/](https://webhook.site/) or [test a webhook on your local environment using ngrok](/tutorials/testing-webhooks-locally-ngrok).
+-   confirmationsBlocks: This is the number of confirmed blocks before an event triggers the watcher. It's a safety measure to ensure that the event (like a transaction) is well-confirmed on the blockchain and is not likely to be reversed. The higher the number, the more confirmations are required, and vice versa. Each network has its own default confirmation blocks number, for more information, see [Understanding confirmation blocks](/docs/watcher/confirmation-blocks).
+
+
+</TabItem>
+
+<TabItem value="sent" label="ADDRESS SENT NATIVE CURRENCY">
+To create a watcher from the code of you application, use the following snippet.
+You can find the full list of networks and event types in our <Link to="/api-reference">API reference</Link>.
+
+```js
+const axios = require("axios")
+// First, authenticate to the API
+const startonApi = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+// Use the watcher creation endpoint
+startonApi
+	.post("/v3/watcher", {
+		name: "Name of your watcher", // Enter a name for your watcher
+		description: "Describe your watcher", // Enter a description for your watcher
+		address: "0x000000000000", // Enter the address to watch (either a wallet or a smart contract)
+		network: "polygon-mumbai", // Enter a network, you can find the list of networks available in our API reference.
+		type: "ADDRESS_SENT_NATIVE_CURRENCY.",
+		webhookUrl: "https://xxxxxxx/", // Enter the address of the webhook
+		confirmationsBlocks: 50, // Depending on your needs, select the number of confirmed blocks before an event triggers your watcher
+	})
+	.then((response) => {
+		console.log(response.data)
+	})
+```
+
+Let's go through the parameters provided to create a watcher:
+
+-   name: This field specifies the name of your watcher. Useful for identification purposes, especially if you have multiple watchers set up for the same address or contract at different confirmation speeds [different confirmation speeds](/docs/watcher/confirmation-blocks).
+-   type: The type of blockchain event that you want the watcher to monitor. The ADDRESS_ACTIVITY type, in this context, means the watcher will monitor and notify of any activity related to the provided address but Starton provides you with a [list of events](/docs/watcher/available-event-types) as well as the possibility to [watch events from your own custom contract](/docs/watcher/custom-event) .
+    | Event type                         | Description                                                                                                      |
+    | ---------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+    | `ADDRESS ACTIVITY`                 | Triggers when a transfer from or to an address is created, to track when native tokens transactions are created. |
+    | `ADDRESS RECEIVED NATIVE CURRENCY` | Triggers when a transfer to an address is created, to track when native tokens are received.                     |
+    | `ADDRESS SENT NATIVE CURRENCY`     | Triggers when a transfer event is created from an address, to track when native tokens are sent.                 |
+-   address: This is the specific blockchain address you want to monitor. It can be a wallet address or a smart contract address, depending on the event type you chose.
+-   network: This specifies the blockchain network on which is the given address. In the provided example, polygon-mumbai refers to the Mumbai testnet of the Polygon (previously known as Matic) network. For more, see [Supported Networks](/docs/getting-started/overview#supported-networks-and-service-availability).
+-   webhookUrl: This URL is where the notifications will be sent when the watched event occurs. Essentially, once the watcher detects the specified event on the blockchain, it will send an HTTP POST request to this URL with details of the event. You can use [https://webhook.site/](https://webhook.site/) or [test a webhook on your local environment using ngrok](/tutorials/testing-webhooks-locally-ngrok).
+-   confirmationsBlocks: This is the number of confirmed blocks before an event triggers the watcher. It's a safety measure to ensure that the event (like a transaction) is well-confirmed on the blockchain and is not likely to be reversed. The higher the number, the more confirmations are required, and vice versa. Each network has its own default confirmation blocks number, for more information, see [Understanding confirmation blocks](/docs/watcher/confirmation-blocks).
+
+
+</TabItem>
+
+</Tabs>
+</TabItem>
+</Tabs>
+
 
 **Related topics**
 

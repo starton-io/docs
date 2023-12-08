@@ -141,44 +141,9 @@ const sidebars: SidebarsConfig = {
 					},
 					collapsed: true,
 					items: [
-						'watcher/creating-a-watcher',
-
-						{
-							type: 'category',
-							label: 'Events',
-							link: {
-								type: 'doc',
-								id: 'watcher/available-event-types',
-							},
-							collapsed: true,
-							items: [
-								{
-									type: 'category',
-									label: 'Monitoring blockchain addresses',
-									collapsed: true,
-									items: [
-										'watcher/address_activity',
-										'watcher/address_receive_native_currency',
-										'watcher/address_sent_native_currency',
-									],
-								},
-								{
-									type: 'category',
-									label: 'Monitoring smart contracts',
-									collapsed: true,
-									items: [
-										'watcher/event_approval',
-										'watcher/event_mint',
-										'watcher/event_transfer',
-										'watcher/erc721_event_transfer',
-										'watcher/erc1155_event_single',
-										'watcher/erc1155_event_transfer_batch',
-										'watcher/custom-event',
-									],
-								},
-							],
-						},
+						'watcher/creating-a-watcher','watcher/available-event-types',
 						'watcher/webhooks',
+						'watcher/how-to-ensure-notifys-webhooks-are-from-starton',
 						'watcher/confirmation-blocks',
 						'watcher/watcher-state-and-status',
 					],
