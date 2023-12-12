@@ -1,5 +1,5 @@
 ---
-title: Uploading Files
+title: Uploading Files and Folders
 description: Learn how to upload on Starton IPFS.
 keywords: [IPFS, smart contract, upload]
 ---
@@ -9,7 +9,7 @@ import IPFS from "@site/static/img/docs/ipfs/IPFS.png"
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
 
-# Using Storage
+# Uploading Files and Folders
 
 You can upload content on IPFS. Starton IPFS is a storage and pinning service, where you can host files, folders, and metadata on our IPFS nodes so that they remain available at all times.
 
@@ -67,3 +67,117 @@ startonApi
 
 </TabItem>
 </Tabs>
+
+### Uploading JSON files on IPFS
+
+
+You can upload content on IPFS. Starton IPFS is a storage and pinning service, where you can host files, folders, and metadata on our IPFS nodes so that they remain available at all times.
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+```jsx showLineNumbers
+const axios = require("axios")
+
+// AUTHENTICATING TO THE API USING YOUR API KEY
+const startonApi = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+
+startonApi
+	.post("/v3/ipfs/json", {
+		name: "json name", // name of your json file on starton.
+		content: { my: "object" }, // json object.
+		// optional metadata stored on starton database.
+		metadata: { your: "additional", meta: "data" },
+	})
+	.then((res) => console.log(res.data))
+	.catch((e) => console.log(e))
+```
+
+</TabItem>
+<TabItem value="dashboard" label="From Webapp">
+
+1. Go to **Storage**.
+1. Click **Upload**.
+1. Select JSON.
+1. Select content.
+1. Enter a name for the file.
+1. Click **Upload**.
+
+</TabItem>
+</Tabs>
+
+:::info JSON FORMATTING
+
+When uploading a file, quotes need to be added around keys and values (except numbers).
+
+:::
+
+
+
+## Creating folders on IPFS
+
+You can upload content on IPFS. Starton IPFS is a storage and pinning service, where you can host files, folders, and metadata on our IPFS nodes so that they remain available at all times.
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+POST requests with a body should have the Content-Type header with value application/json.
+For sending files it should be multipart/form-data.
+
+```jsx showLineNumbers
+const axios = require("axios")
+const FormData = require("form-data")
+const fs = require("fs")
+
+// AUTHENTICATING TO THE API USING YOUR API KEY
+const startonApi = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "YOUR_API_KEY",
+	},
+})
+
+const folderPath = "my/folder/path"
+let data = new FormData()
+const files = fs.readdirSync(folderPath)
+
+data.append("folderName", "folder name")
+for (const file of files) {
+	const buffer = fs.readFileSync(folderPath + "/" + file)
+	data.append("files", buffer, file)
+}
+
+// By setting "isSync" to "true, the request will wait for the pin before completing"
+data.append("isSync", "false")
+
+// Optional: you can add metadata to your file (object stringified)
+const metadata = JSON.stringify({ your: "additional", meta: "data" })
+data.append("metadata", metadata)
+startonApi
+	.post("/v3/ipfs/folder", data, {
+		headers: {
+			"Content-type": `multipart/form-data; boundary=${data.getBoundary()}`,
+		},
+	})
+	.then((res) => console.log(res.data))
+	.catch((e) => console.log(e))
+```
+
+</TabItem>
+<TabItem value="dashboard" label="From Webapp">
+
+1. Go to **IPFS**.
+1. Click **Upload**.
+1. Select **File(s)**.
+1. Toggle the **Create folder** button.
+1. Enter **Names** for the files.
+1. Click **Upload**.
+
+</TabItem>
+</Tabs>
+

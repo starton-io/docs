@@ -8,103 +8,28 @@ import Image from "@theme/IdealImage"
 import UCTemplate from "@site/static/img/docs/smart-contract/uc-template.png"
 import Tabs from "@theme/Tabs"
 import TabItem from "@theme/TabItem"
+import Link from "@docusaurus/Link"
 
 # Deploying a Smart Contract from template
 
-You can deploy a smart contract from templates directly from code using the Relayer or using the Dashboard.
+To deploy a smart contract with Starton you have three options: 
+- Deploy a smart contract using an audited contract template from our library 
+- Deploy your own smart contract using its bytecode and ABI
+- Import existing contract to view them on your dashboard and interact with them.
 
+<Tabs>
+<TabItem value="deploy-template" label="From template">
+
+You can deploy a smart contract from templates directly from code using the Relayer or using the Dashboard.
 <Tabs>
 <TabItem value="code" label="From Code">
 
-Before deployment, you can get the list of templates from our API.
+To deploy a smart contract from the code of your application, use the following snippet.
+You can find the full list of templates in our <Link to="/api-reference">API reference</Link>.
 
-### Get the list of available templates
-
-Let's find the template that suits your need.
-
-To do this, you can query Starton’s API. First you need to authenticate using an API key.
-
-Create an API key from the dashboard in the [Developer section](/docs/developer/api).
-Using this API key, we can make a call using the following JS code:
-
-```jsx showLineNumbers
-const axios = require("axios")
-
-const startonAPI = axios.create({
-	baseURL: "https://api.starton.com",
-	headers: {
-		"x-api-key": "YOUR_API_KEY",
-	},
-})
-
-startonAPI
-	.get("/v3/smart-contract-template")
-	.then((res) => console.log(res.data))
-	.catch((e) => console.log(e))
-```
-
-Be sure to replace `x-api-key value` with your own API key!
-When querying the API, it should return a list of template items:
-
-```json showLineNumbers
-{
-  "id": "ERC20_META_TRANSACTION",
-  "name": "ERC20 Fungible Token with fixed supply",
-  "description": "An ERC20 token contract keeps track of fungible tokens: any one token is exactly equal to any other token",
-  "tags": [...],
-  "blockchains": [...],
-  "bytecode": "string",
-  "constructorParams": [...],
-  "abi": [...],
-  "compilerVersion": "string",
-  "source": "string",
-  "isAudited": true,
-  "isActivated": true,
-  "createdAt": "string",
-  "updatedAt": "string"
-}
-```
-
-This is the object associated with the template you can use to create a crypto token.
-
-We’ll be using an ERC20 template as it is the standard for token creation on EVM based blockchains.
-
-## Choose a Network and fuel wallet
-
-Now that we know which template to use, we also need to choose a network on which to deploy.
-
-The compatible blockchains for this template can be seen inside the `blockchain` objects in the previously returned template object.
-
-For example for the Ethereum blockchain there are multiple available networks such as `ethereum-mainnet` or `ethereum-goerli` (testnet).
-
-We’ll choose to deploy our contract on the `ethereum-goerli` network. The list of supported blockchains and network is available in [Overview](/docs/getting-started/overview).
-
-Note that is it crucial that we fuel our wallet with some Ether faucet. Otherwise the blockchain will reject our smart contract’s deployment as we will lack funds to cover the gas fees.
-
-In order to claim test faucets we need to go on the [Wallet](/docs/wallet/understanding-key-management-systems) section on Connect’s dashboard and find the address associated to the network we are interested in.
-
-Here, it is the ethereum-goerli network.
-
-We can now claim free faucet on the official [Ethereum faucet website](https://faucet.dimensions.network/).
-Enter your address, click **Send me test Ether** and wait for the transaction to complete.
-
-## Deploying the contract
-
-Everything is now in place so we can create an instance of the smart contract template we picked.
-
-We’ll use the ID of the template we got in order to tell Deploy which template to use for the contract creation.
+You will need the ID of the template we got in order to tell which template to use for the contract creation.
 
 We also need to provide values for the parameters of our smart contract’s constructor.
-
-For our ERC20, we’ll need to provide:
-
--   a name for our token
--   a ticker
--   the initial supply
-
-Let’s call our token the DemoToken, with DEMO as its ticker and an initial supply of 1.000.000 tokens.
-
-Here is the code to deploy the contract (Axios being configured as before):
 
 ```jsx showLineNumbers
 const axios = require("axios")
@@ -129,7 +54,7 @@ startonAPI
 	.catch((e) => console.log(e))
 ```
 
-The expected result:
+Here is the expected response:
 
 ```jsx showLineNumbers
 {
@@ -146,8 +71,9 @@ The expected result:
   "updatedAt": "Tue Jun 29 2021 13:09:17 GMT+0000 (Coordinated Universal Time)"
 }
 ```
-
+To learn more on how to deploy a smart contract from a template, see our [full tutorial](/tutorials/deploy-first-smart-contract).
 </TabItem>
+
 <TabItem value="dashboard" label="From Webapp">
 
 We’ll be using an ERC20 template as it is the standard for token creation on EVM based blockchains.
@@ -156,43 +82,9 @@ We’ll be using an ERC20 template as it is the standard for token creation on E
 1. Click **Deploy with Template**.
     <Image img={UCTemplate} alt={"create smart contracts"} />
 1. Select a use case and a template.
-
-## Deploying the contract
-
-Everything is now in place so we can create an instance of the smart contract template we picked.
-
-We’ll use the ID of the template we got in order to tell Deploy which template to use for the contract creation.
-
-We also need to provide values for the parameters of our smart contract’s constructor.
-
-For our ERC20, we’ll need to provide:
-
--   a name for our token
--   the initial supply
-
 1. Enter the Smart contract parameters.
    Find the description of each parameter for each smart contract template in [Smart Contracts references](/docs/smart-contract/parameters-and-functions).
 1. Click **Next**.
-
-## Choose a Network and fuel wallet
-
-Now that we know which template to use, we also need to choose a network on which to deploy.
-
-The compatible blockchains for this template can be seen inside the `blockchain` objects in the previously returned template object.
-
-For example for the Ethereum blockchain there are multiple available networks such as `ethereum-mainnet` or `ethereum-goerli` (testnet).
-
-We’ll choose to deploy our contract on the `ethereum-goerli` network. The list of supported blockchains and network is available in [Overview](/docs/getting-started/overview).
-
-Note that is it crucial that we fuel our wallet with some Ether faucet. Otherwise the blockchain will reject our smart contract’s deployment as we will lack funds to cover the gas fees.
-
-In order to claim test faucets we need to go on the [Wallet](/docs/wallet/understanding-key-management-systems) section on Connect’s dashboard and find the address associated to the network we are interested in.
-
-Here, it is the ethereum-goerli network.
-
-We can now claim free faucet on the official [Ethereum faucet website](https://faucet.dimensions.network/).
-Enter your address, click **Send me test Ether** and wait for the transaction to complete.
-
 1. Set the transaction parameters.
     1. Select the **Network** on which you want to deploy your contract.
     1. Select the **Wallet** your want to deploy your contract with.
@@ -201,7 +93,138 @@ Enter your address, click **Send me test Ether** and wait for the transaction to
     1. Click **Validate**.
 
 </TabItem>
+
+
+
 </Tabs>
+
+</TabItem>
+<TabItem value="from-bytecode" label="From bytecode">
+To deploy a smart contract from bytecode, you will need the ABI and bytecode of your contract.
+You can find the full Tutorial on how to get the bytecode and the ABI from your contract in our <Link to="/docs/smart-contract/deploying-from-bytecode">full Tutorial</Link>.
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+To deploy a smart contract from bytecode from your own backend, we'll use the following snippet: 
+
+```js showLineNumbers
+
+const axios = require("axios")
+
+const http = axios.create({
+    baseURL: "https://api.starton.com/v3",
+    headers: {
+        "x-api-key": 'YOUR_API_KEY',
+    },
+})
+
+http.post('v3/smart-contract/from-bytecode', {
+  "network": "binance-testnet",
+  "name": "My contract's name",
+  "description": "This is the most beautiful ERC20 ever deployed.",
+  "params": [ // parameter values for the smart contract constructors, this will change depending of your contract
+    "My token",
+    "TOKEN",
+    "1000000000000000000000",
+    "0x0" // This is the owner and should not be set to 0x0 adress but we do this as this is a tutorial. You should use either the KMS adress or one that you control.
+  ],
+  "abi": ,// Paste here the abi you copied to clipboard
+  "bytecode": ,// Paste here the bytecode you copied to clipboard
+  "compilerVersion": "string",
+  "signerWallet": "string"
+}).then(response => {
+    console.log(response.data)
+})
+```
+
+Be sure to replace `x-api-key value` with your own api key!
+The smart contract details are returned such as the hash and the address of it.
+
+</TabItem>
+<TabItem value="dashboard" label="From Webapp">
+
+1. From **Dashboard**, go to **Smart Contract**.
+1. Click **Deploy from bytecode**.
+1. Enter a name and a description.
+1. Enter the ABI of your contract.
+1. Enter the bytecode of your contract.
+1. Enter the parameters needed.
+1. Click **Deploy**.
+
+</TabItem>
+</Tabs>
+
+</TabItem>
+
+<TabItem value="importing" label="From on-chain contract">
+
+You can import on **Starton** smart contracts that are already deployed on the blockchain.
+To do so, you will need:
+
+-   the address and network of the contract
+-   the ABI of the contract
+
+
+
+<Tabs>
+<TabItem value="code" label="From Code">
+
+Be sure to replace `x-api-key value` with your own API key!
+
+```jsx showLineNumbers
+const axios = require("axios")
+
+const axiosInstance = axios.create({
+	baseURL: "https://api.starton.com",
+	headers: {
+		"x-api-key": "PUT HERE YOUR API KEY",
+	},
+})
+
+axiosInstance
+	.post("/v3/smart-contract/import-existing", {
+		abi: "[]",
+		network: "",
+		description: "",
+		name: "",
+		address: "",
+	})
+	.then((response) => {
+		console.log(response.data)
+	})
+```
+
+Fill up the parameters of the call as follows: 
+
+- **ABI** (Application Binary Interface): the JSON-formatted interface that defines how to interact with a smart contract's functions and data structures.
+
+- **Network**: Specifies the blockchain network (e.g., Ethereum, Binance Smart Chain) where the smart contract is deployed.
+
+- **Description**: A brief summary or explanation of the smart contract's purpose and functionality.
+
+- **Name**: A string identifier for the smart contractfor easy reference.
+
+- **Address**: The unique blockchain address of the smart contract.
+
+</TabItem>
+<TabItem value="dashboard" label="From Webapp">
+
+1. From Dashboard, go to Smart Contract.
+1. Click **+ Smart Contract**.
+1. Fill in Smart Contract information:
+   1. Enter your **Smart Contract Name**
+   1. Select a **Blockchain**
+   1. Select a **Network**
+   1. Enter the address.
+1. Paste your Smart Contract ABI.
+</TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
+
+
 
 **Related topics**
 

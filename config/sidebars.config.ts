@@ -35,17 +35,10 @@ const sidebars: SidebarsConfig = {
 					},
 					collapsed: true,
 					items: [
-						'smart-contract/understanding-smart-contracts',
-						{
-							type: 'category',
-							label: 'Deploying Smart Contracts',
-							collapsed: true,
-							items: [
+
 								'smart-contract/deploying-a-smart-contract',
-								'smart-contract/deploying-from-bytecode',
-								'smart-contract/importing-smart-contract',
-							],
-						},
+
+
 						'smart-contract/interacting-with-a-smart-contract',
 					],
 				},
@@ -170,13 +163,11 @@ const sidebars: SidebarsConfig = {
 					items: [
 						'ipfs/understanding-ipfs',
 						'ipfs/uploading-on-ipfs',
-						'ipfs/uploading-folder',
-						'ipfs/uploading-json',
 						'ipfs/pinning-file',
 						{
 							type: 'link',
 							href: '/tutorials/uploading-metadata-nft',
-							label: 'Tutorials',
+							label: 'Uploading NFT metadata',
 						},
 					],
 				},
