@@ -52,15 +52,28 @@ const sidebars: SidebarsConfig = {
 					collapsed: true,
 					items: [
 						{
-							'Creating fungible tokens': [
-								/*'smart-contract/erc20-fixed',
-                                                'smart-contract/erc20-mintable',*/
-								'smart-contract/erc20-fixed-meta',
-								'smart-contract/erc20-mintable-meta',
+                          					type: 'category',
+                          					label: 'Creating fungible tokens',
+                          					link: {
+                          						type: 'doc',
+                          						id: 'smart-contract/fungible-tokens',
+                          					},
+                          					collapsed: true,
+                          					items: ['smart-contract/erc20-fixed-meta',
+                                                    'smart-contract/erc20-mintable-meta',
+
+
 							],
 						},
 						{
-							'Deploying NFTs': [
+							type: 'category',
+                            label: 'Deploying NFTs',
+                            link: {
+                                type: 'doc',
+                                id: 'smart-contract/nft-and-collections',
+                            },
+                            collapsed: true,
+                            items: [
 								'smart-contract/erc721-meta',
 								'smart-contract/erc721-capped',
 								'smart-contract/erc1155-meta',
@@ -70,7 +83,14 @@ const sidebars: SidebarsConfig = {
 							],
 						},
 						{
-							'Selling NFTs': [
+							type: 'category',
+                            label: 'Selling NFTs',
+                            link: {
+                                type: 'doc',
+                                id: 'smart-contract/selling-nfts',
+                            },
+                            collapsed: true,
+                            items: [
 								'smart-contract/erc721-sale',
 								'smart-contract/erc721-auction-sale',
 								'smart-contract/erc721-whitelist-sale',
@@ -80,7 +100,14 @@ const sidebars: SidebarsConfig = {
 							],
 						},
 						{
-							'Other templates': [
+							type: 'category',
+                            label: 'Other templates',
+                            link: {
+                                type: 'doc',
+                                id: 'smart-contract/other-templates',
+                            },
+                            collapsed: true,
+                            items: [
 								'smart-contract/payment-splitter',
 								/*'smart-contract/childerc20-fixed',
                              'smart-contract/childerc20-mintable',
@@ -99,30 +126,13 @@ const sidebars: SidebarsConfig = {
 					},
 					collapsed: true,
 					items: [
-						'transactions/understanding-the-relayer',
 						'transactions/creating-a-transaction',
-						{
-							type: 'category',
-							label: 'Understanding state and status',
-							link: {
-								type: 'doc',
-								id: 'transactions/state-and-status',
-							},
-							collapsed: true,
-							items: ['transactions/manual-action-required'],
-						},
+						'transactions/state-and-status',
+                        'transactions/manual-action-required',
 						'transactions/understanding-gas',
-						{
-							type: 'category',
-							label: 'Understanding nonce',
-							link: {
-								type: 'doc',
-								id: 'transactions/understanding-nonce',
-							},
-							collapsed: true,
-							items: ['transactions/desynchronized-nonce-management'],
-						},
 						'transactions/stuck-transaction-replacement',
+						'transactions/desynchronized-nonce-management',
+
 					],
 				},
 				{
@@ -162,9 +172,8 @@ const sidebars: SidebarsConfig = {
 					collapsed: true,
 					items: [
 						'ipfs/understanding-ipfs',
-                        						'ipfs/uploading-on-ipfs',
-                                                'ipfs/uploading-folder',
-
+                        'ipfs/uploading-on-ipfs',
+                        'ipfs/uploading-folder',
                         'ipfs/uploading-json',
 						'ipfs/pinning-file',
 
