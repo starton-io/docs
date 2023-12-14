@@ -1,0 +1,87 @@
+---
+title: Understanding nonces
+description: The function of the nonce depends on its type and thus on its purpose in the blockchain. The type characterizes the generation of a nonce.
+keywords: [Nonce, stuck nonce, Relayer, Starton, Transaction]
+---
+
+# Understanding nonces
+
+A nonce is a term that means « a number only used once ». A nonce is generally a random number or a pseudo-random number depending on its generation.
+On the blockchain, nonce addresses are called « cryptographic nonce ». The nonce can take multiple forms. It can be a timestamp, a counter, or even a random chain.
+
+Cryptocurrencies such as Ethereum use blockchain as a database to store all transactions, similar to a decentralized and transparent ledger. The creation of blocks within the blockchain contains information to understand or stipulate whether a block is valid or not. We will discover and understand the decisive role of the nonce in some crypto-currencies and we will also illustrate it through those that use the « Proof of Work » as a validation protocol. In this way, we will focus mainly on Bitcoin to support and illustrate our points.
+
+## Type of nonces in blockchain
+
+The function of the nonce depends on its type and thus on its purpose in the blockchain. The type characterizes the generation of a nonce.
+
+There are two types of nonces :
+
+-   Sequential
+-   Arbitrary
+
+The sequential nonce is a value incremented at each transaction that would act as a counter. It ensures that a value is not repeated. However, the sequential nonce remains a predictable
+generation and the generation model can be guessed and misused.
+
+The nonce can also be an arbiter, which means that its objective is to avoid double-spending. This is a major notion in the blockchain which allows a piece of information to be unique. To illustrate our point, two identical pieces of information applied to an arbitrary nonce can have different fingerprints. This is what we find in the PoW system of Bitcoin. In this case, we will speak of a random nonce.
+
+Ideally, a nonce should be both random and sequential. This is why we often speak of a pseudo-random nonce.
+
+## Application in blockchain
+
+### Application in Bitcoin and Proof of Work
+
+Blocks in the bitcoin network are identified by their header, which consists of multiple pieces of information such as the Merkle root, the timestamp, the hash of the previous block, and a nonce.
+The nonce is the only field in the header that is not predetermined.
+
+The nonce is a 32-bit field that can be adjusted by miners to ensure its validity for the current hash. The role of the nonce will then be the modification of the entries of a cryptographic hash function.
+
+The cryptographic nonce requires a resolution with computing power with trial and error. It is impossible to guess its value. The miners will add the nonce found to the hash of the current block's head if its value is less than or equal to the value of the target hash. If it is, they can add the next block and validate it. The target value found using the nonce is called the golden nonce.
+
+The nonce is therefore essential for the creation of a block.
+
+### Application in Ethereum
+
+In the Ethereum network, we find the sequential nonce.
+Each address of a user has an associated nonce.
+It corresponds to the number of valid transactions on the blockchain.
+When we send a transaction, there are two possibilities for the nonce value. Either it is set to zero like here.
+
+```json
+{
+	"id": 2,
+	"jsonrpc": 2.0,
+	"method": "account_signTransaction",
+	"params": [
+		{
+			"from": "0x1923f626bb8dc025849e00f99c25fe2b2f7fb0db",
+			"gas": "0x55555",
+			"maxFeePerGas": "0x1234",
+			"maxPriorityFeePerGas": "0x1234",
+			"input": "0xabcd",
+			"nonce": "0x0",
+			"to": "0x07a565b7ed7d7a678680a4c162885bedbb695fe0",
+			"value": "0x1234"
+		}
+	]
+}
+```
+
+The nonce is therefore optional and will be ignored, i.e. its value will be set by default.
+Otherwise, the nonce allows ordering of the sent transactions. The value of nonce must
+therefore be thought out and cannot be random. In case of an invalid nonce, the transaction will be refused.
+Let's take an example to illustrate the order of passage.
+If the user has sent five transactions with his address his next transaction will have a value of six.
+In a situation where the user sends three transactions at the same time, he can define a specific nonce to implement a passing order for his three transactions.
+But other factors such as the gas price have an influence on the order of transactions on Ethereum.
+
+:::info
+If you want to modify a pending transaction, you can send a new transaction with the same nonce as the transaction you want to modify. This will overwrite the previous transaction.
+You can also do this if you want to cancel a pending transaction. You can do the same with erroneous information in your transaction. For example, you can put an invalid signature. Don't forget to put the same nonce as the queued transaction you want to cancel.
+:::
+
+**Related topics**
+
+-   More on [Transactions](/docs/transactions/state-and-status)
+-   More on [Smart Contracts](/docs/smart-contract/understanding-smart-contracts)
+-   More on [Developer mode](/docs/developer/discovering-coding-interface)

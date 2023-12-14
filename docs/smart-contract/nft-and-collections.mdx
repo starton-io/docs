@@ -1,0 +1,35 @@
+---
+title: Deploying NFTs and collections 
+description: Smart contracts are programs deployed on the blockchain. Their functions are executed with transactions. Learn more about smart contracts with Starton.
+keywords: [Deploy, Import, Interact, Starton, Smart contracts]
+---
+
+import Heading from "@theme/Heading"
+import Link from "@docusaurus/Link"
+import { CardTitle } from "@site/src/components/commons/CardTitle"
+import { Starton } from "@starton/react-ui-iconography"
+import Image from "@theme/IdealImage"
+import SmartContract from "@site/static/img/docs/smart-contract/smartcontract.png"
+import Ethereum from "@site/static/img/docs/chains/Ethereum.png"
+import BnbChain from "@site/static/img/docs/chains/bnb_chain.png"
+import Avalanche from "@site/static/img/docs/chains/Avalanche.png"
+import Polygon from "@site/static/img/docs/chains/Matic.png"
+import zkEVM from "@site/static/img/docs/chains/zkEVM.png"
+import Arbitrum from "@site/static/img/docs/chains/arbitrum.png"
+
+# ERC721 - Deploy and sell your one-to-many NFTs
+
+The **ERC721** is a smart contract standard which is specialised in **single-copy Non Fungible Tokens** (NFT) and out-of-the-box **compatible with Opensea**.
+In an **ERC721**, every NFT is unique which means you have to reference the content for each NFT.
+
+:::info
+
+The **ERC721** can still be used to upload several copies of the same content but is less optimised for this use case than the ERC1155.
+
+:::
+
+| Smart Contract                                                           | Description                                                                                                               | Blockchain                                                                                                                                                                                                                                                                                                     |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [ERC721 NFT Smart Contract](/docs/smart-contract/erc721-meta)             | The smart contract template to deploy single-copy NFTs.This version allows you to dissociate the wallet funding gas fees. | <Image alt={"Ethereum logo"} img={Ethereum} style={{ maxWidth: '32px' }} /> <Image alt={"Bnb chain logo"} img={BnbChain} style={{ maxWidth: '32px' }} /> <Image alt={"Avalanche logo"} img={Avalanche} style={{ maxWidth: '32px' }} /> <Image alt={"Matic logo"} img={Polygon} style={{ maxWidth: '32px' }} /> |
+| [ERC721 NFT with limited supply](/docs/smart-contract/erc721-capped)      | The capped ERC721 NFT smart contract template for single-copy Non Fungible Tokens (NFT).                                  | <Image alt={"Ethereum logo"} img={Ethereum} style={{ maxWidth: '32px' }} /> <Image alt={"Bnb chain logo"} img={BnbChain} style={{ maxWidth: '32px' }} /> <Image alt={"Avalanche logo"} img={Avalanche} style={{ maxWidth: '32px' }} /> <Image alt={"Matic logo"} img={Polygon} style={{ maxWidth: '32px' }} /> |
+| [ERC1155 NFTs collection](/docs/smart-contract/erc1155-meta)                      | The smart contract standard to manage multiple-copies NFTs.                               | <Image alt={"Ethereum logo"} img={Ethereum} style={{ maxWidth: '32px' }} /> <Image alt={"Bnb chain logo"} img={BnbChain} style={{ maxWidth: '32px' }} /> <Image alt={"Avalanche logo"} img={Avalanche} style={{ maxWidth: '32px' }} /> <Image alt={"Matic logo"} img={Polygon} style={{ maxWidth: '32px' }} /> |

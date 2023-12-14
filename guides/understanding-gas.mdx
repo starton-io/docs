@@ -1,0 +1,56 @@
+---
+title: Understanding Gas Management
+description: Gas refers to the unit that measures the amount of computational effort required to execute specific operations on the blockchain.
+keywords: [gas, stuck transactiom, Relayer, Starton, Transaction]
+---
+
+# Understanding Gas Management
+
+In the field of cryptocurrency, one of the most important concepts to understand is that of gas. Gas refers to the unit that measures the amount of computational effort required to execute specific operations on the blockchain. In other words, it is a measure of how much work an action requires. Each transaction requires computational resources to execute, and each transaction also requires a fee. This fee is known as gas.
+
+Gas is essentially the fee that you pay for every operation on the blockchain. It's essentially a measure of how much work an action requires. The more work involved, the more gas you will need to spend in order for the transaction to be executed correctly.
+
+## Defining gas prices
+### Gas fees
+
+A gas fee is a blockchain transaction fee, paid to network validators to the blockchain. It is most commonly used on blockchain. A transaction costs a certain amount on the network. This amount is used to pay for the computation on the Blockchain. The price of this computation is set by the amount of Gas specified in the transaction.
+
+### Gas limit
+
+Gas limit refers to the maximum amount of gas you are willing to consume on a transaction. More complicated transactions involving smart contracts require more computational work, so they require a higher gas limit than a simple payment. A basic ETH transaction will set you off a gas limit of 21,000 units of gas.
+
+### Gas speed
+
+Starton lets you configure the priority of your transaction by selecting speed.
+By choosing between low, average, fast and fastest, you determine if you're willing to increase incentive for your transaction to be mined, by paying more gas to the miner. On the contrary, if your transaction can wait, set low to save on gas. Your transaction won't be picked first, since it's not the most rewarding but can be mined at a calmer time for the mempool.
+
+## Customizing Gas with Starton
+When using Starton's API, you have the flexibility to configure custom gas settings for your transactions. This is particularly useful for executing transactions when network conditions, such as GWEI (the unit of gas price in Ethereum), are favorable.
+
+### Setting Custom Gas Parameters
+You can use custom parameters everytime you are called to specify the speed of a transaction.
+
+For example:
+```json
+{
+    "speed": "custom",
+    "customGas": {
+        "maxFeePerGas": "5000000", // For EIP 1159 compliance
+        "maxPriorityFeePerGas": "1000000", // For EIP 1159 compliance
+        "gasPrice": "10000" // For older EIP standards
+    }
+}
+```
+- **`maxFeePerGas`**: The maximum total fee per unit of gas you're willing to pay for a transaction, including the base fee and priority fee. Used in EIP-1559 transactions.
+
+- **`maxPriorityFeePerGas`**: The maximum tip per unit of gas to incentivize miners to include your transaction in a block. It's paid over and above the base fee in EIP-1559 transactions.
+
+- **`gasPrice`**: The fee per unit of gas for transactions, used for networks which haven't adopted EIP-1559.
+
+You can use these settings when creating new transactions through the Starton API, either manually or via smart contract management functions.
+
+## Updating Relayer Settings in Starton
+
+You can further customize your transaction strategies at project-level for each network by updating the Relayer settings. Our Relayer will follow your rules and increase the gas speed to avoid stuck transactions.
+
+For more detailed instructions, go to [Setting a transaction management strategy](/docs/transactions/stuck-transaction-replacement).
