@@ -162,13 +162,12 @@ const sidebars: SidebarsConfig = {
 					collapsed: true,
 					items: [
 						'ipfs/understanding-ipfs',
-						'ipfs/uploading-on-ipfs',
+                        						'ipfs/uploading-on-ipfs',
+                                                'ipfs/uploading-folder',
+
+                        'ipfs/uploading-json',
 						'ipfs/pinning-file',
-						{
-							type: 'link',
-							href: '/tutorials/uploading-metadata-nft',
-							label: 'Uploading NFT metadata',
-						},
+
 					],
 				},
 			],

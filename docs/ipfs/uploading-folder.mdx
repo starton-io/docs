@@ -1,5 +1,5 @@
 ---
-title: Creating folders
+title: Uploading folders
 description: Learn how to upload on Starton IPFS.
 keywords: [IPFS, smart contract, upload]
 ---
@@ -40,11 +40,6 @@ for (const file of files) {
 	data.append("files", buffer, file)
 }
 
-// By setting "isSync" to "true, the request will wait for the pin before completing"
-data.append("isSync", "false")
-
-// Optional: you can add metadata to your file (object stringified)
-const metadata = JSON.stringify({ your: "additional", meta: "data" })
 data.append("metadata", metadata)
 startonApi
 	.post("/v3/ipfs/folder", data, {
