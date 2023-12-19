@@ -9,9 +9,8 @@ import Box, { BoxProps } from '@mui/material/Box'
 import { AppBar, AppBarProps, styled, Toolbar } from '@mui/material'
 import type { Props } from '@theme/Navbar/Layout'
 import { useThemeConfig } from '@docusaurus/theme-common'
-import { useHideableNavbar, useNavbarMobileSidebar } from '@docusaurus/theme-common/internal'
+import { useHideableNavbar } from '@docusaurus/theme-common/internal'
 import NavbarMobileSidebar from '@theme/Navbar/MobileSidebar'
-import clsx from 'clsx'
 
 /*
 |--------------------------------------------------------------------------
@@ -25,15 +24,15 @@ export interface NavbarLayoutProps extends Props {}
 | Styles
 |--------------------------------------------------------------------------
 */
-const Nav = styled(Box)<BoxProps>(() => ({
-	position: 'sticky',
-	flexGrow: 1,
-	paddingTop: 66,
-}))
-
 const AppBarStyled = styled(AppBar)<AppBarProps>(({ theme }) => ({
 	backgroundColor: theme.palette.background.paper2,
 	borderBottom: `1px solid ${theme.palette.divider}`,
+	position: 'sticky',
+	flexGrow: 1,
+	zIndex: theme.zIndex.drawer + 1,
+	// TODO: Remove this when we find a solution for deleting the navbar class.
+	paddingRight: '0px !important',
+	width: '100vw',
 }))
 
 /*
@@ -43,32 +42,17 @@ const AppBarStyled = styled(AppBar)<AppBarProps>(({ theme }) => ({
 */
 const NavbarLayout: React.FC<NavbarLayoutProps> = ({ children }) => {
 	const {
-		navbar: { hideOnScroll, style },
+		navbar: { hideOnScroll },
 	} = useThemeConfig()
-	const mobileSidebar = useNavbarMobileSidebar()
-	const { navbarRef, isNavbarVisible } = useHideableNavbar(hideOnScroll)
+	const { navbarRef } = useHideableNavbar(hideOnScroll)
 
 	return (
-		<Nav
-			component={'nav'}
-			className={clsx(
-				'navbar',
-				'navbar--fixed-top',
-				hideOnScroll && [styles.navbarHideable, !isNavbarVisible && styles.navbarHidden],
-				{
-					'navbar--dark': style === 'dark',
-					'navbar--primary': style === 'primary',
-					'navbar-sidebar--show': mobileSidebar.shown,
-				},
-			)}
-			ref={navbarRef}
-		>
-			<AppBarStyled>
+		<React.Fragment>
+			<AppBarStyled component={'nav'} className={'navbar'} ref={navbarRef}>
 				<Toolbar>{children}</Toolbar>
 			</AppBarStyled>
-			<div role="presentation" className={'navbar-sidebar__backdrop'} onClick={mobileSidebar.toggle} />
 			<NavbarMobileSidebar />
-		</Nav>
+		</React.Fragment>
 	)
 }
 
