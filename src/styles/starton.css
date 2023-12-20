@@ -833,6 +833,10 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 	display: flex;
 }
 
+.menu__link, .menu__caret, .menu__list-item-collapsible {
+	border-radius: 0;
+}
+
 .theme-doc-sidebar-item-category {
 	font-weight: bold;
 }
@@ -997,9 +1001,13 @@ nav.navbar .menu__link--active {
 	padding: 8px 16px;
 }
 
-.menu__link--active:not(.menu__link--sublist) {
+.menu__list-item > .menu__link {
+	border-left: 1px solid #435160;
+}
+
+.menu__list-item > .menu__link--active:not(.menu__link--sublist) {
 	background-color: #0E1114;
-	border-right: 3px solid #01FEE2;
+	border-left: 1px solid #01FEE2;
 	border-radius: 0;
 }
 
