@@ -767,6 +767,18 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 .theme-doc-sidebar-menu .menu__list-item-collapsible {
 	background: none;
 	font-weight: bolder;
+	position: relative;
+}
+
+.theme-doc-sidebar-menu .menu__list-item-collapsible > a {
+	width: 100%;
+	z-index: 2;
+}
+
+.theme-doc-sidebar-menu .menu__list-item-collapsible > button {
+	position: absolute;
+	right: 0;
+	z-index: 1;
 }
 
 .theme-doc-toc-desktop .table-of-contents .table-of-contents__link--active {
