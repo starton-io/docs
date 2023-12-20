@@ -43,6 +43,7 @@ export interface DocsEndpointsProps {
 const CardStyled = styled(Card)<CardProps>(({ theme }) => ({
 	border: `1px solid ${theme.palette.divider}`,
 	borderRadius: 0,
+	width: '100%',
 }))
 
 const CardHeaderStyled = styled(CardHeader)<CardHeaderProps>(({ theme }) => ({
