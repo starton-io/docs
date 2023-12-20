@@ -51,6 +51,23 @@ export const plugins: Array<PluginConfig> = [
 			},
 		} as PluginOptions,
 	],
+	// Guides
+	// ----------------------------------------------------------------------------
+	[
+		path.resolve(__dirname, '..', 'plugins', 'starton-guide-plugin'),
+		{
+			id: 'guides',
+			blogTitle: 'Guides',
+			blogSidebarCount: 'ALL',
+			showReadingTime: true,
+			path: 'guides',
+			routeBasePath: 'guides',
+			authorsMapPath: './authors.yml',
+			blogListComponent: '@site/src/components/pages/guides/list/HomeGuides.tsx',
+			blogPostComponent: '@site/src/components/pages/guides/details/HomeGuide.tsx',
+			postsPerPage: 'ALL',
+		} satisfies BlogPluginOptions,
+	],
 	// Tutorials
 	// ----------------------------------------------------------------------------
 	[
