@@ -1,11 +1,12 @@
 {
   "name": "starton-docs",
-  "version": "4.0.9",
+  "version": "4.1.0",
   "license": "Apache-2.0",
   "private": true,
   "scripts": {
     "docusaurus": "docusaurus",
     "start": "docusaurus start",
+    "start:ssl": "HTTPS=true SSL_CRT_FILE=.certs/docs.local.starton-staging.com.cert SSL_KEY_FILE=.certs/docs.local.starton-staging.com.key docusaurus start --host docs.local.starton-staging.com",
     "build": "docusaurus  build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
@@ -16,7 +17,8 @@
     "typecheck": "tsc",
     "lint": "eslint .",
     "prettier:fix": "prettier --write src docs",
-    "theme-build": "starton-theme-build"
+    "theme-build": "starton-theme-build",
+    "ssl:setup": "node scripts/ssl/create-ssl-cert.js"
   },
   "dependencies": {
     "@docusaurus/core": "^3.0.1",
@@ -39,6 +41,7 @@
     "@stoplight/elements": "7.15.3",
     "@typescript-eslint/eslint-plugin": "6.13.2",
     "@typescript-eslint/parser": "6.13.2",
+    "axios": "^1.6.2",
     "clsx": "2.0.0",
     "dotenv": "16.3.1",
     "framer-motion": "^10.16.14",
@@ -59,13 +62,14 @@
     "@docusaurus/types": "^3.0.0",
     "@starton/design-token-theme-builder": "1.2.0",
     "@types/react": "18.2.29",
+    "devcert": "^1.2.2",
     "eslint": "8.53.0",
     "eslint-config-prettier": "9.0.0",
     "eslint-import-resolver-typescript": "^3.6.1",
-    "eslint-plugin-mdx": "2.2.0",
-    "eslint-plugin-prettier": "5.0.1",
     "eslint-plugin-import": "2.29.0",
     "eslint-plugin-jsx-a11y": "6.8.0",
+    "eslint-plugin-mdx": "2.2.0",
+    "eslint-plugin-prettier": "5.0.1",
     "eslint-plugin-react": "7.33.2",
     "eslint-plugin-react-hooks": "4.6.0",
     "prettier": "3.0.3",

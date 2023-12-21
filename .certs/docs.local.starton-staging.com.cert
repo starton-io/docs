@@ -1,0 +1,87 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 15 (0xf)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN=devcert
+        Validity
+            Not Before: Dec 18 13:28:14 2023 GMT
+            Not After : Mar 22 13:28:14 2026 GMT
+        Subject: CN=docs.local.starton-staging.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:ab:89:8e:23:b7:6c:eb:5d:ba:52:8a:a5:50:45:
+                    a2:e5:ce:f0:7f:fa:a5:fc:c8:76:1d:aa:d6:3a:51:
+                    a9:57:57:48:aa:a9:23:e8:f2:58:91:e9:9e:26:0c:
+                    68:4e:ec:f9:f5:f4:eb:07:9c:f7:86:89:9e:62:9c:
+                    03:21:7c:6b:23:1c:bc:c7:57:b4:96:b0:c9:56:1d:
+                    71:0f:80:62:e8:bb:c5:b9:26:99:87:01:ce:75:92:
+                    f7:a7:00:55:46:87:91:32:b2:77:48:35:2c:37:7f:
+                    3b:fd:0a:87:cd:3d:29:97:d9:71:29:85:62:83:51:
+                    54:91:b8:a6:a0:81:d7:40:08:26:7c:79:e3:ce:ae:
+                    d3:b1:8a:97:58:11:77:e5:df:2c:f9:53:0e:38:59:
+                    fa:b1:5a:c0:78:34:b5:5f:5f:a7:64:eb:e1:30:c6:
+                    17:3c:c3:09:69:2f:fd:1f:99:dd:b0:33:2d:9b:d9:
+                    37:5c:5c:0f:f1:6b:2a:0b:b6:45:6a:9a:2d:ee:b8:
+                    a5:46:bc:94:39:c7:b1:9e:e8:3c:9b:87:4b:18:05:
+                    46:72:07:cd:24:f9:08:98:b6:e8:98:4f:0a:c3:43:
+                    60:94:76:74:cc:1b:92:f3:cc:49:bf:70:e0:60:d7:
+                    9a:c7:31:b9:20:dc:95:7b:f5:c5:db:e2:51:4e:55:
+                    9d:bd
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Basic Constraints: critical
+                CA:FALSE
+            X509v3 Subject Key Identifier: 
+                F1:D1:95:B3:B0:73:F5:F6:73:B4:C0:35:6B:E5:CA:64:41:9B:AE:E4
+            X509v3 Authority Key Identifier: 
+                keyid:1C:18:D7:0C:C3:4E:BE:A8:9A:EE:96:87:2B:CA:B8:8F:7D:C3:C3:8F
+                DirName:/CN=devcert
+                serial:D6:A6:D1:A2:4B:79:F5:F2
+            X509v3 Key Usage: critical
+                Digital Signature, Key Encipherment
+            X509v3 Extended Key Usage: 
+                TLS Web Server Authentication
+            X509v3 Subject Alternative Name: 
+                DNS:docs.local.starton-staging.com, DNS:*.docs.local.starton-staging.com
+    Signature Algorithm: sha256WithRSAEncryption
+    Signature Value:
+        09:fd:57:7b:4a:fa:c3:9e:04:68:7f:da:a6:7f:0d:45:44:1a:
+        f2:aa:97:94:9d:43:02:02:a0:24:d9:ec:6a:43:82:42:49:7a:
+        c5:ae:57:cc:24:58:cf:e7:62:52:61:cf:92:55:be:b2:33:6b:
+        18:73:fb:05:3d:31:e2:f7:41:02:41:24:78:24:c8:09:51:0b:
+        71:18:85:63:2c:db:5b:94:13:4e:36:f7:f8:86:14:31:16:aa:
+        99:c5:52:f2:95:0e:35:3a:cf:30:1a:d0:be:63:9c:a4:35:a5:
+        f1:20:74:f0:5e:77:30:44:c9:ba:44:48:58:41:64:af:8e:7e:
+        30:fd:f4:7c:c2:5f:0b:e3:ec:eb:3f:82:05:53:e8:63:c3:47:
+        4c:f1:12:a1:f3:78:e8:af:31:99:ee:c0:3f:5f:e1:52:2c:7e:
+        2e:84:c8:c9:f0:2a:b9:7b:a2:f7:9a:d3:18:06:00:99:81:ab:
+        41:ae:49:1e:d5:9c:11:9a:6f:44:61:9f:b0:31:7a:30:2d:19:
+        7f:24:76:e6:a8:0a:2a:c3:d9:b4:58:68:6a:d8:6e:ba:83:01:
+        57:21:52:af:e0:07:5b:2b:c8:b4:4b:49:d3:14:cf:cc:17:a0:
+        3b:17:3e:17:c6:f5:2f:2d:6f:78:63:db:47:be:12:a3:0a:5d:
+        2c:55:c6:35
+-----BEGIN CERTIFICATE-----
+MIIDnTCCAoWgAwIBAgIBDzANBgkqhkiG9w0BAQsFADASMRAwDgYDVQQDDAdkZXZj
+ZXJ0MB4XDTIzMTIxODEzMjgxNFoXDTI2MDMyMjEzMjgxNFowKTEnMCUGA1UEAwwe
+ZG9jcy5sb2NhbC5zdGFydG9uLXN0YWdpbmcuY29tMIIBIjANBgkqhkiG9w0BAQEF
+AAOCAQ8AMIIBCgKCAQEAq4mOI7ds6126UoqlUEWi5c7wf/ql/Mh2HarWOlGpV1dI
+qqkj6PJYkemeJgxoTuz59fTrB5z3homeYpwDIXxrIxy8x1e0lrDJVh1xD4Bi6LvF
+uSaZhwHOdZL3pwBVRoeRMrJ3SDUsN387/QqHzT0pl9lxKYVig1FUkbimoIHXQAgm
+fHnjzq7TsYqXWBF35d8s+VMOOFn6sVrAeDS1X1+nZOvhMMYXPMMJaS/9H5ndsDMt
+m9k3XFwP8WsqC7ZFapot7rilRryUOcexnug8m4dLGAVGcgfNJPkImLbomE8Kw0Ng
+lHZ0zBuS88xJv3DgYNeaxzG5INyVe/XF2+JRTlWdvQIDAQABo4HmMIHjMAwGA1Ud
+EwEB/wQCMAAwHQYDVR0OBBYEFPHRlbOwc/X2c7TANWvlymRBm67kMEIGA1UdIwQ7
+MDmAFBwY1wzDTr6omu6WhyvKuI99w8OPoRakFDASMRAwDgYDVQQDDAdkZXZjZXJ0
+ggkA1qbRokt59fIwDgYDVR0PAQH/BAQDAgWgMBMGA1UdJQQMMAoGCCsGAQUFBwMB
+MEsGA1UdEQREMEKCHmRvY3MubG9jYWwuc3RhcnRvbi1zdGFnaW5nLmNvbYIgKi5k
+b2NzLmxvY2FsLnN0YXJ0b24tc3RhZ2luZy5jb20wDQYJKoZIhvcNAQELBQADggEB
+AAn9V3tK+sOeBGh/2qZ/DUVEGvKql5SdQwICoCTZ7GpDgkJJesWuV8wkWM/nYlJh
+z5JVvrIzaxhz+wU9MeL3QQJBJHgkyAlRC3EYhWMs21uUE0429/iGFDEWqpnFUvKV
+DjU6zzAa0L5jnKQ1pfEgdPBedzBEybpESFhBZK+OfjD99HzCXwvj7Os/ggVT6GPD
+R0zxEqHzeOivMZnuwD9f4VIsfi6EyMnwKrl7ovea0xgGAJmBq0GuSR7VnBGab0Rh
+n7AxejAtGX8kduaoCirD2bRYaGrYbrqDAVchUq/gB1sryLRLSdMUz8wXoDsXPhfG
+9S8tb3hj20e+EqMKXSxVxjU=
+-----END CERTIFICATE-----

@@ -8,7 +8,7 @@ import React from 'react'
 import { useThemeConfig } from '@docusaurus/theme-common'
 import { useTOCHighlight, useFilteredAndTreeifiedTOC, type TOCHighlightConfig } from '@docusaurus/theme-common/internal'
 import type { Props } from '@theme/TOC'
-import { Box, linkClasses } from '@mui/material'
+import { Box } from '@mui/material'
 import { TOCItemTree } from '@site/src/theme/TOC/TOCItemTree'
 
 /*

@@ -5,7 +5,7 @@
 */
 
 import React, { ComponentProps } from 'react'
-import { Table, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
+import { Table, TableContainer, Typography, Stack } from '@mui/material'
 import type { MDXComponentsObject } from '@theme/MDXComponents'
 import DefaultMDXComponents from '@theme-original/MDXComponents'
 import CardRequirements from '@site/src/components/commons/CardRequirements/CardRequirements'
@@ -13,6 +13,13 @@ import { List } from '@site/src/components/commons/List'
 import { StepSection } from '@site/src/components/commons/StepSection'
 import { CardLink } from '@site/src/components/commons/CardLink'
 import { TableCellStyled, TableHeadStyled, TableRowStyled } from '@site/src/theme/MDXComponents/table'
+import { VideoIframe } from '@site/src/components/commons/VideoIframe'
+import {
+	DocsGradientCard,
+	DocsSectionGuides,
+	DocsSectionLinks,
+	DocsGettingStarted,
+} from '@site/src/components/pages/docs'
 
 const MDXComponents: MDXComponentsObject = {
 	...DefaultMDXComponents,
@@ -57,11 +64,17 @@ const MDXComponents: MDXComponentsObject = {
 	th: (props: ComponentProps<'th'>) => <TableCellStyled {...props} />,
 	// @ts-ignore
 	td: (props: ComponentProps<'td'>) => <TableCellStyled {...props} />,
+	Stack,
 	Typography,
 	List,
 	StepSection,
 	CardRequirements,
 	CardLink,
+	DocsGradientCard,
+	VideoIframe,
+	DocsSectionLinks,
+	DocsGettingStarted,
+	DocsSectionGuides,
 }
 
 export default MDXComponents

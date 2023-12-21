@@ -23,6 +23,10 @@ import { PageContainer } from '@site/src/components/commons/PageContainer'
 | Styles
 |--------------------------------------------------------------------------
 */
+const StartonFooterStyled = styled(StartonFooter)(({ theme }) => ({
+	borderTop: `1px solid ${theme.palette.divider}`,
+}))
+
 const FooterCopyright = styled(Box)(({ theme }) => ({
 	padding: theme.spacing(0, 0, 2),
 
@@ -38,7 +42,7 @@ const FooterCopyright = styled(Box)(({ theme }) => ({
 */
 function Footer() {
 	return (
-		<StartonFooter>
+		<StartonFooterStyled>
 			<PageContainer sx={{ paddingX: 0 }}>
 				<StartonFooterHead>
 					<DocusaurusLink
@@ -155,7 +159,7 @@ function Footer() {
 					>{`Copyright © ${new Date().getFullYear()} Starton Documentation, Inc. Built with Docusaurus.`}</Typography>
 				</FooterCopyright>
 			</PageContainer>
-		</StartonFooter>
+		</StartonFooterStyled>
 	)
 }
 export default React.memo(Footer)

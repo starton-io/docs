@@ -1,68 +1,66 @@
 ---
-title: About Wallets
+title: Wallets
+hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Heading from "@theme/Heading"
 import Link from "@docusaurus/Link"
 import { CardTitle } from "@site/src/components/commons/CardTitle"
 import { Starton } from "@starton/react-ui-iconography"
+import {CompareArrowsOutlined, RocketLaunchOutlined, UploadOutlined} from "@mui/icons-material"
 
 # Wallets
 
 
-To **interact with blockchains**, you need a **wallet for signing transactions**. For automated signing, you need a back-end wallet. Starton provides a **[wallet on their KMS for testing](/docs/wallet/creating-a-wallet)**. In production, you can **[grant Starton access to a wallet in your KMS](/docs/wallet/connecting-aws-kms)**. 
+To **interact with blockchains**, you need a **wallet for signing transactions**. For automated signing, you need a back-end wallet. Starton provides a **[wallet on their KMS for testing](/docs/wallet/creating-a-wallet)**. In production, you can **[grant Starton access to a wallet in your KMS](/docs/wallet/connecting-aws-kms)**.
 
 
-## Video tour
+<DocsSectionLinks
+links={[
+{
+link: '/docs/wallet/connecting-aws-kms',
+title: 'Key Management Systems',
+icon: <RocketLaunchOutlined />,
+},
+{
+link: '/docs/wallet/creating-a-wallet',
+title: 'Wallets',
+icon: <UploadOutlined />
+},
+]}
+video={{
+src: 'https://www.youtube.com/embed/S4yWJzc05LI?si=mYJMyPkL3yd_wlis',
+}}
+/>
 
-<iframe width="700" height="400" src="https://www.youtube.com/embed/S4yWJzc05LI?si=7O50H-JyCd5T83M_" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<DocsGettingStarted
+links={[
+{
+href: '/docs/wallet/connecting-aws-kms',
+overline: 'Tutorial',
+title: 'Creating a wallet on AWS KMS',
+},
+{
+href: '/docs/wallet/creating-a-wallet',
+overline: 'Tutorial',
+title: 'Creating a wallet on Starton Vault',
+},
+]}
+endpoints={[
+{
+link: '/api-reference#tag/wallet/[get]/v3/kms/wallet',
+},
+{
+link: '/api-reference#tag/wallet/[post]/v3/kms/wallet',
+},
+{
+link: '/api-reference#tag/wallet/[post]/v3/kms/wallet/{address}/sign-message',
+},
+{
+link: '/api-reference#tag/wallet/[get]/v3/kms/wallet/{address}/{network}/nonce/available',
+},
+]}
+/>
 
-<div className="row is-multiline">
-    <div className="col col--5">
-        <Heading as={'h2'}>Guides</Heading>
-        <div className="button-card__inner">
-            <Link to="/docs/wallet/understanding-key-management-systems">
-                <Heading as={'h5'}>Key Management Systems</Heading>
-            </Link>
-            <Link to="/docs/wallet/message-signing">
-                <Heading as={'h5'}>Understanding message signings</Heading>
-            </Link>
-        </div>
-
-    </div>
-
-    <div className="col col--5">
-        <Heading as={'h2'}>Main API Endpoints</Heading>
-        <div className="button-card__inner">
-            <Link to="/api-reference#tag/wallet/[get]/v3/kms/wallet">
-                <Heading as={'h5'}>Retrieve the list of Wallets</Heading>
-            </Link>
-            <Link to="/api-reference#tag/wallet/[post]/v3/kms/wallet">
-                <Heading as={'h5'}>Create a new wallet</Heading>
-            </Link>
-            <Link to="/api-reference#tag/wallet/[post]/v3/kms/wallet/{address}/sign-message">
-                <Heading as={'h5'}>Sign a message</Heading>
-            </Link>
-            <Link to="/api-reference#tag/wallet/[get]/v3/kms/wallet/{address}/{network}/nonce/available">
-                <Heading as={'h5'}>Retrieve
-                Available Nonces for a wallet</Heading>
-            </Link>
-            <Link to="/api-reference#tag/wallet/[post]/v3/smart-contract/{network}/{address}/call">
-                <Heading as={'h5'}>Execute Smart
-                Contract Function</Heading>
-            </Link>
-        </div>
-    </div>
-
-</div>
-
-## Tutorials
-
-<CardTitle icon={<Starton fill="primary" />} href="/docs/wallet/connecting-aws-kms">
-	Creating a wallet on AWS KMS
-</CardTitle>
-<br />
-<CardTitle icon={<Starton fill="primary" />} href="/docs/wallet/creating-a-wallet">
-	Creating a wallet on Starton Vault
-</CardTitle>
-<br />
