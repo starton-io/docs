@@ -235,6 +235,10 @@ footer {
 |--------------------------------------------------------------------------
 */
 
+.container {
+	padding: 48px;
+}
+
 .hero {
 	margin: auto;
 	background-color: #1A1F25;
@@ -354,20 +358,13 @@ header.hero {
 	word-wrap: break-word;
 }
 
-.navbar--fixed-top {
-	background-color: #0e1114;
-	text-transform: uppercase;
-	font-family: "PP Neue Machina", "Inter", Arial, sans-serif;
-	border-bottom: 0.5px solid #3e4e5c;
-}
-
 .sidebar {
 	background-color: #0e1114;
 }
 
-.theme-doc-markdown {
-	margin: 48px;
-}
+/*.theme-doc-markdown {*/
+/*	margin: 48px;*/
+/*}*/
 
 .card {
 	border-radius: 0;
@@ -774,6 +771,18 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 .theme-doc-sidebar-menu .menu__list-item-collapsible {
 	background: none;
 	font-weight: bolder;
+	position: relative;
+}
+
+.theme-doc-sidebar-menu .menu__list-item-collapsible > a {
+	width: 100%;
+	z-index: 2;
+}
+
+.theme-doc-sidebar-menu .menu__list-item-collapsible > button {
+	position: absolute;
+	right: 0;
+	z-index: 1;
 }
 
 .theme-doc-toc-desktop .table-of-contents .table-of-contents__link--active {
@@ -823,16 +832,13 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 	font-weight: bold;
 }
 
-.navbar__logo {
-	width: 104px;
-	vertical-align: center;
-	/*align: center;*/
-	padding-bottom: 4px;
-}
-
 .menu__link,
 .menu__list-item > .navbar__item {
 	display: flex;
+}
+
+.menu__link, .menu__caret, .menu__list-item-collapsible {
+	border-radius: 0;
 }
 
 .theme-doc-sidebar-item-category {
@@ -841,9 +847,40 @@ html[data-theme="dark"] .DocSearch-Button .DocSearch-Search-Icon {
 
 /*
 |--------------------------------------------------------------------------
+| Tabs
+|--------------------------------------------------------------------------
+*/
+
+.tabItem_node_modules-\@docusaurus-theme-classic-lib-theme-TabItem-styles-module {
+	padding-left: 32px;
+}
+
+/*
+|--------------------------------------------------------------------------
+| End Tabs
+|--------------------------------------------------------------------------
+*/
+
+/*
+|--------------------------------------------------------------------------
 | NAVBAR
 |--------------------------------------------------------------------------
 */
+
+/*.navbar--fixed-top {*/
+/*	background-color: #0e1114;*/
+/*	text-transform: uppercase;*/
+/*	font-family: "PP Neue Machina", "Inter", Arial, sans-serif;*/
+/*	border-bottom: 0.5px solid #3e4e5c;*/
+/*}*/
+
+.navbar {
+	background-color: inherit;
+	box-shadow: inherit;
+	display: inherit;
+	height: inherit;
+	padding: inherit;
+}
 
 nav.navbar .navbar__link:not(.navbar__button) {
 	color: #F1F3F5;
@@ -867,7 +904,7 @@ nav.navbar .navbar__link--active::before {
 	position: absolute;
 	width: 100%;
 	height: 4px;
-	bottom: -17px;
+	bottom: -20px;
 	left: 0;
 	right: 0;
 	background-color: #01FEE2;
@@ -881,7 +918,7 @@ nav.navbar .navbar__link--active::before {
 	width: 104px;
 	vertical-align: center;
 	/*align: center;*/
-	padding-bottom: 4px;
+	/*padding-bottom: 4px;*/
 }
 
 .navbar__button {
@@ -968,9 +1005,13 @@ nav.navbar .menu__link--active {
 	padding: 8px 16px;
 }
 
-.menu__link--active:not(.menu__link--sublist) {
+.menu__list-item > .menu__link {
+	border-left: 1px solid #435160;
+}
+
+.menu__list-item > .menu__link--active:not(.menu__link--sublist) {
 	background-color: #0E1114;
-	border-right: 3px solid #01FEE2;
+	border-left: 1px solid #01FEE2;
 	border-radius: 0;
 }
 

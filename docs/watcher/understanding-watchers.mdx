@@ -1,13 +1,16 @@
 ---
-title: Understanding Monitor
-description: Monitor inspects every block on all supported blockchains to continuously check for activity..
-keywords: [Starton, Watchers, Monitor, Transaction]
+title:  Blockchain Network Monitor
+hide_table_of_contents: true
+pagination_next: null
+pagination_prev: null
 ---
 
 import Heading from "@theme/Heading"
 import Link from "@docusaurus/Link"
 import { CardTitle } from "@site/src/components/commons/CardTitle"
 import { Starton } from "@starton/react-ui-iconography"
+import {CompareArrowsOutlined, RocketLaunchOutlined, UploadOutlined} from "@mui/icons-material"
+
 
 # Blockchain Network Monitor
 
@@ -16,67 +19,62 @@ When the conditions of a watcher are met, the watcher triggers and create a webh
 
 **Monitor** takes care of handling forks and block confirmations, ensuring data integrity and consistency in your blockchain operations. Additionally, **Monitor** is built to address scalability issues, providing robust solutions that adapt to varying network demands.
 
-## Getting Started
+<DocsSectionLinks
+links={[
+{
+link: '/docs/watcher/creating-a-watcher',
+title: 'Watchers',
+icon: <RocketLaunchOutlined />,
+},
+{
+link: '/docs/watcher/webhooks',
+title: 'Webhooks',
+icon: <UploadOutlined />
+},
+{
+link: '/docs/watcher/confirmation-blocks',
+title: 'Confirmation blocks',
+icon: <CompareArrowsOutlined />,
+},
+]}
+video={{
+src: 'https://www.youtube.com/embed/-PEn8n9pqss?si=4pMZSfUYB8NZ280T',
+}}
+/>
 
-<CardTitle icon={<Starton fill="primary" />} href="/tutorials/monitoring-blockchain-activity">
-	Getting started: Monitoring blockchain activity
-</CardTitle>
+<DocsGettingStarted
+links={[
+{
+href: '/tutorials/monitoring-blockchain-activity',
+overline: 'Tutorial',
+title: 'Monitoring blockchain activity',
+},
+{
+href: '/tutorials/track-wallet-activity',
+overline: 'Tutorial',
+title: 'Notifying users when they receive an NFT',
+},
+{
+href: '/tutorials/create-ngrok-integrated-watcher',
+overline: 'Tutorial',
+title: 'Creating a watcher with ngrok-integrated webhooks',
+},
+]}
+endpoints={[
+{
+link: '/api-reference#tag/monitor/[post]/v3/watcher',
+},
+{
+link: '/api-reference#tag/monitor/[get]/v3/watcher/{id}/event',
+},
+{
+link: '/api-reference#tag/monitor/[get]/v3/watcher/{id}/event',
+},
+{
+link: '/api-reference#tag/monitor/[get]/v3/watcher/{id}/event/{eventId}',
+},
+]}
+/>
 
-## Video tour
-
-<iframe width="700" height="400" src="https://www.youtube.com/embed/-PEn8n9pqss?si=FrezN6AboB-4OGPj" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
 
 
-<div className="row is-multiline">
-    <div className="col col--5">
-        <Heading as={'h2'}>Guides</Heading>
-        <div className="button-card__inner">
-            <Link to="https://docs.starton.com/docs/watcher/confirmation-blocks">
-                <Heading as={'h5'}>Confirmation blocks</Heading>
-            </Link>
-            <Link to="https://docs.starton.com/docs/watcher/webhooks">
-                <Heading as={'h5'}>
-                    Webhooks
-                </Heading>
-            </Link>
-            <Link to="https://docs.starton.com/docs/watcher/watcher-states-and-status">
-                <Heading as={'h5'}>State and status</Heading>
-            </Link>
-        </div>
-    </div>
-
-    <div className="col col--5">
-        <Heading as={'h2'}>Main API Endpoints</Heading>
-        <div className="button-card__inner">
-            <Link to="/api-reference#tag/monitor/[post]/v3/watcher">
-                <Heading as={'h5'}>Create a New Watcher</Heading>
-            </Link>
-            <Link to="/api-reference#tag/monitor/[get]/v3/watcher/{id}/event">
-                <Heading as={'h5'}>Fetches the list of events <br/>for a watcher</Heading>
-            </Link>
-            <Link to="/api-reference#tag/monitor/[get]/v3/watcher/{id}/event/{eventId}">
-                <Heading as={'h5'}>Get a watcher event</Heading>
-            </Link>
-        </div>
-    </div>
-
-</div>
-
-## Tutorials
-
-<CardTitle icon={<Starton fill="primary" />} href="/tutorials/how-to-ensure-notifys-webhooks-are-from-starton">
-	How to ensure Monitor's webhooks are from Starton
-</CardTitle>
-<br />
-<CardTitle icon={<Starton fill="primary" />} href="/tutorials/track-wallet-activity">
-	Track a wallet activity on a Googlesheets using Zapier
-</CardTitle>
-<br />
-<CardTitle icon={<Starton fill="primary" />} href="/tutorials/monitor-nft-activity">
-	Notifying users when they receive an NFT
-</CardTitle>
-<br />
-<CardTitle icon={<Starton fill="primary" />} href="/tutorials/create-ngrok-integrated-watcher">
-Creating a watcher with ngrok-integrated webhooks
-</CardTitle>
-<br />

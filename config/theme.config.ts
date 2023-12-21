@@ -101,14 +101,14 @@ export const themeConfig: ThemeConfig = {
 				type: 'search',
 				position: 'right',
 			},
-			{
-				href: 'https://auth.starton.com/login',
-				label: 'Login',
-				'aria-label': 'Login',
-				className: 'navbar__button',
-				position: 'right',
-				target: '_blank',
-			},
+			// {
+			// 	href: 'https://auth.starton.com/login',
+			// 	label: 'Login',
+			// 	'aria-label': 'Login',
+			// 	className: 'navbar__button',
+			// 	position: 'right',
+			// 	target: '_blank',
+			// },
 			// {
 			// 	type: 'docsVersionDropdown',
 			// 	position: 'right',

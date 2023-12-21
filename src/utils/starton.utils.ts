@@ -43,4 +43,14 @@ export class StartonUtils {
 
 		return `${excerpt}...`
 	}
+
+	/**
+	 * Return a string with the first letter in uppercase and the others in lowercase.
+	 * @param text
+	 */
+	static toCapitalize(text: string) {
+		if (!text) return text
+
+		return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase()
+	}
 }

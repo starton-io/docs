@@ -16,8 +16,12 @@ async function tutorialPluginExtended(...pluginOptions) {
 		/**
 		 * Override the default `contentLoaded` hook to access blog posts data
 		 */
-		contentLoaded: async function (data) {
-			const { content, actions } = data
+		contentLoaded: async function (...data) {
+			await blogPluginInstance.contentLoaded(...data)
+
+			const { content, actions } = data[0]
+			const { setGlobalData } = actions
+			setGlobalData(content)
 
 			// Get the 5 latest blog posts
 			const recentTutorialsLimit = 3
@@ -71,23 +75,6 @@ async function tutorialPluginExtended(...pluginOptions) {
 					recentTutorials: await Promise.all(recentTutorials.map(createRecentTutorialPostModule)),
 				},
 			})
-
-			// Create the gallery page
-			// data.actions.addRoute({
-			// 	// Add route for the home page
-			// 	path: '/articles',
-			// 	exact: true,
-			//
-			// 	// The component to use for the "Home" page route
-			// 	component: '@site/src/components/Gallery.tsx',
-			// 	// These are the props that will be passed to our "Home" page component
-			// 	modules: {
-			// 		blogPosts: await Promise.all(allTutorials.map(createRecentTutorialPostModule)),
-			// 	},
-			// })
-
-			// Call the default overridden `contentLoaded` implementation
-			return blogPluginInstance.contentLoaded(data)
 		},
 	}
 }
