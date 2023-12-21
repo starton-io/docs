@@ -235,6 +235,10 @@ footer {
 |--------------------------------------------------------------------------
 */
 
+.container {
+	padding: 48px;
+}
+
 .hero {
 	margin: auto;
 	background-color: #1A1F25;
